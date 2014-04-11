@@ -17,17 +17,4 @@ if Dealer/GSC does not has access of account merge system should display Access 
 merge tool should have option to received authorization for merge verbally if  user belong to GSC.
 When Dealer selects Merge option “Merge Pre-Process” should be initiated.
 All “Dealer/GSC Merge Pre-Process” validations should be passed before actual accounts merge.
-Customer should approved merge process initiated by GSC/Dealer.
-
-
-customer can reaches to GSC to recover their userId
-GSC can identify customer has more than one account
-GSC confirms with customer his interest on merging multiple account
-GSC confirms with target and source account customer want to merge.
-GSC authorize customer target and source account through divulgence of key information in customer’s profile.
-if Dealer/GSC does not has access of account merge system should display Access Error message.
-merge tool should have option to received authorization for merge verbally if  user belong to GSC.
-When Dealer/GSC selects Merge option “Merge Pre-Process” should be initiated.
-All “Dealer/GSC Merge Pre-Process” validations should be passed before actual accounts merge.
-Customer should approved merge process initiated by GSC/Dealer.
 
