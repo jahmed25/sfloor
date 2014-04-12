@@ -1,0 +1,812 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {
+    display: block;
+}
+body, html{margin:0px;  background-repeat:no-repeat}
+.body-layout {overflow-x:scroll;overflow-x:visible;}
+mark, rp, rt, ruby, summary, time {
+    display: inline;
+}
+[hidden]{display:none;}
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+img {
+    border: 0 none;
+    margin: 0;
+    vertical-align: middle;
+}
+.bg_colour{width:100%;background:url(../Images/head12.png) repeat-x;height:100px;position:relative}
+#headtop_colour{width:100%;height:130px;float:left;
+                background-color: #181818; /* Old browsers */
+background-color: -moz-linear-gradient(top,  #181818 0%, #020509 100%); /* FF3.6+ */
+background-color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#020509), color-stop(100%,#020509)); /* Chrome,Safari4+ */
+background-color: -webkit-linear-gradient(top,  #181818 0%,#020509 100%); /* Chrome10+,Safari5.1+ */
+background-color: -o-linear-gradient(top,  #181818 0%,#020509 100%); /* Opera 11.10+ */
+background-color: -ms-linear-gradient(top,  #181818 0%,#020509 100%); /* IE10+ */
+background-color: -moz-linear-gradient(to bottom,  #181818 0%,#020509 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2E2E2E', endColorstr='#020509',GradientType=0 ); /* IE6-9 */
+
+   }
+.wrapper {
+    margin: 0 auto;
+    padding:10px 0 0 0;
+}
+a { text-decoration:none; outline:none;}
+header, section, footer, nav ,aside
+{
+    margin: 0 auto;
+    width: 990px;
+}
+h1, h2, h3, h4, h5, h6{margin:0; padding:0; font-size:16px; font-weight:bold; font-style:normal; line-height:normal; text-transform:uppercase;}
+
+/*
+@media only screen and (max-width: 500px) {
+.body-layout {overflow-x:hidden;overflow-y:scroll;-moz-overflow-y:scroll;-moz-overflow-x:hidden;}
+header , nav, section, aside , footer {width:320px;}
+.child_middle {width:300px}
+.child_middle_inner_left {width:300px;}
+
+}*/
+.footer-bottom {padding-bottom:20px;padding-top:10px;width:100%;border-top:1px solid #eee; background: url(footer_bg.png); background-repeat:no-repeat;}
+.foot-bottom h1, h2, h3 {width:100%;padding:3px 0 3px 0;color:#717171;font:bold 12px/23px  Arial, Helvetica;text-transform:none}
+.foot-bottom p{width:100%;padding:3px 0 3px 0;color:#676767;font:normal 11px/21px Arial, Helvetica;}
+
+#strip
+{
+	height:90px;
+	width:990px;
+	padding:0px 0px 2px 10px;
+	color:#F5F5F5;
+}
+#strip .grid-1
+{
+	position:relative;
+	float:left;
+	width:310px;
+}
+#strip .grid-2
+{
+	position:relative;
+	float:left;
+	width:460px;
+}
+#strip .grid-3
+{
+	position:relative;
+	float:left;
+	width:220px;
+}
+.grid-1 ul
+{
+	margin: 0;
+    padding: 0;
+	position:relative;
+	margin-left:5px;
+}
+.grid-1 ul li
+{
+	float:left;
+	list-style:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#F2F2F0;
+	padding:9px 2px 1px 10px;
+}
+
+.grid-1 ul li a
+{
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#F2F2F0;
+	text-decoration:none;
+}
+.grid-1 ul li a:hover
+{
+	text-decoration:none;
+	color:#666666;
+}
+.grid-2 ul
+{ width:312px;
+	margin: 0;
+    padding: 0;
+	position:relative;
+	float:left;
+}
+
+.grid-2 ul li
+{
+	float:left;
+	list-style:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#F2F2F0;
+	padding:9px 2px 1px 10px;
+}
+.grid-2 ul li a
+{
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#F2F2F0;
+	text-decoration:none;
+}
+.grid-2 ul li a:hover 
+{
+	text-decoration:none;
+	color:#666666;
+}
+#grid-2_login{width:66%;float:left;margin:0;padding:0 0 0 25px;position:relative;z-index:10000;}
+#grid-2_login .lbl_accntname{position:absolute;right:-67px;top:-63px;width:85%;text-align:left;color:#F5F5F5;font:italic 12px calibri;}
+#grid-2_login .lbl_accntname .lbl_accname{font:italic 12px calibri;color:#F5F5F5}
+#grid-2_login .panel_account{width:90%;float:left;margin:0}
+#grid-2_login .panel_account p.signin{height:25px;float:left;}
+#grid-2_login .panel_account p.signin .a_signIn{border:0; padding-bottom:3px; background:none;font:italic 14px/100% Georgia, Helvetica, sans-serif;font-weight:300;color:#C7C7C7;}
+#grid-2_login .panel_account p.signin .a_signIn:hover{cursor:pointer;color:#EDEDED}
+
+.a_forgot{border:0;background:none;font:italic 13px/100% Georgia, Helvetica, sans-serif; padding-bottom:5px; font-weight:200;color:#F77DB2;}
+.a_forgot:hover{cursor:pointer;text-decoration:underline}
+#grid-2_login .panel_account p.next{padding-left:50px}
+#grid-2_login .panel_account a{font:italic 14px/25px Georgia, Helvetica, sans-serif;font-weight:300;color:#C7C7C7;}
+#grid-2_login .panel_account a:hover{color:#EDEDED;}
+#grid-3_account{width:80px;float:left;margin:0;}
+#grid-3_account p{width:70px;float:left}
+#grid-3_account p a{font:italic 14px/25px Georgia, Helvetica, sans-serif;color:#C7C7C7;}
+#grid-3_account p a:hover{color:#EDEDED;}
+
+.lnk_logout{width:108px;float:left;padding:5px 0 0 0;}
+.lnk_logout .linkbtn_login{font:bold 12px/25px Arial, Helvetica, sans-serif;color:#FFFFFF}
+.lnk_logout .linkbtn_login:hover{color:#9E9E9E}
+.grid-3 ul
+{
+	margin: 0;
+    padding: 0;
+	position:relative;
+	float:right;
+}
+.grid-3 ul li:first-child
+{
+	float:left;
+	list-style:none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#5F5F5F;
+	padding:9px 2px 1px 10px;
+}
+.grid-3 ul li
+{
+    float:left;
+    list-style:none;
+    padding:0px 0px 1px 5px;
+}
+.grid-3 ul li a
+{
+	float:left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#5F5F5F;
+	text-decoration:none;
+}
+#mainheader p.logo_mfo {
+    float: left;
+    padding: 0px 0 0 0px;
+}
+
+#mainheader span{color:#D1D1D1;font:15px candara;text-transform:capitalize;float:left;padding:47px 0 0 0}
+/*Navigation*/
+
+#mainheader
+{
+    position:relative;
+    float:left;
+    width:990px;
+    margin:0px;
+    padding:0px;
+    position:relative;
+}
+#mainheader.logo
+{
+    width:250px;
+    height:90px;
+    float:left;
+}
+/*---------Start here Head right cart--------------*/
+.right_header_parent{width:490px;height:45px;float:right;padding:5px 0 0 0px;font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FFF;}
+.main_login_slide{width:310px;float:left;height:25px;padding:10px 0 0 0px;text-align:left;color:#FFF;}
+
+.right_innerheader
+{
+	float:right;
+	width:170px;
+	padding:0px 10px 0px 0px;
+}
+.right_innerheader button
+{
+    width:70px;
+    height:28px;
+   	float:right;
+   	border:none;
+	background-color:#F54D96;
+	font: 13px candara;
+	color:#F5F5F5;
+	text-align:center;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-o-border-radius:5px; 
+    }	
+.right_innerheader button:hover{cursor:pointer}
+#login_button
+{
+	float:left;
+	width:65px;
+	height:26px;
+	background-color:#3DC5F7;
+	text-align:center;
+	border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	-o-border-radius:2px;
+	z-index:-1;
+}
+#login_button a {color:#FFF;font: bold 13px/25px Arial, Helvetica; text-transform:capitalize; }
+.cart_logo
+{
+	width:90px;
+	height:40px;
+	padding:0 0 0 0px;
+	z-index:-1;
+	float:left;
+}
+.cart_logo p{width:46px;height:40px;float:left;color:#8D8D8D;font:italic 14px Arial, Helvetica;padding:5px 0 5px 0;}
+.cart_logo p a{float:left}
+.cart_logo .lnkbtn_cartno{font: 13px Arial, Georgia;color:white;padding:5px 0 0 8px;text-align:center;}
+.loginbtn_onhover{width:47px;height:22px;background:#2E2E2E;padding:3px 10px 0 0;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px}
+/*---------End here Top Head right cart--------------*/
+#mainheader.login
+{
+    width:740px;
+    width:60px;
+    float:left;
+}
+#navbar
+{
+
+}
+#navbar.navbar_absolute {
+  position:absolute;
+  z-index:100;
+}
+#navbar.navbar_fixed {
+  position:fixed;
+  top:0;
+  z-index:100;
+}
+#navigation {
+	width:600px;
+    height:50px;
+	float:left;
+}
+* html #menu             { zoom: 1; } /* IE6 */
+*:first-child+html #menu { zoom: 1; } /* IE7 */
+/*---------------------------------------*/
+/*Start Here top tooltip on mouse-hover*/
+#example a:hover { text-decoration: none;top:20;}
+span.show-tooltip-text { display: none;border:1px solid #B3D107;width:140px; position: absolute; font-size: 0.9em;z-index:1;
+	                          background:url(Images/bg_tooltip.png) 0 0 #FFF repeat-x;padding: 6px;color:#37BCF9;
+	                           padding-left: 12px; padding-right: 12px;
+	                           border-radius:4px;
+	                           -moz-border-radius:4px;
+	                           -webkit-border-radius:4px;
+	                           box-shadow:1px 3px 5px #DCDCDC;
+	                           -moz-box-shadow:1px 5px 3px #DCDCDC;
+	                           -webkit-box-shadow:1px 2px 3px #C9EDFD;
+	                           -o-box-shadow:1px 2px 3px #C9EDFD;
+	                            }
+/*End Here top tooltip on mouse-hover*/
+/*--------------------------------------*/
+.ddl
+{
+    width:93px;
+    height:30px;
+    font-family:Candara;
+    font-size:13px;
+    float:left;
+	background-color:#01BAFF;
+	border:none;
+	color:#FFF;
+	padding:5px 0 5px 0;
+}
+.ddl option
+{
+    background:#E2F5FE;
+    color:#888080;
+    padding:3px 0 0 0;
+}
+.ddl_option:hover{color:#26C0F8}
+#right_search_box
+{
+	width:385px;
+	height:50px;
+	float:right;
+}
+/*------------------------------------------------------------------------------------------------------------------*/
+/*Search TextBox and DropDownList */
+.search_wrapper { width:385px;float:left;}
+.search_box1{background:#F5F5F5;padding:5px 11px 2px 8px;margin:0;height:43px;}          
+.search_wrapper .bottom_message a{ color:#747474 }
+.search_wrapper .top_message { clear:both; text-align:right; color:#747474; clear:both; font-size:10px; }
+.search_box1 .bottom_message { clear:both; text-align:left; color:#747474; clear:both; text-transform:uppercase; font-size:10px;margin: 0px 0 0 4px; margin: 0px 0 0 3px\9;}
+.search_box1 .bottom_message span { color:#000; margin-left:0px; text-transform:uppercase; font-weight:bold; }
+.search_box1 .top-bar { padding:0; float:right; line-height:21px;}
+.form-search { float:left; width:auto; position:relative;  margin: 4px 0px 0 0;}
+.form-search .txtbox_search { background:#FFF;float:left;padding:3px 5px;width:320px;filter:none;height:20px;color:#767676;border:1px solid #CDCDCD;border-right:none;font:italic 12px/25px Arial, Helvetica; }
+.form-search .txtbox_search:focus {outline:1px solid #F775AD;}
+@media screen and (-webkit-min-device-pixel-ratio:0) {/* older safari and older chrome */
+.form-search .txtbox_search{width:320px;z-index:100;}
+.txtbox_search{}}
+/*
+.form-search .button_search { background:url(http://localhost:3266/wwwroot/Images/sprite.png)  no-repeat -128px -174px  #fff; width: 22px; height: 21px;border:1px solid #CDCDCD; text-indent:-999999px; height:32px; width:32px; cursor:pointer; border-left:none; float:left; }
+.form-search .button_search:hover {background-position:-128px -141px; background-color:#F775AD; border:1px solid #F775AD; }
+      /*Search TextBox and DropDownList*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*Start here Footer*/
+#footer
+{
+   width:990px;
+   padding:30px 0 0 0;
+}
+#footer #content_footer
+{
+ width:988px;float:left;
+}
+#footer #content_footer p{width:100%;height:30px;float:left;text-transform:uppercase;letter-spacing:2px;color:#E9E9E9;font:bold 13px/25px candara;padding:0 0 0 7px}
+#footer #bottom_payment{width:990px;float:left;text-align:center;padding:20px 0 20px 0;}
+#footer #bottom_payment .bottom_payment_inner{width:720px;text-align:center;padding-left:188px;}
+#footer #bottom_payment .bottom_payment_inner .span_pay{display:block;float:left;padding:6px;margin-left:80px;  background:url(../Images/sprite.png) no-repeat -28px -225px; width: 541px; height: 34px;}
+#footer #bottom_payment .bottom_payment_inner .text_span{width:97%;float:left;text-align:center;padding:4px;color:#A5A5A5;font:italic 13px/25px Goergia;letter-spacing:1px}
+.bottom_nav{ width:980px;float:left;}
+.footer_nav{width:18%;float:left;}
+.footer_logo{width:18%;float:left;height:70px;}
+.footer_logo em
+{
+    
+    background:url(../Images/sprite.png) no-repeat -275px -526px scroll transparent;
+    
+    display: block;
+    text-decoration: none;
+    text-indent: -5000px;
+    width: 161px; height: 45px;
+}
+.footer_logo p{width:99%;height:10px;font:normal 9px candara;color:#AFADAD;padding:0 0 0 5px}
+.footer_logo span{width:100%;min-height:17px; font:normal 9px candara;color:#AFADAD;padding:0 0 0 5px;float:left}    
+
+.footer_nav ul
+{
+  list-style:none;
+}
+.footer_nav ul li
+{
+  padding:4px 0 0 10px;
+}
+.footer_nav ul li a
+{
+	color:#C8C8C8;
+	text-align:center;
+	font:normal 12px Arial, Helvetica;
+    text-decoration:none;
+}
+.footer_nav ul li a:hover{color:#857E7E}
+.footer_policy
+{
+ width:22%;
+ float:left;
+ border-left:1px dashed #121212;
+ 
+}
+.footer_policy ul
+{
+  list-style:none;
+  padding:0 0 0 0px;
+}
+.footer_policy ul li
+{
+     padding:4px 0 0 10px; 
+}
+.footer_policy ul li a
+{
+	color:#C8C8C8;
+	text-align:center;
+	font:normal 12px Arial, Helvetica;
+    text-decoration:none;
+}
+.footer_policy ul li a:hover{ color:#857E7E}
+.bottom_news {width:18%;float:left;border-left:1px dashed #121212;}
+.bottom_news ul
+{
+    list-style:none;
+    padding:0 0 0 0px; 
+}
+.bottom_news ul li
+{
+    padding:4px 0 0 10px;
+}
+.bottom_news ul li a
+{
+    color:#C8C8C8;
+    text-align:center;
+    text-transform:capitalize;
+    font:normal 12px Arial, Helvetica;
+    text-decoration:none;
+}
+
+
+ .bottom_news ul li a:hover{ color:#857E7E;}
+.email_subsbcribe{width:350px;height:28px;float:left;padding:0 0 0 15px;}
+.input_text   
+{
+    width:240px;
+	height:24px;
+	float:left;
+	margin-right:10px;
+	font-family:Candara;
+	text-align:center;
+	background-color:#F5F5F5;
+	border:none;
+	color:#AAAAAA;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	border:1px solid #CFCFCF;
+	}
+.btn
+{
+    width:70px;
+	height:26px;
+	font:bold 12px Arial, Helvetica;
+	text-align:center;
+	background:#ADCA06;
+	 float:left;
+	 border-radius:3px;
+	-moz-border-radius:3px;
+	border:3px solid #ADCA06;
+	color:#FFF;
+}
+/**/
+ .bottom_email_submit{
+    width:60px;
+	height:23px;
+	background-color:#3D3D3D;
+	text-align:center;
+	padding:0 0 2px 0;
+    border-radius:2px;
+	-moz-border-radius:2px;
+	    }
+#bottom_footer
+{
+ width:990px;
+ height:30px;
+ padding:5px 0 0 0;
+ text-align:center;
+}
+#bottom_footer a
+{
+    text-align:center;
+    font-family:Candara;
+	color:#F5F5F5;
+	font-size:13px;
+}
+/*End Here Footer*/
+/*-------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------*/
+/*Start here Login Box on top head*/
+.tabContainers
+{
+ margin:0 auto;
+ display:none;
+ overflow: hidden;
+ width:240px;
+ min-height:336px; 
+ position:absolute;
+ left:-83px;
+ right: 0;   
+ z-index:10000;
+}
+.tab_arrow {
+	content: '';
+	width: 0;
+	position:absolute;
+	left:43%;
+   	border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid #D5D5D5;
+	}
+.tabContainers label{font:13/25px Arial;color:#747E7E; }
+#tabMenu { 
+clear:both; 
+list-style-type:none;
+}
+#tabMenu li { 
+    float:left;
+    padding:4px 0 0 0;
+    z-index:10000;
+}
+#tabMenu #ie8{padding:4px 0 0 40px;}
+#tabMenu li + li:last-child { padding:4px 0 0 40px;}
+#tabMenu li .a_accnt { 
+    text-decoration:none;
+    color:#C7C7C7;
+    font-size:14px;
+    font-style:italic;
+    font-family:Georgia, Helvetica, sans-serif;
+}
+#tabMenu li:hover{color:#EDEDED}
+#tabMenu .myaccnt{position:relative}
+#tabs {   
+width:97%;
+height:26px;    
+margin:0 auto;
+}
+.formcontainer {height:180px; margin-left:10px}
+.text label {
+    display:block;
+}
+.formcontainer2{width:100%;margin:10px 0 0 20px;float:left}
+.forgot{width:80%;height:40px; margin:0px;float:left;padding:15px 0 0 62px;
+        }
+.forgot a{font:11/25px Arial, Helvetica;text-decoration:underline}
+.my-accounts{width:218px;float:left;border:8px solid #D5D5D5;margin-top:13px;	
+      -webkit-box-shadow: 1px 2px 7px #BBBBBB;
+     -moz-box-shadow: 1px 2px 7px #BBBBBB;
+     box-shadow: 1px 2px 7px #BBBBBB;
+     border-radius:16px;
+     -moz-border-radius:16px;
+     -webkit-border-radius:16px;}
+.my-accounts .myaccount_info{width:218px;height:284px;text-align:left;background-color:#FFFFFF;padding:10px 0 0 0;
+	 -webkit-box-shadow: -1px 2px 7px #BBBBBB;
+     -moz-box-shadow: -1px 2px 7px #BBBBBB;
+     box-shadow: -1px 2px 7px #BBBBBB;
+     border-radius:7px;
+     -moz-border-radius:7px;
+     -webkit-border-radius:7px;
+     }           
+.my-accounts .myaccount_info p{width:100%;float:left;padding:5px 0 0 19px;min-height:29px;}
+.my-accounts .myaccount_info p a{display:block;float:left;font-family:Calibri, Arial, Helvetica, sans-serif;font-size:13px;color:#818181;font-weight:normal;}
+.my-accounts .myaccount_info img{border:none;margin-right:15px;float:left}
+.my-accounts .myaccount_info .my-accnt{float:left}
+.my-accounts .myaccount_info p a:hover{color:#F775AD}
+/*End here Login Box on top head*/
+/*--------------------------------*/
+/*------------------------------------------ Registration PopUP ----------------------------------------*/
+
+
+
+.black_overlay{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100001;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_content {width:425px;height:400px; display:none;position:fixed;top: 20%;left: 34%;
+                padding:5px 5px 5px 5px;
+                z-index:100002;
+                overflow: hidden;
+                }    
+#contentregister{ width:375px;height:390px;float:left; padding:10px 10px 5px 10px;
+                 background:#F7F6F6;
+                    border-radius:6px;
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                -o-border-radius:6px;
+                box-shadow:2px 2px 8px #515151;
+                -moz-box-shadow:2px 2px 8px #515151;
+                -webkit-box-shadow:2px 2px 8px #515151;
+                -o-box-shadow:2px 2px 8px #515151;
+                 }
+.contentregister_signin{width:100%;float:left;margin-top:25px}
+.contentregister_signin em{width:100%;height:40px;float:left;font: 25px/25px candara;color:#3E3E3E;text-align:center}
+.contentregister_signin p{width:100%;float:left;text-align:center;clear:both;padding:5px 0 5px 0;}
+.contentregister_signin span{width:100%;float:left;text-align:center;font:12px/25px Arial, Helvetica;color:#515151;padding:0px 0 0 0}
+.contentregister_signin a{font:bold 15px/25px Arial, Helvetica;color:#f775ad}
+.contentregister_signin .text_email{width:260px;height:30px;border:1px solid #CDCDCD;margin:0}
+.contentregister_signin .lbl_signin{color:Red;font-size:11px;font-family:Candara;text-align:center;}
+.btn_submit{width:180px;height:45px;text-align:center;margin-top:5px;
+                               font:bold 15px/25px Arial, Helvetica;
+                               border:none;
+                               color:#F5F5F5;
+                               background:#F775AD;
+                               border-radius:8px;
+                -moz-border-radius:8px;
+                -webkit-border-radius:8px;
+                -o-border-radius:8px;
+ }
+.btn_submit:hover{cursor:pointer;background:#F77DB2}
+.contentregister_signin p:last-child{margin-top:10px;font-size:12px;font-family:Arial, Helvetica;color:#727272}                           
+.contentregister_forgetpass {width:100%;float:left;padding:0 0 0 0}
+.contentregister_forgetpass p {width:50%;float:left;text-align:center}
+.contentregister_forgetpass span{font:12px/25px Arial, Helvetica;color:#515151;padding:0 0 0 10px}
+.contentregister_forgetpass a{font: 12px/25px Arial, Helvetica;color:#F775AD}
+#contentsignup
+{height:385px;width:375px;float:left; padding:10px 10px 5px 10px;
+                 background:#F7F6F6;
+                    border-radius:6px;
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                -o-border-radius:6px;
+                box-shadow:2px 2px 8px #515151;
+                -moz-box-shadow:2px 2px 8px #515151;
+                -webkit-box-shadow:2px 2px 8px #515151;
+                -o-box-shadow:2px 2px 8px #515151;
+    }
+/*-------Start here Choose your password ----------*/
+#signuppopup_content
+{height:385px;width:375px;float:left; padding:10px 10px 5px 10px;
+                 background:#F7F6F6;
+                    border-radius:6px;
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                -o-border-radius:6px;
+                box-shadow:2px 2px 8px #515151;
+                -moz-box-shadow:2px 2px 8px #515151;
+                -webkit-box-shadow:2px 2px 8px #515151;
+                -o-box-shadow:2px 2px 8px #515151;
+    }
+.black_overlay_signuppopup{display:none;position: absolute;top: 0%;left: 0%;width: 100%;height: 100%;position:fixed; background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);}
+.white_content_signuppopup{width:425px;height:400px; display:none;position:fixed;top: 20%;left: 34%;position:fixed;
+                padding:10px 3px 0 0;
+                z-index:100003;
+                overflow: hidden;}
+/*-------End here Choose your password----------*/
+/*-------Start here Register here or Sign up here----------*/
+.black_overlayy{display:none;position: absolute;top: 0%;left: 0%;width: 100%;height: 100%;position:fixed; background-color:black;z-index:100001;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);}
+.white_contentt {width:425px;height:420px; display:none;position:fixed;top: 20%;left: 34%;position:fixed;
+                padding:10px 3px 0 0;
+                z-index:100002;
+                overflow: hidden;}
+.contentregister_register{width:100%;float:left;margin-top:25px}
+.contentregister_register em{width:100%;height:40px;float:left;font: 25px/25px candara;color:#3E3E3E;text-align:center}
+.contentregister_register p{width:100%;float:left;text-align:center;}
+.contentregister_register span{width:100%;float:left;text-align:center;font:12px/25px Arial, Helvetica;color:#515151;padding:10px 0 0 0}
+.contentregister_register a{font:bold 15px/25px Arial, Helvetica;color:#00AEEF}
+.contentregister_register .text_email{width:260px;height:30px;border:1px solid #CDCDCD;margin:0} 
+.contentregister_register .submit_margin{margin-top:15px;}                                    
+.contentregister_register p:last-child{width:100%;float:left;text-align:center;font:10px Arial, Helvetica;color:#727272;margin-top:10px}  
+.contentregister_register p:last-child a{color:#616161;font:11px Arial, Helvetica;}                  
+.contentregister_register_fb {width:100%;float:left;padding:40px 0 0 0}
+.contentregister_register_fb p {width:100%;float:left;text-align:center}
+.contentregister_register_fb span{font:12px/25px Arial, Helvetica;color:#515151;padding:0 0 0 10px}
+.contentregister_register_fb a{font: 12px/25px Arial, Helvetica;color:#F775AD}
+.register{width:550px;height:330px;float:left;}
+.user_registration_popup{width:550px; height:30px;border-bottom:1px solid #B7EAFD}
+.user_registration_popup p{width:100%;padding:0 0 0 10px;font:bold 15px/25px Arial, Helvetica;text-align:center;color:#00AEEF;letter-spacing:1px}
+.user_registration_data{width:180px; float:left;}
+.user_registration_data p{width:180px; float:left;padding:4.5px 0 0 20px;font:12px/25px  Arial, Helvetica;}
+.user_registration_textbox{width:200px;float:left;}
+.user_registration_textbox p{padding:8px 0 0 0}
+.txtbox{width:170px; height:18px}
+.spantext{ color:Red; font:15px/25px  Arial, Helvetica;}
+.registeroffer_right{width:180px;float:left;padding:30px 0 0 20px}
+.registeroffer_right ul{width:100%;float:right}
+.registeroffer_right ul li{color:#00AEEF;font: 12px/25px Arial, Helvetica;padding:2px;list-style-type:square;}
+
+
+
+
+/*-------Start here forgot password here----------*/
+.black_overlayforgot{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_contentforgot {width:425px;height:500px; display:none;position:fixed;top: 20%;left: 34%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+#content_forget{width:375px;height:465px;float:left; padding:10px 10px 5px 15px;background:#F7F6F6; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;box-shadow:2px 2px 8px #515151;-moz-box-shadow:2px 2px 8px #515151;-webkit-box-shadow:2px 2px 8px #515151;-o-box-shadow:2px 2px 8px #515151;}
+.content_forgetpassword{width:100%;float:left;margin-top:15px}
+.content_forgetpassword em.em_forgot{width:100%;height:40px;float:left;font: 25px/25px candara;color:#3E3E3E;text-align:center;}
+.content_forgetpassword p{width:100%;float:left;text-align:center;font: 13px/25px candara;color:#515151;}
+.content_forgetpassword span{width:100%;float:left;text-align:center;font:12px/25px Arial, Helvetica;color:#515151;padding:10px 0 0 0}
+.content_forgetpassword a{font:13px/25px Arial, Helvetica;color:#F775AD;text-transform:none;}
+.content_forgetpassword .text_email{width:260px;height:30px;border:1px solid #CDCDCD;margin:0}
+.content_forgetpassword em.notmem{width:100%;float:left;font:13px/25px candara;color:#3E3E3E;text-align:center;margin-top:5px;text-transform:capitalize}                              
+/*-------End here forget Password----------*/
+
+
+
+
+/*-------Start here facebook login----------*/
+.black_overlayfb {display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.whitecontent_facebook {width:675px;height:570px;display:none;position:fixed;top:12%;left:23%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+
+.contentfacebook_login{width:100%;float:left;margin-top:25px}
+.contentfacebook_login em{width:100%;height:40px;float:left;font: 30px/25px candara;color:#3E3E3E;text-align:center}
+.contentfacebook_login p{width:100%;float:left;text-align:center;font:12px/25px Arial, Helvetica;color:#515151;}
+.contentfacebook_login span{width:100%;float:left;text-align:center;font:12px/25px Arial, Helvetica;color:#515151;padding:10px 0 0 0}
+.contentfacebook_login a{font:bold 15px/25px Arial, Helvetica;color:#00AEEF}
+.contentfacebook_login .checkbox_social{margin-top:10px}
+.contentfacebook_login button{width:180px;height:45px;text-align:center;margin-top:15px;
+                               font:bold 15px/25px Arial, Helvetica;
+                               border:none;
+                               color:#F5F5F5;
+                               background:#F775AD;
+                               border-radius:8px;
+                -moz-border-radius:8px;
+                -webkit-border-radius:8px;
+                -o-border-radius:8px;
+                               }
+.contentfacebook_login p:last-child{width:100%;float:left;text-align:center;font:10px Arial, Helvetica;color:#727272;margin-top:10px}  
+.contentfacebook_login p:last-child a{color:#616161;font:11px Arial, Helvetica;}   
+/*-------End here facebook login----------*/
+.lightbox_signup{width:62px;height:24px;float:left;margin-top:4px;padding:1px 0 0 18px; background:#99CC34;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
+.lightbox_signup:hover{background:#B4DC6A;cursor:pointer}
+/*-------End here Pop Up----------*/
+
+
+
+
+.black_overlayfbb {display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.whitecontent_facebookk {width:650px;height:370px;display:none;position:fixed;top:20%;left:34%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+#contentfacebookk
+{height:325px; width:575px;float:left; padding:10px 10px 5px 10px;
+                 background:#F7F6F6;
+                    border-radius:6px;
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                -o-border-radius:6px;
+                box-shadow:2px 2px 8px #515151;
+                -moz-box-shadow:2px 2px 8px #515151;
+                -webkit-box-shadow:2px 2px 8px #515151;
+                -o-box-shadow:2px 2px 8px #515151;
+    }
+.contentfacebook_login1{width:100%;float:left;margin-top:25px}
+.contentfacebook_login1 em{width:100%;height:40px;float:left;font: 30px/25px candara;color:#3E3E3E;text-align:center}
+.contentfacebook_login1 p{width:100%;float:left;text-align:center;font:12px/25px Arial, Helvetica;color:#515151;}
+.contentfacebook_login1 span{width:100%;float:left;text-align:center;font:12px/25px Arial, Helvetica;color:#515151;padding:10px 0 0 0}
+.contentfacebook_login1 a{font:bold 15px/25px Arial, Helvetica;color:#00AEEF}
+.contentfacebook_login1 .checkbox_social{margin-top:10px}
+.contentfacebook_login1 button{width:180px;height:45px;text-align:center;margin-top:15px;
+                               font:bold 15px/25px Arial, Helvetica;
+                               border:none;
+                               color:#F5F5F5;
+                               background:#F775AD;
+                               border-radius:8px;
+                -moz-border-radius:8px;
+                -webkit-border-radius:8px;
+                -o-border-radius:8px;
+                               }
+.contentfacebook_login1 p:last-child{width:100%;float:left;text-align:center;font:10px Arial, Helvetica;color:#727272;margin-top:10px}  
+.contentfacebook_login1 p:last-child a{color:#616161;font:11px Arial, Helvetica;}   
+
+.socialnetworklogo
+{
+  
+     padding:5px 5px 0px 10px;
+     list-style-image:none
+}
+.socialnetworklogo li
+{
+    padding-top:5px;
+    list-style:none
+}
+ul.socialnetworklogo li a { 
+    display: block; 
+    background:url(../Images/sprite.png) no-repeat; 
+    height: auto; 
+    width: 100px; 
+    font:normal 12px Arial, Helvetica;
+    list-style:none;
+    color:#C8C8C8;
+ 
+}
+ 
+ul.socialnetworklogo li a span { display: none; }
+ul.socialnetworklogo li a em{padding-left:30px;padding-top:5px}
+ul.socialnetworklogo li.fb a { background-position: -521px -22px; width: 22px; height: 22px; }
+ul.socialnetworklogo li.tw a { background-position: -483px -22px; width: 22px; height: 22px; } 
+ul.socialnetworklogo li.gw a { background-position: -564px -22px; width: 22px; height: 22px; }
+ .bottom_connect {width:18%;float:left; margin-bottom:10px; height:20px;
+                  }
+
+.social-con
+{
+   
+    width:150px;
+    color:#C8C8C8;
+   float:left;
+    height:80px;
+ 
+}
