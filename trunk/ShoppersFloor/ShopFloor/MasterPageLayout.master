@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageLayout.master.cs"
+    Inherits="MasterPageLayout" %>
+
+<%@ Register Src="~/sfloor/pages/Header.ascx" TagName="MenuUserControl" TagPrefix="h" %>
+<%@ Register Src="~/sfloor/pages/Footer.ascx" TagName="MenuUserControl" TagPrefix="f" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Shoppers floor</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <link rel="icon" href="" type="image/x-icon">
+    <script type="text/javascript">
+        var staticPath = '<%=ConfigUtil.StaticPath() %>';
+        var path = '<%=ConfigUtil.hostURL() %>';
+        var serverPath = '<%=ConfigUtil.getServerPath() %>';
+    </script>
+    
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href='<%=ConfigUtil.StaticPath() %>new-css/css.css'  type="text/css" media="all">
+    <link rel="stylesheet" href='<%=ConfigUtil.StaticPath() %>new-css/custommenu.css' type="text/css" media="screen">
+
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/sfloorall.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ajax_cart_super.js'></script>
+
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/ie6.css' media="all" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/ie8.css' media="all" />
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ie7.js'></script>
+    <![endif]-->
+  
+    <!-- MENU -->
+    
+</head>
+<asp:contentplaceholder id="head" runat="server">
+    </asp:contentplaceholder>
+<body class=" cms-index-index cms-home">
+    <div>
+        <noscript>
+            <div class="global-site-notice noscript">
+                <div class="notice-inner">
+                    <p>
+                        <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                        You must have JavaScript enabled in your browser to utilize the functionality of
+                        this website.
+                    </p>
+                </div>
+            </div>
+        </noscript>
+        <div class="page">
+            <h:MenuUserControl ID="header" runat="server" />
+            <!-- start enable -->
+            <!-- end enable -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <f:MenuUserControl ID="footer" runat="server" />
+        </div>
+    </div>
+    <div id="ajaxconfig_info" style="display: none">
+        <button name="white" value="0.7">
+        </button>
+        <input id="enable_module" value="1" type="hidden">
+    </div>
+</body>
+</html>

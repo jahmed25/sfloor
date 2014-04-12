@@ -1,0 +1,797 @@
+﻿@font-face{font-family:'FontAwesome';src:url('');src:url('') format('embedded-opentype'),url('') format('woff'),url('../font/fontawesome-webfont.ttf?v=3.2.1') format('truetype'),url('') format('svg');
+           font-weight:normal;font-style:normal;}[class^="icon-"],[class*=" icon-"]{font-family:FontAwesome;font-weight:normal;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased;*margin-right:.3em;}
+
+/*---------Start here Categories Page-----------------*/
+.dropdowncss{width:180px;height:19px;border:1px solid #D5D5D5;color:#313131;font:normal 13px/17px "Helvetica Neue",Helvetica,Arial,sans-serif;}
+#inner_middle_category{margin:0 auto; width:1170px}
+.inner_middle_category-top{width:950px;float:left;padding:0 0 0 30px;}
+.inner_middle_category-top p{width:85%;color:#565656;text-align:left;font:11px/25px Calibri, candara;float:left}
+.inner_middle_category-top p a{color:#F775AD;font:italic 14px/25px Calibri, candara}
+.inner_middle_category-top .map_class{color:#F775AD}
+.inner_middle_category-content {width:970px;float:left;padding:0 0 30px 30px;}
+.inner_middle_category-content em{font:bold 3   1px/25px candara;color:#303030;text-transform:capitalize;letter-spacing:1px}
+.inner_middle_category-content .pnl_category_img{width:970px;float:left}
+.inner_middle_category-content .pnl_category_img #scroll_img{width:970px;float:left}
+.inner_middle_category-content .pnl_category_img #scroll_img{}
+.inner_middle_category-content .pnl_category_img #scroll_img .scroll_img_inner{width:160px;float:left;height:180px;border:1px solid #F2F2F0;}
+.inner_middle_category-content .pnl_category_img #scroll_img .scroll_img_inner span{float:left;font:normal 13px/19px candara;color:#F54D96;padding:5px 5px 0 5px}
+.inner_middle_category-content .pnl_category_img #scroll_img .scroll_img_inner:hover{border:1px solid #D5D5D5;background:#DEDEE4;box-shadow:2px 3px 8px #E5E5E9;-moz-box-shadow:2px 3px 8px #E5E5E9;-webkit-box-shadow:2px 3px 8px #E5E5E9;}   
+.head_category{width:190px;height:25px;background:#E3E3E3;text-align:center;padding:4px 0 0 0;margin-left:5px;color:#313131;content: '';font: bold 13px/23px candara;
+ border:1px solid #CFCFCF;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+.category_recent_view{width:190px; height:25px; background:#E3E3E3; text-align:center; margin-left:5px; margin-bottom:10px; float:left; padding:4px 0 0 0px; color:#313131;font: bold 13px/23px candara;
+ border:1px solid #CFCFCF; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px;}
+ 
+.inner_category_left {float:left;width:200px;padding:24px 2px 15px 0px;} 
+.inner_category_left .category_border{width:100%;border:1px solid #E9E9E9;float:left;background:#fff;box-shadow:-1px 2px 3px #D5D5D5;-moz-box-shadow:-1px 2px 3px #D5D5D5;-webkit-box-shadow:-1px 2px 3px #D5D5D5;}    
+.inner_category_left .category_border:hover{box-shadow:-2px 3px 8px #D5D5D5;-moz-box-shadow:-2px 3px 8px #D5D5D5;}
+
+.inner_category_left .inner_category_nav{width:180px;  padding:10px 0 15px 15px;float:left;}
+.inner_category_nav .p_category{width:100%;display:block;padding:10px 0 10px 0;font:bold 15px/21px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#313131}
+.inner_category_nav .ul_scroll{overflow-y:scroll;overflow-x:hidden;height:200px;}
+.inner_category_nav ul{width:160px;float:left;list-style:none;padding:0 0 0 15px;}
+.inner_category_nav ul li{padding:2px 0 2px 0;border:none;}
+.inner_category_nav ul li a{font:normal 14px/50% "Helvetica Neue",Helvetica,Arial,sans-serif;color:#535353;}
+.inner_category_nav ul li .radiobutton {margin:0 5px 0 0;}
+.inner_category_nav .lnkbtn_category{float:left;font:normal 14px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#464646;border:none;}
+.inner_category_nav .lnkbtn_category:hover{color:#F775AD}
+
+.inner_category_recent_view{width:190px;padding:0px 0 0px 5px;float:left;}
+.inner_category_recent_view ul{height:200px;border:1px solid #CFCFCF;list-style:none}
+.inner_catogory_left_nav li a:hover{color:#313131;}
+.inner_catogory_left_nav li:last-child{border-bottom:none;}
+.right_inner_content {float:left;width:780px;height:645px;padding:5px 0 0 10px;}
+.right_inner_content_nav{ width:778px; height:30px;border:1px solid #C2BEBE}
+.right_inner_content_main{ width:780px;padding:10px 0 0 0}
+.right_inner_content_main_top{width:770px;top:0;height:30px;color:#464242;font: bold 12px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;background:#E5E4E4;padding:6px 0 0 8px;border: 1px solid #C2BEBE;}
+.right_inner_content_main_middle{ width:778px;height:550px;float:left;border-left:1px solid #C2BEBE;border-right:1px solid #07B4F3;border-bottom:1px solid #07B4F3;}	
+/* category */
+#cat-filter_image{width:940px;float:left;margin:0 20px 0 30px;padding:10px 0 0 0;}
+#cat-filter_image p{color:#565656;font:italic 14px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;}
+#cat-filter_image span{width:100%;color:#565656;font:normal 14px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;}
+#cat-filter_image .lbl_page{color:#565656;font:italic 13px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;}
+.right_inner_categorydetailsdropdown{height:30px;width:530px;float:left;text-align:left;}
+.ddl_category{width:110px;height:22px;border:1px solid #CFCFCF;font:bold 14px/13px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#464646}
+.right_inner_categorydetailsprevious{width:70px;float:left;padding:4px 0px 0px 25px;border-right:1px solid #D5D5D5}
+.right_inner_categorydetailsindexnumber{height:13px;float:left;padding:0px 10px 9px 10px;margin-top:5px;border-right:1px solid #D5D5D5}
+.right_inner_categorydetailsindexnumbercss{height:10px; width:10px;color:#5A5F60;font-size:13px; float:left;text-decoration:underline; padding:3px 0px 0px 5px;}
+.right_inner_categorydetailsnext{float:right; padding:4px 0px 0px 0px;}
+.right_inner_categorydetailssortby{width:100%; text-align:left; height:30px; background-color:#ebebeb; margin:5px 0px 5px 0px; border-radius:2px; 
+                                   text-transform: uppercase;color: #888888;
+      -moz-box-shadow:1px 2px 9px #CFCFCF;
+      -webkit-box-shadow:1px 2px 9px #CFCFCF;
+      -o-box-shadow:1px 2px 9px #CFCFCF;}
+.right_inner_categorydetailsimages{height:20px;width:770px;float:left;margin-top:20px;}
+.right_inner_categorydetailsimagesdetails{width:300px;float:left; margin:10px;
+                                          }
+vzxvv{box-shadow:1px 2px 9px #CFCFCF;
+      -moz-box-shadow:1px 2px 9px #CFCFCF;
+      -webkit-box-shadow:1px 2px 9px #CFCFCF;
+      -o-box-shadow:1px 2px 9px #CFCFCF;
+}
+asfafd{box-shadow:1px 2px 9px orange;-moz-box-shadow:1px 2px 9px orange;
+-webkit-box-shadow:1px 2px 9px orange;
+-o-box-shadow:1px 2px 9px orange;}
+.right_inner_categorydetailsimagesdetails:hover{}
+.right_inner_categorydetailsimagespic{height:270px; width:245px; float:left; padding:10px 0px 0px 0px;}
+/*------------------*/
+#right_inner_contents {width:960px;height:auto;float:right;}
+.right_inner_sitemap {width:90%;height:40px;float:left;font-size:11px;padding-left:30px;color:#565656}
+.right_inner_categorydetailstext{width:730px;margin-top:20px;float:left;}
+#right_inner_categorydetailsprevnext{width:730px;float:left;}
+.right_inner_indexinternelimagescss{height:260px; width:245px; float:left; padding:0px 0px 0px 0px;}    
+.categorydetails_info_bottom{width:290px;float:left;padding:5px;}
+.categorydetails_info_bottom .lnkbtn_proname{font: 13px "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center}
+.categorydetails_info_bottom .lnkbtn_proprize{font:bold 13px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center;}
+.categorydetails_info_bottom .lnkbtn_brandname{font:12px/100% "Helvetica Neue",Helvetica,Arial,sans-serif;text-align:center; font-weight:bold}
+.categorydetails_info_bottom a.a_proprize{font:normal 13px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;text-decoration:line-through;}
+.right_inner_categorydetailsimagesname{width:300px; font:"Helvetica Neue",Helvetica,Arial,sans-serif; 
+                                        float:left;overflow:hidden;text-align:center;white-space:nowrap;text-overflow:ellipsis;-moz-text-overflow:ellipsis;-webkit-text-overflow:ellipsis;}
+.proddesc_275{width:275px;}
+.categorydetails_inner_brandname{width:100%;text-align:center;margin:10px  0px 10px 0px;  font-weight:bold}
+.right_inner_categorydetailsimagesprize{width:290px;float:left;text-align:center;padding:0px 0 0px 0;font-size:15px;}
+.right_inner_categorydetailsimagesprize .margin{ padding-left:8px}
+.right_inner_categorydetailsimagesprize .splprice{font-size:14px; font-weight:bold; }
+.right_inner_categorydetailsimagesprize .offerimg{text-align:center; }
+.right_inner_categorydetailsimagesprize .splprice:hover{text-decoration:underline;}
+.right_inner_categorydetailsimagesprize .pnl_percentage{width:70px;padding:1px 3px 1px 3px;background:#D5D5D5;}
+.right_inner_categorydetailsimagesprize .lnkbtn_percentage{width:70px;font: 16px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#FFF;padding:1px 2px 1px 2px;background:#F775AD;margin-left:6px;}
+.right_inner_megadayofferimage{height:300px;width:970px; margin-left:18px;margin-bottom:10px;float:left;}
+.categorydetails_scroll{width:100%; float:left; text-align:center;}
+.categorydetails_scroll .lnkbtn_proname{font: 14px/19px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#464646;}
+.categorydetails_scroll .lnkbtn_brandname{font: 15px/70% "Helvetica Neue",Helvetica,Arial,sans-serif;color:#313131;}
+.categorydetails_scroll .lnkbtn_proprize{font:bold 13px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#F54D96;}
+.right_inner_categorydetailsimagesaddtocart{width:170px;float:left;}
+.right_inner_categorydetailsaddtocart{height:24px;width:75px;float:left;font:bold 10px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;background:#B6D700;padding:1px 0px 0px 10px;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+.right_inner_categorydetailsaddtocart:hover{background:#50CDFA;}
+.addtocart {font:bold 10px/25px Arial, Helvetica; color:#FFF}
+.addtocart2{color:#F54D96;font:italic 13px/21px "Helvetica Neue",Helvetica,Arial,sans-serif;}
+.imgbtn_quickview{width:28px;height:26px;float:right;margin-right:5px}
+.imgbtn_quickview:hover{color:#B6D700}
+/* internal-page Slider */
+.right_inner_megadayoffer {height:35px; width:960px; float:left; margin-left:18px; padding:10px 0px 0px 10px; text-align:left;border-bottom:1px solid #CFCFCF; font:italic 19px/25px Arial, Helvetica; font-weight:300; letter-spacing:1px; color:#313131;}
+#contenttest{width:990px;height:auto;padding:0px 0px 0px 0px;border:1px solid #ffffff;}
+#contenttestprevnext{width:970px;height:40px;padding:0px 0px 0px 0px;border:1px solid #C2BEBE;}
+.contenttestdropdown{width:270px;height:30px; float:left;padding:10px 0px 0px 0px;}
+.contenttestprevious{width:170px;height:30px; float:left;padding:10px 0px 0px 0px;}
+.contenttestindexnumber{width:350px;height:30px; float:left;padding:10px 0px 0px 0px;}
+.contenttestnext{width:170px;height:30px; float:left;padding:10px 0px 0px 0px;}
+/* user registartion*/
+/* Start here category details */
+.cat_hr{height:35px;border:none}
+#content{width:990px;height:auto;padding:0px 0px 0px 0px;}
+.contentsitemap{width:990px;padding:10px 0 20px 0;border:none;float:left}
+.contentsitemap .catdetail_map{padding:0 0 0 5px;}
+#contenttop{ width:990px;margin-top:20px;}
+#contenttop h1.h1_prodName{width:100%;font:25px/31px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#464646;padding:0 0 10px 0;text-transform:none;}
+.contenttopfirstlayer{width:440px; float:left;}
+#productimage{width:420px;float:left;}
+#productimage .img_hovericon{width:100%;float:left;padding:3px 0 3px 0;}
+#productimage .img_hovericon span{font:italic 13px/100% "Helvetica Neue",Helvetica,Arial,sans-serif;color:#313131}
+.productimage{height:560px;width:420px; float:left;padding:0px 0px 0px 0px;background:#fff}
+.bigimagecss{height:560px; width:420px;}
+.PathFrontImagecss{height:260px; width:175px; padding:10px 10px 10px 10px;}
+.smallimagecss{height:80px; width:80px; padding:10px 10px 10px 10px;}
+.productmultiimage{height:150px; width:420px; float:left; margin-top:10px;margin-bottom:10px;background:#FFF}
+.product_recentview{width:400px;height:180px;float:left;padding:0px 0px 0px 0px;border:1px solid #86DBFA;clear:both}
+.product_recentview p{width:100%;height:20px;background:#C5EDFB;}
+.product_recentview p a{color:#585858;font:12px Arial, Helvetica;margin:0 0 3px 10px; letter-spacing:1px;}
+.contenttopsecondlayer{width:525px; margin-left:10px; float:left; padding:0px 0px 0px 0px;}
+#productnamepriceborder{width:525px; margin-left:10px; float:left;}
+.contentproductnameid{width:515px;}
+.productname{width:490px;float:left;padding:10px 0px 0px 10px;}
+.productname p{font:12px/25px  Arial, Helvetica;color:#5F5F55;padding:0 0 10px 0;}
+.productname .h1_prodName{width:100%;font:25px/31px Calibri, Arial, Helvetica;color:#464646;padding:0 0 10px 0;text-transform:none;clear:both;}
+.productbrandnamecss{font:bold 14px/25px candara, Arial, Helvetica;color:#565656}
+.contentproductprice{width:515px;float:left;padding:0 0 8px 0;border-bottom:1px solid #D5D5D5;}
+.productprice{width:540px;float:left;padding:0 0 0 10px}
+.productprice p{width:100%;float:left;padding:2px 0 6px 0;}
+.productprice .lbl_price{font:italic 39px/33px Georgia, candara;color:#F775AD;}
+.productprice .lbl_crossprice{text-decoration:line-through;font:22px/80% "Helvetica Neue",Helvetica,Arial,sans-serif;color:#898989;float:left;}
+.productprice .lbl_crossprice1{text-decoration:line-through;font:24px/80% "Helvetica Neue",Helvetica,Arial,sans-serif;color:#898989;float:left; padding-right:10px; padding-top:5px;}
+.productprice .imgprice{float:left;margin-top:4px;}
+.productprice .imgcross{float:left;margin-right:2px;clear:both}
+.productprice .imgcross1{float:left;margin-right:2px;padding-top:10px;clear:both}
+
+.contentproductcartpay{width:515px; margin-top:5px; float:left; padding:0px 0px 0px 0px;}
+.contentproduct_choose{width:505px;float:left;margin-left:10px;}
+.contentproduct_choose .product_size{width:100%;float:left;margin:0;}
+.contentproduct_choose em{width:100%;font: 14px/100% Calibri, candara;color:#565656;text-transform:capitalize;float:left;padding:5px 0 5px 0;}
+.contentproduct_choose .size_guide {float:right;color:#797979;}
+.contentproduct_choose .size_guide:hover {color:#f775ad;text-decoration:none;}
+.contentproduct_choose .p_color{width:100%;font: 14px/100% Calibri, candara;color:#565656;text-align:left;}
+.contentproduct_choose button{width:90px;height:26px;float:left;margin-right:5px;font:bold 12px Arial, Helvetica;background:#5F5F55;color:#FFF;border:none; border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+.contentproduct_choose .lbl_choose{width:50%;font:bold 13px/100% Calibri, candara; color:#313131;margin-left:2px}
+.contentproduct_choose .ddl_quantity{width:60px;height:18px;margin-left:7px;font:13px/25px Arial, Helvetica;color:#313131;border:1px solid #D5D5D5}
+.contentproduct_choose .p_quantity{width:100%;float:left;padding:0 0 10px 0;}
+.contentproduct_choose .a_quantity{text-decoration:none;font:noraml 14px/25px Calibri, Arial;color:#565656}
+.contentproduct_choose .lbl_color{color:#565656;font:normal 14px/100% Calibri, Arial;}
+.contentproduct_choose .imgbtn_color{border:3px solid #fff}
+.contentproduct_choose .imgbtn_color:hover{border:3px solid #AAAAAA}
+.contentproduct_choose .imgbtn_color:link{border:3px solid #AAAAAA}
+.contentproduct_choose .imgbtn_color:active{border:3px solid #AAAAAA}
+.contentproduct_choose .imgbtn_color:visited{border:3px solid #AAAAAA}
+.content_prod_mail .iframe_fb{border:none; width:400px; height:80px; z-index:11;background:#fff;}
+.productcart{width:515px;float:left;font:bold 10px/25px candara;padding:0 0px 20px 10px;border-bottom:1px solid #D5D5D5}
+.productcart p{width:35%;float:left;}
+.productcart p:last-child{padding:12px 0 0 5px;}
+.productcart .span_selectsize{width:100%;float:left;}
+.productcart .lnkbtn_waitlist{font:15px/25px Calibri, candara;color:#F75FA1;}
+.productcart .lnkbtn_waitlist:hover{color:#313131;text-decoration:underline}
+.productcart .lnkbtn_productcart{font: 13px/25px Arial, Helvetica;color:#5F5F55}
+.productcart .lnkbtn_productcart:hover{text-decoration:underline}
+.productcart .btn_productcart{width:180px;height:45px;float:left;font:bold 14px/25px "Helvetica Neue",Helvetica,Arial,sans-serif;background:#F775AD;color:#F5F5F5;border:none; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;}
+.productcart .btn_productcart:hover{background:#EF73A9;cursor:pointer}
+.content_prod_estimate{width:505px;float:left;padding:10px 0 10px 10px;border-bottom:1px solid #D5D5D5}
+.content_prod_estimate p{font: 14px/25px Arial, Helvetica;color:#565656}
+.content_prod_estimate span{font:bold 14px/25px candara;color:#565656;margin-right:6px;}
+.content_prod_mail{width:515px;float:left;padding:10px 0 10px 10px;}
+.content_prod_mail p{font: 13px/25px Arial, Helvetica;color:#565656}
+.content_prod_mail span{font:bold 14px/25px candara;color:#565656;margin-right:2px;}
+.content_prod_mail_btn{width:545px;float:left;padding:15px 0 5px 0px;}
+.content_prod_mail_btn a{float:left;margin-right:15px;}
+.email_btn{width:70px;height:20px;float:left;font: 13px candara;background:#FFF;color:#565656;border:1px solid #D5D5D5;
+           box-shadow: inset 2px 8px 8px #F1F0F0;
+           -moz-box-shadow: inset 2px 8px 8px #F1F0F0;
+           -webkit-box-shadow: inset 2px 8px 8px #F1F0F0;
+          border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px;}
+.fb_btn{width:315px;height:20px;float:left;font: 13px candara;margin-right:10px}
+.fb_btn .imgbtn_fblike {border-radius:8px;-moz-border-radius:8px;-webkit-border-radius:8px;border:1px solid #DCDCDC}
+.twitter_btn{box-shadow:1px 2px 3px #D5D5D5;-moz-box-shadow:1px 2px 3px #D5D5D5;-webkit-box-shadow:1px 2px 3px #D5D5D5;-o-box-shadow:1px 2px 3px #D5D5D5;-ms-box-shadow:1px 2px 3px #D5D5D5;}
+.email_btn span{margin-left:5px;color:#565656;font:bold 13px/19px candara;}
+.email_btn h4{width:70px;height:20px;background:url(../images/f_like3.jpeg) no-repeat;
+              border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+              }
+.catdetailsaddtocart:hover {width:80px;height:25px;font:10px/25px Arial, Helvetica; color:#ffffff; font-weight:bold;}
+.productpaynow{height:40px;width:373px;float:left; padding:20px 0px 0px 10px;}
+/*-------Start here tab container---------*/
+#contentproductreview{float:left;padding:20px 0px 20px 10px;}
+.tab-cat{width:505px;height:243px;float:left;padding:0 10px 10px 10px;overflow-y:scroll;overflow-x:hidden}
+.tab-cat .lbl_prod_return{color:#565656;font:13px/17px Calibri, Arial, Helvetica;}
+.tab-cat_heading{width:100%;float:left;margin:5px;padding-top:10px;}
+.tab-cat_heading h2{float:left;color:#515151;font:bold 15px/25px candara;padding:4px 0 0 0;text-transform:none}
+.tab-cat_heading h2 i{float:left;font:bold 15px/25px candara;}
+.tab-cat_heading p{width:100%;float:left;color:#565656;font:13px/25px candara;}
+.tab-cat_heading ul{width:93%;float:left;list-style-type:circle;margin-left:18px;}
+.tab-cat_heading li{padding:3px 0 3px 0;}
+.tab-cat_heading li a{color:#565656;font:13px/25px candara;}
+.tab-cat_heading .a_faq{color:#F775AD;}
+.tab-cat_heading .a_faq:hover{color:#313131}
+.tab-cat_heading .lbl_details{font-weight:300;}
+.tab-2_details{width:100%;float:left;padding-top:10px;padding-left:10px}
+.tab-2_details p{width:100%;height:25px;float:left;color:#5F5F55;font:13px/25px Arial, Helvetica;}
+.tab-2_details b{margin-right:3px;}
+.tab-3_rdbtn{width:95%;float:left;padding:0 0 10px 0;border-bottom:1px solid #C4C4C0;margin:0 0 0 10px}
+.tab-3_rdbtn_1{width:100%;height:21px;float:left}
+.tab-3_rdbtn_1 h5{width:120px;float:left;height:13px;padding:0 0 2px 0;color:#78786C; font:bold 12px Arial, Helvetica;}
+.tab-3_rdbtn p{width:70%;color:#5F5F55;font:11px Arial, Helvetica;float:left}
+.tab-3_rdbtn a{width:20%; color:#00AEEF;font:12px Arial, Helvetica;float:left}
+.tab-3_rdbtn .radiobtn{width:20px;height:14px;margin-left:5px;}
+.tab-3_comment{width:100%;float:left;padding-top:10px}
+.tab-3_comment_left{width:45%;float:left;margin-left:10px}
+.tab-3_comment_left p{width:100%;float:left;color:#5F5F55;font:13px/25px Arial, Helvetica;}
+.tab-3_comment_left input{width:200px;height:20px;color:#86867A;font:italic 12px Arial, Helvetica;border:1px solid #CACAC6;margin-bottom:3px}
+.tab-3_comment_left button{width:100px;height:24px;float:left;margin-right:5px;margin-top:10px; font:bold 11px/25px Arial, Helvetica;background:#ABC806;color:#FFF;border:none; border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+.tab-3_comment_right:hover{cursor:pointer}
+.tab-3_comment_right{width:45%;float:left;padding-top:2px}
+.tab-3_comment_right p{width:90%;float:left;color:#5F5F55;font:13px/25px Arial, Helvetica;margin:0px;}
+.tab-3_comment_right input{width:160px;height:18px;color:#86867A;font:12px Arial, Helvetica;border:1px solid #CACAC6}
+.tab-3_comment_right textarea{width:250px;height:100px;color:#86867A;font:italic 12px Arial, Helvetica;border:1px solid #CACAC6}
+.tab-3_comment_right 
+/*-------End here tab container---------*/
+#contentproducttab{width:565px; height:30px; background-color:#b7e6fa; padding:0px 0px 0px 0px; list-style:none;border:1px solid #00AEEF;font:17px/25px Arial, Helvetica; font-weight:300; letter-spacing:1px; color:#393939;}
+#contentproducttab li{padding:0px 5px 0px 5px; display:inline; text-align:center;}
+#contentproducttab li a{font:12px/25px  Arial, Helvetica;color:#222322}
+#contentproducttab li a:hover{ color:#96999a;}
+#contentproducttabdescription{width:565px; height:243px; padding:0px 0px 0px 0px; list-style:none;border:1px solid #00AEEF;}
+/*---------Start here Category Details Scrolling----------*/
+#contentrelatedproduct{width:988px;float:left;padding-bottom:25px;}
+#contentrelatedproduct_1{width:988px;float:left;padding-bottom:25px;}
+.relatedproducttext{height:28px;width:988px;float:left;border-bottom:1px solid #D5D5D5;}
+.relatedproducttext p{float:left;margin:0;font:italic 17px/25px Georgia, Calibri, Arial, Helvetica;font-weight:300;text-transform:capitalize;letter-spacing:1px;color:#515151;}
+.contentrelated_offer{width:182px;height:220px;float:left;border:1px solid #85DCFB;padding:10px 10px 10px 10px}
+.relatedproductimage{height:400px;width:988px;float:left;padding:0px 0px 0px 0px;}
+.relatedproductimage .lnkbtn_proname{font: 13px Calibri, candara;color:#464646;text-align:left}
+.relatedproductimage .lnkbtn_brandname{font:14px/70% Calibri, candara;color:#313131;text-align:left}
+.relatedproductimage .lnkbtn_proprize{font:bold 13px/25px Arial, Helvetica;color:#F54D96;text-align:left}
+/*---------End here Category Details Scrolling----------*/
+/* A blank image */
+.jetzoom-blank {
+    background-image:url(blank.png);
+}
+/* The animated ajax loading image */
+.jetzoom-ajax-loader {
+    background-image:url(ajax-loader.gif);
+    width:32px;
+    height:32px;
+}
+.linkbtn_sitemap{font:italic 14px/25px Calibri, Arial, Helvetica;color:#F775AD;}
+.lbl_sitemap{font-size:12px;color:#035573 }
+/*--------------Start here On-hover categories--------------------*/
+.categories_onhover_parent{display:none;position:absolute;text-align:center;vertical-align:top;margin-left:5px;z-index:10000;height:360px;width:210px;padding:0 0px 0 0px;border:3px solid #A2E4FC;float:left}
+.categories_onhover_parent:hover{cursor:pointer}
+.categories_onhover1{width:95%;float:left;height:252px;text-align:right;padding:10px 0 0 0}
+.categories_onhover2{width:100%;float:left;text-align:center}
+.categories_onhover3{width:100%;float:left;height:35px;}
+.lnkbtn_onhover{width:100px;font:bold 11px Arial, Helvetica;color:#FFF;text-transform:uppercase;}
+.categories_quickviewbtn{width:100px;height:22px;text-align:center;background:#B6D700;margin-left:56px;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+.categories_quickviewbtn:hover{cursor:pointer}
+.categories_bottom_size{width:100%;float:left}
+.categories_bottom_size p{width:100%;height:26px;padding-top:15px;float:left;color:#6D6D61;text-transform:uppercase;font:bold 11px Arial, Helvetica;background:#E3F6FD}
+.lnkbtn_size{font:bold 11px Arial, Helvetica;color:#00AEEF;text-transform:capitalize}
+.lnkbtn_size:hover{text-decoration:underline}
+.imgbtn_shortlist{width:26px;height:28px;background:url(../Images/shortlist1.png) no-repeat;}
+.imgbtn_shortlist:hover{background:url(../Images/shortlist_green.png) no-repeat;}
+/*-------------End here On-hover categories---------------------*/
+/*-------------Start here On-hover categories---------------------*/
+.boxgrid{width:300px;height:360px;float:left;overflow:hidden;position:relative;}
+
+.boxgrid .right_inner_categorydetailsimagescss{position:absolute;top:0;left: 0;border: 0; }
+.boxgrid p{ padding: 0 10px;font-weight:bold; font:10pt "Lucida Grande", Arial, sans-serif; }				
+.boxcaption{float:left;position:absolute;width:220px;bottom:-220px;padding:0 0 20px 0;border-top:1px solid #EDEFED;background:#FFF;opacity:0.9;filter: alpha(opacity=100);z-index:1;} /* For IE 5-7 */
+/* For IE 8 */	 
+ /*-------------End here On-hover categories---------------------*/
+ /*-------Start here send message here----------*/
+.black_overlay_sendmessege{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_sendmessage {width:725px;height:425px; display:none;position:fixed;top: 6%;left: 24%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+#send_messege{width:675px;height:395px;float:left; padding:10px 10px 5px 15px;background:#F7F6F6; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;box-shadow:2px 2px 8px #515151;-moz-box-shadow:2px 2px 8px #515151;-webkit-box-shadow:2px 2px 8px #515151;-o-box-shadow:2px 2px 8px #515151;}
+.content_sendmessage{width:620px;height:350px;float:left; padding:10px 10px 5px 15px;}
+.content_sendmsg_inner{width:620px;float:left;}
+.content_sendmsg_inner h4{width:90%;float:left;padding:10px 0 5px 15px;color:#313131;font:italic 23px/25px Georgia;text-transform:capitalize;border-bottom:1px solid #DADADA}
+.contactus_query{width:980px;float:left}
+.contactus_query ul{width:100%;float:left;list-style:none;padding:10px 0 0 0px}
+.contactus_query ul li{display:block;height:50px;}
+.contactus_query ul li p{width:60px;height:20px;color:#313131;padding:0 0 2px 0;font: 13px/19px Arial, Helvetica;text-align:right;float:left}
+.contactus_query ul li input{width:230px;height:25px;float:right;border:1px solid #D3D3D3;font:bold 11px/19px Arial, Helvetica;color:#939393}
+.contactus_query ul li select{width:162px;height:18px;float:right;border:1px solid #D6D6D6;color:#7B7B7B;font: 10px/19px Arial, Helvetica;letter-spacing:1px;}
+.contactus_query ul li option{color:#7B7B7B;font: 11px/19px Arial, Helvetica;}
+.label_text1{width:31%;float:left;padding:5px 0 5px 0px}
+.label_text2{width:31%;float:left;padding:5px 0 5px 0px}
+.label_text3{width:31%;float:left;padding:5px 0 5px 0px}
+.contact_container{width:90%;height:100px;float:left;padding:10px 0 0 0px}
+.contact_container p{width:65px;height:20px;color:#313131;padding:0 0 2px 0;font: 13px/19px Arial, Helvetica;text-align:right;float:left}
+.msgbox_contact{width:500px;height:80px;border:1px solid #D3D3D3;margin-left:12px}
+.sendmsg_btn{width:92%;height:50px;float:left;padding:0px 0 0 0px;text-align:right}
+.sendmsg_btn button:first-child
+{
+    width:180px;
+    height:45px;
+    color:#313131;
+    border:1px solid #CACACA;
+    margin-right:15px;
+    background-color:#ECECEC;
+    font:bold 15px/25px candara;
+    text-transform:capitalize;
+    text-decoration:none;
+    letter-spacing:2px;
+         border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+}
+.sendmsg_btn button:last-child
+{
+    width:180px;
+    height:45px;
+    color:#F5F5F5;
+    border:none;
+    float:right;
+    background-color:#F54D96;
+    font:bold 15px/25px candara;
+    text-transform:capitalize;
+    text-decoration:none;
+    letter-spacing:2px;
+     border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+}
+/*-------End here send message here----------*/
+/*-------Start here send message here----------*/
+.black_overlay_email{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_email {width:725px;height:425px; display:none;position:fixed;top: 6%;left: 24%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+#email_content{width:675px;height:395px;float:left; padding:10px 10px 5px 15px;background:#F7F6F6; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;box-shadow:2px 2px 8px #515151;-moz-box-shadow:2px 2px 8px #515151;-webkit-box-shadow:2px 2px 8px #515151;-o-box-shadow:2px 2px 8px #515151;}
+.email_content{width:620px;height:350px;float:left; padding:10px 10px 5px 15px;}
+.email_content_inner{width:620px;float:left;}
+.email_content_inner .em_mail{width:98%;float:left;padding:5px 0 5px 0;margin-bottom:10px;color:#313131;font:normal 25px/25px candara, Georgia;border-bottom:1px solid #DADADA}
+.email_content_inner p{width:100%;float:left;color:#313131;font:normal 13px/25px candara, Georgia;}
+.email_content_inner p a{color:#313131;font:normal 13px/25px candara, Georgia;}
+.email_content_inner span{color:#313131;font:normal 13px/25px candara, Georgia;}
+.email_content_inner input{width:400px;height:30px;color:#313131;font:normal 23px/25px Georgia;border:1px solid #D5D5D5}
+.email_content_inner textarea{width:400px;height:80px;color:#313131;font:normal 23px/25px Georgia;border:1px solid #D5D5D5}
+.email_content_inner button{width:160px;height:40px;color:#313131;font:bold 14px/25px candara, Georgia;border:none;color:#F5F5F5;margin-top:10px;
+                            background:#F54D96;
+                               border-radius:6px;
+	                          -moz-border-radius:6px;
+	                          -webkit-border-radius:6px;
+                            }
+/*-------End here send message here----------*/
+/*-------Start here Add List here----------*/
+.black_overlay_addlist{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_addlist {width:725px;height:425px; display:none;position:fixed;top: 6%;left: 24%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+#addlist_content{width:675px;height:395px;float:left; padding:10px 10px 5px 15px;background:#F7F6F6; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;box-shadow:2px 2px 8px #515151;-moz-box-shadow:2px 2px 8px #515151;-webkit-box-shadow:2px 2px 8px #515151;-o-box-shadow:2px 2px 8px #515151;}
+.addlist_content{width:620px;height:350px;float:left;}
+.addlist_content .em_waitlist{width:98%;float:left;padding:5px 0 5px 5px;margin-bottom:10px;color:#313131;font:normal 25px/25px candara, Georgia;}
+.addlist_content_inner_bg{width:620px;float:left;background:#DEDEDE;padding:10px 10px 5px 15px;}
+.addlist_content_inner{width:620px;float:left;}
+.addlist_content_inner p{width:100%;float:left;color:#4F4F4F;font:normal 13px/25px candara, Georgia;}
+.addlist_content_inner p .lbl_prodavail{color:#313131;font:normal 19px/25px candara, Georgia;float:left}
+.addlist_to{width:620px;float:left;padding:20px 0 0 0;}
+.addlist_img{width:300px;float:left;}
+.addlist_img span{float:left;margin-right:10px;}
+.addlist_img p{width:150px;float:left;padding:5px 0 0 0}
+.addlist_img .lblbrand{color:#313131;font:normal 19px candara, Georgia}
+.addlist_img .lbltype{color:#313131;font:normal 14px candara, Georgia}
+.addlist_item{width:300px;float:left;}
+.addlist_item p{float:right;margin-left:20px;color:#313131;font:normal 15px candara, Georgia}
+.addlist_to .ddl_waitlist{width:70px;height:20px;border:1px solid #D5D5D5;}
+.addlist_btn{width:100%;float:left;padding:10px 0 10px 0;}
+.addlist_btn .btn_addList
+{width:160px;height:40px;color:#313131;font:bold 14px/25px candara;border:none;color:#F5F5F5;float:right;
+                            background:#F54D96;
+                               border-radius:6px;
+	                          -moz-border-radius:6px;
+	                          -webkit-border-radius:6px; 
+    }
+.addlist_btn .btn_addList:hover{cursor:pointer}
+.addlist_btn .lnkbtn_cont{color:#313131;font:normal 14px/25px candara;text-decoration:underline;float:left}                                   
+/*-------End here Add List here----------*/
+
+/*-------Start here Add Cart ----------*/
+.black_overlay_cart{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_cart {width:985px;height:650px;display:none;position:fixed;top: -1%;left: 14%;padding:5px 15px 5px 5px; z-index:100003;overflow: hidden;}
+#send_messege{width:935px;height:635px;float:left; padding:10px 10px 5px 5px;background:#F7F6F6;overflow: scroll; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;box-shadow:2px 2px 8px #515151;-moz-box-shadow:2px 2px 8px #515151;-webkit-box-shadow:2px 2px 8px #515151;-o-box-shadow:2px 2px 8px #515151;}
+.content_addcart{width:975px;float:left; padding:40px 10px 5px 5px;background:#F7F6F6;overflow: hidden;}
+.content_addcart_inner{width:970px;float:left;}
+.content_addcart_inner h4{width:90%;float:left;padding:10px 0 5px 15px;color:#313131;font:bold 27px/25px Georgia;text-transform:capitalize;}
+#cart-top{width:100%;margin-top:10px;margin-bottom:20px;float:left;}
+#cart_head{width:100%;float:left}
+.cart_head_heading{height:30px;padding:15px 0 0 10px}
+.cart_head_heading p{color:#07A1D9; font: 17px/25px candara;text-transform:uppercase;letter-spacing:7px;}
+#cart_content{width:100%;float:left;margin-top:5px;margin-left:15px;}
+.cart_content_description{width:938px;height:30px;float:left;border:1px solid #D5D5D5;background:#DEDEDE;padding:10px 0 0 10px;}
+.cart_content_description p{width:100%;float:left;}
+.cart_content_description a{font: 14px/25px Calibri, Arial;color:#313131;}
+.cart_content_inner{width:948px;float:left;}
+.cart_content_inner-1{width:948px;float:left;}
+.cart_content_inner_productdetails{width:100%;float:left;}
+#cart_content_inner_addcart{width:100%;float:left;border-bottom:1px solid #D5D5D5;padding:15px 0 0 0;}
+.cart_content_box{width:980px;height:150px;float:left;}
+.cart_content_inner_img{width:340px;float:left;}
+.cart_content_inner_item{width:80px;float:left;text-align:left;padding:0px 0px 10px 0px}
+.cart_content_inner_imgcss{width:80px;height:110px;float:left;}
+.cart_content_inner_descr{width:160px;float:left;padding:0 0 0 10px}
+.cart_content_inner_img p{width:230px;float:left;color:#575757;font:normal 13px/17px Calibri, Arial, Helvetica;text-align:left;}
+.lbl_carttime{color:#565656;font:12px Arial, Helvetica}
+.lnkbtncart_brand{color:#565656;font:bold 12px Arial, Helvetica}
+.lnkbtncart_product{color:#565656;font:12px Arial, Helvetica}
+.lnkbtncart_remove{color:#878787;font:normal 13px/27px Calibri, Arial, Helvetica;}
+.lnkbtncart_remove:hover{text-decoration:underline}
+.imgbtn_remove{float:left;margin-top:7px;margin-right:3px;}
+.cart_content_inner_deliverytime{width:140px;float:left;text-align:left;}
+.cart_content_inner_remaintime {width:170px;float:left;text-align:left;}
+.cart_content_inner_price{width:105px;float:left;text-align:left;}
+.cart_content_inner_quantity{width:112px;float:left;text-align:left;}
+.cart_content_inner_totalprice{width:100px;float:left;text-align:left;}
+.cart_content_inner_removeitem{width:80px;float:left;text-align:left;}
+.cart_content_inner-2{width:100%;float:left;padding:20px 0 10px 0;background:#F5F5F5;}
+.button_cart{width:380px;float:right;}
+.button_cart button{width:180px;height:45px}
+.button_cart button:hover{cursor:pointer}
+.btn_checkout{background:#F54D96;font:bold 15px/25px candara;color:#F5F5F5;float:right;border:none;
+              border-radius:3px;
+              -moz-border-radius:3px;
+              -webkit-border-radius:3px;
+              -0--border-radius:3px;
+              }
+.btn_continue{background:#E1E1E1;font:bold 15px/25px candara;color:#313131;float:left;
+               border:1px solid #CBCBCB;
+               border-radius:3px;
+              -moz-border-radius:3px;
+              -webkit-border-radius:3px;
+              -0--border-radius:3px;}
+/*-------End here Add Cart----------*/
+/*-------Start here Empty Add Cart ----------*/
+.black_overlay_emptycart{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_emptycart {width:985px;height:240px;display:none;position:fixed;top: -1%;left: 14%;padding:5px 15px 5px 5px; z-index:100003;overflow: hidden;}
+.emptycart_content{width:950px;float:left;padding:0px 10px 5px 0px;margin-bottom:30px;}
+.emptycart_content h4{width:90%;float:left;padding:10px 0 20px 15px;color:#313131;font:bold 27px/25px Georgia;text-transform:capitalize;}
+.emptycart_continue{width:100%;float:left;background:#DEDEDE;padding:60px 0 60px 0;margin-left:15px;}
+.emptycart_continue p{width:100%;text-align:center;}
+.emptycart_continue .lnkbtn_cont{font:normal 15px/25px candara;color:#313131;text-decoration:underline}
+/*-------End here Empty Add Cart ----------*/
+/*-------Start here Empty Wait List ----------*/
+.black_overlay_emptywaitlist{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:black;z-index:100002;-moz-opacity: 0.8;opacity:.70;filter: alpha(opacity=70);}
+.white_emptywaitlist {width:775px;height:425px; display:none;position:fixed;top: 6%;left: 24%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+#emptywaitlist_content{width:685px;height:235px;float:left;padding:10px 10px 5px 5px;background:#F7F6F6;overflow: hidden;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;box-shadow:2px 2px 8px #515151;-moz-box-shadow:2px 2px 8px #515151;-webkit-box-shadow:2px 2px 8px #515151;-o-box-shadow:2px 2px 8px #515151;}
+.emptwaitlist_content{width:660px;float:left; padding:10px 10px 5px 0px;}
+.emptwaitlist_content em{width:90%;float:left;padding:10px 0 5px 15px;color:#313131;font:normal 23px/25px Georgia;text-transform:capitalize;}
+.emptwaitlist_continue{width:100%;float:left;background:#DEDEDE;padding:50px 0 10px 0;border:1px solid #D5D5D5}
+.emptwaitlist_continue p{width:100%;text-align:center;font:normal 15px/25px candara;color:#313131;float:left}
+.emptwaitlist_continue span{float:left;margin-top:20px;margin-left:10px}
+.emptwaitlist_continue .lnkbtn_cont{font:normal 15px/25px candara;color:#313131;text-decoration:underline}
+/*-------End here Empty Wait List----------*/
+/*================Start here indexinternel Image================*/
+/*-------Start here Filter Image----------*/
+#cat-filter_image .filter_image_bycategory{width:160px;height:40px;float:left;text-align:left;padding:0 35px 0 0;}
+#cat-filter_image .filter_image_bysize{width:150px;height:40px;float:left;text-align:left;}
+#cat-filter_image .producttype{padding:0 35px 0 0}
+#cat-filter_image .brand{padding:0 25px 0 0;}
+#cat-filter_image .filter_image_showing{height:25px;width:170px;float:left;text-align:left;padding:5px 0 0 20px;}
+#cat-filter_image .filter_image_showing em{font:normal 15px/25px candara;color:#5C5C5C;text-transform:none}
+#cat-filter_image .filter_image_showing a{margin-left:10px;}
+.lbl_showing{font:italic 15px/25px Georgia, candara;color:#313131;}
+#middle_content{width:970px;height:auto;float:left;padding:5px 10px 0px 10px;}
+.middle_indexinternal{width:968px;margin-top:16px;float:left;padding:0px 0px 0px 0px;}
+.middle_indexinternal_img{width:300px;float:left;
+                                          margin-left:20px;margin-bottom:20px;
+                                          padding:0px 0px 0px 0px; 
+                                          background-color:#ffffff;
+                                          box-shadow:1px 2px 7px #CFCFCF;
+                                          -moz-box-shadow:1px 2px 7px #CFCFCF;
+                                          -webkit-box-shadow:1px 2px 7px #CFCFCF;
+                                          -o-box-shadow:1px 2px 7px #CFCFCF;
+                                          }  
+ .middle_indexinternal_img:hover{box-shadow:1px 2px 9px #AAAAAA;
+                                          -moz-box-shadow:1px 2px 9px #AAAAAA;
+                                          -webkit-box-shadow:1px 2px 9px #AAAAAA;
+                                          -o-box-shadow:1px 2px 9px #AAAAAA;}                                                                             
+.middle_index_info{width:290px;float:left;padding:0 0 20px 10px;background:#FDEEF6}
+.middle_index_info .lnkbtn_proname{font: 15px/21px Arial, Georgia, candara;color:#313131;text-align:center}
+.middle_index_info .lnkbtn_proprize{font:italic 17px/100% Georgia, Arial, Helvetica;color:#F775AD;}
+.middle_index_info .lnkbtn_brandname{font: 12px/21px Arial, Georgia, candara;color:#313131;}
+.middle_index_info .lnkbtn_crossprize{font:italic 12px/100% Arial, Georgia, candara;color:#727272;text-decoration:line-through;font-weight:bold}
+.middle_index_imgcss{height:400px;width:300px;float:left;}  
+.btn_size{width:32px;height:24px;float:left;border:1px solid #CBCBCB;background:#EBEBEB;font:normal 11px/90% calibri, Arial;color:#313131;margin-right:7px;margin-bottom:6px;}
+.btn_size:hover{background:#464646;color:#F5F5F5;cursor:pointer}
+.btn_size50{width:48px;height:24px;float:left;border:1px solid #CBCBCB;background:#EBEBEB;font:normal 11px/90% calibri, Arial;color:#313131;margin-right:7px;margin-bottom:6px;}
+.btn_size50:hover{background:#464646;color:#F5F5F5;cursor:pointer}      
+.cat_size50{margin-right:10px;margin-bottom:8px}
+.btn_color40{width:20px;height:20px;border:1px solid #939393;}
+.btn_color40:hover{cursor:pointer;opacity:0.7;-moz-opacity:0.6;outline-style:double;}                   
+/*-------End here Filter Image---------*/
+/*-------------Start here On-hover index internal page---------------------*/
+/*.boxinternal{width:300px;margin:0;float:left;overflow:hidden;position:relative;}
+.boxinternal .right_inner_categorydetailsimagescss{position:absolute;top:0;left: 0;border: 0; }				
+.boxcaption_internal{float:left;position:absolute;padding:0 0 5px 0;width:300px;top:400px;clear:both;background:#FFF;opacity:0.9;filter: alpha(opacity=100);border-top:1px solid #EDEFED; */
+/* For IE 8 */	 }
+/*.hover_button{float:left;padding:10px 0 20px 12px;}
+ .hover_button em{color:#313131;font:13px/100% candara;text-transform:none;}
+ .hover_button .p_sze{float:left;margin:2px 0 5px 0;clear:both}*/
+ .cart_button{width:110px;height:26px;text-align:center;display:block;opacity:none;
+                               font:bold 12px/25px Arial, Helvetica;float:left;
+                               border:none;
+                               color:#F5F5F5;
+                               background:#F775AD;
+                               border-radius:3px;
+                -moz-border-radius:3px;
+                -webkit-border-radius:3px;
+                -o-border-radius:3px;}
+ /*.boxcaption_internal .cart_button:hover{cursor:pointer;background:#F168A4} */  
+ .cart_category{width:auto;padding:3px 10px 3px 10px;font-size:11px;margin-right:4px;}         
+ /*.boxcaption_internal span{float:left;}*/
+ .pnl_inventory{position:absolute;width:65px;height:20px;padding:2px 2px 3px 2px;background:#F775AD;color:#F5F5F5;top:2%;left:25%;text-align:center;
+                background:#F56EA9;
+                background: -moz-linear-gradient(#F56EA9,  #F15D9D);	
+	            background: -webkit-gradient(linear, left top, left bottom, left right, from(#F56EA9), to(#F15D9D));
+	            background: -webkit-linear-gradient(#F56EA9,  #F15D9D);
+	            background: -o-linear-gradient(#F56EA9,  #F15D9D);
+	            background: -ms-linear-gradient(#F56EA9,  #F15D9D);
+	            background: linear-gradient(#F56EA9,  #F15D9D);
+                box-shadow:0px 1px 7px #A1A1A1;
+                -moz-box-shadow:0px 1px 7px #A1A1A1;
+                -webkit-box-shadow:0px 1px 7px #A1A1A1;
+                }
+ .pnl_inventory .lbl_inventory{font:italic 14px/100% Georgia, Calibri, Arial;color:#F5F5F5;}              
+ .lnkbtn_addtowait{color:#F775AD;font:bold 13px/23px Calibri, Candara;float:right;margin-right:6px;}  
+ .lnkbtn_addtowait:hover{color:#313131;text-decoration:underline}          
+ /*-------------End here On-hover index internal page---------------------*/
+  /*-------------Start here Size Guide Popup---------------------*/
+.size_black{display:none;position: fixed;top: 0%;left: 0%;width: 100%;height: 100%;background-color:#000000;z-index:100002;-moz-opacity: 0.3;opacity:.30;filter: alpha(opacity=50);}
+.size_white {width:815px;height:500px; display:none;position:fixed;top: 6%;left: 20%;padding:5px 5px 5px 5px; z-index:100003;overflow: hidden;}
+#size_guide{width:790px;height:435px;float:left;padding:4px 4px 5px 5px;background:#fff;overflow: hidden; border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;box-shadow:2px 2px 8px #515151;-moz-box-shadow:2px 2px 8px #515151;-webkit-box-shadow:2px 2px 8px #515151;-o-box-shadow:2px 2px 8px #515151;}
+#size_guide .cancelpop{width:100%;float:right;}
+.size_top{width:740px;float:left;padding:10px;padding-top:0;}
+.size_top .p_head{width:100%;float:left;font:bold 21px/21px Calibri, Arial;color:#F775AD;text-align:center;padding-bottom:5px;letter-spacing:1px;}
+.size_top .lbl_size_wom{color:#464646}
+.size_top .lbl_size_prod{color:#727272}
+.size_inner{width:98%;float:left;border:1px solid #BDBDBD;margin-top:10px;padding:20px 10px 10px;}
+.size_top .size_inner .left{width:470px;float:left;}
+.size_top .size_inner .left .left_size{width:100%;float:left;padding-bottom:6px;}
+.size_top .size_inner .left .left_size .p_sizeonprod{width:120px;float:left;color:#313131;font:14px/17px Calibri, Arial;padding:5px 14px 0 0;text-transform:none;text-align:right}
+.size_top .size_inner .left .left_size .p_size{width:26px;padding:7px;float:left;text-align:center;border:1px solid #fff;border-top:0;color:#313131;font:normal 12px/100% Calibri, Arial;margin-right:10px;}
+.size_top .size_inner .left .left_size .p_none{box-shadow:1px 2px 5px #D5D5D5;-moz-box-shadow:1px 2px 5px #D5D5D5;-webkit-box-shadow:1px 2px 5px #D5D5D5;border:1px solid #D5D5D5;}
+.size_top .size_inner .right{width:200px;float:left;height:200px;text-align:right;}
+.size_top .size_inner .size_bottom{width:400px;float:left;margin-top:10px;}
+.size_top .size_inner h1{width:100%;float:left;padding:5px 0 5px 0;text-align:left}
+.size_top .size_inner .size_bottom .lbl_sizecon{color:#727272;font:normal 11px/80% Calibri, Arial; }
+ /*-------------End here Size Guide Popup----------------------*/
+     /*--------start here message box on index internal page------*/
+   #message_box{width:925px;float:left;clear:both;margin-top:20px;margin-left:25px;padding-right:7px;padding-top:7px; background:#FFF1F8;overflow: hidden;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;border:2px solid #FFCFE8; }
+  #message_box table {width:100%;}
+  .message_box_inner{padding-left:10px;padding-bottom:8px;}
+  #message_box .right {float:right}
+  .message_box_inner p{width:100%;text-align:left;font:italic 15px/15px Georgia, Calibri, candara;color:#F775AD;}
+  /*--------End here message box on index internal page------*/
+   /*--------start here message box on index Categories page------*/
+ #message_main_box{width:700px; height:500px;}
+  #message_box1{width:700px;float:left;clear:both;margin-top:20px;margin-left:25px;padding-right:7px;padding-top:7px; background:#FFF1F8;overflow: hidden;border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;
+                -o-border-radius:6px;border:2px solid #FFCFE8; }
+  #message_box1 table {width:100%;}
+  .message_box_inner1{padding-left:10px;padding-bottom:8px;}
+#message_box1 .right1 {float:right}
+.message_box_inner1 p{width:100%;text-align:left;font:italic 15px/15px Georgia, Calibri, candara;color:#F775AD;}
+.notfound{display:none}
+  
+  /*--------End here message box on index internal page------*/
+ .overflows {overflow:hidden}
+
+a.DepartmentUnselected {
+  line-height: 25px;
+  text-decoration: none;
+  color: Black;
+}
+a.DepartmentUnselected:hover {
+  text-decoration: underline;
+}
+a.DepartmentSelected {
+  line-height: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: Black;
+}
+/*.OutOfStock{width:48px;height:24px;float:left;border:1px solid #CBCBCB;background:#EBEBEB;font:normal 11px/90% calibri, Arial;color:#313131;margin-right:7px;margin-bottom:6px;}*/
+
+.a_coshsize{font:normal 13px/25px Calibri, Arial, Helvetica;color:#777777;text-decoration:line-through;}
+.strikethrough {
+  position: relative;
+}
+.strikethrough:before {
+  position: absolute;
+  content: "X";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  border-color: inherit;
+  color:Red;
+  font-size:x-large;
+}
+.loading
+    { 
+        border:none;
+        position:absolute;
+        background: url(../new-images/loader.gif) no-repeat center;
+        width:300px; height:350px;
+  }
+.loading img{ width:100%;}
+     
+   img  
+   {
+       color: black; 
+       text-align: center; 
+       font-size:11px 
+   }
+   .right_cont
+ {
+    float:right; width:930px; height:auto;padding:5px 13px 0px 5px;
+ }
+.select-style {
+  float:right;
+  margin-right:20px;
+ border:none;   
+    border-bottom:2px solid orange;
+    border-radius:5px;
+    min-width: 200px;
+    width: auto;
+    height:20px;
+    padding:2px;
+    overflow: hidden;
+
+}
+
+.select-style select {
+    padding: 3px 0px;
+    width: 100%;
+ border:none;  
+    box-shadow: none;
+    background-color: transparent;
+   background-image: none;
+    -webkit-appearance: orange;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-style select:hover {
+    outline:none;
+}.cross-price-head span
+{
+    padding-top:5px;
+    padding-left:0px
+}
+.cross-price-head
+{
+    min-width:200px; width:auto;
+    float:left;
+}
+.crossprice
+{
+    border:none
+}
+.offer{box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.36);
+transition: opacity 0.25s ease-in 0s;
+background: none repeat scroll 0% 0% #EF73A9;
+border-radius:3px 3px 3px 3px;
+position:absolute;
+z-index:1;
+top:95px;
+left:5px;
+font: italic 13px/25px Georgia,"Times New Roman",Times,serif;
+opacity: 10;
+color: #FAF9F7;
+padding:0px 7px 0px 7px;
+ min-width:70px; width:auto; height:25px
+}
+
+.right_inner_categorydetailsimagesdetails:hover span.hover-image { opacity: 1; filter: alpha(opacity = 100);}
+.right_inner_categorydetailsimagesdetails {
+    width:300px;
+    float: left;
+    
+}
+
+.right_inner_categorydetailsimagesdetails .hover-image {
+	display:block; 
+	width:100%;
+    position:absolute;
+    max-width:100%;
+    left:0;
+    top:0;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -webkit-transition:opacity 150ms ease;
+    -moz-transition:opacity 150ms ease;
+    -o-transition:opacity 150ms ease;
+    -ms-transition:opacity 150ms ease;
+    transition:opacity 150ms ease;
+}
+.wish-list{cursor:pointer; background:url(../new-images/bg-wishlist.png); margin:330px 0px 0px 250px; position:absolute; height:20px;width:20px;z-index:1000; }
+
+.wish-list:hover{background:url(../new-images/bg-wishlist.png) 50% 100%; cursor:pointer}
+.wish-list:visited{background:url(../new-images/bg-wishlist.png) 50% 100%; cursor:pointer}
+
+.quick-view{background:url(../new-images/icon_fancybox.png); margin:325px 0px 0px 220px; cursor:pointer;position:absolute; height:20px;width:20px;z-index:1000;}
+.quick-view:hover{background:url(../new-images/icon_fancybox.png); margin:325px 0px 0px 220px; cursor:pointer;position:absolute; height:20px;width:20px;z-index:1000;}
+.catcrumbs{width:900px; line-height:20px; color:navy; padding:5px; float:left}
+
+
+#crumbs {
+float:left;text-decoration: none;
+}
+#crumbs ul {
+list-style: none;
+display: inline-table;
+}
+#crumbs ul li {
+display: inline;height:20px;
+}
+#crumbs ul li a {
+display: block;
+float: left;
+height: 18px;
+background: #ECECEC;
+text-align: center;
+padding: 5px 15px 5px 15px;
+position: relative;
+margin: 0 15px 0 0; 
+font-size: 13px;
+color: #4A4A4A;
+}
+#crumbs ul li a:after {
+content: "";  
+border-top: 14px solid transparent;
+ border-bottom: 14px solid transparent;
+  border-left: 14px solid #ECECEC;
+position: absolute; right: -19px; top: 0;
+z-index: 1;
+width:5px;
+}
+/*
+#crumbs ul li a:before {
+content: "";  
+border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #d4f2ff;
+position: absolute; left: 10px; top: 0;
+}*/
+#crumbs ul li:first-child a {
+border-top-left-radius: 10px; border-bottom-left-radius: 10px;
+}
+#crumbs ul li:first-child a:before {
+display: none; 
+}
+#crumbs ul li:last-child a {
+padding-right: 16px;
+border-top-right-radius: 10px; border-bottom-right-radius: 10px;
+}
+#crumbs ul li:last-child a:after {
+display: none; 
+}
+#crumbs ul li a:hover {
+color: #F54E96;
+text-decoration:underline
+}
+#crumbs ul li a:hover:after
+{border-left-color: ;
+}
+/*#crumbs ul li a:link
+{background: #F775AD;
+}
+#crumbs ul li a:link:after {
+border-left-color: #F775AD;
+}
+*/
