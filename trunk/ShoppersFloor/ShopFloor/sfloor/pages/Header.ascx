@@ -15,6 +15,9 @@
         <!--[if lt IE 7]>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ie7.js'></script>
     <![endif]-->
+    
+ <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ajax_cart_super.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
     <!-- MENU -->
