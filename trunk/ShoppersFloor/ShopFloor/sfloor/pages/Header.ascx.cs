@@ -12,6 +12,10 @@ public partial class Header : System.Web.UI.UserControl
     public DataTable favDT = new DataTable();
     protected void Page_Load(object sender, EventArgs e)
     {
-        favDT = HomeService.getFavDT(Session.SessionID);
+        try
+        {
+            favDT = HomeService.getFavDT(Session.SessionID);
+        }
+        catch { }
     }
 }
