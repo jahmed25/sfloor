@@ -162,8 +162,8 @@ public partial class Categories : System.Web.UI.Page
     String removeAND(String baseStr)
     {
        
-            String first = Request.RawUrl.Split('/')[2].Replace(" ", "-").Replace("&", "").Replace("--", "-");
-            String sec = Request.RawUrl.Split('/')[3].Replace(" ", "-").Replace("&", "").Replace("--", "-");
+            String first = Request.RawUrl.Split('/')[1].Replace(" ", "-").Replace("&", "").Replace("--", "-");
+            String sec = Request.RawUrl.Split('/')[2].Replace(" ", "-").Replace("&", "").Replace("--", "-");
             baseStr = baseStr.Replace(" ", "-").Replace("&", "").Replace("--", "-");
 
 
