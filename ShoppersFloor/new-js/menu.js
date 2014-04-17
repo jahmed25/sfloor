@@ -15,9 +15,17 @@ app.controller('regCtrl', function ($scope, regService) {
 			regService.checkEmail($scope);
 		}
 	};
+    $scope.validateRegEmail = function () {
+		if (emailValidation($scope.user.email)) {
+			regService.checkRegEmail($scope);
+		}
+	};
+    
 	$scope.removeErro = function (name) {
 		try {
 			delete $scope.user.errors[name];
+			//delete $scope.user.errors.info;
+
 		} catch (e) { }
 	};
 	$scope.logout=function(){
@@ -90,5 +98,23 @@ app.service('regService', function ($http) {
 					});
 
 	};
+    this.checkRegEmail = function (scope) {
+		var param = {
+			action: 'checkRegEmail',
+			email: scope.user.email,
+		};
+		$.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
+					.success(function (msg) {
+						if (msg.errors != null) {
+							scope.$apply(function () {
+								scope.user.errors = msg.errors;
+							});
+						} else {
+							
+						}
+					});
+
+	};
+    
 	
 });
