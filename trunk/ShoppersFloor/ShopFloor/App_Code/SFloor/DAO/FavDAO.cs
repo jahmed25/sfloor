@@ -19,7 +19,7 @@ namespace SFloor.DAO
            DataTable dt = GenericDAO.getDataTable("select * from FAV_LIST where SESSION_ID='"+sessionID+"' and sku='"+sku+"'");
            if (CommonUtil.DT.isEmptyOrNull(dt))
            {
-               string query = "Insert into FAV_LIST (SKU,SESSION_ID) values('" + sku + "','" + sessionID + "')";
+               string query = "Insert into FAV_LIST (SKU,SESSION_ID,DATE) values('" + sku + "','" + sessionID + "',GETDATE())";
                count = GenericDAO.insertQuery(query);
            }
           return count;
@@ -27,7 +27,7 @@ namespace SFloor.DAO
        public static DataTable getFavDT(string sessionID)
        {
            DataTable dt = new DataTable();
-           string query = "Select * from FAV_LIST where SESSION_ID='"+sessionID+"'";
+           string query = "Select * from FAV_LIST where SESSION_ID='"+sessionID+"' order by DATE desc";
            dt = GenericDAO.getDataTable(query);
            return dt;
        }
