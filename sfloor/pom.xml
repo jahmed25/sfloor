@@ -13,6 +13,12 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
+	<repositories>
+	  	<repository>
+	  		<id>Java.Net</id>
+	  		<url>http://download.java.net/maven/2/</url>
+	  	</repository>
+ 	 </repositories>
 	<dependencies>
 		<!-- Spring -->
 		<dependency>
@@ -148,8 +154,16 @@
 		    <artifactId>cqengine</artifactId>
 		    <version>1.2.6</version>
 		</dependency>
-		 
-		           
+		 <dependency>
+		  <groupId>org.freemarker</groupId>
+		  <artifactId>freemarker</artifactId>
+		  <version>2.3.20</version>
+		</dependency>
+		 <dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.3</version>
+	    </dependency>       
 	  <!-- END custom  dependency-->
 	  
 	  
