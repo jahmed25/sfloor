@@ -25,6 +25,9 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "checkEmail":
                   checkMail();
                   break;
+            case "checkRegEmail":
+                  checkRegMail();
+                  break;
             case "logout":
                   logout();
                   break;
@@ -34,6 +37,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         }
     }
 
+    
     private void addFav()
     {
         Session.Remove(Constant.Session.FAV_LIST);
@@ -95,14 +99,46 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             string errorStr = ser.Serialize(errors);
             Response.Write(errorStr);
             Response.AddHeader("Content-Length", errorStr.Length.ToString());
-
         }
-        
         Response.ContentType = "application/json";
         Response.Flush();
         Response.Close();
-
     }
+    private void checkRegMail()
+    {
+        Errors errors = new Errors();
+        if (StringUtil.isNullOrEmpty(Request.Params["email"]))
+        {
+            errors.addError("email", "Email is required");
+        }
+        else if (!CommonUtil.isValidEmail(Request.Params["email"]))
+        {
+            errors.addError("email", "Email id is not valid");
+        }
+        if (errors.errors.Count == 0)
+        {
+            DataTable dt = AjaxService.getUser(Request.Params["email"]);
+            if (!CommonUtil.DT.isEmptyOrNull(dt))
+            {
+                errors.addError("email", "Oops!! Email is already registerd");
+            }
+            else
+            {
+                errors.addError("info", "Congrats!! Email id is available ");
+            }
+        }
+        if (errors.errors.Count > 0)
+        {
+            JavaScriptSerializer ser = new JavaScriptSerializer();
+            string errorStr = ser.Serialize(errors);
+            Response.Write(errorStr);
+            Response.AddHeader("Content-Length", errorStr.Length.ToString());
+        }
+        Response.ContentType = "application/json";
+        Response.Flush();
+        Response.Close();
+    }
+
 
     private void register()
     {
@@ -138,12 +174,10 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             string errorStr = ser.Serialize(errors);
             Response.Write(errorStr);
             Response.AddHeader("Content-Length", errorStr.Length.ToString());
-
         }
         Response.ContentType = "application/json";
         Response.Flush();
         Response.Close();
-
     }
 
     private Errors validateRegister(Dictionary<String, String> param)
