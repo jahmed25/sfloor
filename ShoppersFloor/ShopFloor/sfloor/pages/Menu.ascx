@@ -3,7 +3,8 @@
 <link href='<%=ConfigUtil.StaticPath() %>new-css/custommenu.css' rel="stylesheet" type="text/css" />
 <link href='<%=ConfigUtil.StaticPath() %>new-css/shoppersfloor.css' rel="stylesheet" type="text/css" media="all"/>
 <link href='<%=ConfigUtil.StaticPath() %>new-css/login-forms.css' rel="stylesheet" type="text/css" />
-
+ <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
  <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
     
 <style>
@@ -433,9 +434,10 @@
 					<td>Email ID:</td>
 					<td>
 						<label class="input">
-							<input type="email" name='email' placeholder="e.g. example@example.com" required  ng-model="user.email" ng-change="removeErro('email')">
+							<input type="email" name='email'  ng-keyup="validateRegEmail()" placeholder="e.g. example@example.com" required  ng-model="user.email" ng-change="removeErro('email')">
 							<p ng-show="regForm.email.$invalid && !regForm.email.$pristine">Email is not valid.</p>
 							<p ng-show="user.errors.email" class="help-block" id='errUsrEmail'> {{user.errors.email}}.</p>
+				            <p ng-show="user.errors.info" style="color:Green" id='P5'> {{user.errors.info}}.</p>
 						</label>
 					</td>
 				</tr>
