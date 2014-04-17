@@ -82,6 +82,7 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+		
 
 		<!-- @Inject -->
 		<dependency>
@@ -131,6 +132,7 @@
 			<artifactId>hibernate-search</artifactId>
 			<version>3.3.0.CR2</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -141,7 +143,13 @@
 			<artifactId>javassist</artifactId>
 			<version>3.9.0.GA</version>
 		</dependency>          
-		            
+		 <dependency>
+		    <groupId>com.googlecode.cqengine</groupId>
+		    <artifactId>cqengine</artifactId>
+		    <version>1.2.6</version>
+		</dependency>
+		 
+		           
 	  <!-- END custom  dependency-->
 	  
 	  
@@ -149,14 +157,21 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>3.0.6.RELEASE</version>
-		</dependency>        
+		</dependency> 
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>3.0.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+		       
 	</dependencies>
 	
 	
