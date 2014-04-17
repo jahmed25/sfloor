@@ -117,29 +117,30 @@ namespace SFloor.Services
            }
            else
            {
+
                dt1 = FavDAO.getFavDT(sessionId);
-               String str = "";
                if (!CommonUtil.DT.isEmptyOrNull(dt1))
                {
+                   DataTable dt = GenericService.getVewImageNewMasterDT();
+                   DataTable dummy = dt.Clone();
+                   dummy.Clear();
                    for (int i=0; i < dt1.Rows.Count; i++)
                    {
-                       str += dt1.Rows[i]["SKU"] + ",";
+                       IEnumerable<DataRow> query =
+                       from dr in dt.AsEnumerable()
+                       where dr.Field<String>("SKUCode") == dt1.Rows[i]["SKU"]+""
+                       select dr;
+                       try
+                       {
+                           dummy.ImportRow(query.CopyToDataTable<DataRow>().Rows[0]);
+                       }
+                       catch (InvalidOperationException e)
+                       {
+                           Logger.Error("Exception occur HomeService.getMenuDT()", e);
+                           dt1 = new DataTable();
+                       }
                    }
-                   DataTable dt = GenericService.getVewImageNewMasterDT();
-                   str = str.Substring(0, str.Length - 1);
-                   IEnumerable<DataRow> query =
-                   from dr in dt.AsEnumerable()
-                   where str.Contains(dr.Field<String>("SKUCode"))
-                   select dr;
-                   try
-                   {
-                       dt1= query.CopyToDataTable<DataRow>();
-                   }
-                   catch (InvalidOperationException e)
-                   {
-                       Logger.Error("Exception occur HomeService.getMenuDT()", e);
-                       dt1 = new DataTable();
-                   }
+                   dt1 = dummy;
                }
            }
            return dt1;
