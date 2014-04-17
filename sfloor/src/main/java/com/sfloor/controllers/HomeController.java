@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sfloor.entities.Page;
+import com.sfloor.services.EmailService;
 import com.sfloor.services.HomeService;
 
 /**
@@ -24,9 +25,9 @@ public class HomeController {
 	
 	@Autowired
 	private HomeService service;
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
+	
+	@Autowired
+	private EmailService emailService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -41,6 +42,7 @@ public class HomeController {
 		if(null !=pageList)
 			model.addAttribute("pages", pageList );
 		
+		emailService.sendEmail("ss");
 		return "home";
 	}
 	
