@@ -116,7 +116,7 @@ $(document).ready(function () {
 							 "</p>"+
 						"</div>";
 						}
-						$("#wishListDiv").append(div);
+		                $("#wishListDiv").prepend(div);
 						
 						var count =$("#favCount").text();
 						count=parseInt(count)+1;
