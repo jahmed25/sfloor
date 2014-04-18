@@ -1,7 +1,7 @@
-
+USE [Mega_DB]
 GO
 
-/****** Object:  Table [dbo].[FAV_LIST]    Script Date: 04/17/2014 19:38:26 ******/
+/****** Object:  Table [dbo].[FAV_LIST]    Script Date: 04/18/2014 20:19:24 ******/
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FAV_LIST]') AND type in (N'U'))
 DROP TABLE [dbo].[FAV_LIST]
 GO
@@ -9,7 +9,7 @@ GO
 USE [Mega_DB]
 GO
 
-/****** Object:  Table [dbo].[FAV_LIST]    Script Date: 04/17/2014 19:38:26 ******/
+/****** Object:  Table [dbo].[FAV_LIST]    Script Date: 04/18/2014 20:19:24 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -24,6 +24,7 @@ CREATE TABLE [dbo].[FAV_LIST](
 	[SESSION_ID] [varchar](100) NOT NULL,
 	[SKU] [varchar](100) NOT NULL,
 	[DATE] [datetime] NOT NULL,
+	[USER_ID] [int] NULL,
  CONSTRAINT [PK_FAV_LIST] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
