@@ -7,6 +7,10 @@ using MFO.Constants;
 using System.Data;
 using System.Web.Script.Serialization;
 using SFloor.DTO;
+using MFO.DAO;
+using SFloor.DAO.Generic;
+using MFO.services;
+using SFloor.DAO;
 
 public partial class sfloor_pages_AjaxService : System.Web.UI.Page
 {
@@ -34,6 +38,10 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "addFav":
                   addFav();
                   break;
+            case "addToCart":
+                  addToCart();
+                  break;
+                
         }
     }
 
@@ -42,7 +50,10 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
     {
         Session.Remove(Constant.Session.FAV_LIST);
         string sku =Request.Params["sku"];
-        Dictionary<string, string> dic = AjaxService.addFav(sku, Session.SessionID);
+        string userId = "";
+        if (Session[Constant.Session.LOGED_IN_USER_ID] != null)
+            userId = Session[Constant.Session.LOGED_IN_USER_ID] + "";
+        Dictionary<string, string> dic = AjaxService.addFav(sku, Session.SessionID,userId);
         if (dic.Count > 0)
         {
             JavaScriptSerializer ser = new JavaScriptSerializer();
@@ -242,6 +253,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
                         JavaScriptSerializer ser = new JavaScriptSerializer();
                         Dictionary<string, string> d = new Dictionary<string, string>();
                         d.Add("info", "success");
+                        updateCurrentCart();
                         string errorStr = ser.Serialize(d);
                         Response.Write(errorStr);
                         Response.AddHeader("Content-Length", errorStr.Length.ToString());
@@ -274,6 +286,12 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
 
     }
 
+    private void updateCurrentCart()
+    {
+        CartDAO.updateCart(Session[Constant.Session.LOGED_IN_USER_ID] + "",Session.SessionID);
+        FavDAO.updateFavList(Session[Constant.Session.LOGED_IN_USER_ID] + "",Session.SessionID);
+    }
+
     private Errors validateLogin()
     {
         Errors errors = new Errors();
@@ -295,5 +313,127 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             errors.addError("pwd", "Password length must be 8 to 20 character");
         }
         return errors;
+    }
+    protected void addToCart()
+    {
+        string qty = Request.QueryString["qty"];
+        string size = Request.QueryString["size"];
+        string color = Request.QueryString["color"];
+        string isSize = Request.QueryString["isSize"];
+        string isColor = Request.QueryString["isColor"];
+        string isSku = Request.QueryString["isSku"];
+        string style = Request.QueryString["sku"];
+        Session.Remove("sessExpire");
+        FrontViewProductDetailsDAO fvpd = new FrontViewProductDetailsDAO();
+        Session.Remove(Constant.Session.PRODUCT_COUNT);
+        DataTable dt = null;
+        if ("true".Equals(isColor) && "true".Equals(isSize))
+        {
+            if (StringUtil.isNullOrEmpty(color))
+            {
+                Response.Write("<error>please select the color<error>");
+                Response.Flush();
+                Response.Close();
+                return;
+            }
+            else if (StringUtil.isNullOrEmpty(size))
+            {
+                Response.Write("<error>please select the size<error>");
+                Response.Flush();
+                Response.Close();
+                return;
+            }
+            else
+            {
+                if ("true".Equals(isSku))
+                {
+                    dt = fvpd.getProdBySkuColorSize(style, color, size);
+                }
+                else
+                {
+                    dt = fvpd.getProdByStyleColorSize(style, color, size);
+                }
+            }
+        }
+        else if ("true".Equals(isColor))
+        {
+            if (StringUtil.isNullOrEmpty(color))
+            {
+                Response.Write("<error>please select the color<error>");
+                Response.Flush();
+                Response.Close();
+                return;
+            }
+            else
+            {
+                if ("true".Equals(isSku))
+                {
+                    dt = fvpd.getProdBySkuColor(style, color);
+                }
+                else
+                {
+                    dt = fvpd.getProdByStyleColor(style, color);
+                }
+            }
+        }
+        else if ("true".Equals(isSize))
+        {
+            if (StringUtil.isNullOrEmpty(size))
+            {
+                Response.Write("<error>please select the size<error>");
+                Response.Flush();
+                Response.Close();
+                return;
+            }
+            else
+            {
+                if ("true".Equals(isSku))
+                {
+                    dt = fvpd.getProdBySkuSize(style, size);
+                }
+                else
+                {
+                    dt = fvpd.getProdByStyleSize(style, size);
+                }
+            }
+        }
+        else
+        {
+            dt = GenericDAO.getDataTable("select * from View_ImageProductNew_Master where SKUCode='" + style + "'");
+        }
+        string skuCode = dt.Rows[0]["SKUCode"] + "";
+        DataTable dt1 = GenericDAO.getDataTable("select * from CART where SESSION_ID='" + Session.SessionID + "' and  SKU ='" + skuCode + "'");
+        if (!CommonUtil.DT.isEmptyOrNull(dt1))
+        {
+            int cartQuantity = Int32.Parse(dt1.Rows[0]["QTY"] as string);
+            int t = Convert.ToInt32(qty) + cartQuantity;
+            int u = Convert.ToInt32(dt1.Rows[0]["UNIT_PRICE"] as string);
+            int TotalPrice = t * u;
+            if (t <= 20)
+            {
+                GenericDAO.updateQuery("update   CART set QTY ='" + t + "', TOTALE='" + TotalPrice + "' where SESSION_ID='" + Session.SessionID + "' and SKU ='" + skuCode + "'");
+                Response.Write("success");
+                Response.Flush();
+                Response.Close();
+            }
+            else
+            {
+                Response.Write("<error>Item is More Than 20</error>");
+                Response.Flush();
+                Response.Close();
+            }
+        }
+        else
+        {
+            string userID="";
+            int price = Convert.ToInt32("" + dt.Rows[0]["SpecialPrice"]);
+            int Total = price * Int32.Parse(qty);
+            if (Session[Constant.Session.LOGED_IN_EMAIL] != null)
+                userID = Session[Constant.Session.LOGED_IN_EMAIL].ToString();
+            CartDAO.addToCart(Session.SessionID, qty, price.ToString(), Total.ToString(),dt.Rows[0]["SKUCode"]+"",userID);
+            Response.Write("success");
+            Response.Flush();
+            Response.Close();
+        }
     }
 }
