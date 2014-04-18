@@ -226,7 +226,40 @@ namespace SFloor.DAO.Generic
             }
             return value;
         }
+        public static int? updateQuery(String query, IDictionary<String, String> colDic)
+        {
+            int? count = null;
+            try
+            {
+                Logger.Info("START updateTable() query = " + query);
+                if (null != query && !"".Equals(query.Trim()))
+                {
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = query;
+                    addParmInCMD(cmd, colDic);
+                    count = cmd.ExecuteNonQuery();
+                    Logger.Info(count + " record(s) update ");
+                }
+                else
+                {
+                    Logger.Warning(" updateTable() query is empty ");
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Exception Occuer While Excecuting the query " + query, e);
+            }
+            finally
+            {
+                con.Close();
+                cmd.Parameters.Clear();
+                Logger.Info("END updateTable()");
+            }
+            return count;
 
+
+        }
 
         public static DataTable getDataTableByAndClause(String table, IDictionary<String, String> colDic)
         {
