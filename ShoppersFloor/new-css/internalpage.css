@@ -61,8 +61,7 @@
       -webkit-box-shadow:1px 2px 9px #CFCFCF;
       -o-box-shadow:1px 2px 9px #CFCFCF;}
 .right_inner_categorydetailsimages{height:20px;width:770px;float:left;margin-top:20px;}
-.right_inner_categorydetailsimagesdetails{width:300px;float:left; margin:10px;
-                                          }
+.right_inner_categorydetailsimagesdetails{width:300px;float:left; margin:10px;cursor:pointer }
 vzxvv{box-shadow:1px 2px 9px #CFCFCF;
       -moz-box-shadow:1px 2px 9px #CFCFCF;
       -webkit-box-shadow:1px 2px 9px #CFCFCF;
@@ -701,7 +700,6 @@ padding:0px 7px 0px 7px;
 .right_inner_categorydetailsimagesdetails {
     width:300px;
     float: left;
-    
 }
 
 .right_inner_categorydetailsimagesdetails .hover-image {
@@ -709,8 +707,6 @@ padding:0px 7px 0px 7px;
 	width:100%;
     position:absolute;
     max-width:100%;
-    left:0;
-    top:0;
     opacity: 0;
     filter: alpha(opacity = 0);
     -webkit-transition:opacity 150ms ease;
@@ -719,15 +715,107 @@ padding:0px 7px 0px 7px;
     -ms-transition:opacity 150ms ease;
     transition:opacity 150ms ease;
 }
-.wish-list{cursor:pointer; background:url(../new-images/bg-wishlist.png); margin:330px 0px 0px 250px; position:absolute; height:20px;width:20px;z-index:1000; }
+
+.right_inner_categorydetailsimagesdetails:hover .hover-image1 { opacity: 0.8; filter: alpha(opacity = 90);}
+
+.right_inner_categorydetailsimagesdetails .hover-image1{display:block; 
+    opacity: 0.2;
+	width:100px; height:40px;
+	position:absolute; margin-top:320px;
+    margin-left:200px; z-index:100;
+    background-color:orange;
+    -webkit-transition:opacity 150ms ease;
+    -moz-transition:opacity 150ms ease;
+    -o-transition:opacity 150ms ease;
+    -ms-transition:opacity 150ms ease;
+    transition:opacity 150ms ease;
+    
+} 
+.wish-list{cursor:pointer; background:url(../new-images/bg-wishlist.png); margin:330px 0px 0px 255px; position:absolute; height:20px;width:20px;z-index:1000; }
 
 .wish-list:hover{background:url(../new-images/bg-wishlist.png) 50% 100%; cursor:pointer}
-.wish-list:visited{background:url(../new-images/bg-wishlist.png) 50% 100%; cursor:pointer}
+.wish-list:active{background:url(../new-images/bg-wishlist.png) 50% 100%;}
 
 .quick-view{background:url(../new-images/icon_fancybox.png); margin:325px 0px 0px 220px; cursor:pointer;position:absolute; height:20px;width:20px;z-index:1000;}
 .quick-view:hover{background:url(../new-images/icon_fancybox.png); margin:325px 0px 0px 220px; cursor:pointer;position:absolute; height:20px;width:20px;z-index:1000;}
 .catcrumbs{width:900px; line-height:20px; color:navy; padding:5px; float:left}
+.wish-list,.quick-view  {
+  display: inline;
+}
+.wish-list span {
+  position: absolute;
+  width:100px;
+  color: #FFFFFF;
+  background: black;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
+.wish-list span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid black;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+.wish-list:hover span {
+  visibility: visible;
+  opacity: 0.9;
+  bottom: 38px;
+  left: 50%;
+  margin-left: -50px;
+  z-index: 999;
+}
 
+.quick-view span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid black;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+.quick-view span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 8px solid black;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+.quick-view:hover span {
+  visibility: visible;
+  opacity: 1;
+  bottom: 32px;
+  left: 50%;
+  margin-left: -46px;
+  z-index: 999;
+}
+.quick-view span {
+  position: absolute;
+  width:100px;
+  color: #FFFFFF;
+  background: black;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+}
 
 #crumbs {
 float:left;text-decoration: none;
