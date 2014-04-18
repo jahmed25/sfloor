@@ -107,7 +107,7 @@ $(document).ready(function () {
 							"<div class='main-cont'><p class='brand'>" + json.brand + "</p>" +
 							"<p class='empty'>" + json.name + "</p>" +
 							"<p class='subtotal'>" +
-							   "MRP <span class='pricecut'>Rs. " + json.mrp + "</span>" +
+							   "MRP <span class='pricecut'>Rs. " + json.mrp + "</span><br>" +
 							   "Actual Price <span class='price'>Rs. " + json.price + "</span>" +
 							 "</p></div>"  +
 						"</div>";
