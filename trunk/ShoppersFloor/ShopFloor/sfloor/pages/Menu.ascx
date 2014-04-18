@@ -26,16 +26,16 @@
     }
     .css-form input.ng-invalid.ng-dirty
     {
-        outline: 2PX SOLID #FA787E;
+        border: 2PX SOLID #FA787E;
     }
     
     .css-form input.ng-valid.ng-dirty
     {
-        outline: 2PX SOLID #78FA89;
+        border: 2PX SOLID #78FA89;
     }
-    .css-form p
+    .css-form .help-block
     {
-        color: #FA787E;
+        color: #FA787E; font-size:12px;
     }
 </style>
   <%--for mobile navigation view--%>
@@ -387,101 +387,60 @@
     </div>
 </div>
 </div>
-<div class="background_overlay" style="display: none;"></div>
-      <div  id="overlay_form"  class="sfloor-form" style="display:none;" ng-app='registration' ng-controller='regCtrl'>
-	    <div class="body-s">
-		     <a title="close" class="x" id="close" href="#" >x</a>					
-				<div class="login">
-				<div class="headtitle"><span>Login</span></div>
-                <form name='loginForm'>	
-                <p ng-show="login.errors.system" class="help-block" id='P2'> {{login.errors.system}}.</p>
-				            <table class="register">
-                                <tr>
-                                    <td>Username:</td>
-                                    <td>
-                                        <label class="input">
-                                            <input type="email" name='logEmail' ng-keyup="validateEmail()" placeholder="e.g. example@example.com" required  ng-model="login.email" ng-change="removelogErro('email')">
-							                <p ng-show="loginForm.logEmail.$invalid && !loginForm.logEmail.$pristine">Email is not valid.</p>
-							                <p ng-show="login.errors.email" class="help-block" id='P4'> {{login.errors.email}}.</p>
-							                <p ng-show="login.errors.info" style="color:Green" id='P3'> {{login.errors.info}}.</p>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Password:</td>
-                                    <td><label class="input">
-                                          <input type="Password" name='logPwd' placeholder="Password" required  ng-model="login.pwd" ng-minlength="8" ng-maxlength="20" ng-change="removelogErro('pwd')">
-                                          <p ng-show="loginForm.logPwd.$invalid && !loginForm.logPwd.$pristine" class="help-block">Password required length between 8 to 20</p>
-							              <p ng-show="login.errors.pwd" class="help-block" id='errlogPwd'> {{login.errors.pwd}}.</p>
-                                      </label></td>
-                                </tr>
-                        <tr><td></td><td style="" >
-                            <input type="button" value="Login" class="button" ng-click="login()" ng-disabled="loginForm.$invalid">
-                      </td></tr>
-                     </table>
-                        </form>
-                        </div>
-                        <div class="midline"></div>
-
-                      
-		<form name='regForm' class='css-form' ng-submit="register()">     
-		<div class="register">
-		<div class="headtitle"><span>Register</span></div>	
-		<p ng-show="user.errors.system" class="help-block" id='errSystem'>{{user.errors.system}}.</p>
-
-			<table class="register">
-				<tr>
-					<td>Email ID:</td>
-					<td>
-						<label class="input">
-							<input type="email" name='email'  ng-keyup="validateRegEmail()" placeholder="e.g. example@example.com" required  ng-model="user.email" ng-change="removeErro('email')">
-							<p ng-show="regForm.email.$invalid && !regForm.email.$pristine">Email is not valid.</p>
-							<p ng-show="user.errors.email" class="help-block" id='errUsrEmail'> {{user.errors.email}}.</p>
-				            <p ng-show="user.errors.info" style="color:Green" id='P5'> {{user.errors.info}}.</p>
-						</label>
-					</td>
-				</tr>
-				<tr>
-					<td>Password:</td>
-					<td><label class="input">
-							<input type="password" name='pwd' ng-change="removeErro('pwd')" placeholder="Password" required ng-model="user.pwd" ng-minlength="8" ng-maxlength="20">
-							<p ng-show="regForm.pwd.$invalid && !regForm.pwd.$pristine" class="help-block">Password required length between 8 to 20</p>
-							<p ng-show="user.errors.pwd" class="help-block" id='errPwd'> {{user.errors.pwd}}.</p>
-						</label></td>
-				</tr>
-                <tr>
-				  <td>Mobile:</td>
-					<td><label class="input"  >
-							<input type="text" name='mobile' ng-pattern="/[0-9]/" placeholder="Mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10">
-							<p ng-show="regForm.mobile.$invalid && !regForm.mobile.$pristine" class="help-block">Mobile no length should be 10 digit</p>
-							<p ng-show="user.errors.mobile" class="help-block" id='errMobile'> {{user.errors.mobile}}.</p>
-							
-						</label></td>
-				</tr>
-				<tr>
-					<td>Gender:
-					</td>
-					<td style="FLOAT:LEFT">
-						Male: <input type='radio' name='gender' value='Male' required ng-model="user.gender"/>
-						Female:<input type='radio' name='gender' value='Female' required ng-model="user.gender"//>
-	          		    <p ng-show="regForm.gender.$invalid && !regForm.gender.$pristine" class="help-block">Please select gender</p>
-					   	<p ng-show="user.errors.gender" class="help-block" id='P1'> {{user.errors.gender}}.</p>
-
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" style="text-align:left; padding:10px 0px 10px 100px" >
-						<input type="checkbox" name="checkbox" ng-model="user.newsLts">&nbsp;&nbsp;I want to receive news and special offers
-					</td><td></td>
-				</tr>
-				<tr><td></td><td style="margin:0 auto" >
-					
-						<input type="button" value="Signup" class="button" ng-click="register()" ng-disabled="regForm.$invalid">
-				 </td></tr>
-			</table>
-		</div>	
-	
+<div class="background_overlay" style="display: none;">
+</div>
+<section>
+<div  id="overlay_form" style="display:none;" class="loginregisterform" ng-app='registration' ng-controller='regCtrl'>
+<a title="close" class="x" id="close" href="#" >x</a>		
+<div class="loginform">
+<div class="headtitle"><span>Login</span></div>
+<form name='loginForm' class='css-form' >	
+<p ng-show="login.errors.system" class="help-block" id='P2'> {{login.errors.system}}.</p>
+<table>
+<tr><th>Username:</th><td> <input type="email" name='logEmail' ng-keyup="validateEmail()" placeholder="e.g. example@example.com" required  ng-model="login.email" 
+ng-change="removelogErro('email')">
+<p ng-show="loginForm.logEmail.$invalid && !loginForm.logEmail.$pristine" class="help-block">Email is not valid.</p>
+<p ng-show="login.errors.email" class="help-block" id='P4'> {{login.errors.email}}.</p>
+<p ng-show="login.errors.info" style="color:Green" id='P3'> {{login.errors.info}}.</p>
+</td></tr>
+<tr><th>Password:</th><td><input type="Password" name='logPwd' placeholder="Password" required  ng-model="login.pwd" ng-minlength="8" ng-maxlength="20" 
+ng-change="removelogErro('pwd')">
+<p ng-show="loginForm.logPwd.$invalid && !loginForm.logPwd.$pristine" class="help-block">Password required length between 8 to 20</p>
+<p ng-show="login.errors.pwd" class="help-block" id='errlogPwd'> {{login.errors.pwd}}.</p>
+</td></tr>
+<tr><th></th><td> <input type="button" value="Login" class="button" ng-click="login()" ng-disabled="loginForm.$invalid"></td></tr>
+</table>
 </form>
-</div>	</div>
-                             <div style="display: none;" id="back-top" class="hidden-phone"><a href="#" rel="tooltip" title="Top"></a>	</div>
+</div>
+<div class="midline"></div>
+<div class="registerform">
+<div class="headtitle"><span>Register</span></div>
+<form name='regForm' class='css-form' ng-submit="register()">     
+<p ng-show="user.errors.system" class="help-block" id='errSystem'>{{user.errors.system}}.</p>
+<table>
+<tr><th>Email ID:</th><td><input type="email" name='email'  ng-keyup="validateRegEmail()" placeholder="e.g. example@example.com" required  ng-model="user.email" ng-change="removeErro('email')">
+<p ng-show="regForm.email.$invalid && !regForm.email.$pristine" class="help-block">Email is not valid.</p>
+<p ng-show="user.errors.email" class="help-block" id='errUsrEmail'> {{user.errors.email}}.</p>
+<p ng-show="user.errors.info" style="color:Green" id='P5'> {{user.errors.info}}.</p>
+</td></tr>
+<tr><th>Password:</th><td><input type="password" name='pwd' ng-change="removeErro('pwd')" placeholder="Password" required ng-model="user.pwd" ng-minlength="8" ng-maxlength="20">
+<p ng-show="regForm.pwd.$invalid && !regForm.pwd.$pristine" class="help-block">Password required length between 8 to 20</p>
+<p ng-show="user.errors.pwd" class="help-block" id='errPwd'> {{user.errors.pwd}}.</p>
+</td></tr>
+<tr><th>Mobile:</th><td><input type="text" name='mobile' ng-pattern="/[0-9]/" placeholder="Mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10">
+<p ng-show="regForm.mobile.$invalid && !regForm.mobile.$pristine" class="help-block">Mobile no length should be 10 digit</p>
+<p ng-show="user.errors.mobile" class="help-block" id='errMobile'> {{user.errors.mobile}}.</p></td></tr>
+<tr><th>Gender:</th><td class="gender"><span>Male: </span><input type='radio' name='gender' value='Male' required ng-model="user.gender"/>
+<span>Female:</span><input type='radio' name='gender' value='Female' required ng-model="user.gender"/>
+<p ng-show="regForm.gender.$invalid && !regForm.gender.$pristine" class="help-block">Please select gender</p>
+<p ng-show="user.errors.gender" class="help-block" id='P1'> {{user.errors.gender}}.</p>
+</td></tr>
+<tr><td colspan="2" class="offer"><input type="checkbox" name="checkbox" ng-model="user.newsLts">&nbsp;&nbsp;I want to receive news and special offers</td></tr>
+<tr><th></th><td><input type="button" value="Signup" class="button" ng-click="register()" ng-disabled="regForm.$invalid"></td></tr>
+</table>
+</form>
+</div>
+</div>
+</section>
+<div style="display: none;" id="back-top" class="hidden-phone"><a href="#" rel="tooltip" title="Top"></a>	</div>
                         
