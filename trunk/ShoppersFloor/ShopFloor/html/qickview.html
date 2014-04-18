@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://friquemag.net/demos/etalage/?v=134#ex2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Qick view</title>
+		<link rel="stylesheet" href="css/etalage.css">
+		<script src="css/modernizr.custom.17475.js"></script>
+   		<script async="" src="css/ga.js"></script><script src="css/jquery.min(1).js"></script>
+        <script type="text/javascript" src="css/cloudzoom.js"></script>
+        <script type="text/javascript">
+            CloudZoom.quickStart();
+        </script> 
+		</head>
+	<body style="">
+<div class="quickview-content">
+		<div id="quick-details-image">
+
+	 <img class = "cloudzoom" src = "images/large/image1.jpg"
+             data-cloudzoom = "zoomImage: 'images/large/image1.jpg'" />
+        <br/>
+        <img class = 'cloudzoom-gallery' src = "images/thumbs/image1.jpg" data-cloudzoom = "useZoom: '.cloudzoom', image: 'images/small/image1.jpg', zoomImage: 'images/large/image1.jpg' " >
+        <img class = 'cloudzoom-gallery' src = "images/thumbs/image2.jpg" data-cloudzoom = "useZoom: '.cloudzoom', image: 'images/small/image2.jpg', zoomImage: 'images/large/image2.jpg' " >
+        <img class = 'cloudzoom-gallery' src = "images/thumbs/image3.jpg" data-cloudzoom = "useZoom: '.cloudzoom', image: 'images/small/image3.jpg', zoomImage: 'images/large/image3.jpg' " >         		</div>
+		<div id="description">
+
+		<h1>Product name</h1>
+			<div class="short-desc">Short desc--Etalage is a ready to use jQuery image zooming plugin to present your images in the highest detail without leaving the page.</div>
+
+			<div class="priceqty">
+			<div class="quick-price">
+			<div  class="discount"><span>Discount: </span><span>20% + 10%</span></div>
+			<div  class="oldprice"><span>Rs. </span><span class="cut">0000.00</span></div>
+			<div  class="rs"><span>Rs. </span><span>0000.00</span></div>
+			<div  class="avl"> <span>Availability:</span><span class="instock">In Stock</span></div>
+			</div>
+			<div class="addtocart_qty-quick">
+			<label for="qty">Quantity :</label>
+        <div class="qty-container">
+            <input type="text" name="qty" id="qty" value="1" title="Qty" class="input-text qty" >
+            <input type="button" title="decrease" value="-" class="qty-decrease" onClick="var qty_el = document.getElementById(&#39;qty&#39;); var qty = qty_el.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) qty_el.value--;return false;">
+            <input type="button" title="increase" value="+" class="qty-increase" onClick="var qty_el = document.getElementById(&#39;qty&#39;); var qty = qty_el.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 20 ) qty_el.value++;return false;">
+        </div>
+		
+		<div class=""><input type="button" title="add  to cart" value="BUY NOW" class="addtocartbtn">
+		</div>
+			</div>
+			</div>
+			
+			<div class="quick-size">Select Size:<ul><li><a></a></li><li><a></a></li><li><a></a></li></ul>
+			<a href="#">Size Chart</a>
+			</div>
+			<div class="quick-color">Also available in these colors:<ul><li><a></a></li><li><a></a></li><li><a></a></li></ul></div>
+			
+			<div class="wishlist-quick"><span><a href="#" title="add to wishlist">add to wishlist</a></span>
+			<span><a href="#" title="email to a friend">email to a friend</a></span>
+			<span><a href="#" title="share">share</a></span></div>
+			
+  </div>
+</div>
+</body></html>
