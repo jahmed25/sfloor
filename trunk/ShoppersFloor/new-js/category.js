@@ -100,16 +100,16 @@ $(document).ready(function () {
 					    if (msg == "Exist") {
 					        return;
 					    }
-					    var json = msg;// $.parseJSON(msg)
+					    var json =  $.parseJSON(msg)
 					    if (msg.length > 0) {
-					        var div = "<div>" +
-							"<a href='" + path + "?htm=" + json.sku + "'><img  src='" + serverPath + json.image + "' width='30px' height='30px'/>" +
-							"<p class='brand'>" + json.brand + "</p>" +
+					        var div = "<div class='wishlist-content'>" +
+							"<a  class='imglist' href='" + path + "?htm=" + json.sku + "'><img  src='" + serverPath + json.image + "' width='30px' height='30px'/>" +
+							"<div class='main-cont'><p class='brand'>" + json.brand + "</p>" +
 							"<p class='empty'>" + json.name + "</p>" +
 							"<p class='subtotal'>" +
-							   "MRP <span class='price'>Rs. " + json.mrp + "</span>" +
+							   "MRP <span class='pricecut'>Rs. " + json.mrp + "</span>" +
 							   "Actual Price <span class='price'>Rs. " + json.price + "</span>" +
-							 "</p>" +
+							 "</p></div>"  +
 						"</div>";
 					    }
 					    $("#wishListDiv").prepend(div);
