@@ -24,10 +24,11 @@ namespace SFloor.Services
         {
             return RegisterDAO.getUser(email);
         }
-        public static Dictionary<string, string> addFav(string sku, string sessionID)
+        public static Dictionary<string, string> addFav(string sku, string sessionID,string userID)
         {
             Dictionary<string, string> dic = new Dictionary<string, string>();
-            int count=FavDAO.addFav(sku, sessionID);
+            
+            int count=FavDAO.addFav(sku, sessionID,userID);
             if(count>0){
                  DataTable dt = GenericService.getVewImageNewMasterDT();
                 IEnumerable<DataRow> query =
