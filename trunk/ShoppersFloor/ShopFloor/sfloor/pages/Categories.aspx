@@ -153,17 +153,21 @@
         
         <asp:DataList ID="categories" runat="server" RepeatDirection="Horizontal" RepeatColumns="3" >
             <ItemTemplate>
+
                 <div class="right_inner_categorydetailsimagesdetails">
                   <div style="position:absolute; z-index:1;"><img id="soldout" runat="server"/></div>
-                 <div class="wishquick"> <em class="wish-list" title="Wish List"></em>
-                  <em class="quick-view" onclick="addFav('<%# Eval("SKUCode") %>')" title="Save for Later"  name='saveLater' sku='<%# Eval("SKUCode") %>'></em></div>
-                    <a  href='#' name='saveLater' sku='<%# Eval("SKUCode") %>'>fav</a>
+
+                 <div class="wishquick">
+                 <span class="hover-image1"></span> 
+                 <a class="wish-list" name='saveLater' sku='<%# Eval("SKUCode") %>'><span>Save for Later</span></a>
+                  <a class="quick-view" ><span>Quick View</span></a></div>
+                    <%--<a  href='#' name='saveLater' sku='<%# Eval("SKUCode") %>'>fav</a>--%>
                     <div class="boxgrid captionfull"
                         <a href="<%# Eval("link") %>">
                          
                             <div class="loading item">
                                 <img src="<%#ConfigUtil.getServerPath()+Eval("PathInternaldetailsSmallImage")%>"
-                                    alt="<%# Eval("SKUName") %>" class=" right_inner_categorydetailsimagescss" />
+                                    alt="<%# Eval("SKUName") %>" class="right_inner_categorydetailsimagescss" />
                            <%--      <span class="hover-image"><img src='http://admin.megafactoryoutlet.com/sfloor/new-images/sample-_12__2_1.jpg'></span>
                            --%> </div>
                         </a>
