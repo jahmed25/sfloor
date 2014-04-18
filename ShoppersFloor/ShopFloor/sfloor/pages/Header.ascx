@@ -120,23 +120,24 @@
                                                     <div class="top-cart-contain">
                                                         <div id="mini_cart_block">
                                                             <div class="icon-wishlist-big">
-                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span></span></a>
+                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span class="wlcount">  <b id='favCount'><%=favDT.Rows.Count%></b></span></a>
                                                             </div>
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
-                                                                <b id='favCount'><%=favDT.Rows.Count%></b>
-                                                                <span class="top-cart-title">Wishlist </span><span class="cart-arrow"></span>
+                                                              
+                                                                <span class="top-cart-title-wishlist">Wishlist </span><span class="cart-arrow"></span>
                                                                 <div style="display: none;" class="top-cart-content" id='wishListDiv'>
                                                                     <%for (int i = 0; i < favDT.Rows.Count; i++)
                                                                       { %>
-                                                                    <div>
-                                                                        <a href='<%=ConfigUtil.hostURL() %>?htm=<%=favDT.Rows[i]["SKUCode"]%>' title='<%=favDT.Rows[i]["SKUName"]%>'><img  src='<%=ConfigUtil.getServerPath() %><%=favDT.Rows[i]["PathInternaldetailsSmallImage"] %>' width='30px' height='30px'/></a>
+                                                                    <div class="wishlist-content">
+                                                                        <a class="imglist" href='<%=ConfigUtil.hostURL() %>?htm=<%=favDT.Rows[i]["SKUCode"]%>' title='<%=favDT.Rows[i]["SKUName"]%>'>
+                                                                        <img  src='<%=ConfigUtil.getServerPath() %><%=favDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
+                                                                        <div class="main-cont">
                                                                         <p class="brand"><%=favDT.Rows[i]["SKUBrand"]%></p>
                                                                         <p class="empty"><%=favDT.Rows[i]["SKUName"]%></p>
-                                                                        <p class="subtotal">
-                                                                           MRP <span class="price">Rs. <%=favDT.Rows[i]["MRP"]%></span>
+                                                                        <p class="subtotal">MRP <span class="pricecut">Rs.   <%=favDT.Rows[i]["MRP"]%></span><br />
                                                                            Actual Price <span class="price">Rs. <%=favDT.Rows[i]["SpecialPrice"]%></span>
-                                                                         </p>
+                                                                         </p></div>
                                                                     </div>
                                                                     <%} %>
                                                                     
@@ -151,7 +152,7 @@
                                                     <div class="top-cart-contain">
                                                         <div id="mini_cart_block">
                                                             <div class="icon-cart-big">
-                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span></span></a>
+                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span><span class="atccount"><b id=''>0</b></span></a></span></a>
                                                             </div>
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
