@@ -483,9 +483,9 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
     width:32px;
     height:32px;
 }
-#quick-details-image{  float:left; left:0; width:410px; overflow:visible }
+#quick-details-image{  float:left; left:0; width:400px; overflow:visible }
 
-.quickview-content{ background:#fff; line-height:22px; color:#444; width:800px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:44px 0 0px }
+.quickview-content{ background:#fff; line-height:22px; color:#444; width:800px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:14px 0 0px }
 #description .priceqty .quick-price{width:180px; float:left}
 #description .priceqty .quick-price .rs{ color:#181818; padding:3px 0px 3px 0px; text-transform:uppercase; font-weight:500; font-size:22px}
 #description .priceqty .quick-price .discount{ color:#E70325;font-weight:500;text-transform:uppercase;}
@@ -514,3 +514,4 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 #description .wishlist-quick span{ border-right:#818181 dotted 1px; padding:0px 10px 0px 10px;line-height:50px}
 #description .wishlist-quick span a{text-decoration:none; color:#818181}
 #description .wishlist-quick span a:hover{color:#FF8040; transition: all 0.3s ease-out 0s;}
+.closequick{float:right; color:Black; font-size:16px}
