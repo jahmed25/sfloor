@@ -27,7 +27,7 @@ namespace MFO.DAO
 
         public static System.Data.DataTable getRecentItemsByUserId(string userId, String ip)
         {
-            DataTable dt = GenericDAO.getDataTable("select top(4) PRODUCT_ID , RECENT_ITEMS_ID, DATE from VISIT_RECENT_ITEMS where USER_ID ='" + userId + "' or IP ='" + ip + "' ORDER BY DATE DESC");
+            DataTable dt = GenericDAO.getDataTable("select top(10) PRODUCT_ID , RECENT_ITEMS_ID, DATE from VISIT_RECENT_ITEMS where USER_ID ='" + userId + "' or IP ='" + ip + "' ORDER BY DATE DESC");
             return getProducts(dt);
         }
 
