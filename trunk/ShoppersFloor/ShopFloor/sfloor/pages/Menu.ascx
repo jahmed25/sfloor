@@ -21,7 +21,7 @@
         width: 100%;
         height: 100%;
         z-index: 100000;
-        background: white;
+        background: black;
         opacity: 0.9;
     }
     .css-form input.ng-invalid.ng-dirty
@@ -435,7 +435,7 @@ ng-change="removelogErro('pwd')">
 <p ng-show="regForm.gender.$invalid && !regForm.gender.$pristine" class="help-block">Please select gender</p>
 <p ng-show="user.errors.gender" class="help-block" id='P1'> {{user.errors.gender}}.</p>
 </td></tr>
-<tr><td colspan="2" class="offer"><input type="checkbox" name="checkbox" ng-model="user.newsLts">&nbsp;&nbsp;I want to receive news and special offers</td></tr>
+<tr><td colspan="2" class="offercheck"><input type="checkbox" name="checkbox" ng-model="user.newsLts">&nbsp;&nbsp;I want to receive news and special offers</td></tr>
 <tr><th></th><td><input type="button" value="Signup" class="button" ng-click="register()" ng-disabled="regForm.$invalid"></td></tr>
 </table>
 </form>
