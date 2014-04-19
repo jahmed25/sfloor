@@ -59,8 +59,6 @@
 		<div id="description">
 
 		<h1>Product name</h1>
-			<div class="short-desc">Short desc--Etalage is a ready to use jQuery image zooming plugin to present your images in the highest detail without leaving the page.</div>
-
 			<div class="priceqty">
 			<div class="quick-price">
 			<div  class="discount"><span>Discount: </span><span>20% + 10%</span></div>
