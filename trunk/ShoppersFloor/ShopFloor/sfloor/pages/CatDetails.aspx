@@ -153,7 +153,7 @@
                     <label for="tab-1">
                         FEATURES</label>
                     <div class="billcontent">
-                        <hgroup><h2><i>Details of&nbsp;</i><%=dt.Rows[0]["SKUName"] %></h2></hgroup>
+                        <hgroup><h2><i>Details of &nbsp;</i><%=dt.Rows[0]["SKUName"] %></h2></hgroup>
                         <p><%=dt.Rows[0]["SKULongDescription"]%></p>
                          <div class="tab-2_details">
                             <p><b>Brand :</b> <%=dt.Rows[0]["SKUBrand"]%></p>
@@ -178,7 +178,7 @@
                     <div class="billcontent">
                         <ul>
                            <li><a>We will leave no stone unturned in getting that curve back on your face.</a></li>
-                           <li><a>Whatever may be the reason, if you want to return your purchase, we will pick the product back from your doorstep, free of cost. dt.Rows[0]["ShippingReturns"]&nbsp;of receipt.</a></li>
+                           <li><a>Whatever may be the reason, if you want to return your purchase, we will pick the product back from your doorstep, free of cost. <%=dt.Rows[0]["ShippingReturns"]%>&nbsp;of receipt.</a></li>
                            <li><a>Please make sure it is not a USED product, should be in the original box and with all price tags attached as you got them.</a></li>
                            <li><a>To know more, please</a>&nbsp;<a class="a_faq" href="faq.aspx">Click here</a></li>
                         </ul>
