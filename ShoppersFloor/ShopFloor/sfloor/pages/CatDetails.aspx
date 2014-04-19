@@ -175,73 +175,26 @@
             <div class="relateditem">
                 <h2>
                     Related Product</h2>
-                <!-- Codrops top bar -->
-                <!-- Elastislide Carousel -->
                 <ul id="carousel" class="elastislide-list">
-                    <li><a href="#" class="">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/1.jpg" alt="image01" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/2.jpg" alt="image02" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span> </li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/3.jpg" alt="image03" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/4.jpg" alt="image04" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/5.jpg" alt="image05" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/6.jpg" alt="image06" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    
-               
+                <%for (int i = 0; i < relProductDT.Rows.Count;i++ ) {%>
+                    <li><a href="<%=ConfigUtil.hostURL() %>?htm=<%=relProductDT.Rows[i]["SKUCode"] %>" class="">
+                        <img src="<%=ConfigUtil.getServerPath() %><%=relProductDT.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /></a><br>
+                        <span><%=relProductDT.Rows[i]["SKUName"] %></span><br>
+                        <span>Rs.<%=relProductDT.Rows[i]["SpecialPrice"] %></span></li>
+                   <%} %>
                 </ul>
             </div>
             <div class="relateditem">
                 <h2>
                     Recent View</h2>
-                <!-- Codrops top bar -->
-                <!-- Elastislide Carousel -->
                 <ul id="carousel1" class="elastislide-list">
-                    <li><a href="#" class="">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/1.jpg" alt="image01" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/2.jpg" alt="image02" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span> </li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/3.jpg" alt="image03" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/4.jpg" alt="image04" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/5.jpg" alt="image05" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/6.jpg" alt="image06" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/7.jpg" alt="image07" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
-                    
-                </ul>
+                     <%for (int i = 0; i < recentProductTD.Rows.Count;i++ ) {%>
+                    <li><a href="<%=ConfigUtil.hostURL() %>?htm=<%=recentProductTD.Rows[i]["SKUCode"] %>" class="">
+                        <img src="<%=ConfigUtil.getServerPath() %><%=recentProductTD.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /></a><br>
+                        <span><%=recentProductTD.Rows[i]["SKUName"]%></span><br>
+                        <span>Rs.<%=recentProductTD.Rows[i]["SpecialPrice"]%></span></li>
+                   <%} %>                
+                   </ul>
             </div>
         </div>
         </div>
