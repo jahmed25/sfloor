@@ -178,9 +178,9 @@
                 <ul id="carousel" class="elastislide-list">
                 <%for (int i = 0; i < relProductDT.Rows.Count;i++ ) {%>
                     <li><a href="<%=ConfigUtil.hostURL() %>?htm=<%=relProductDT.Rows[i]["SKUCode"] %>" class="">
-                        <img src="<%=ConfigUtil.getServerPath() %><%=relProductDT.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /></a><br>
-                        <span><%=relProductDT.Rows[i]["SKUName"] %></span><br>
-                        <span>Rs.<%=relProductDT.Rows[i]["SpecialPrice"] %></span></li>
+                        <img src="<%=ConfigUtil.getServerPath() %><%=relProductDT.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /><br />
+                        <span><%=relProductDT.Rows[i]["SKUName"] %></span><br />
+                        <span>Rs.<%=relProductDT.Rows[i]["SpecialPrice"] %></span></a></li>
                    <%} %>
                 </ul>
             </div>
