@@ -51,5 +51,15 @@ namespace SFloor.Services
             return dic;
 
         }
+
+        public static void clearCart(string sessionId)
+        {
+            CartDAO.clearCart(sessionId);
+        }
+
+        public static void clearFav(string sessionId)
+        {
+            FavDAO.clearFav(sessionId);
+        }
     }
 }

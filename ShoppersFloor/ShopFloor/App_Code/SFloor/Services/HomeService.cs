@@ -140,10 +140,49 @@ namespace SFloor.Services
                            dt1 = new DataTable();
                        }
                    }
+                   HttpContext.Current.Session[Constant.Session.FAV_LIST] = dummy;
                    dt1 = dummy;
                }
            }
            return dt1;
+       }
+
+       public static DataTable getCartDT(string sessionId)
+       {
+          DataTable dt1 = new DataTable();
+           if (HttpContext.Current.Session[Constant.Session.CART_ITEMS] != null)
+           {
+               dt1= HttpContext.Current.Session[Constant.Session.CART_ITEMS] as DataTable;
+           }
+           else
+           {
+               dt1 = CartDAO.getCartDT(sessionId);
+               HttpContext.Current.Session[Constant.Session.CART_ITEMS] = dt1;
+           }
+           return dt1;
+       }
+       public static String getTotal()
+       {
+           String total = "";
+           if (HttpContext.Current.Session[Constant.Session.TOTAL] != null)
+           {
+               total = HttpContext.Current.Session[Constant.Session.TOTAL] as String;
+           }
+           else
+           {
+               int t = 0;
+               DataTable dt=HttpContext.Current.Session[Constant.Session.CART_ITEMS] as DataTable;
+               if(!CommonUtil.DT.isEmptyOrNull(dt))
+               {
+                   for (int i = 0; i < dt.Rows.Count; i++)
+                   {
+                       t += Int32.Parse(dt.Rows[i]["TOTAL"]+"");
+                   }
+                   total = t.ToString();
+                   HttpContext.Current.Session[Constant.Session.TOTAL] = total;
+               }
+           }
+           return total;
        }
     }
 }
