@@ -431,6 +431,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             dt = GenericDAO.getDataTable("select * from View_ImageProductNew_Master where SKUCode='" + style + "'");
         }
+
         string skuCode = dt.Rows[0]["SKUCode"] + "";
         DataTable dt1 = GenericDAO.getDataTable("select * from CART where SESSION_ID='" + Session.SessionID + "' and  SKU ='" + skuCode + "'");
         if (!CommonUtil.DT.isEmptyOrNull(dt1))
