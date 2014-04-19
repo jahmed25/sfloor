@@ -80,7 +80,7 @@
                 <%}else { %>
                     <p>Items is sold out, You can choose different size or color combination</p>
 
-                <%} %>>
+                <%} %>
             </div>
             <%if ("true".Equals(isSize))
               { %>
@@ -113,7 +113,7 @@
                  <%} %>   
                 </ul>
             </div>
-            <%} %>>
+            <%} %>
             <div class="wishlist">
                 <span><a href="#" title="add to wishlist">add to wishlist</a></span> <span><a href="#"
                     title="email to a friend">email to a friend</a></span> <span><a href="#" title="share">
