@@ -78,5 +78,25 @@ namespace SFloor.Services
             }
             return dt;
         }
+
+        public static DataTable getRelProductDT(string pType)
+        {
+            DataTable dt = GenericService.getVewImageNewMasterDT();
+            IEnumerable<DataRow> query =
+                from dr in dt.AsEnumerable()
+                where dr.Field<String>("SKUProductType") == pType
+                    && dr.Field<String>("StyleCode") == String.Empty
+                select dr;
+            try
+            {
+                dt =query.CopyToDataTable<DataRow>();
+            }
+            catch (InvalidOperationException e)
+            {
+                Logger.Error("Exception occur CatService.getRelProductDT()", e);
+                dt = new DataTable();
+            }
+            return dt;
+        }
     }
 }
