@@ -1,15 +1,16 @@
-*{font-family:Calibri}
-.categorypage-content{ background:#fff; line-height:22px; color:#444; width:1170px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:30px 0 0px }
+
+.categorypage-content{ background:#fff; line-height:22px; color:#444; width:1170px; text-align:left; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:30px 0 0px }
 #details-image{  float:left; left:0; width:450px; overflow:visible }
-#description{ overflow:hidden;}
-#description h1{ font-size:24px; text-transform:uppercase; font-weight:500; margin:0 0 5px; color:#555 }
-#description h2{ font-size:26px; margin:32px 0; line-height:22px; color:#555 }
+#description{ overflow:hidden; }
+#description h1{ font-size:22px; text-transform:uppercase; font-weight:500; padding-bottom:10px;margin:0 0 10px 0px; color:#555; border-bottom:dotted 1px #EAEAEA  }
+#description h2{ font-size:24px; margin:32px 0; line-height:22px; color:#555}
 #description h2.closer{ margin-bottom:10px }
 
+#description h4{ color:Maroon; font-weight:600; text-transform:uppercase}
 #description a{ text-decoration:none }
-#description hr{ border:0; margin:0; padding:0; color:#f6f6ef; clear:both; border-bottom:1px dashed #D5D5D5; margin-bottom:50px }
-#description .priceqty{height:110px; padding:10px 0px 10px 0px;   border-bottom:dotted 1px #D5D5D5}
-#description .priceqty .price{width:300px; float:left}
+#description hr{ border:0; margin:0; padding:0; color:#f6f6ef; clear:both; border-bottom:1px dotted #D5D5D5; margin-bottom:50px }
+#description .priceqty{height:140px; padding:10px 0px 10px 0px;border-bottom:dotted 1px #EAEAEA}
+#description .priceqty .price{width:300px; float:left; margin:5px 0px; padding-bottom:10px}
 #description .priceqty .price .rs{ color:#181818; padding:10px 0px 10px 0px; text-transform:uppercase; font-weight:500; font-size:22px}
 #description .priceqty .price .discount{ color:#E70325;font-weight:500;text-transform:uppercase;}
 #description .priceqty .price .oldprice{color:#ABABAB;text-transform:uppercase;padding-top:5px; }
@@ -17,6 +18,7 @@
 #description .priceqty .price .rs span{margin-right:5px;}
 #description .priceqty .price .avl{color:#707070; margin-right:5px;}
 #description .priceqty .price .avl .instock{margin-left:10px; color:#00AA55}
+
 #description .priceqty .addtocart_qty{background-color:#F3F3F3; border:#C0C0C0 solid 1px; width:300px; height:110px; float:left; text-align:center; line-height:35px}
 
 .qty-container {
@@ -87,7 +89,7 @@ background: -ms-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rg
 background: radial-gradient(ellipse at center, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
 }
-#description .wishlist{ height:50px; border-bottom:#EAEAEA dotted 1px;border-top:#EAEAEA dotted 1px; text-transform:uppercase; }
+#description .wishlist{ height:50px; border-bottom:#EAEAEA dotted 1px;border-top:#EAEAEA dotted 1px; text-align:left; text-transform:uppercase; }
 #description .wishlist span{ border-right:#818181 dotted 1px; padding:0px 20px 0px 20px;line-height:50px}
 #description .wishlist span a{text-decoration:none; color:#818181}
 #description .wishlist span a:hover{color:#FF8040; transition: all 0.3s ease-out 0s;}
@@ -106,26 +108,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
 	margin-top:20px;
     line-height: normal;
 }
-
 #description .short-desc{margin-top:10px; padding-bottom:15px; border-bottom:dotted 1px #D5D5D5}
-
-
-#description .size{margin:20px 0px 10px 0px;color:#727272}
-#description .size ul{list-style:none; position:absolute; top:250px; margin-left:50px}
-#description .size ul li{ width:30px; height:30px; border:1px solid black;display:inline-table;margin:5px;}
+#description .size{margin:20px 0px 10px 0px; text-align:left; color:#727272}
+#description .size ul{list-style:none; top:250px; margin-left:50px; position:absolute; top:270px; width:200px; left:500px}
+#description .size ul li{ border:1px solid black;padding:6px 10px; display:inline-table; margin:5px;}
 #description .size ul li:hover{border:1px solid #FF8040; cursor:pointer;transition: all 0.3s ease-out 0s;}
-#description .size ul li a{ text-decoration:none}
-#description .size a{ float:right; color:#6C6C6C; font-size:14px;}
+#description .size ul li a{ text-decoration:none; }
+#description .size a{ float:right; color:#6C6C6C; font-size:14px; }
 #description .size a:hover{color:#FF8000; cursor:pointer}
-
 #description .color{margin:40px 0px 30px 0px; color:#727272}
-#description .color ul{list-style:none; position:absolute; top:300px; margin-left:160px}
+#description .color ul{list-style:none; position:absolute; top:350px; margin-left:180px; width:auto}
 #description .color ul li{ width:35px; height:50px;border:1px solid black; display:inline-table; margin:5px;}
 #description .color ul li:hover{ border:1px solid #FF8040; cursor:pointer;  transition: all 0.3s ease-out 0s;}
 #description .color ul li a{ text-decoration:none}
+#description .color .avlcolor{margin-left:10px; color:Orange}
 
 
-#description-content{ margin-top:170px; margin-bottom:100px}
+#description-content{ margin-top:100px; margin-bottom:100px}
 #description .comment{ color:#f5dd72; font-style:italic }
 #description .list{ margin:35px 0 45px; border-collapse:collapse }
 #description .list th{ font-style:italic; font-weight:normal; text-align:left }
@@ -133,11 +132,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
 #description .list .option{ font-weight:bold }
 #description .list .default{ padding-right:0 }
 #description .list tr:hover td{ background:#fff }
-.buttonprev{	background-color:orange; opacity: 0.8;background:url(../large_files/fancybox_sprite.png) 0px 70px; opacity: 0.8; width:35px ;
+.buttonprev{	background-color:orange; opacity: 0.8;background:url(../new-images/fancybox_sprite.png) 0px 70px; opacity: 0.8; width:35px ;
  height:35px;
  cursor:pointer;border-radius:10px; position:absolute; bottom:100px; left:0px}
 .buttonnext{	background-color:orange;
-background:url(../large_files/fancybox_sprite.png) 0px 35px;
+background:url(../new-images/fancybox_sprite.png) 0px 35px;
 cursor:pointer;	opacity: 0.8; width:35px ; height:35px;
 	border-radius:10px;position:absolute;bottom:100px; right:-12px}
 
@@ -197,14 +196,14 @@ cursor:pointer;	opacity: 0.8; width:35px ; height:35px;
 
 /* Icon that will apear at the left bottom of the large thumbnail (optional): */
 #etalage .etalage_icon{
-	background: url(../images/zoom.png) no-repeat;
+	background: url(../new-images/zoom.png) no-repeat;
 	width: 14px;
 	height: 14px;
 }
 
 /* Hint that will apear at the top right of the large thumbnail (optional): */
 #etalage .etalage_hint{
-	background: url(../images/hint.gif) no-repeat;
+	background: url(../new-images/hint.gif) no-repeat;
 	width: 130px;
 	height: 57px;
 }
@@ -329,7 +328,7 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 
 .elastislide-wrapper nav span {
 	position: absolute;
-	background: #ddd url(../images/fancybox_sprite.png) no-repeat -2px -37px;
+	background: #ddd url(../new-images/fancybox_sprite.png) no-repeat -2px -37px;
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
@@ -385,12 +384,11 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
     }
     .billcontent {
       position: absolute;
-      top: 28px;
+      top: 36px;
       left: 0;
       background: white;
       right: 0;
      min-height:250px;
-	 
 	 height:auto;
 	  bottom: 0;
       padding: 20px;
@@ -400,14 +398,11 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
     }
     .billcontent > * {
       opacity: 0;
-      
       -webkit-transform: translate3d(0, 0, 0);
-    
       -webkit-transform: translateX(-100%);
       -moz-transform:    translateX(-100%);
       -ms-transform:     translateX(-100%);
       -o-transform:      translateX(-100%);
-      
       -webkit-transition: all 0.6s ease;
       -moz-transition:    all 0.6s ease;
       -ms-transition:     all 0.6s ease;
@@ -479,12 +474,12 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 
 /* A blank image */
 .cloudzoom-blank {
-    background-image:url(images/blank.png);
+    background-image:url(../new-images/blank.png);
 }
 
 /* The animated ajax loading image */
 .cloudzoom-ajax-loader {
-    background-image:url(images/loading.gif);
+    background-image:url(../new-images/loading.gif);
     width:32px;
     height:32px;
 }
