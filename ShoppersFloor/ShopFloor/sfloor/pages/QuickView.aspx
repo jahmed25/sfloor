@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <script type="text/javascript">
         CloudZoom.quickStart();
         </script>
@@ -12,7 +12,8 @@
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ga.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/cloudzoom.js'></script>
-    <link rel="stylesheet" type="text/css" href='http://localhost:16088/ShoppersFloor/new-css/etalage.css'/>
+    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/etalage.css'/>
+
 
     <script type="text/javascript">
         CloudZoom.quickStart();
@@ -50,39 +51,83 @@
 <div class="quickview-content">
 	<div id="quick-details-image">
 
-	 <img class = "cloudzoom" src = "images/large/image1.jpg"
-             data-cloudzoom = "zoomImage: 'images/large/image1.jpg'" />
-        <br/>
-        <img class = 'cloudzoom-gallery' src = "images/thumbs/image1.jpg" data-cloudzoom = "useZoom: '.cloudzoom', image: 'images/small/image1.jpg', zoomImage: 'images/large/image1.jpg' " >
-        <img class = 'cloudzoom-gallery' src = "images/thumbs/image2.jpg" data-cloudzoom = "useZoom: '.cloudzoom', image: 'images/small/image2.jpg', zoomImage: 'images/large/image2.jpg' " >
-        <img class = 'cloudzoom-gallery' src = "images/thumbs/image3.jpg" data-cloudzoom = "useZoom: '.cloudzoom', image: 'images/small/image3.jpg', zoomImage: 'images/large/image3.jpg' " >         		</div>
-		<div id="description">
+	 <%if (!MFO.Utils.StringUtil.isNullOrEmpty((dt.Rows[0]["PathInternaldetailsZoomImage"] + "")))
+              { %>
+                <img class="cloudzoom" src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathInternaldetailsZoomImage"] %>' data-cloudzoom="zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathInternaldetailsZoomImage"] %>'" /> <br />
+            <%} %>
 
-		<h1>Product name</h1>
+            <%if (!StringUtil.isNullOrEmpty(dt.Rows[0]["PathUpperInternaldetailsSmallImage"] + "")){ %>
+                <img class='cloudzoom-gallery' src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsSmallImage"] %>' data-cloudzoom="useZoom: '.cloudzoom', image: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsZoomImage"] %>', zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsZoomImage"] %>' ">
+            <%} %>
+
+            <%if (!StringUtil.isNullOrEmpty(dt.Rows[0]["PathLowerInternaldetailsSmallImage"] + "")) {%>
+                <img class='cloudzoom-gallery' src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathLowerInternaldetailsSmallImage"] %>' data-cloudzoom="useZoom: '.cloudzoom', image: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathLowerInternaldetailsZoomImage"] %>', zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathLowerInternaldetailsZoomImage"] %>' ">
+            <%} %>
+
+            <%if (!StringUtil.isNullOrEmpty(dt.Rows[0]["PathBackInternaldetailsSmallImage"] + "")) {%>
+                <img class='cloudzoom-gallery' src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathBackInternaldetailsSmallImage"] %>' data-cloudzoom="useZoom: '.cloudzoom', image: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathBackInternaldetailsZoomImage"] %>', zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathBackInternaldetailsZoomImage"] %>' ">
+            <%} %>
+
+		    <h1><%=(string)dt.Rows[0]["SKUName"] %></h1>
 			<div class="priceqty">
 			<div class="quick-price">
 			<div  class="discount"><span>Discount: </span><span>20% + 10%</span></div>
-			<div  class="oldprice"><span>Rs. </span><span class="cut">0000.00</span></div>
-			<div  class="rs"><span>Rs. </span><span>0000.00</span></div>
-			<div  class="avl"> <span>Availability:</span><span class="instock">In Stock</span></div>
+			<div  class="oldprice"><span>Rs. </span><span class="cut"><%=dt.Rows[0]["MRP"]+"" %></span></div>
+			<div  class="rs"><span>Rs. </span><span><%=dt.Rows[0]["SpecialPrice"]+""%></span></div>
+			<div  class="avl"> <span>Availability:</span><span class="instock"><%=avalibilty%></span></div>
+            <div  class="avl"><span>SKU:</span><span class="instock"><%=(string)dt.Rows[0]["SKUCode"]%></span></div>
+            </div>
 			</div>
+            <%if (inventory != null && inventory > 0)
+               {%>
 			<div class="addtocart_qty-quick">
 			<label for="qty">Quantity :</label>
         <div class="qty-container">
-            <input type="text" name="qty" id="qty" value="1" title="Qty" class="input-text qty" >
-            <input type="button" title="decrease" value="-" class="qty-decrease" onClick="var qty_el = document.getElementById(&#39;qty&#39;); var qty = qty_el.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) qty_el.value--;return false;">
-            <input type="button" title="increase" value="+" class="qty-increase" onClick="var qty_el = document.getElementById(&#39;qty&#39;); var qty = qty_el.value; if( !isNaN( qty ) &amp;&amp; qty &lt; 20 ) qty_el.value++;return false;">
+           <select id='dd_quantity'>
+                <%for (int i = 1; i <= inventory; i++){ %>
+                    <option value='<%=i %>'> <%=i %> </option>
+                <%} %>
+            </select>
         </div>
 		
-		<div class=""><input type="button" title="add  to cart" value="BUY NOW" class="addtocartbtn">
+		<div class=""><input type="button" onclick="addtoCart()" title="add  to cart" value="BUY NOW" class="addtocartbtn">
 		</div>
 			</div>
 			</div>
-			
-			<div class="quick-size">Select Size:<ul><li><a></a></li><li><a></a></li><li><a></a></li></ul>
+			<%}else { %>
+                    <p>Items is sold out, You can choose different size or color combination</p>
+
+                <%} %>
+
+            <%if ("true".Equals(isSize))
+              { %>
+			<div class="quick-size">Select Size:
+             <ul>
+                <%for (int i = 0; i < sizeDT.Rows.Count; i++)
+                  { %>
+                    <li namespace='sizeBtn' onclick="selectSize(this)" sku=''<%=sizeDT.Rows[i]["Size"] %>''><%=sizeDT.Rows[i]["Size"] %> </li>
+                 <%} %>   
+                </ul>
 			<a href="#">Size Chart</a>
 			</div>
-			<div class="quick-color">Also available in these colors:<ul><li><a></a></li><li><a></a></li><li><a></a></li></ul></div>
+            <%} %>  
+            <%if ("true".Equals(isColor)) {%> 
+			<div class="quick-color">
+            <div class="avl">
+               <span>Color:</span><span class="avlcolor"><%=(string)colorDT.Rows[0]["Color"]%></span></div>
+                Also available in these colors:
+              <ul>
+                   <%for (int i = 0; i < colorDT.Rows.Count; i++)
+                  { %>
+                    <li>
+                        <a href='<%=ConfigUtil.hostURL()%>?htm=<%=colorDT.Rows[i]["SKUCode"] %>'>  
+                            <img style='height:60px;width:50px;' src='<%=ConfigUtil.getServerPath()%><%=colorDT.Rows[i]["PathInternaldetailsSmallImage"] %>'/>
+                        </a>
+                    </li>
+                 <%} %>   
+                </ul>
+            </div>
+            <%} %>
 			
 			<div class="wishlist-quick"><span><a href="#" title="add to wishlist">add to wishlist</a></span>
 			<span><a href="#" title="email to a friend">email to a friend</a></span>
