@@ -39,6 +39,8 @@ public partial class sfloor_CatDetails : System.Web.UI.Page
     public int? inventory = 0;
 
     protected DataTable dt = new DataTable();
+    protected DataTable relProductDT = new DataTable();
+    protected DataTable recentProductTD = new DataTable();
     protected DataTable sizeDT = null;
     protected DataTable colorDT = null;
 
@@ -56,6 +58,8 @@ public partial class sfloor_CatDetails : System.Web.UI.Page
         {
             dt = CategoryDetailsService.getDTBySKU(style);
             fillproductdetails();
+            fillReatedProductType();
+            fillRecentView();
         }
 
     }
@@ -83,7 +87,7 @@ public partial class sfloor_CatDetails : System.Web.UI.Page
                 sizeDT = CatDetailsService.getSizeDT(style, false);
                 colorDT = CatDetailsService.getColorDT(dt.Rows[0]["SKUCode"] + "", false);
         }
-        if(!CommonUtil.DT.isEmptyOrNull(colorDT))
+        if (!CommonUtil.DT.isEmptyOrNull(colorDT))
             color = colorDT.Rows[0]["Color"] + "";
         isColor = CommonUtil.DT.isEmptyOrNull(colorDT) ? "false" : "true";
         isSku=StringUtil.isNullOrEmpty(dt.Rows[0]["StyleCode"] + "")?"false":"true";
@@ -100,5 +104,14 @@ public partial class sfloor_CatDetails : System.Web.UI.Page
         }
     }
 
+    public void fillReatedProductType() 
+    {
+        relProductDT = CatDetailsService.getRelProductDT(dt.Rows[0]["SKUProductType"]+"");
+    }
+    private void fillRecentView()
+    {
+        String userId = "" + Session["UserID"];
+        recentProductTD = RecentViewDAO.getRecentItemsByUserId(userId, CommonUtil.GetUser_IP());
 
+    }
 }
