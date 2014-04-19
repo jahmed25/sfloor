@@ -36,8 +36,22 @@ namespace SFloor.DAO
             IDictionary<string, string> colDic = new Dictionary<string, string>();
             colDic.Add("@SESSION_ID", sessionId);
             colDic.Add("@USER_ID", userId);
-            string query = "update CART set SESSION_ID=@SESSION_ID, USER_ID=@USER_ID)";
+            string query = "update CART set SESSION_ID=@SESSION_ID, USER_ID=@USER_ID";
             GenericDAO.updateQuery(query, colDic);
+        }
+        public static DataTable getCartDT(string sessionId)
+        {
+            DataTable dt = null;
+            string query = "SELECT v.PathInternaldetailsSmallImage,v.SKUName,v.SKUBrand,ID,SKU,SESSION_ID,QTY,TOTAL,UNIT_PRICE,USER_ID,DATE";
+            query += " FROM CART c join View_ImageProductNew_Master v on  c.SKU=v.SKUCode  where c.SESSION_ID='"+sessionId+"' order by c.DATE DESC";
+            dt = GenericDAO.getDataTable(query);
+            return dt;
+        }
+
+
+        internal static void clearCart(string sessionId)
+        {
+            GenericDAO.updateQuery("delete CART where SESSION_ID='"+sessionId+"'");
         }
     }
 }
