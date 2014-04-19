@@ -49,7 +49,8 @@ namespace MFO.Constants
             public const String LOGED_IN_EMAIL = "EmailID";
             public const String LOGED_IN_USER_ID = "UserID";
             public const String FAV_LIST = "FAV_LIST";
-
+            public const String CART_ITEMS = "CART_ITEMS";
+            public const String TOTAL = "TOTAL";
 
         }
         public static class ColumnValue
