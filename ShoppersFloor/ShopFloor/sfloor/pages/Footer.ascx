@@ -2,19 +2,6 @@
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
 
-<style>
-#overlay_form{
-	background:WHITE;
-	z-index:100000;
-	
-}
-.background_overlay { position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 100000; background:black; opacity: 0.7;}
-
-#pop{
-
-}
-</style>
-
 <div class="footer-static-container">
                     <div class="container">
                         <div class="contain-size">

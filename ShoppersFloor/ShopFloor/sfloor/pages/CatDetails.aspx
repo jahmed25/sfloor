@@ -3,7 +3,6 @@
     ViewStateEncryptionMode="Never" CodeFile="CatDetails.aspx.cs" Inherits="sfloor_CatDetails" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/layout.css' />
     <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/etalage.css'>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/modernizr.custom.17475.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ga.js'></script>
@@ -71,7 +70,7 @@
                     <div class="qty-container">
                        <select id='dd_quantity'>
                         <%for (int i = 1; i <= inventory; i++){ %>
-                            <option value='<%=i %>'><%=i %></option>
+                            <option value='<%=i %>'> <%=i %> </option>
                         <%} %>
                        </select>
                     </div>
@@ -100,7 +99,7 @@
             <%if ("true".Equals(isColor)) {%> 
             <div class="color">
               <div class="avl">
-               <span>Color:</span><span class="instock"><%=(string)colorDT.Rows[0]["Color"]%></span></div>
+               <span>Color:</span><span class="avlcolor"><%=(string)colorDT.Rows[0]["Color"]%></span></div>
   
                 Also available in these colors:
                 <ul>
@@ -203,10 +202,7 @@
                         <img src="<%=ConfigUtil.StaticPath() %>new-images/large/6.jpg" alt="image06" /></a><br>
                         <span>Name</span><br>
                         <span>Rs</span></li>
-                    <li><a href="#">
-                        <img src="<%=ConfigUtil.StaticPath() %>new-images/large/7.jpg" alt="image07" /></a><br>
-                        <span>Name</span><br>
-                        <span>Rs</span></li>
+                    
                
                 </ul>
             </div>

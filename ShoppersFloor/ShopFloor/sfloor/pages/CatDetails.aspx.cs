@@ -83,7 +83,8 @@ public partial class sfloor_CatDetails : System.Web.UI.Page
                 sizeDT = CatDetailsService.getSizeDT(style, false);
                 colorDT = CatDetailsService.getColorDT(dt.Rows[0]["SKUCode"] + "", false);
         }
-        color = colorDT.Rows[0]["Color"] + "";
+        if(!CommonUtil.DT.isEmptyOrNull(colorDT))
+            color = colorDT.Rows[0]["Color"] + "";
         isColor = CommonUtil.DT.isEmptyOrNull(colorDT) ? "false" : "true";
         isSku=StringUtil.isNullOrEmpty(dt.Rows[0]["StyleCode"] + "")?"false":"true";
         if (StringUtil.isNullOrEmpty(dt.Rows[0]["Inventory"] + ""))
