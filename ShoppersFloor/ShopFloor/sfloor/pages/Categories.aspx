@@ -177,7 +177,7 @@
                  <div class="wishquick">
                  <span class="hover-image1"></span> 
                  <a class="wish-list" name='saveLater' sku='<%# Eval("SKUCode") %>'><span>Save for Later</span></a>
-                  <a class="quick-view" pop ><span>Quick View</span></a></div>
+                  <a class="quick-view" pop='<%# Eval("SKUCode") %>' ><span>Quick View</span></a></div>
                     <%--<a  href='#' name='saveLater' sku='<%# Eval("SKUCode") %>'>fav</a>--%>
                     <div class="boxgrid captionfull"
                         <a href="<%# Eval("link") %>">
@@ -247,7 +247,7 @@
 <div  id="overlay_form_quick"  style="display:none;">
 <a title="close" class="closequick" id="closequickview" href="#">x</a>	
 <div style="margin: 0 auto; width:800px; height:650px;dispaly:none;  overflow:hidden">
-<object type="text/html" data="<%=ConfigUtil.hostURL() %>sfloor/pages/quickview.aspx" style="width:800px; overflow:hidden;height:670px; margin:1%;"></object></div> 
+<object type="text/html" id='quickViewObj' style="width:800px; overflow:hidden;height:670px; margin:1%;"></object></div> 
 </div>
 
 </section>
