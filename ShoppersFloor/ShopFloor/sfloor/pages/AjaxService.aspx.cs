@@ -41,8 +41,26 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "addToCart":
                   addToCart();
                   break;
+            case "clearCart":
+                  clearCart();
+                  break;
+            case "clearFav":
+                  clearFav();
+                  break;
                 
         }
+    }
+
+    private void clearCart()
+    {
+        AjaxService.clearCart(Session.SessionID);
+        Session.Remove(Constant.Session.CART_ITEMS);
+        Session.Remove(Constant.Session.TOTAL);
+    }
+    private void clearFav()
+    {
+        AjaxService.clearFav(Session.SessionID);
+        Session.Remove(Constant.Session.FAV_LIST);
     }
 
     
@@ -253,7 +271,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
                         JavaScriptSerializer ser = new JavaScriptSerializer();
                         Dictionary<string, string> d = new Dictionary<string, string>();
                         d.Add("info", "success");
-                        updateCurrentCart();
+                        updateSessionIdInTable();
                         string errorStr = ser.Serialize(d);
                         Response.Write(errorStr);
                         Response.AddHeader("Content-Length", errorStr.Length.ToString());
@@ -286,11 +304,15 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
 
     }
 
-    private void updateCurrentCart()
+    private void updateSessionIdInTable()
     {
         CartDAO.updateCart(Session[Constant.Session.LOGED_IN_USER_ID] + "",Session.SessionID);
         FavDAO.updateFavList(Session[Constant.Session.LOGED_IN_USER_ID] + "",Session.SessionID);
+        Session.Remove(Constant.Session.CART_ITEMS);
+        Session.Remove(Constant.Session.FAV_LIST);
+        Session.Remove(Constant.Session.TOTAL);
     }
+
 
     private Errors validateLogin()
     {
@@ -331,14 +353,18 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             if (StringUtil.isNullOrEmpty(color))
             {
-                Response.Write("<error>please select the color<error>");
+                string msg = "<error>please select the color<error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
                 Response.Close();
                 return;
             }
             else if (StringUtil.isNullOrEmpty(size))
             {
-                Response.Write("<error>please select the size<error>");
+                string msg = "<error>please select the size<error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
                 Response.Close();
                 return;
@@ -359,7 +385,9 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             if (StringUtil.isNullOrEmpty(color))
             {
-                Response.Write("<error>please select the color<error>");
+                string msg = "<error>please select the color<error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
                 Response.Close();
                 return;
@@ -380,7 +408,9 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             if (StringUtil.isNullOrEmpty(size))
             {
-                Response.Write("<error>please select the size<error>");
+                string msg = "<error>please select the size<error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
                 Response.Close();
                 return;
@@ -405,35 +435,69 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         DataTable dt1 = GenericDAO.getDataTable("select * from CART where SESSION_ID='" + Session.SessionID + "' and  SKU ='" + skuCode + "'");
         if (!CommonUtil.DT.isEmptyOrNull(dt1))
         {
-            int cartQuantity = Int32.Parse(dt1.Rows[0]["QTY"] as string);
+            int cartQuantity = Int32.Parse(dt1.Rows[0]["QTY"]+"");
             int t = Convert.ToInt32(qty) + cartQuantity;
-            int u = Convert.ToInt32(dt1.Rows[0]["UNIT_PRICE"] as string);
+            int u = Convert.ToInt32(dt1.Rows[0]["UNIT_PRICE"]+"");
             int TotalPrice = t * u;
             if (t <= 20)
             {
-                GenericDAO.updateQuery("update   CART set QTY ='" + t + "', TOTALE='" + TotalPrice + "' where SESSION_ID='" + Session.SessionID + "' and SKU ='" + skuCode + "'");
-                Response.Write("success");
+                GenericDAO.updateQuery("update   CART set QTY ='" + t + "', TOTAL='" + TotalPrice + "' where SESSION_ID='" + Session.SessionID + "' and SKU ='" + skuCode + "'");
+                Session.Remove(Constant.Session.CART_ITEMS);
+                Session.Remove(Constant.Session.TOTAL);
+                
+                string msg = "success";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
                 Response.Close();
             }
             else
             {
-                Response.Write("<error>Item is More Than 20</error>");
+
+                string msg = "<error>Item is More Than 20</error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
                 Response.Close();
             }
         }
         else
         {
-            string userID="";
-            int price = Convert.ToInt32("" + dt.Rows[0]["SpecialPrice"]);
-            int Total = price * Int32.Parse(qty);
-            if (Session[Constant.Session.LOGED_IN_EMAIL] != null)
-                userID = Session[Constant.Session.LOGED_IN_EMAIL].ToString();
-            CartDAO.addToCart(Session.SessionID, qty, price.ToString(), Total.ToString(),dt.Rows[0]["SKUCode"]+"",userID);
-            Response.Write("success");
-            Response.Flush();
-            Response.Close();
+            int inventory = 0;
+            if (StringUtil.isNullOrEmpty(dt.Rows[0]["Inventory"] + ""))
+                inventory = 0;
+            else
+                inventory = (int)float.Parse(dt.Rows[0]["Inventory"] as String);
+            if (inventory == 0) {
+                string msg = "<error>Product is Sold Out!!</error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
+                Response.Flush();
+                Response.Close();
+            }
+            else if (inventory < Int32.Parse(qty))
+            {
+                string msg = "<error>Only " + inventory + " Product(s) are left in inventory!!</error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
+                Response.Flush();
+                Response.Close();
+            }
+            else
+            {
+                string userID = "";
+                int price = Convert.ToInt32("" + dt.Rows[0]["SpecialPrice"]);
+                int Total = price * Int32.Parse(qty);
+                if (Session[Constant.Session.LOGED_IN_EMAIL] != null)
+                    userID = Session[Constant.Session.LOGED_IN_EMAIL].ToString();
+                CartDAO.addToCart(Session.SessionID, qty, price.ToString(), Total.ToString(), dt.Rows[0]["SKUCode"] + "", userID);
+                Session.Remove(Constant.Session.CART_ITEMS);
+                Session.Remove(Constant.Session.TOTAL);
+                Response.Write("success");
+                Response.AddHeader("Content-Length", "success".Length.ToString());
+                Response.Flush();
+                Response.Close();
+            }
         }
     }
 }
