@@ -26,9 +26,10 @@ function positionPopup() {
     });
 }
 
- $(document).ready(function () {
+$(document).ready(function () {
     //open popup
-    $("[pop]").click(function () {
+    $("a[pop]").click(function () {
+        $('#quickViewObj').attr("data", path + "sfloor/pages/QuickView.aspx?sku=" + $(this).attr('pop'));
         $("#overlay_form_quick").fadeIn(1000);
         $(".background_overlay_quick").fadeIn(500);
         positionPopupQuick();
