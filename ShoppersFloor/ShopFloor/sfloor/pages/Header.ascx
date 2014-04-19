@@ -15,11 +15,29 @@
         <!--[if lt IE 7]>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ie7.js'></script>
     <![endif]-->
-    
+   
  <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ajax_cart_super.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
+     <script type="text/javascript">
+         function clearCart() {
+             $.ajax({ method: 'POST', url: path + "sfloor/pages/AjaxService.aspx?action=clearCart" })
+					.success(function (msg) {
+					    $("#cartDiv").html("<p style='color:red'>Your Cart Is Empty</p>")
+					    $("#cCount").text("0");
+
+					});
+	    }
+	    function clearFav() {
+	        $.ajax({ method: 'POST', url: path + "sfloor/pages/AjaxService.aspx?action=clearFav" })
+					.success(function (msg) {
+					    $("#wishListDiv").html("<p style='color:red'>Your Wish List Is Empty</p>")
+					    $("#favCount").text("0");
+
+					});
+        }
+    </script>
     <!-- MENU -->
   <div class="header-wrapper" ng-app='registration' ng-controller='regCtrl'>
                 <div class="header-container">
@@ -127,6 +145,10 @@
                                                               
                                                                 <span class="top-cart-title-wishlist">Wishlist </span><span class="cart-arrow"></span>
                                                                 <div style="display: none;" class="top-cart-content" id='wishListDiv'>
+                                                                <%if(favDT.Rows.Count>0){ %>
+                                                                <a href="<%=ConfigUtil.hostURL() %>FavList" style='color:blue'>View ALL</a> 
+                                                                <a href="#" style="float:right;color:red" onclick="clearFav()">Clear All</a>
+                                                                <div id='wishContent'>
                                                                     <%for (int i = 0; i < favDT.Rows.Count; i++)
                                                                       { %>
                                                                     <div class="wishlist-content">
@@ -140,7 +162,10 @@
                                                                          </p></div>
                                                                     </div>
                                                                     <%} %>
-                                                                    
+                                                                    </div>
+                                                                  <%}else {%>
+                                                                        <p style='color:Red'>Your WishList Is Empty</p>
+                                                                    <%} %>
                                                                 </div>
 
                                                             </div>
@@ -152,17 +177,39 @@
                                                     <div class="top-cart-contain">
                                                         <div id="mini_cart_block">
                                                             <div class="icon-cart-big">
-                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span><span class="atccount"><b id=''>0</b></span></a></span></a>
+                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span><span class="atccount"><b id='cCount'><%=cartDT.Rows.Count%></b></span></a></span></a>
                                                             </div>
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
                                                                 <span class="top-cart-title">My Cart </span><span class="cart-arrow"></span>
-                                                                <div style="display: none;" class="top-cart-content">
-                                                                    <p class="empty">
-                                                                        You have no items in your shopping cart.</p>
-                                                                    <div class="subtotal">
-                                                                        Subtotal: <span class="price">Rs. 0.00</span></div>
+                                                                <div style="display: none;" class="top-cart-content" id='cartDiv'>
+                                                                    <%if (cartDT.Rows.Count > 0)
+                                                                      { %>
+
+                                                                    Total :<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a  style='color:blue' href="<%=ConfigUtil.hostURL() %>Checkout">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
+                                                                    <%for (int i = 0; i < cartDT.Rows.Count; i++)
+                                                                      { %>
+                                                                    <div class="wishlist-content">
+                                                                        <a class="imglist" href='<%=ConfigUtil.hostURL() %>Add-To-Cart' title='<%=cartDT.Rows[i]["SKUName"]%>'>
+                                                                        <img  src='<%=ConfigUtil.getServerPath() %><%=cartDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
+                                                                        <div class="main-cont">
+                                                                        <p class="brand"><%=cartDT.Rows[i]["SKUBrand"]%></p>
+                                                                        <p class="empty"><%=cartDT.Rows[i]["SKUName"]%></p>
+                                                                        <p class="subtotal">
+                                                                           SKU : <span class="price">Rs.   <%=cartDT.Rows[i]["SKU"]%></span><br />
+                                                                           Unit Price <span class="price">Rs.   <%=cartDT.Rows[i]["UNIT_PRICE"]%></span><br />
+                                                                           Quantity <span class="price">  <%=cartDT.Rows[i]["QTY"]%></span><br />
+                                                                           Sub Total <span class="price">Rs. <%=cartDT.Rows[i]["TOTAL"]%></span>
+                                                                         </p></div>
+                                                                    </div>
+                                                                    <%} %>
+                                                                    <%}else{ %>
+                                                                    <div class="wishlist-content">
+                                                                       <span class="price">  Your Cart is Empty</span>
+                                                                    </div>
+                                                                    <%} %>
                                                                 </div>
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
