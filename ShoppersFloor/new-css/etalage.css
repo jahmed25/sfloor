@@ -1,7 +1,7 @@
 
 .categorypage-content{ background:#fff; line-height:22px; color:#444; width:1170px; text-align:left; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:30px 0 0px }
 #details-image{  float:left; left:0; width:450px; overflow:visible }
-#description{ overflow:hidden; }
+#description{ overflow:hidden; min-height:610px;height:auto; }
 #description h1{ font-size:22px; text-transform:uppercase; font-weight:500; padding-bottom:10px;margin:0 0 10px 0px; color:#555; border-bottom:dotted 1px #EAEAEA  }
 #description h2{ font-size:24px; margin:32px 0; line-height:22px; color:#555}
 #description h2.closer{ margin-bottom:10px }
@@ -9,8 +9,9 @@
 #description h4{ color:Maroon; font-weight:600; text-transform:uppercase}
 #description a{ text-decoration:none }
 #description hr{ border:0; margin:0; padding:0; color:#f6f6ef; clear:both; border-bottom:1px dotted #D5D5D5; margin-bottom:50px }
+#description .pricesection{width:300px}
 #description .priceqty{height:140px; padding:10px 0px 10px 0px;border-bottom:dotted 1px #EAEAEA}
-#description .priceqty .price{width:300px; float:left; margin:5px 0px; padding-bottom:10px}
+#description .priceqty .price{width:300px; float:left; margin:5px 0px;}
 #description .priceqty .price .rs{ color:#181818; padding:10px 0px 10px 0px; text-transform:uppercase; font-weight:500; font-size:22px}
 #description .priceqty .price .discount{ color:#E70325;font-weight:500;text-transform:uppercase;}
 #description .priceqty .price .oldprice{color:#ABABAB;text-transform:uppercase;padding-top:5px; }
@@ -90,7 +91,7 @@ background: radial-gradient(ellipse at center, rgba(255,175,75,1) 0%, rgba(255,1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
 }
 #description .wishlist{ height:50px; border-bottom:#EAEAEA dotted 1px;border-top:#EAEAEA dotted 1px; text-align:left; text-transform:uppercase; }
-#description .wishlist span{ border-right:#818181 dotted 1px; padding:0px 20px 0px 20px;line-height:50px}
+#description .wishlist span{ border-right:#818181 dotted 1px; padding:0px 20px 0px 20px;line-height:50px; }
 #description .wishlist span a{text-decoration:none; color:#818181}
 #description .wishlist span a:hover{color:#FF8040; transition: all 0.3s ease-out 0s;}
 #description .policy{height:100px;  border-bottom:#EAEAEA dotted 1px;}
@@ -110,21 +111,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
 }
 #description .short-desc{margin-top:10px; padding-bottom:15px; border-bottom:dotted 1px #D5D5D5}
 #description .size{margin:20px 0px 10px 0px; text-align:left; color:#727272}
-#description .size ul{list-style:none; top:250px; margin-left:50px; position:absolute; top:270px; width:200px; left:500px}
+#description .size ul{list-style:none; top:250px; margin-left:50px; }
 #description .size ul li{ border:1px solid black;padding:6px 10px; display:inline-table; margin:5px;}
 #description .size ul li:hover{border:1px solid #FF8040; cursor:pointer;transition: all 0.3s ease-out 0s;}
 #description .size ul li a{ text-decoration:none; }
 #description .size a{ float:right; color:#6C6C6C; font-size:14px; }
 #description .size a:hover{color:#FF8000; cursor:pointer}
-#description .color{margin:40px 0px 30px 0px; color:#727272}
-#description .color ul{list-style:none; position:absolute; top:350px; margin-left:180px; width:auto}
+#description .color{margin:10px 0px 10px 0px; color:#727272}
+#description .color ul{list-style:none;}
 #description .color ul li{ width:35px; height:50px;border:1px solid black; display:inline-table; margin:5px;}
 #description .color ul li:hover{ border:1px solid #FF8040; cursor:pointer;  transition: all 0.3s ease-out 0s;}
 #description .color ul li a{ text-decoration:none}
 #description .color .avlcolor{margin-left:10px; color:Orange}
 
 
-#description-content{ margin-top:100px; margin-bottom:100px}
+#description-content{ margin-top:50px; margin-bottom:50px}
 #description .comment{ color:#f5dd72; font-style:italic }
 #description .list{ margin:35px 0 45px; border-collapse:collapse }
 #description .list th{ font-style:italic; font-weight:normal; text-align:left }
@@ -149,7 +150,7 @@ cursor:pointer;	opacity: 0.8; width:35px ; height:35px;
 
 /* Large thumbnail: */
 #etalage .etalage_thumb{
-	background: white url(../images/loading.gif) center no-repeat;
+	background: white url(../new-images/loading.gif) center no-repeat;
 	border: 1px solid #ddd;
 	padding: 6px;
 	-webkit-box-shadow: 0 0 10px #ddd;
@@ -243,7 +244,7 @@ cursor:pointer;	opacity: 0.8; width:35px ; height:35px;
 div.etalage_description{ position:absolute; bottom:0; left:0; z-index:999 }
 div.etalage_description.rtl{ direction:rtl; text-align:right }
 
-.relateditem{ height:350px}
+.relateditem{ height:400px}
 
 /* Elastislide Style */
 
@@ -258,6 +259,10 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 
 .elastislide-carousel ul li {
 	min-width: 20px; /* minimum width of the image (min width + border) */
+	
+}.elastislide-carousel ul li a span {
+	/* minimum width of the image (min width + border) */
+	
 }
 
 .elastislide-wrapper {
@@ -276,12 +281,14 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 
 .elastislide-horizontal {
 	padding: 10px 20px;
+	
 }
 
 
 .elastislide-carousel {
 	overflow: hidden;
 	position: relative;
+	height:360px;
 }
 
 .elastislide-carousel ul {
@@ -478,10 +485,12 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 }
 
 /* The animated ajax loading image */
-.cloudzoom-ajax-loader {
-    background-image:url(../new-images/loading.gif);
-    width:32px;
-    height:32px;
+.cloudzoom-ajax-loader 
+{
+    background-repeat:no-repeat;
+    background-image:url(../new-images/loading.gif) ;
+    width:23px;
+    height:23px;
 }
 #quick-details-image{  float:left; left:0; width:400px; overflow:visible }
 
