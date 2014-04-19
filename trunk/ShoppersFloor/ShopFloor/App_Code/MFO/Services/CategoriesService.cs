@@ -31,6 +31,7 @@ namespace MFO.Services
                          && dr.Field<String>("SKUCategoryType") == SKUCategoryType
                          && dr.Field<String>("SKUBrand").StartsWith(SKUBrand)
                          && dr.Field<String>("StyleCode") == String.Empty
+
                 select dr;
                 
                 return applyPagination(pageNo, ref dt, ref query);
