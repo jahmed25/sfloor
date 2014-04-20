@@ -152,7 +152,6 @@ namespace SFloor.DAO.Generic
             }
             return count;
 
-
         }
         public static int insertQuery(string query)
         {
