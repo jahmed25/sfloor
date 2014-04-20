@@ -39,7 +39,7 @@ namespace SFloor.DAO
            IDictionary<string, string> colDic = new Dictionary<string, string>();
            colDic.Add("@SESSION_ID", sessionId);
            colDic.Add("@USER_ID", userId);
-           string query = "update FAV_LIST set SESSION_ID=@SESSION_ID, USER_ID=@USER_ID";
+           string query = "update FAV_LIST set SESSION_ID=@SESSION_ID where USER_ID=@USER_ID";
            GenericDAO.updateQuery(query, colDic);
        }
 

@@ -36,13 +36,23 @@ namespace SFloor.DAO
             IDictionary<string, string> colDic = new Dictionary<string, string>();
             colDic.Add("@SESSION_ID", sessionId);
             colDic.Add("@USER_ID", userId);
-            string query = "update CART set SESSION_ID=@SESSION_ID, USER_ID=@USER_ID";
+            string query = "update CART set SESSION_ID=@SESSION_ID where USER_ID=@USER_ID";
+            GenericDAO.updateQuery(query, colDic);
+        }
+        public static void updateQuantity(string qty, string sessionId,string sku,string total)
+        {
+            IDictionary<string, string> colDic = new Dictionary<string, string>();
+            colDic.Add("@SESSION_ID", sessionId);
+            colDic.Add("@QTY", qty);
+            colDic.Add("@TOTAL", total);
+            colDic.Add("@SKU", sku);
+            string query = "update CART set QTY=@QTY,TOTAL=@TOTAL where SESSION_ID=@SESSION_ID and SKU=@SKU";
             GenericDAO.updateQuery(query, colDic);
         }
         public static DataTable getCartDT(string sessionId)
         {
             DataTable dt = null;
-            string query = "SELECT v.PathInternaldetailsSmallImage,v.SKUName,v.SKUBrand,ID,SKU,SESSION_ID,QTY,TOTAL,UNIT_PRICE,USER_ID,DATE";
+            string query = "SELECT v.ShippingReturns,v.Color,v.Size, v.Inventory, v.PathInternaldetailsSmallImage,v.SKUName,v.SKUBrand,ID,SKU,SESSION_ID,QTY,TOTAL,UNIT_PRICE,USER_ID,DATE";
             query += " FROM CART c join View_ImageProductNew_Master v on  c.SKU=v.SKUCode  where c.SESSION_ID='"+sessionId+"' order by c.DATE DESC";
             dt = GenericDAO.getDataTable(query);
             return dt;
@@ -52,6 +62,20 @@ namespace SFloor.DAO
         internal static void clearCart(string sessionId)
         {
             GenericDAO.updateQuery("delete CART where SESSION_ID='"+sessionId+"'");
+        }
+
+        public static DataTable getCartDT(string sessionId, string sku)
+        {
+            DataTable dt = null;
+            string query = "SELECT v.ShippingReturns,v.Color,v.Size, v.Inventory, v.PathInternaldetailsSmallImage,v.SKUName,v.SKUBrand,ID,SKU,SESSION_ID,QTY,TOTAL,UNIT_PRICE,USER_ID,DATE";
+            query += " FROM CART c join View_ImageProductNew_Master v on  c.SKU=v.SKUCode  where c.SESSION_ID='" + sessionId + "' and sku ='"+sku+"' order by c.DATE DESC";
+            dt = GenericDAO.getDataTable(query);
+            return dt;
+        }
+
+        public static void removeFromCart(string  sessionId, string sku)
+        {
+            GenericDAO.deleteQuery("delete CART where SESSION_ID='" + sessionId + "' and sku='" + sku + "'");
         }
     }
 }
