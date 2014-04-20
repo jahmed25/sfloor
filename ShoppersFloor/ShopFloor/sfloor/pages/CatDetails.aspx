@@ -191,9 +191,9 @@
                 <ul id="carousel" class="elastislide-list">
                 <%for (int i = 0; i < relProductDT.Rows.Count;i++ ) {%>
                     <li><a href="<%=ConfigUtil.hostURL() %>?htm=<%=relProductDT.Rows[i]["SKUCode"] %>" class="">
-                        <img src="<%=ConfigUtil.getServerPath() %><%=relProductDT.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /></a><br>
+                        <img src="<%=ConfigUtil.getServerPath() %><%=relProductDT.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /><br>
                         <span><%=relProductDT.Rows[i]["SKUName"] %></span><br>
-                        <span>Rs.<%=relProductDT.Rows[i]["SpecialPrice"] %></span></li>
+                        <span>Rs.<%=relProductDT.Rows[i]["SpecialPrice"] %></span></a></li>
                    <%} %>
                 </ul>
             </div>
@@ -203,9 +203,9 @@
                 <ul id="carousel1" class="elastislide-list">
                      <%for (int i = 0; i < recentProductTD.Rows.Count;i++ ) {%>
                     <li><a href="<%=ConfigUtil.hostURL() %>?htm=<%=recentProductTD.Rows[i]["SKUCode"] %>" class="">
-                        <img src="<%=ConfigUtil.getServerPath() %><%=recentProductTD.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /></a><br>
+                        <img src="<%=ConfigUtil.getServerPath() %><%=recentProductTD.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /><br>
                         <span><%=recentProductTD.Rows[i]["SKUName"]%></span><br>
-                        <span>Rs.<%=recentProductTD.Rows[i]["SpecialPrice"]%></span></li>
+                        <span>Rs.<%=recentProductTD.Rows[i]["SpecialPrice"]%></span></a></li>
                    <%} %>                
                    </ul>
             </div>
