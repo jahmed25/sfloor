@@ -16,7 +16,7 @@
   #overlay_form_quick
     {
         background: WHITE;
-        z-index: 100000;
+        z-index: 100000; border-radius:10px;
     }
     .background_overlay_quick
     {
@@ -244,12 +244,11 @@
 <div class="background_overlay_quick" style="display: none;">
 </div>
 <section>
-<div  id="overlay_form_quick"  style="display:none;">
-<a title="close" class="closequick" id="closequickview" href="#">x</a>	
-<div style="margin: 0 auto; width:800px; height:650px;dispaly:none;  overflow:hidden">
-<object type="text/html" id='quickViewObj' style="width:800px; overflow:hidden;height:670px; margin:1%;"></object></div> 
+<div  id="overlay_form_quick"  style="  display:none;">
+<div  style=" position:fixed; background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; ">
+<a title="close" style="text-align:right; font-size:20px; color:red; float:right; margin-right:10px" id="closequickview" href="#">x</a>	
+<object type="text/html" id='quickViewObj' style=" background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; "></object></div> 
 </div>
-
 </section>
 <div style=" clear:both"></div>
 <input type="hidden" value='<%=PType%>' id="PType"/>

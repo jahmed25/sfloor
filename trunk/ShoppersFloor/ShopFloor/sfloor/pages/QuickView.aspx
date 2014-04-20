@@ -53,11 +53,11 @@
 
 	 <%if (!MFO.Utils.StringUtil.isNullOrEmpty((dt.Rows[0]["PathInternaldetailsZoomImage"] + "")))
               { %>
-                <img class="cloudzoom" src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathInternaldetailsZoomImage"] %>' data-cloudzoom="zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathInternaldetailsZoomImage"] %>'" /> <br />
+                <img class='cloudzoom' src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathInternaldetailsZoomImage"] %>' data-cloudzoom="zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathInternaldetailsZoomImage"] %>'" /> <br />
             <%} %>
 
             <%if (!StringUtil.isNullOrEmpty(dt.Rows[0]["PathUpperInternaldetailsSmallImage"] + "")){ %>
-                <img class='cloudzoom-gallery' src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsSmallImage"] %>' data-cloudzoom="useZoom: '.cloudzoom', image: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsZoomImage"] %>', zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsZoomImage"] %>' ">
+                <img class='cloudzoom-gallery ' src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsSmallImage"] %>' data-cloudzoom="useZoom: '.cloudzoom', image: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsZoomImage"] %>', zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathUpperInternaldetailsZoomImage"] %>' ">
             <%} %>
 
             <%if (!StringUtil.isNullOrEmpty(dt.Rows[0]["PathLowerInternaldetailsSmallImage"] + "")) {%>
@@ -67,9 +67,10 @@
             <%if (!StringUtil.isNullOrEmpty(dt.Rows[0]["PathBackInternaldetailsSmallImage"] + "")) {%>
                 <img class='cloudzoom-gallery' src='<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathBackInternaldetailsSmallImage"] %>' data-cloudzoom="useZoom: '.cloudzoom', image: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathBackInternaldetailsZoomImage"] %>', zoomImage: '<%=ConfigUtil.getServerPath() %><%=(string)dt.Rows[0]["PathBackInternaldetailsZoomImage"] %>' ">
             <%} %>
-
+            </div>
+            <div id="quick-details-content">
 		    <h1><%=(string)dt.Rows[0]["SKUName"] %></h1>
-			<div class="priceqty">
+			<div class="quick-priceqty">
 			<div class="quick-price">
 			<div  class="discount"><span>Discount: </span><span>20% + 10%</span></div>
 			<div  class="oldprice"><span>Rs. </span><span class="cut"><%=dt.Rows[0]["MRP"]+"" %></span></div>
@@ -77,7 +78,7 @@
 			<div  class="avl"> <span>Availability:</span><span class="instock"><%=avalibilty%></span></div>
             <div  class="avl"><span>SKU:</span><span class="instock"><%=(string)dt.Rows[0]["SKUCode"]%></span></div>
             </div>
-			</div>
+			
             <%if (inventory != null && inventory > 0)
                {%>
 			<div class="addtocart_qty-quick">
@@ -102,13 +103,14 @@
             <%if ("true".Equals(isSize))
               { %>
 			<div class="quick-size">Select Size:
+            <a href="#">Size Chart</a>
+			
              <ul>
                 <%for (int i = 0; i < sizeDT.Rows.Count; i++)
                   { %>
                     <li namespace='sizeBtn' onclick="selectSize(this)" sku=''<%=sizeDT.Rows[i]["Size"] %>''><%=sizeDT.Rows[i]["Size"] %> </li>
                  <%} %>   
                 </ul>
-			<a href="#">Size Chart</a>
 			</div>
             <%} %>  
             <%if ("true".Equals(isColor)) {%> 
@@ -134,6 +136,6 @@
 			<span><a href="#" title="share">share</a></span></div>
 			
   </div>
-</div>
+  </div>
 </body>
 </html>
