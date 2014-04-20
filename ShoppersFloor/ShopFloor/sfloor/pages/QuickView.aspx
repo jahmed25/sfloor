@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="quickview.aspx.cs" Inherits="sfloor_pages_quickview" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="QuickView.aspx.cs" Inherits="QuickView" %>
 <%@ Import Namespace="MFO.Utils" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -9,6 +9,7 @@
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/cloudzoom.js'></script>
     <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/etalage.css'/>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
     <script type="text/javascript">
         CloudZoom.quickStart();
         function selectSize(txt) {
@@ -17,8 +18,6 @@
             $("#size").val($(txt).text());
         }
         function addtoCart() {
-
-            alert(1);
             if ($('#isSize').val() == 'true' && $('#size').val().length == 0) {
                 $('#errorSize').css('display', 'block').text('Please select the size');
                 return;
@@ -94,10 +93,11 @@
                     <p>Items is sold out, You can choose different size or color combination</p>
 
                 <%} %>
-
+                <span id='errorSize' style='color:red;display:none'>Please select the size</span>
             <%if ("true".Equals(isSize))
               { %>
 			<div class="quick-size">Select Size:
+                
             <a href="#">Size Chart</a>
 			
              <ul>
@@ -124,9 +124,9 @@
                  <%} %>   
                 </ul>
             </div>
-            <%} %>
+            
 			
-			<div class="wishlist-quick"><span><a href="#" title="add to wishlist">add to wishlist</a></span>
+			<div class="wishlist-quick"><span><a href="#" title="add to wishlist" name='saveLater' sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span>
 			<span><a href="#" title="email to a friend">email to a friend</a></span>
 			<span><a href="#" title="share">share</a></span></div>
             <input type="hidden" id='style' value='<%=style%>' />

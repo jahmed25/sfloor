@@ -94,11 +94,11 @@
 
                 <%} %>
             </div>
+                <span id='errorSize' style='color:red;display:none'>Please select the size</span>
             <%if ("true".Equals(isSize))
               { %>
             <div class="size">
                 Select Size:
-                <span id='errorSize' style='color:red;display:none'>Please select the size</span>
                 <ul>
                 <%for (int i = 0; i < sizeDT.Rows.Count; i++)
                   { %>
@@ -127,7 +127,7 @@
             </div>
             <%} %>
             <div class="wishlist">
-                <span><a href="#" title="add to wishlist">add to wishlist</a></span> <span><a href="#"
+                <span><a href="#" title="add to wishlist" sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span> <span><a href="#"
                     title="email to a friend">email to a friend</a></span> <span><a href="#" title="share">
                         share</a></span></div>
             <div class="policy">
