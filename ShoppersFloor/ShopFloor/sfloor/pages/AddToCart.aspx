@@ -5,8 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link rel="stylesheet" href="<%=ConfigUtil.StaticPath() %>new-css/addtocart.css">
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
-    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             var cartstick = $jq('.addtocart-stick').offset().top - 50;
@@ -116,7 +114,7 @@
                         <% }%>
                         </li>
                     <li class="rem_sfl"><span><a href="#" removefromWL='<%=cartDT.Rows[i]["SKU"]%>'>Remove</a></span>
-                    <span><a href="#" name='saveLater' sku="<%=cartDT.Rows[0]["SKU"] %>">Save for later</a></span></li>
+                    <span><a href="#" name='saveLater' sku="<%=cartDT.Rows[i]["SKU"] %>">Save for later</a></span></li>
                 </ul>
             </div>
             <div class="estimated"><span>Estimated Delivery</span><ul><li>Delivered in 3-6 days</li></ul>

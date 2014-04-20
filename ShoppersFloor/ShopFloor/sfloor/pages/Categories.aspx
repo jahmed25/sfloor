@@ -11,7 +11,6 @@
 <script src='<%=ConfigUtil.StaticPath() %>new-js/fixsidemenu.js' type="text/javascript"></script>
 <script src='<%=ConfigUtil.StaticPath() %>new-js/main.js' type="text/javascript"></script>
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/category.js'></script>
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
 
 <style>
   #overlay_form_quick
@@ -179,7 +178,6 @@
                  <span class="hover-image1"></span> 
                  <a class="wish-list" name='saveLater' sku='<%# Eval("SKUCode") %>'><span>Save for Later</span></a>
                   <a class="quick-view" pop='<%# Eval("SKUCode") %>' ><span>Quick View</span></a></div>
-                    <%--<a  href='#' name='saveLater' sku='<%# Eval("SKUCode") %>'>fav</a>--%>
                     <div class="boxgrid captionfull"
                         <a href="<%# Eval("link") %>">
                          

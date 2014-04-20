@@ -28,7 +28,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
                 break;
             case "checkEmail":
                   checkMail();
-                  break;
+                  break;    
             case "checkRegEmail":
                   checkRegMail();
                   break;
