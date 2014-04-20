@@ -5,6 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link rel="stylesheet" href="<%=ConfigUtil.StaticPath() %>new-css/addtocart.css">
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             var cartstick = $jq('.addtocart-stick').offset().top - 50;
@@ -38,7 +40,11 @@
                 var sku = $(this).attr('removefromWL')
                 $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=removeFromCart', data: { sku: sku} })
 					.success(function (msg) {
-					    $('div[sku="' + sku + '"]').remove();
+					    if ($('.cartitem').length == 1) {
+					        $('.addtocartmain').html("<center><p style='color:red'>Your Cart Is Empty!!!<p></center>")            
+					    } else {
+					        $('div[sku="' + sku + '"]').remove();
+					    }
 					});
             });
         });
@@ -48,8 +54,8 @@
      <%if (!MFO.Commom.CommonUtil.DT.isEmptyOrNull(cartDT))
        {%> 
         <div class="head addtocart-stick">
-         <a  name="cnt_toshop" href="<%=ConfigUtil.StaticPath() %>Women/Clothing">Continue to shopping</a> 
-        <a name="pcd_tochk" href='<%=ConfigUtil.StaticPath() %>check-out'>Proceed to checkout</a>
+         <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">Continue to shopping</a> 
+        <a name="pcd_tochk" href='<%=ConfigUtil.hostURL() %>check-out'>Proceed to checkout</a>
        <h1><div class="total"><span>Total Rs.</span>
         <span name='gTotal' class="grandtot"><%=total%></span>
         </div></h1>
@@ -109,7 +115,8 @@
                             </em>
                         <% }%>
                         </li>
-                    <li class="rem_sfl"><span><a href="#" removefromWL='<%=cartDT.Rows[i]["SKU"]%>'>Remove</a></span><span><a href="#" name='saveLater'>Save for later</a></span></li>
+                    <li class="rem_sfl"><span><a href="#" removefromWL='<%=cartDT.Rows[i]["SKU"]%>'>Remove</a></span>
+                    <span><a href="#" name='saveLater' sku="<%=cartDT.Rows[0]["SKU"] %>">Save for later</a></span></li>
                 </ul>
             </div>
             <div class="estimated"><span>Estimated Delivery</span><ul><li>Delivered in 3-6 days</li></ul>
@@ -121,15 +128,15 @@
         <!--end loop-->
         <div class="cont_toshop_tot">
         <div class="cont_toshop">
-        <a  name="cnt_toshop" href="<%=ConfigUtil.StaticPath() %>Women/Clothing">Continue to shopping</a> 
-        <a name="pcd_tochk" href='<%=ConfigUtil.StaticPath() %>check-out'>Proceed to checkout</a>
+        <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">Continue to shopping</a> 
+        <a name="pcd_tochk" href='<%=ConfigUtil.hostURL() %>check-out'>Proceed to checkout</a>
         </div>
         <div class="total"><span>Total Rs.</span>
         <span name='gTotal' class="grandtot"><%=total%></span>
         </div>
         </div>
         <%}else{ %>
-            <p style='color:red'>Your Cart is Empty!!</p>
+            <center><p style='color:red'>Your Cart is Empty!!</p></center>
         <%} %>
         </div>
          

@@ -11,6 +11,8 @@
 <script src='<%=ConfigUtil.StaticPath() %>new-js/fixsidemenu.js' type="text/javascript"></script>
 <script src='<%=ConfigUtil.StaticPath() %>new-js/main.js' type="text/javascript"></script>
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/category.js'></script>
+<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
+
 <style>
   #overlay_form_quick
     {
