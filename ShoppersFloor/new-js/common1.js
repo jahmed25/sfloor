@@ -17,7 +17,8 @@ $(document).ready(function () {
         var sku1 = $(this).attr('sku');
         $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=addFav', data: { sku: sku1} })
 			.success(function (msg) {
-			    if (msg == "Exist") {
+			    alert('..msg' + msg);
+			    if (msg.trim() == "Exist") {
 			        return;
 			    }
 			    var json = $.parseJSON(msg)
@@ -30,16 +31,22 @@ $(document).ready(function () {
 						"MRP <span class='pricecut'>Rs. " + json.mrp + "</span><br>" +
 						"Actual Price <span class='price'>Rs. " + json.price + "</span>" +
 						"</p></div>" +
-				"</div>";
+				    "</div>";
+			        if ($("#wishContent").text().length == 0) {
+			            var v1 = "<a href='" + path + "FavList' style='color:blue'>View ALL</a>";
+                            v1+="<a href='#' style='float:right;color:red' onclick='clearFav()'>Clear All</a><div id='wishContent'>" + div + "</div>";
+			            $("#wishListDiv").html(v1);
+			        } else {
+			            $("#wishContent").prepend(div);
+			        }
+			        var count = $("#favCount").text();
+			        count = parseInt(count) + 1;
+			        $("#favCount").text(count);
 			    }
-			    $("#wishContent").prepend(div);
 
-			    var count = $("#favCount").text();
-			    count = parseInt(count) + 1;
-			    $("#favCount").text(count);
 			});
     });
-   
+
 });
 //position the popup at the center of the page
 function positionPopup() {
@@ -56,6 +63,7 @@ function positionPopup() {
 $(document).ready(function () {
     //open popup
     $("a[pop]").on('click', function () {
+        alert(path + "sfloor/pages/QuickView.aspx?sku=" + $(this).attr('pop'));
         $('#quickViewObj').attr("data", path + "sfloor/pages/QuickView.aspx?sku=" + $(this).attr('pop'));
         $("#overlay_form_quick").fadeIn(1000);
         $(".background_overlay_quick").fadeIn(500);
