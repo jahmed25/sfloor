@@ -13,6 +13,33 @@ $(document).ready(function () {
     });
     $(window).bind('resize', positionPopup);
     //maintain the popup at center of the page when browser resized
+    $("a[name='saveLater']").on('click', function () {
+        var sku1 = $(this).attr('sku');
+        $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=addFav', data: { sku: sku1} })
+			.success(function (msg) {
+			    if (msg == "Exist") {
+			        return;
+			    }
+			    var json = $.parseJSON(msg)
+			    if (msg.length > 0) {
+			        var div = "<div class='wishlist-content'>" +
+					"<a  class='imglist' href='" + path + "?htm=" + json.sku + "'><img  src='" + serverPath + json.image + "' width='30px' height='30px'/>" +
+					"<div class='main-cont'><p class='brand'>" + json.brand + "</p>" +
+					"<p class='empty'>" + json.name + "</p>" +
+					"<p class='subtotal'>" +
+						"MRP <span class='pricecut'>Rs. " + json.mrp + "</span><br>" +
+						"Actual Price <span class='price'>Rs. " + json.price + "</span>" +
+						"</p></div>" +
+				"</div>";
+			    }
+			    $("#wishContent").prepend(div);
+
+			    var count = $("#favCount").text();
+			    count = parseInt(count) + 1;
+			    $("#favCount").text(count);
+			});
+    });
+   
 });
 //position the popup at the center of the page
 function positionPopup() {
@@ -28,7 +55,8 @@ function positionPopup() {
 
 $(document).ready(function () {
     //open popup
-    $("a[pop]").click(function () {
+    $("a[pop]").on('click', function () {
+        alert(path + "sfloor/pages/QuickView.aspx?sku=" + $(this).attr('pop'));
         $('#quickViewObj').attr("data", path + "sfloor/pages/QuickView.aspx?sku=" + $(this).attr('pop'));
         $("#overlay_form_quick").fadeIn(1000);
         $(".background_overlay_quick").fadeIn(500);

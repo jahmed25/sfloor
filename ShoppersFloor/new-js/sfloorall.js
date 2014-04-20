@@ -27804,8 +27804,8 @@ $jq(document).ready(function(){
                     }
                 });
             });
-             $jq(function () {
-                 var header = $jq('.search-stick').offset().top;
+            $jq(function () {
+                var header = $jq('.search-stick').offset().top;
                 $jq(window).scroll(function () {
                     if ($jq(window).scrollTop() > header) {
                         $jq('.search-stick').addClass("search-sticky");
@@ -27814,8 +27814,6 @@ $jq(document).ready(function(){
                     }
                 });
             });
-
-
 
 /**
 *	@name							mobilemenu
@@ -29991,4 +29989,6 @@ $jq(document).ready(function(){
        if(CUSTOMMENU_POPUP_EFFECT == 2) $jq(this).find('.popup').stop(true,true).hide('fast');
     })
 });
+
+
 
