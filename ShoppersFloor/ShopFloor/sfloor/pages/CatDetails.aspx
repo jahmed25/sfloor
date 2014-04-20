@@ -127,7 +127,7 @@
             </div>
             <%} %>
             <div class="wishlist">
-                <span><a href="#" title="add to wishlist" sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span> <span><a href="#"
+                <span><a href="#" title="add to wishlist" name='saveLater' sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span> <span><a href="#"
                     title="email to a friend">email to a friend</a></span> <span><a href="#" title="share">
                         share</a></span></div>
             <div class="policy">
