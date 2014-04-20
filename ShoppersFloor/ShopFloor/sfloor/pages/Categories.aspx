@@ -4,7 +4,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server" >
 <link href='<%=ConfigUtil.StaticPath() %>new-css/layout.css' rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="<%=ConfigUtil.StaticPath() %>new-css/jquery-ui.css">
 <link href='<%=ConfigUtil.StaticPath() %>new-css/styles-filter.css' rel="stylesheet" type="text/css" />
 <link href='<%=ConfigUtil.StaticPath() %>new-css/internalpage.css' rel="stylesheet" type="text/css" />
 

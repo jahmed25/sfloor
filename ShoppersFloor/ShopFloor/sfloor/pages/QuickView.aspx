@@ -4,10 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <script type="text/javascript">
-        CloudZoom.quickStart();
-        </script>
-        
+    
   <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/modernizr.custom.17475.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/cloudzoom.js'></script>
@@ -21,6 +18,7 @@
         }
         function addtoCart() {
 
+            alert(1);
             if ($('#isSize').val() == 'true' && $('#size').val().length == 0) {
                 $('#errorSize').css('display', 'block').text('Please select the size');
                 return;
@@ -33,7 +31,7 @@
                     if (data != 'success') {
                         $('#errorSize').css('display', 'block').text($(data).filter('error').text());
                     } else {
-                        window.location = '<%=ConfigUtil.hostURL()%>Add-To-Cart'
+                        window.top.location = '<%=ConfigUtil.hostURL()%>Add-To-Cart'
                     }
                 },
                 error: function (result) {
@@ -119,7 +117,7 @@
                    <%for (int i = 0; i < colorDT.Rows.Count; i++)
                   { %>
                     <li>
-                        <a href='<%=ConfigUtil.hostURL()%>?htm=<%=colorDT.Rows[i]["SKUCode"] %>'>  
+                        <a href='<%=ConfigUtil.hostURL()%>sfloor/pages/QuickView.aspx?sku=<%=colorDT.Rows[i]["SKUCode"] %>'>  
                             <img style='height:60px;width:50px;' src='<%=ConfigUtil.getServerPath()%><%=colorDT.Rows[i]["PathInternaldetailsSmallImage"] %>'/>
                         </a>
                     </li>
@@ -131,6 +129,12 @@
 			<div class="wishlist-quick"><span><a href="#" title="add to wishlist">add to wishlist</a></span>
 			<span><a href="#" title="email to a friend">email to a friend</a></span>
 			<span><a href="#" title="share">share</a></span></div>
+            <input type="hidden" id='style' value='<%=style%>' />
+        <input type="hidden" id='color' value='<%=color%>' />
+        <input type="hidden" id='isColor' value='<%=isColor%>' />
+        <input type="hidden" id='size' value='' />
+        <input type="hidden" id='isSku' value='<%=isSku%>' />
+        <input type="hidden" id='isSize' value='<%=isSize%>' />
 			
   </div>
   </div>
