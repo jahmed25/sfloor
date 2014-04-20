@@ -403,7 +403,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         string isColor = Request.QueryString["isColor"];
         string isSku = Request.QueryString["isSku"];
         string style = Request.QueryString["sku"];
-        string msg = "";
+        Session.Remove("sessExpire");
         FrontViewProductDetailsDAO fvpd = new FrontViewProductDetailsDAO();
         Session.Remove(Constant.Session.PRODUCT_COUNT);
         DataTable dt = null;
@@ -411,7 +411,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             if (StringUtil.isNullOrEmpty(color))
             {
-                msg = "<error>please select the color<error>";
+                string msg = "<error>please select the color<error>";
                 Response.Write(msg);
                 Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
@@ -420,7 +420,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             }
             else if (StringUtil.isNullOrEmpty(size))
             {
-                msg = "<error>please select the size<error>";
+                string msg = "<error>please select the size<error>";
                 Response.Write(msg);
                 Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
@@ -443,7 +443,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             if (StringUtil.isNullOrEmpty(color))
             {
-                msg = "<error>please select the color<error>";
+                string msg = "<error>please select the color<error>";
                 Response.Write(msg);
                 Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
@@ -466,7 +466,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             if (StringUtil.isNullOrEmpty(size))
             {
-                msg = "<error>please select the size<error>";
+                string msg = "<error>please select the size<error>";
                 Response.Write(msg);
                 Response.AddHeader("Content-Length", msg.Length.ToString());
                 Response.Flush();
@@ -489,18 +489,36 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         {
             dt = GenericDAO.getDataTable("select * from View_ImageProductNew_Master where SKUCode='" + style + "'");
         }
+
         string skuCode = dt.Rows[0]["SKUCode"] + "";
-        DataTable dt1 = CartDAO.getCartDT(Session.SessionID, skuCode);
+        DataTable dt1 = GenericDAO.getDataTable("select * from CART where SESSION_ID='" + Session.SessionID + "' and  SKU ='" + skuCode + "'");
         if (!CommonUtil.DT.isEmptyOrNull(dt1))
         {
             int cartQuantity = Int32.Parse(dt1.Rows[0]["QTY"]+"");
-            int tQuantity = Convert.ToInt32(qty) + cartQuantity;
+            int t = Convert.ToInt32(qty) + cartQuantity;
             int u = Convert.ToInt32(dt1.Rows[0]["UNIT_PRICE"]+"");
-            int TotalPrice = tQuantity * u;
-            CartDAO.updateQuantity(tQuantity+"", Session.SessionID, skuCode,TotalPrice+"");
-            Session.Remove(Constant.Session.CART_ITEMS);
-            Session.Remove(Constant.Session.TOTAL);
-            msg = "success";
+            int TotalPrice = t * u;
+            if (t <= 20)
+            {
+                GenericDAO.updateQuery("update   CART set QTY ='" + t + "', TOTAL='" + TotalPrice + "' where SESSION_ID='" + Session.SessionID + "' and SKU ='" + skuCode + "'");
+                Session.Remove(Constant.Session.CART_ITEMS);
+                Session.Remove(Constant.Session.TOTAL);
+                
+                string msg = "success";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
+                Response.Flush();
+                Response.Close();
+            }
+            else
+            {
+
+                string msg = "<error>Item is More Than 20</error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
+                Response.Flush();
+                Response.Close();
+            }
         }
         else
         {
@@ -510,11 +528,19 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             else
                 inventory = (int)float.Parse(dt.Rows[0]["Inventory"] as String);
             if (inventory == 0) {
-                msg = "<error>Product is Sold Out!!</error>";
+                string msg = "<error>Product is Sold Out!!</error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
+                Response.Flush();
+                Response.Close();
             }
             else if (inventory < Int32.Parse(qty))
             {
-                 msg = "<error>Only " + inventory + " Product(s) are left in inventory!!</error>";
+                string msg = "<error>Only " + inventory + " Product(s) are left in inventory!!</error>";
+                Response.Write(msg);
+                Response.AddHeader("Content-Length", msg.Length.ToString());
+                Response.Flush();
+                Response.Close();
             }
             else
             {
@@ -526,11 +552,11 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
                 CartDAO.addToCart(Session.SessionID, qty, price.ToString(), Total.ToString(), dt.Rows[0]["SKUCode"] + "", userID);
                 Session.Remove(Constant.Session.CART_ITEMS);
                 Session.Remove(Constant.Session.TOTAL);
+                Response.Write("success");
+                Response.AddHeader("Content-Length", "success".Length.ToString());
+                Response.Flush();
+                Response.Close();
             }
         }
-        Response.Write(msg);
-        Response.AddHeader("Content-Length", msg.Length.ToString());
-        Response.Flush();
-        Response.Close();
     }
 }
