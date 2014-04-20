@@ -3961,7 +3961,7 @@ button.btn-cart span,
 .footer-subscribe button.button span span {
     padding: 0 15px;
 }
-.footer-static-container {
+.footer-static-container { float:left; margin:0 auto; width:100%;
 background: rgba(242,226,206,1);
 background: -moz-linear-gradient(top, rgba(242,226,206,1) 0%, rgba(255,255,255,1) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242,226,206,1)), color-stop(100%, rgba(255,255,255,1)));
@@ -4602,6 +4602,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2e2ce', end
     right:220px;
     z-index:1000;
     background-color: transparent;
+}
+.addtocart-sticky {
+    position:fixed;
+    z-index:1000;
+    top:52px;
+  background:white
 }
 
 .wine_menu, .fish_menu {
