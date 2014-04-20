@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="QuickView.aspx.cs" Inherits="QuickView"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="quickview.aspx.cs" Inherits="sfloor_pages_quickview" %>
 <%@ Import Namespace="MFO.Utils" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -11,6 +11,12 @@
     <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/etalage.css'/>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
     <script type="text/javascript">
+        var staticPath = '<%=ConfigUtil.StaticPath() %>';
+        var path = '<%=ConfigUtil.hostURL() %>';
+        var serverPath = '<%=ConfigUtil.getServerPath() %>';
+    </script>
+    <script type="text/javascript">
+
         CloudZoom.quickStart();
         function selectSize(txt) {
             $("li[namespace='sizeBtn']").css({ 'background-color': '#EBEBEB', 'color': 'black' })
@@ -124,7 +130,7 @@
                  <%} %>   
                 </ul>
             </div>
-            
+            <%} %>
 			
 			<div class="wishlist-quick"><span><a href="#" title="add to wishlist" name='saveLater' sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span>
 			<span><a href="#" title="email to a friend">email to a friend</a></span>

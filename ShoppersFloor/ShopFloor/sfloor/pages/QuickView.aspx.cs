@@ -25,7 +25,7 @@ using MFO.Utils;
 using MFO.Common;
 using SFloor.Services;
 
-public partial class QuickView : System.Web.UI.Page
+public partial class sfloor_pages_quickview : System.Web.UI.Page
 {
     public string style;
     public string SKUClassification, VariantType;
