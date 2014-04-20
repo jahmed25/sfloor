@@ -461,8 +461,10 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
     box-shadow:none;
 	width:300px;
 }
-.cloudzoom-gallery{width:90px; height:100px;}
-.cloudzoom-gallery-quick{width:100px; height:120px; position:absolute; }
+
+.cloudzoom-gallery{width:70px; height:80px; padding:1px}
+.cloudzoom-gallery:hover{border:1px orange solid; padding:0px; cursor:pointer}
+
 .cloudzoom{width:400px; height:500px}
 @media(max-width:700px)(min-width:800px){
 .cloudzoom{width:300px; height:400px}
@@ -482,6 +484,7 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 /* A blank image */
 .cloudzoom-blank {
     background-image:url(../new-images/blank.png);
+    
 }
 
 /* The animated ajax loading image */
@@ -492,35 +495,46 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
     width:23px;
     height:23px;
 }
-#quick-details-image{  float:left; left:0; width:400px; overflow:visible }
+.quickviewmain{position:fixed; background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; margin:1%;}
+.quickview-content{ background:#fff; line-height:22px; color:#444; width:950px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; top:0; border-radius:10px; }
 
-.quickview-content{ background:#fff; line-height:22px; color:#444; width:800px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:14px 0 0px }
-#description .priceqty .quick-price{width:180px; float:left}
-#description .priceqty .quick-price .rs{ color:#181818; padding:3px 0px 3px 0px; text-transform:uppercase; font-weight:500; font-size:22px}
-#description .priceqty .quick-price .discount{ color:#E70325;font-weight:500;text-transform:uppercase;}
-#description .priceqty .quick-price .oldprice{color:#ABABAB;text-transform:uppercase;padding-top:5px; }
-#description .priceqty .quick-price .oldprice .cut{text-decoration:line-through; }
-#description .priceqty .quick-price .rs span{margin-right:5px;}
-#description .priceqty .quick-price .avl{color:#707070; margin-right:5px;}
-#description .priceqty .quick-price .avl .instock{margin-left:10px; color:#00AA55}
-#description .priceqty .addtocart_qty-quick{background-color:#F3F3F3; border:#C0C0C0 solid 1px; width:200px; height:110px; float:left; text-align:center; line-height:35px}
+#quick-details-image{  float:left; left:0; width:420px; overflow:hidden }
+#quick-details-image .cloudzoom-gallery {width:30px; height:50px; padding:1px;}
 
-#description .quick-size{margin:20px 0px 10px 0px;color:#727272}
-#description .quick-size ul{list-style:none; position:absolute; top:270px; margin-left:50px}
-#description .quick-size ul li{ width:30px; height:30px; border:1px solid black;display:inline-table;margin:5px;}
-#description .quick-size ul li:hover{border:1px solid #FF8040; cursor:pointer;transition: all 0.3s ease-out 0s;}
-#description .quick-size ul li a{ text-decoration:none}
-#description .quick-size a{ float:right; color:#6C6C6C; font-size:14px;}
-#description .quick-size a:hover{color:#FF8000; cursor:pointer}
+#quick-details-image .cloudzoom-gallery:hover {border:1px orange solid; padding:0px;cursor:pointer}
+
+#quick-details-content{ float:left; width:500px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+#quick-details-content  h1{ font-size:20px; text-transform:uppercase; font-weight:500; padding-bottom:10px;margin:0 0 10px 0px; color:#555; border-bottom:dotted 1px #EAEAEA  }
+
+#quick-details-content .quick-pricesection{width:400px}
+#quick-details-content .quick-priceqty{height:140px; border-bottom:dotted 1px #EAEAEA}
+
+#quick-details-content .quick-priceqty .quick-price{width:250px; float:left}
+#quick-details-content .quick-priceqty .quick-price .rs{ color:#181818; padding:3px 0px 3px 0px; text-transform:uppercase; font-weight:500; font-size:22px}
+#quick-details-content .quick-priceqty .quick-price .discount{ color:#E70325;font-weight:500;text-transform:uppercase;}
+#quick-details-content .quick-priceqty .quick-price .oldprice{color:#ABABAB;text-transform:uppercase;padding-top:5px; }
+#quick-details-content .quick-priceqty .quick-price .oldprice .cut{text-decoration:line-through; }
+#quick-details-content .quick-priceqty .quick-price .rs span{margin-right:5px;}
+#quick-details-content .quick-priceqty .quick-price .avl{color:#707070; margin-right:5px;}
+#quick-details-content .quick-priceqty .quick-price .avl .instock{margin-left:10px; color:#00AA55}
+#quick-details-content .quick-priceqty .addtocart_qty-quick{background-color:#F3F3F3; border:#C0C0C0 solid 1px; width:220px; height:110px; float:left; text-align:center; line-height:35px}
+
+#quick-details-content .quick-size{margin:5px 0px 0px 0px;color:#727272}
+#quick-details-content .quick-size ul{list-style:none;}
+#quick-details-content .quick-size ul li{padding:4px 8px; font:12px;  border:1px solid black;display:inline-table;margin:0px 5px;}
+#quick-details-content .quick-size ul li:hover{border:1px solid #FF8040; cursor:pointer;transition: all 0.3s ease-out 0s;}
+#quick-details-content .quick-size ul li a{ text-decoration:none}
+#quick-details-content .quick-size a{ float:right; color:#6C6C6C; font-size:14px;}
+#quick-details-content .quick-size a:hover{color:#FF8000; cursor:pointer}
 
 
-#description .quick-color{margin:40px 0px 30px 0px; color:#727272}
-#description .quick-color ul{list-style:none; position:absolute; top:320px; margin-left:160px}
-#description .quick-color ul li{ width:35px; height:50px;border:1px solid black; display:inline-table; margin:5px;}
-#description .quick-color ul li:hover{ border:1px solid #FF8040; cursor:pointer;  transition: all 0.3s ease-out 0s;}
-#description .quick-color ul li a{ text-decoration:none}
-#description .wishlist-quick{ height:50px; border-bottom:#EAEAEA dotted 1px;border-top:#EAEAEA dotted 1px; text-transform:uppercase; }
-#description .wishlist-quick span{ border-right:#818181 dotted 1px; padding:0px 10px 0px 10px;line-height:50px}
-#description .wishlist-quick span a{text-decoration:none; color:#818181}
-#description .wishlist-quick span a:hover{color:#FF8040; transition: all 0.3s ease-out 0s;}
-.closequick{float:right; color:Black; font-size:16px}
+#quick-details-content .quick-color{ color:#727272}
+#quick-details-content .quick-color ul{list-style:none;}
+#quick-details-content .quick-color ul li{ border:1px solid black; display:inline-table; margin:5px;}
+#quick-details-content .quick-color ul li:hover{ border:1px solid #FF8040; cursor:pointer;  transition: all 0.3s ease-out 0s;}
+#quick-details-content .quick-color ul li a{ text-decoration:none}
+#quick-details-content .wishlist-quick{ height:50px; border-bottom:#EAEAEA dotted 1px; font-size:15px; border-top:#EAEAEA dotted 1px; text-transform:uppercase; }
+#quick-details-content .wishlist-quick span{ border-right:#818181 dotted 1px; padding:0px 5px 0px 5px;line-height:50px}
+#quick-details-content .wishlist-quick span a{text-decoration:none; color:#818181}
+#quick-details-content .wishlist-quick span a:hover{color:#FF8040; transition: all 0.3s ease-out 0s;}
+.closequickview{}
