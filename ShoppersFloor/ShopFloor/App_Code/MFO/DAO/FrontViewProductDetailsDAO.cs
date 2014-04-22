@@ -161,6 +161,11 @@ namespace MFO.DAO
                 GenericDAO.getDataTable("select * from View_ImageProductNew_Master where SKUCode='" + sku + "' and Color='" + color + "' and Size='" + size + "'");
 
         }
+        public DataTable getVarientProduct(String style, string color, String size)
+        {
+            return
+                GenericDAO.getDataTable("select * from View_ImageProductNew_Master where StyleCode='" + style + "' and Color='" + color + "' and Size='" + size + "'");
+        }
         public DataTable getSkuCode1(String styleCode, string color, String size)
         {
             return
