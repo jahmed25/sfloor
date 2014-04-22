@@ -31,7 +31,7 @@
                 var qty = $(this).find('option:selected').val();
                 $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=updateQty', data: { sku: sku, qty: qty} })
 					.success(function (msg) {
-					    var json = JSON.parse(msg);
+					    var json = msg; //JSON.parse(msg);
 					    if (json.error != null) {
 					        $("span[name='error'][sku='" + sku + "']").text(json.error);
 					    } else {

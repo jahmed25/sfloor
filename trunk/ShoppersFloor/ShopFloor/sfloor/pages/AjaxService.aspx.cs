@@ -85,6 +85,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         string errorStr = ser.Serialize(dic);
         Response.Write(errorStr);
         Response.AddHeader("Content-Length", errorStr.Length.ToString());
+        Response.ContentType = "application/json";
         Response.Flush();
         Response.Close();
     }

@@ -200,7 +200,7 @@
                                                                         <p class="brand"><%=cartDT.Rows[i]["SKUBrand"]%></p>
                                                                         <p class="empty"><%=cartDT.Rows[i]["SKUName"]%></p>
                                                                         <p class="subtotal">
-                                                                           SKU : <span class="price">Rs.   <%=cartDT.Rows[i]["SKU"]%></span><br />
+                                                                           SKU : <span class="price"> <%=cartDT.Rows[i]["SKU"]%></span>
                                                                            Unit Price <span class="price">Rs.   <%=cartDT.Rows[i]["UNIT_PRICE"]%></span><br />
                                                                            Quantity <span class="price">  <%=cartDT.Rows[i]["QTY"]%></span><br />
                                                                            Sub Total <span class="price">Rs. <%=cartDT.Rows[i]["TOTAL"]%></span>
