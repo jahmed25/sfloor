@@ -32,6 +32,7 @@ public partial class Categories : System.Web.UI.Page
     public string subCatName;
     public string pTypeUrl;
     public string pTypeName;
+    public string hostURL = ConfigUtil.hostURL();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)

@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="<%=ConfigUtil.StaticPath() %>new-css/addtocart.css">
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript">
+        var pageType = 'addToCart';
+        function reloadCart() {
+            $.ajax({ method: 'POST', url: path + 'sfloor/pages/ReloadCart.aspx' })
+					.success(function (msg) {
+					    $("[name='cartContainer']").html($(msg).filter('#mini_cart_block').html());
+					});
+        }
         $(document).ready(function () {
             var cartstick = $jq('.addtocart-stick').offset().top - 50;
             $jq(window).scroll(function () {
@@ -15,7 +22,6 @@
                     $jq('.addtocart-stick').removeClass("addtocart-sticky");
                 }
             });
-
             $.each($('select[qty]'), function () {
                 var selct = this;
                 $(this).find("option[value='" + $(selct).attr('qty') + "']").attr('selected', 'selected');
@@ -25,12 +31,13 @@
                 var qty = $(this).find('option:selected').val();
                 $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=updateQty', data: { sku: sku, qty: qty} })
 					.success(function (msg) {
-					    var json = $.parseJSON(msg);
+					    var json = JSON.parse(msg);
 					    if (json.error != null) {
 					        $("span[name='error'][sku='" + sku + "']").text(json.error);
 					    } else {
 					        $("[name='subTotal'][sku='" + sku + "']").text(json.subTotal);
 					        $("[name='gTotal']").text(json.total);
+					        reloadCart();
 					    }
 					});
             });
@@ -39,10 +46,11 @@
                 $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=removeFromCart', data: { sku: sku} })
 					.success(function (msg) {
 					    if ($('.cartitem').length == 1) {
-					        $('.addtocartmain').html("<center><p style='color:red'>Your Cart Is Empty!!!<p></center>")            
+					        $('.addtocartmain').html("<center><p style='color:red'>Your Cart Is Empty!!!<p></center>")
 					    } else {
 					        $('div[sku="' + sku + '"]').remove();
 					    }
+					    reloadCart();
 					});
             });
         });

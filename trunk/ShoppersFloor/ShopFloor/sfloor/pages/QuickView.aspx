@@ -33,8 +33,8 @@
                 contentType: "application/json; charset=utf-8",
                 url: "<%=ConfigUtil.hostURL()%>sfloor/pages/AjaxService.aspx?action=addToCart&sku=" + $('#style').val() + "&qty=" + $("#dd_quantity option:selected").val() + "&color=" + $("#color").val() + "&size=" + $("#size").val() + "&isColor=" + $("#isColor").val() + "&isSize=" + $("#isSize").val() + "&isSku=" + $("#isSku").val(),
                 success: function (data) {
-                    if (data != 'success') {
-                        $('#errorSize').css('display', 'block').text($(data).filter('error').text());
+                    if (data.error != null) {
+                        $('#errorSize').css('display', 'block').text(data.error);
                     } else {
                         window.top.location = '<%=ConfigUtil.hostURL()%>Add-To-Cart'
                     }
@@ -132,7 +132,7 @@
             </div>
             <%} %>
 			
-			<div class="wishlist-quick"><span><a href="#" title="add to wishlist" name='saveLater' sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span>
+			<div class="wishlist-quick"><span><a href="#" title="add to wishlist" inner='true' name='saveLater' sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span>
 			<span><a href="#" title="email to a friend">email to a friend</a></span>
 			<span><a href="#" title="share">share</a></span></div>
             <input type="hidden" id='style' value='<%=style%>' />
