@@ -8,6 +8,10 @@
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/modernizr.custom.17475.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/cloudzoom.js'></script>
+    <style>
+        .catcrumbs{width:900px; line-height:20px; display: inline; float:left}
+        .catcrumbs ul li { display: inline; }}
+    </style>
     <script type="text/javascript">
         CloudZoom.quickStart();
         function selectSize(txt) {
@@ -38,7 +42,16 @@
             });
         }
     </script>
+   
     <div class="categorypage-content">
+     <div class="catcrumbs" id="crumbs">
+			<ul>
+<li><a  href='<%=ConfigUtil.hostURL() %>'> Home </a></li>
+<li><a id='catNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>'> <%=dt.Rows[0]["SKUCategory"]%> </a></li>
+<li><a id='subCatNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUCategoryType"]+"")%>'> <%=dt.Rows[0]["SKUCategoryType"]%>  </a></li>
+<li><a id='pTypeNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUCategoryType"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUProductType"]+"")%>'> <%=dt.Rows[0]["SKUProductType"]%>  </a></li>
+    
+</ul></div>
         <div id="details-image">
             <%if (!StringUtil.isNullOrEmpty((dt.Rows[0]["PathInternaldetailsZoomImage"] + "")))
               { %>
