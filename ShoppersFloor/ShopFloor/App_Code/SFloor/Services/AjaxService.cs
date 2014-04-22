@@ -61,5 +61,35 @@ namespace SFloor.Services
         {
             FavDAO.clearFav(sessionId);
         }
+        public static DataTable getProdBySKU(string sku) 
+        {
+            DataTable dt = GenericService.getVewImageNewMasterDT();
+            IEnumerable<DataRow> query =
+            from dr in dt.AsEnumerable()
+                where dr.Field<String>("SKUCode") == sku
+            select dr;
+            try
+            {
+                dt = query.CopyToDataTable<DataRow>();
+            }
+            catch { }
+            return dt; 
+        }
+        public static DataTable getVarientProd(string style,string size,string color)
+        {
+            DataTable dt = GenericService.getVewImageNewMasterDT();
+            IEnumerable<DataRow> query =
+            from dr in dt.AsEnumerable()
+                where dr.Field<String>("StyleCode") == style
+                    && dr.Field<String>("Color") == color
+                    && dr.Field<String>("Size") == size
+            select dr;
+            try
+            {
+                dt = query.CopyToDataTable<DataRow>();
+            }
+            catch { }
+            return dt;
+        }
     }
 }
