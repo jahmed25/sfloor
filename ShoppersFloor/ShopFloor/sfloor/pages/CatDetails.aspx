@@ -26,8 +26,8 @@
                 contentType: "application/json; charset=utf-8",
                 url: "<%=ConfigUtil.hostURL()%>sfloor/pages/AjaxService.aspx?action=addToCart&sku=" + $('#style').val() + "&qty=" + $("#dd_quantity option:selected").val() + "&color=" + $("#color").val() + "&size=" + $("#size").val() + "&isColor=" + $("#isColor").val() + "&isSize=" + $("#isSize").val() + "&isSku=" + $("#isSku").val(),
                 success: function (data) {
-                    if (data != 'success') {
-                        $('#errorSize').css('display', 'block').text($(data).filter('error').text());
+                    if (data.error != null) {
+                        $('#errorSize').css('display', 'block').text(data.error);
                     } else {
                         window.location = '<%=ConfigUtil.hostURL()%>Add-To-Cart'
                     }
@@ -189,7 +189,7 @@
                     Related Product</h2>
                 <ul id="carousel" class="elastislide-list">
                 <%for (int i = 0; i < relProductDT.Rows.Count;i++ ) {%>
-                    <li><a href="<%=ConfigUtil.hostURL() %>?htm=<%=relProductDT.Rows[i]["SKUCode"] %>" class="">
+                    <li><a href="<%=ConfigUtil.hostURL() %><%=StringUtil.urlEncode(relProductDT.Rows[i]["SKUName"]+"") %>?htm=<%=relProductDT.Rows[i]["SKUCode"] %>" class="">
                         <img src="<%=ConfigUtil.getServerPath() %><%=relProductDT.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /><br>
                         <span><%=relProductDT.Rows[i]["SKUName"] %></span><br>
                         <span>Rs.<%=relProductDT.Rows[i]["SpecialPrice"] %></span></a></li>
@@ -201,7 +201,7 @@
                     Recent View</h2>
                 <ul id="carousel1" class="elastislide-list">
                      <%for (int i = 0; i < recentProductTD.Rows.Count;i++ ) {%>
-                    <li><a href="<%=ConfigUtil.hostURL() %>?htm=<%=recentProductTD.Rows[i]["SKUCode"] %>" class="">
+                    <li><a href="<%=ConfigUtil.hostURL() %><%=StringUtil.urlEncode(recentProductTD.Rows[i]["SKUName"]+"") %>?htm=<%=recentProductTD.Rows[i]["SKUCode"] %>" class="">
                         <img src="<%=ConfigUtil.getServerPath() %><%=recentProductTD.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /><br>
                         <span><%=recentProductTD.Rows[i]["SKUName"]%></span><br>
                         <span>Rs.<%=recentProductTD.Rows[i]["SpecialPrice"]%></span></a></li>

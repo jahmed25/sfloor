@@ -26,6 +26,9 @@
 					.success(function (msg) {
 					    $("#cartDiv").html("<p style='color:red'>Your Cart Is Empty</p>")
 					    $("#cCount").text("0");
+					    if (pageType == 'addToCart') {
+					        $('.addtocartmain').html("<center><p style='color:red'>All item(s) has been Deleted from your Cart</center>")
+                        }
 
 					});
 	    }
@@ -80,9 +83,10 @@
                                 <%--mobile view--%>
                                 <div class="header-content hidden-desktop">
                                     <div class="row-fluid">
-                                        <h1 class="logo">
-                                            <strong>Shoppers Floor</strong><a href="" title="Shoppers floor" class="logo">
+                                       <h1 class="logo">
+                                            <a href="<%=ConfigUtil.hostURL() %>Home" title="Shoppers floor" class="logo"><strong>Shoppers Floor</strong>
                                                <img src='<%=ConfigUtil.StaticPath() %>new-images/newlogo.png'  alt="Logo"></a></h1>
+                                       
                                         <br>
                                         <form id="search_mini_form" action="" method="get">
                                         <div class="form-search">
@@ -108,8 +112,8 @@
                                     <div class="row-fluid">
                                         <div class="span4">
                                             <h1 class="logo">
-                                                <strong>Shoppers Floor</strong><a href="" title="Shoppers Floor" class="logo"><img
-                                                    src='<%=ConfigUtil.StaticPath() %>new-images/newlogo.png' width="200px" height="70px" alt="Shoppers floor"></a></h1>
+                                                <a href="<%=ConfigUtil.hostURL() %>Home" title="Shoppers floor" class="logo"><strong>Shoppers Floor</strong>
+                                                <img src='<%=ConfigUtil.StaticPath() %>new-images/newlogo.png' width="200px" height="70px" alt="Shoppers floor"></a></h1>
                                         </div>
                                         <div class="span4 search-stick">
                                             <form id="search_mini_form">
@@ -175,7 +179,7 @@
 
                                                 <div class="top-cart-wrapper">
                                                     <div class="top-cart-contain">
-                                                        <div id="mini_cart_block">
+                                                        <div id="mini_cart_block" name='cartContainer'>
                                                             <div class="icon-cart-big">
                                                                 <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span><span class="atccount"><b id='cCount'><%=cartDT.Rows.Count%></b></span></a></span></a>
                                                             </div>

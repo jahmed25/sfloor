@@ -182,8 +182,8 @@
                         <a href="<%# Eval("link") %>">
                          
                             <div class="loading item">
-                                <img src="<%#ConfigUtil.getServerPath()+Eval("PathInternaldetailsSmallImage")%>"
-                                    alt="<%# Eval("SKUName") %>" class="right_inner_categorydetailsimagescss" />
+                               <a href='<%#Eval("link") %>'> <img src="<%#ConfigUtil.getServerPath()+Eval("PathInternaldetailsSmallImage")%>"
+                                    alt="<%# Eval("SKUName") %>" class="right_inner_categorydetailsimagescss" /></a>
                            <%--      <span class="hover-image"><img src='http://admin.megafactoryoutlet.com/sfloor/new-images/sample-_12__2_1.jpg'></span>
                            --%> </div>
                         </a>
