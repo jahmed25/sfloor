@@ -84,6 +84,7 @@ background-color:#FF8000; color:#FFFFFF; border-radius:100%; padding:1px 6px
     width:700px;
     padding: 30px;
 	border-radius:5px;
+	float:left;
     background-color:#FFF;
 	-webkit-box-shadow: 1px -1px 23px -3px rgba(112,111,108,1);
 -moz-box-shadow: 1px -1px 23px -3px rgba(112,111,108,1);
@@ -114,7 +115,7 @@ box-shadow: 1px -1px 23px -3px rgba(112,111,108,1);
 .ckeckoutmain  td p i{margin-left:25px; color:#A9A9A9}
 .ckeckoutmain h3{color:#868686; font-weight:200}
 .ckeckoutmain h1{color:#868686; font-weight:600; font-size:22px}
-.ckeckoutmain_sec .btn_shipinfo {position: relative; margin: 10px auto 10px;    border: 1px solid #DA7C0C; display:inline-block; padding: 6px 40px 7px; border-radius: 4px; border: 1px solid #DDD; color:#FEFEFE; font-size:16px; 
+.ckeckoutmain_sec .btn_shipinfo {position: relative; margin: 10px auto 10px;    border: 1px solid #DA7C0C; display:inline-block; padding: 6px 40px 7px; border-radius: 4px;  color:#FEFEFE; font-size:16px; 
 background: rgba(255,175,75,1);
 background: -moz-linear-gradient(top, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,146,10,1)));
@@ -143,12 +144,40 @@ background: -ms-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rg
 background: radial-gradient(ellipse at center, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
 }
+#view3{}
+.chosoe_pmt{width:280px; float:left; }
 .chosoe_pmt p{background-color:#F6F6F6; border:#D3D3D3 1px solid; color:#585858; padding:10px 5px}
-.chosoe_pmt p input{margin-right:5px;}
+.chosoe_pmt p input{cursor:pointer;margin-right:5px;}
+.chosoe_pmt p label{cursor:pointer}
+.chosoe_pmt p label:hover{color:#FF8000}
+.cnfrm_add{width:350px; float:left; border-right:#C0C0C0 1px solid; margin-right:50px}
+.cnfrm_add ul{ list-style:none; text-align:left;}
+.cnfrm_add .edit_btn{position: relative; margin: 10px auto 10px;    border: 1px solid #818181; cursor:pointer; display:inline-block; padding: 5px 20px 6px; border-radius: 4px; 
+background: rgba(226,226,226,1);
+background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(226,226,226,1)), color-stop(50%, rgba(219,219,219,1)), color-stop(51%, rgba(209,209,209,1)), color-stop(100%, rgba(254,254,254,1)));
+background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: -o-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+background: linear-gradient(to bottom, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=0 );
+}
+.cnfrm_add .edit_btn:hover{ opacity:0.8}
+.payemnt_sec_head{width:250px; text-transform:uppercase; text-decoration:underline; font-size:15px}
+.cnfrm_add ul li{
+color:#818181;
+font-size:13px;
+padding:4px; border-radius:5px;
+width:200px;
+}
+.cnfrm_add ul li span{margin-right:10px}
+
+
 .order-summary{width:380px; height:auto; border-radius:5px; overflow:visible;  float:right;
 -webkit-box-shadow: 1px -1px 23px -3px rgba(112,111,108,1);
 -moz-box-shadow: 1px -1px 23px -3px rgba(112,111,108,1);
 box-shadow: 1px -1px 23px -3px rgba(112,111,108,1);}
+
 .order-summary .order-summary_head{color:#E9E9E9; padding:5px; text-transform:uppercase; background:#FF8000; border-radius:5px 5px 0px 0px; font-weight:600; border-bottom:#FF8000 2px solid}
 .order-summary table{ border-collapse:collapse; margin:5px; width:370px}
 .order-summary .header{ background-color:#E1E1E1; vertical-align:top;  font-size:13px}

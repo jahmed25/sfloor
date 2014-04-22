@@ -48,12 +48,28 @@
 	</table>	   
 	</div>
             <div id="view3">
-			<p>Choose your mode of payment</p>
-    		<div class="chosoe_pmt">
-			<p><input type="radio" name="cod"><span>Cash-On-Delivery</span></p>
-			<p><input type="radio" name="cod"><span>Net Bankiing</span></p>
-			<p><input type="radio" name="cod"><span>Debit Cart & ATM</span></p>
-			<p><input type="radio" name="cod"><span>Credit Card</span></p>
+			
+			<div class="cnfrm_add">
+			<span class="payemnt_sec_head">Your Shipping Address</span>
+			<ul>
+			<li>Kunal</li>
+			<li>Sharma</li>
+			<li>kk@gmail.com</li>
+			<li>987171717</li>
+			<li>Khandsa, GGN</li>
+			<li>Gurgaon</li>
+			<li>haryana</li>
+			<li>1111111</li>
+			<input type="button" class="edit_btn" value="Edit" name="paynow">
+			</ul>
+			</div>
+			<div class="chosoe_pmt">
+			<span class="payemnt_sec_head">Choose your mode of payment</span>
+    		<p><input type="radio" id="cod" name="cod"><Label for="cod">Cash-On-Delivery</label></p>
+			<p><input type="radio" id="nb" name="cod"><label for="nb">Net Bankiing</label></p>
+			<p><input type="radio" id="debitcard" name="cod"><label for="debitcard">Debit Cart & ATM</label></p>
+			<p><input type="radio" id="creditcard" name="cod"><label for="creditcard">Credit Card</label></p>
+		    <input type="button"  class="btn_shipinfo" value="Pay Now" name="paynow">
 		   </div>
 	    
 </div>
