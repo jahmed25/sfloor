@@ -18,7 +18,7 @@ $(document).ready(function () {
         var inner=$(this).attr('inner')
         $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=addFav', data: { sku: sku1} })
 			.success(function (msg) {
-			    var json = JSON.parse(msg);
+			    var json = msg;//JSON.parse(msg);
 			    if (json.error != null)
 			        return;
 			    var div = "<div class='wishlist-content'>" +
