@@ -101,3 +101,29 @@ function positionPopupQuick() {
         position: 'absolute'
     });
 }
+
+$(document).ready(function () {
+    //open popup
+    $('#checkoutlogin').click(function () {
+        $("#checkout_overlay_form").fadeIn(1000);
+        $(".checkout_background_overlay").fadeIn(500);
+        checkout_positionPopup();
+    });
+    //close popup
+    $("#close, .checkout_background_overlay").click(function () {
+        $("#checkout_overlay_form").fadeOut(500);
+        $(".checkout_background_overlay").fadeOut(500);
+    });
+    $(window).bind('resize', checkout_positionPopup);
+});
+//position the popup at the center of the page
+function checkout_positionPopup() {
+    if (!$("#checkout_overlay_form").is(':visible')) {
+        return;
+    }
+    $("#checkout_overlay_form").css({
+        left: ($(window).width() - $('#checkout_overlay_form').width()) / 2,
+        top: ($(window).width() - $('#checkout_overlay_form').width()) / 7,
+        position: 'absolute'
+    });
+}
