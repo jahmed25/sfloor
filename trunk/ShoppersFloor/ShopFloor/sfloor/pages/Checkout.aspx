@@ -3,22 +3,58 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Tabbed Content</title>
+    <title>Checkout</title>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script src="<%=ConfigUtil.StaticPath() %>new-js/tabcontent.js" type="text/javascript"></script>
-    <link href="<%=ConfigUtil.StaticPath() %>new-css/checkoutpage_n.css" rel="stylesheet"
-        type="text/css" />
+    <script src="<%=ConfigUtil.StaticPath() %>new-js/common1.js" type="text/javascript"></script>
+    <link href="<%=ConfigUtil.StaticPath() %>new-css/checkoutpage_n.css" rel="stylesheet" type="text/css" />
+    <link href='<%=ConfigUtil.StaticPath() %>new-css/login-forms.css' rel="stylesheet" type="text/css" />
+    
 </head>
 <body>
+<style>
+    #checkout_overlay_form
+    {
+        background: WHITE;
+        z-index: 100000;
+    }
+    .checkout_background_overlay
+    {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 100000;
+        background: black;
+        opacity: 0.9;
+    }
+    .css-form input.ng-invalid.ng-dirty
+    {
+        border: 2PX SOLID #FA787E;
+    }
+    
+    .css-form input.ng-valid.ng-dirty
+    {
+        border: 2PX SOLID #78FA89;
+    }
+    .css-form .help-block
+    {
+        color: #FA787E; font-size:12px;
+    }
+    .button input.disabled{background-color:Blue}
+</style>
+
     <div class="ckeckoutmain_sec">
         <header><div id="header">
         <div class="logo"><a href="<%=ConfigUtil.hostURL() %>Home"><img src="<%=ConfigUtil.StaticPath() %>new-images/newlogo.png" width="220px" height="50px"></a></diV>
-
-
-<div>
-<a href='<%=ConfigUtil.hostURL() %>Home' class="btn_shipinfo bck_to_shp">Back to shop</a>
+        <div>
+        <a href='<%=ConfigUtil.hostURL() %>Home' class="btn_shipinfo bck_to_shp">Back to shop</a>
 </div>
-
-</div> </header>
+</div>
+ </header>
         <div class="ckeckoutmain">
             <ul class="tabs">
                 <li><a href="#view1">Email Or Login <span>1</span></a></li>
@@ -58,8 +94,7 @@
                             <th>
                             </th>
                             <td>
-                                <p>
-                                    <input type="radio">&nbsp;&nbsp;I have a Shoppersfloor account and password<br>
+                                 <p><input type="radio" id="checkoutlogin" name="chkout_radio">&nbsp;&nbsp;I have a Shoppersfloor account and password<br>
                                     <i>Sign in to your account and checkout faster</i></p>
                             </td>
                         </tr>
@@ -192,11 +227,10 @@
             </tr></thead>
 		<!--Loop content-->
 		<tr class="order_cont">
-                <td class="image_sec"><img alt="" src="images/thumbs/image3.jpg"><br>
+                <td class="image_sec"><img alt="" src="<%=ConfigUtil.StaticPath() %>new-images/thumbs/image1.jpg"><br>
                             <p class="">Brand name</p>
                             <p class="name">Product Name</p>
-                            <p class=""> <span> Size : L  </span><span> color : Red  </span></p>
-                </td>
+                            <p class=""> <span> Size : L  </span><span> color : Red  </span></p></td>
                 <td class="">2</td>
                 <td class="">3-6<small class="">Business days</small></td>
                 <td class="">Rs.2798</td>
@@ -221,8 +255,8 @@
     </table>
 	</div>
 </section>
-    </div>
-    <footer>
+</div>
+<footer>
 <div class="chkout_footer">
 <div class="chkout_footsec">
 <div><span><a href="#">About us</a></span>|<span><a href="#">Help</a></span>|<span><a href="#">Privacy</a></span>|<span><a href="#">Contact</a></span>|
@@ -231,5 +265,60 @@
 </div>
 </div>
 </footer>
+
+<div class="checkout_background_overlay" style="display: none;"></div>
+<section>
+<div  id="checkout_overlay_form" style="display:none" class="loginregisterform" ng-app='registration' ng-controller='regCtrl'>
+<a title="close" class="x" id="close" href="#" >x</a>		
+<div class="loginform">
+<div class="headtitle"><span>Login</span></div>
+<form name='loginForm' class='css-form' >	
+<p ng-show="login.errors.system" class="help-block" id='P2'> {{login.errors.system}}.</p>
+<table>
+<tr><th>Username:</th><td> <input type="email" name='logEmail' ng-keyup="validateEmail()" placeholder="e.g. example@example.com" required  ng-model="login.email" 
+ng-change="removelogErro('email')">
+<p ng-show="loginForm.logEmail.$invalid && !loginForm.logEmail.$pristine" class="help-block">Email is not valid.</p>
+<p ng-show="login.errors.email" class="help-block" id='P4'> {{login.errors.email}}.</p>
+<p ng-show="login.errors.info" style="color:Green" id='P3'> {{login.errors.info}}.</p>
+</td></tr>
+<tr><th>Password:</th><td><input type="Password" name='logPwd' placeholder="Password" required  ng-model="login.pwd" ng-minlength="8" ng-maxlength="20" 
+ng-change="removelogErro('pwd')">
+<p ng-show="loginForm.logPwd.$invalid && !loginForm.logPwd.$pristine" class="help-block">Password required length between 8 to 20</p>
+<p ng-show="login.errors.pwd" class="help-block" id='errlogPwd'> {{login.errors.pwd}}.</p>
+</td></tr>
+<tr><th></th><td> <input type="button" value="Login" ng-click="login()" ng-disabled="loginForm.$invalid"></td></tr>
+</table>
+</form>
+</div>
+<div class="midline"></div>
+<div class="registerform">
+<div class="headtitle"><span>Register</span></div>
+<form name='regForm' class='css-form' ng-submit="register()">     
+<p ng-show="user.errors.system" class="help-block" id='errSystem'>{{user.errors.system}}.</p>
+<table>
+<tr><th>Email ID:</th><td><input type="email" name='email'  ng-keyup="validateRegEmail()" placeholder="e.g. example@example.com" required  ng-model="user.email" ng-change="removeErro('email')">
+<p ng-show="regForm.email.$invalid && !regForm.email.$pristine" class="help-block">Email is not valid.</p>
+<p ng-show="user.errors.email" class="help-block" id='errUsrEmail'> {{user.errors.email}}.</p>
+<p ng-show="user.errors.info" style="color:Green" id='P5'> {{user.errors.info}}.</p>
+</td></tr>
+<tr><th>Password:</th><td><input type="password" name='pwd' ng-change="removeErro('pwd')" placeholder="Password" required ng-model="user.pwd" ng-minlength="8" ng-maxlength="20">
+<p ng-show="regForm.pwd.$invalid && !regForm.pwd.$pristine" class="help-block">Password required length between 8 to 20</p>
+<p ng-show="user.errors.pwd" class="help-block" id='errPwd'> {{user.errors.pwd}}.</p>
+</td></tr>
+<tr><th>Mobile:</th><td><input type="text" name='mobile' ng-pattern="/[0-9]/" placeholder="Mobile" ng-model="user.mobile" ng-minlength="10" ng-maxlength="10">
+<p ng-show="regForm.mobile.$invalid && !regForm.mobile.$pristine" class="help-block">Mobile no length should be 10 digit</p>
+<p ng-show="user.errors.mobile" class="help-block" id='errMobile'> {{user.errors.mobile}}.</p></td></tr>
+<tr><th>Gender:</th><td class="gender"><span>Male: </span><input type='radio' name='gender' value='Male' required ng-model="user.gender"/>
+<span>Female:</span><input type='radio' name='gender' value='Female' required ng-model="user.gender"/>
+<p ng-show="regForm.gender.$invalid && !regForm.gender.$pristine" class="help-block">Please select gender</p>
+<p ng-show="user.errors.gender" class="help-block" id='P1'> {{user.errors.gender}}.</p>
+</td></tr>
+<tr><td colspan="2" class="offercheck"><input type="checkbox" name="checkbox" ng-model="user.newsLts">&nbsp;&nbsp;I want to receive news and special offers</td></tr>
+<tr><th></th><td><input type="button" value="Signup" ng-click="register()" ng-disabled="regForm.$invalid"></td></tr>
+</table>
+</form>
+</div>
+</div>
+</section>
 </body>
 </html>
