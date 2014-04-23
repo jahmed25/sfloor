@@ -1,7 +1,7 @@
 
 .categorypage-content{ background:#fff; line-height:22px; color:#444; width:1170px; text-align:left; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:30px 0 0px }
 #details-image{  float:left; left:0; width:450px; overflow:visible }
-#description{ overflow:hidden; min-height:610px;height:auto; }
+#description{ overflow:hidden; min-height:610px;height:auto; width:700px }
 #description h1{ font-size:22px; text-transform:uppercase; font-weight:500; padding-bottom:10px;margin:0 0 10px 0px; color:#555; border-bottom:dotted 1px #EAEAEA  }
 #description h2{ font-size:24px; margin:32px 0; line-height:22px; color:#555}
 #description h2.closer{ margin-bottom:10px }
