@@ -71,8 +71,8 @@
      <%if (!MFO.Commom.CommonUtil.DT.isEmptyOrNull(cartDT))
        {%> 
         <div class="head addtocart-stick">
-         <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">Continue to shopping</a> 
-        <a name="pcd_tochk" type='checkout' href='#'>Proceed to checkout</a>
+         <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">CONTINUE SHOPPING</a> 
+        <a name="pcd_tochk" type='checkout' href='#'>ORDER NOW</a>
        <h1><div class="total"><span>Total Rs.</span>
         <span name='gTotal' class="grandtot"><%=total%></span>
         </div></h1>
@@ -145,8 +145,8 @@
         <!--end loop-->
         <div class="cont_toshop_tot">
         <div class="cont_toshop">
-        <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">Continue to shopping</a> 
-        <a name="pcd_tochk" type='checkout' href='#'>Proceed to checkout</a>
+        <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">CONTINUE SHOPPING</a> 
+        <a name="pcd_tochk" type='checkout' href='#'>ORDER NOW</a>
         </div>
         <div class="total"><span>Total Rs.</span>
         <span name='gTotal' class="grandtot"><%=total%></span>
