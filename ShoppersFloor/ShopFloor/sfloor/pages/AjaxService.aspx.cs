@@ -16,7 +16,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        String action = Request.Params["action"];
+            String action = Request.Params["action"];
         switch (action)
         {
             case "login":           login(); break;
@@ -29,7 +29,8 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "clearCart":       clearCart(); break;
             case "clearFav":        clearFav(); break;
             case "updateQty":       updateQty(); break;
-            case "removeFromCart":  removeFromCart(); break;
+            case "removeFromCart": removeFromCart(); break;
+            case "checkInventory": checkInventory(); break;
         }
     }
     private void removeFromCart()
@@ -79,10 +80,10 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         }
         sendResponse(dic);
     }
-    private void sendResponse(Dictionary<string, string> dic)
+    private void sendResponse(object response)
     {
         JavaScriptSerializer ser = new JavaScriptSerializer();
-        string errorStr = ser.Serialize(dic);
+        string errorStr = ser.Serialize(response);
         Response.Write(errorStr);
         Response.AddHeader("Content-Length", errorStr.Length.ToString());
         Response.ContentType = "application/json";
@@ -383,7 +384,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             int u = Convert.ToInt32(dt1.Rows[0]["UNIT_PRICE"]+"");
             int TotalPrice = t * u;
             checkInventroy(t.ToString(),dic,dt,cartQuantity.ToString());
-            if (dic.Count > 0)
+            if (dic.Count == 0)
             {
                 GenericDAO.updateQuery("update CART set QTY ='" + t + "', TOTAL='" + TotalPrice + "' where SESSION_ID='" + Session.SessionID + "' and SKU ='" + dt1.Rows[0]["SKU"] + "'");
                 Session.Remove(Constant.Session.CART_ITEMS);
@@ -484,4 +485,36 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         }
         return dic;
     }
+    private void checkInventory()
+    {
+        DataTable dt = CartDAO.getCartDT(Session.SessionID);
+        List<Dictionary<string, string>> errorList = new List<Dictionary<string, string>>();
+        if (!CommonUtil.DT.isEmptyOrNull(dt))
+        {
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                int inventory = 0;
+                if (StringUtil.isNullOrEmpty(dt.Rows[i]["Inventory"] + ""))
+                    inventory = 0;
+                else
+                    inventory = (int)float.Parse(dt.Rows[i]["Inventory"] as String);
+                if (inventory == 0)
+                {
+                    dic.Add("sku",dt.Rows[i]["SKU"] + "");
+                    dic.Add("error", "Oops!! Sorry, Items is Sold Out");
+                }
+                else if (inventory < Int32.Parse(dt.Rows[i]["QTY"] + ""))
+                {
+                    string msg = "Only " + inventory + " Item(s) are left in inventory!!";
+                    dic.Add("sku", dt.Rows[i]["SKU"] + "");
+                    dic.Add("error", msg);
+                }
+                if (dic.Count > 0)
+                    errorList.Add(dic);
+            }
+        }
+        sendResponse(errorList);
+    }
+
 }
