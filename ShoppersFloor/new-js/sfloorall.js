@@ -1,10 +1,3 @@
-/*  Prototype JavaScript framework, version 1.7
- *  (c) 2005-2010 Sam Stephenson
- *
- *  Prototype is freely distributable under the terms of an MIT-style license.
- *  For details, see the Prototype web site: http://www.prototypejs.org/
- *
- *--------------------------------------------------------------------------*/
 
 var Prototype = {
 
@@ -29877,7 +29870,6 @@ $jq(document).ready(function(){
 	// Tests that need a body at doc ready
 	D.ready(function() {
 		if ( $.scrollbarWidth === undefined ) {
-			// http://benalman.com/projects/jquery-misc-plugins/#scrollbarwidth
 			$.scrollbarWidth = function() {
 				var parent = $('<div style="width:50px;height:50px;overflow:auto"><div/></div>').appendTo('body'),
 					child  = parent.children(),
@@ -29981,11 +29973,11 @@ $jq(document).ready(function(){
        
        /*show hide popup*/
        if(CUSTOMMENU_POPUP_EFFECT == 0) $jq(this).find('.popup').stop(true,true).slideDown('slow');
-       if(CUSTOMMENU_POPUP_EFFECT == 1) $jq(this).find('.popup').stop(true,true).fadeIn('slow');
+       if(CUSTOMMENU_POPUP_EFFECT == 1) $jq(this).find('.popup').stop(true,true).fadeIn(300);
        if(CUSTOMMENU_POPUP_EFFECT == 2) $jq(this).find('.popup').stop(true,true).show('slow');
     },function(){
        if(CUSTOMMENU_POPUP_EFFECT == 0) $jq(this).find('.popup').stop(true,true).slideUp();
-       if(CUSTOMMENU_POPUP_EFFECT == 1) $jq(this).find('.popup').stop(true,true).fadeOut('slow');
+       if (CUSTOMMENU_POPUP_EFFECT == 1) $jq(this).find('.popup').stop(true, true).fadeOut(300);
        if(CUSTOMMENU_POPUP_EFFECT == 2) $jq(this).find('.popup').stop(true,true).hide('fast');
     })
 });
