@@ -181,7 +181,7 @@
                                                     <div class="top-cart-contain">
                                                         <div id="mini_cart_block" name='cartContainer'>
                                                             <div class="icon-cart-big">
-                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span><span class="atccount"><b id='cCount'><%=cartDT.Rows.Count%></b></span></a></span></a>
+                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span><span class="atccount"><b id='cCount'><%=cartDT.Rows.Count%></b></span></span></a>
                                                             </div>
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
@@ -190,7 +190,7 @@
                                                                     <%if (cartDT.Rows.Count > 0)
                                                                       { %>
 
-                                                                    Total :<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a  style='color:blue' href="<%=ConfigUtil.hostURL() %>Checkout">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
+                                                                    Total:&nbsp;<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>Checkout">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
                                                                     <%for (int i = 0; i < cartDT.Rows.Count; i++)
                                                                       { %>
                                                                     <div class="wishlist-content">
@@ -200,10 +200,10 @@
                                                                         <p class="brand"><%=cartDT.Rows[i]["SKUBrand"]%></p>
                                                                         <p class="empty"><%=cartDT.Rows[i]["SKUName"]%></p>
                                                                         <p class="subtotal">
-                                                                           SKU : <span class="price"> <%=cartDT.Rows[i]["SKU"]%></span>
-                                                                           Unit Price <span class="price">Rs.   <%=cartDT.Rows[i]["UNIT_PRICE"]%></span><br />
-                                                                           Quantity <span class="price">  <%=cartDT.Rows[i]["QTY"]%></span><br />
-                                                                           Sub Total <span class="price">Rs. <%=cartDT.Rows[i]["TOTAL"]%></span>
+                                                                           SKU : <span class="price"> <%=cartDT.Rows[i]["SKU"]%></span><br />
+                                                                           Unit Price: <span class="price">Rs.   <%=cartDT.Rows[i]["UNIT_PRICE"]%></span><br />
+                                                                           Quantity: <span class="price">  <%=cartDT.Rows[i]["QTY"]%></span><br />
+                                                                           Sub Total: <span class="price">Rs. <%=cartDT.Rows[i]["TOTAL"]%></span>
                                                                          </p></div>
                                                                     </div>
                                                                     <%} %>
