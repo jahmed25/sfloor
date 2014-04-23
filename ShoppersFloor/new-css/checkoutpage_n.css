@@ -70,7 +70,7 @@
 }
 .ckeckoutmain ul.tabs li.selected a span, .ckeckoutmain ul.tabs li.selected a:visited
         {
-background-color:#FF8000; color:#FFFFFF; border-radius:100%; padding:1px 6px
+background-color:#FF8000; color:#FFFFFF; border-radius:100%; padding:2px 6px
 
 		}
         
@@ -100,6 +100,7 @@ box-shadow: 1px -1px 23px -3px rgba(112,111,108,1);
 	border-width: 2px;
 	border-style: solid;
 	border-radius: 5px;
+	border-color:Silver;
 	background: #fff;
 	color: #404040;
 	transition: border-color 0.2s ease 0s;
@@ -135,7 +136,7 @@ background: -ms-linear-gradient(45deg, rgba(255,175,75,1) 0%, rgba(255,146,10,1)
 background: linear-gradient(45deg, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
 }
-.ckeckoutmain_sec .btn_shipinfo:active{ background: rgba(255,175,75,1);
+.ckeckoutmain_sec .btn_shipinfo:active{ outline:none; background: rgba(255,175,75,1);
 background: -moz-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
 background: -webkit-gradient(radial, center center, 0px, center center, 100%, , color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,146,10,1)));
 background: -webkit-radial-gradient(center, ellipse cover, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
