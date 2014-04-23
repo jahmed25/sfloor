@@ -26,7 +26,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9db31', e
 .loginregisterform table{width:350px}
 .loginregisterform th{text-align:right; padding-right:5px; padding-top:8px;	font: 300 15px/39px 'Open Sans', Helvetica, Arial, sans-serif; color:#575757; font-size:14px}
 .loginregisterform td{color:#575757; font-size:14px}
-.loginregisterform .button {
+.loginregisterform input[type="button"] {
 	height: 39px;
 	float:right;
 	background-color:orange;
@@ -43,7 +43,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9db31', e
 	outline:none;
 	cursor: pointer;
 }
-.loginregisterform .button:hover {
+.loginregisterform input[type="button"]:hover {
 	background-color:orange;
 	opacity: 1;
 	transition: opacity 0.2s;
@@ -60,6 +60,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9db31', e
 	-moz-transition: opacity 0.2s;
 	-webkit-transition: opacity 0.2s;
 }
+.loginregisterform input[disabled="disabled"] {height: 39px;
+	float:right;
+	background-color:#E1E1E1;
+	color:#A9A9A9;
+	text-transform:uppercase;
+	overflow: hidden;
+	margin: 10px 0 0 20px;
+	padding: 0 25px;
+	outline: none;
+	border: 0;
+	font-weight:bold;
+	font: 300 15px/39px 'Open Sans', Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	
+	outline:none;
+	cursor: default;}
+.loginregisterform input[disabled="disabled"]:hover 
+{
+    background-color:#E1E1E1;
+	color:#A9A9A9;
+	opacity:0.7;
+	transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+	-moz-transition: none;
+	-webkit-transition: none;
+}
+.loginregisterform input[disabled="disabled"]:active {
+	background-color:#E1E1E1;
+	color:#A9A9A9;
+	}
+
 .loginregisterform input[type="text"],input[type="number"],input[type="password"],input[type="email"] {display: block;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -78,7 +110,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9db31', e
 	-moz-appearance: none;
 	-webkit-appearance: none;
 }
-.loginregisterform input{margin-top:10px;}
+.loginregisterform input{margin-top:10px; border:2px solid silver}
 .loginregisterform input[type="text"]:focus,input[type="number"]:focus,input[type="password"]:focus,input[type="email"]:focus,input[type="radio"]:focus{border:1px solid #FF8000; transition: border-color 0.3s ease 0.2s;}
 .loginregisterform .gender { line-height:55px}
 .loginregisterform .gender span{ margin-left:15px; margin-right:5px}
