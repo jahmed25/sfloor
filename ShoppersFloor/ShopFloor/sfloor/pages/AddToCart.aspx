@@ -53,6 +53,17 @@
 					    reloadCart();
 					});
             });
+            $("[type='checkout']").on("click", function () {
+                $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=checkInventory' })
+					.success(function (json) {
+					    if (json.length > 0) {
+					        for (i = 0; i < json.length; i++)
+					            $("span[name='error'][sku='" + json[i].sku + "']").text(json[i].error);
+					    } else {
+					        window.location = path + 'check-out';
+					    }
+					});
+            });
         });
     </script>
     <div style="height:auto" >
@@ -61,7 +72,7 @@
        {%> 
         <div class="head addtocart-stick">
          <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">Continue to shopping</a> 
-        <a name="pcd_tochk" href='<%=ConfigUtil.hostURL() %>check-out'>Proceed to checkout</a>
+        <a name="pcd_tochk" type='checkout' href='#'>Proceed to checkout</a>
        <h1><div class="total"><span>Total Rs.</span>
         <span name='gTotal' class="grandtot"><%=total%></span>
         </div></h1>
@@ -135,7 +146,7 @@
         <div class="cont_toshop_tot">
         <div class="cont_toshop">
         <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">Continue to shopping</a> 
-        <a name="pcd_tochk" href='<%=ConfigUtil.hostURL() %>check-out'>Proceed to checkout</a>
+        <a name="pcd_tochk" type='checkout' href='#'>Proceed to checkout</a>
         </div>
         <div class="total"><span>Total Rs.</span>
         <span name='gTotal' class="grandtot"><%=total%></span>
