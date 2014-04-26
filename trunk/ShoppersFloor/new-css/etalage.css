@@ -1,5 +1,5 @@
 
-.categorypage-content{ background:#fff; line-height:22px; color:#444; width:1170px; text-align:left; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:30px 0 0px }
+.categorypage-content{ background:#fff; line-height:22px; color:#444; width:1170px; text-align:left; margin:0 auto; text-shadow:0 0 1px #f7f7f7; position:relative; padding:10px 0 0px }
 #details-image{  float:left; left:0; width:450px; overflow:visible }
 #description{ overflow:hidden; min-height:610px;height:auto; width:700px }
 #description h1{ font-size:22px; text-transform:uppercase; font-weight:500; padding-bottom:10px;margin:0 0 10px 0px; color:#555; border-bottom:dotted 1px #EAEAEA  }
@@ -496,7 +496,7 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
     height:23px;
 }
 .quickviewmain{position:fixed; background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; margin:1%;}
-.quickview-content{ background:#fff; line-height:22px; color:#444; width:950px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; top:0; border-radius:10px; }
+.quickview-content{ background:#fff; line-height:22px; color:#444; width:940px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; top:0; border-radius:10px; }
 
 #quick-details-image{  float:left; left:0; width:420px; overflow:hidden }
 #quick-details-image .cloudzoom-gallery {width:30px; height:50px; padding:1px;}
@@ -511,12 +511,12 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 
 #quick-details-content .quick-priceqty .quick-price{width:250px; float:left}
 #quick-details-content .quick-priceqty .quick-price .rs{ color:#181818; padding:3px 0px 3px 0px; text-transform:uppercase; font-weight:500; font-size:22px}
-#quick-details-content .quick-priceqty .quick-price .discount{ color:#E70325;font-weight:500;text-transform:uppercase;}
+#quick-details-content .quick-priceqty .quick-price .discount{ color:#E70325;font-weight:500;font-size:14px;text-transform:uppercase;}
 #quick-details-content .quick-priceqty .quick-price .oldprice{color:#ABABAB;text-transform:uppercase;padding-top:5px; }
 #quick-details-content .quick-priceqty .quick-price .oldprice .cut{text-decoration:line-through; }
-#quick-details-content .quick-priceqty .quick-price .rs span{margin-right:5px;}
-#quick-details-content .quick-priceqty .quick-price .avl{color:#707070; margin-right:5px;}
-#quick-details-content .quick-priceqty .quick-price .avl .instock{margin-left:10px; color:#00AA55}
+#quick-details-content .quick-priceqty .quick-price .rs span{margin-right:5px;font-size:17px}
+#quick-details-content .quick-priceqty .quick-price .avl{color:#707070; margin-right:5px; font-size:13px}
+#quick-details-content .quick-priceqty .quick-price .avl .instock{margin-left:10px; color:#00AA55; font-size:13px}
 #quick-details-content .quick-priceqty .addtocart_qty-quick{background-color:#F3F3F3; border:#C0C0C0 solid 1px; width:220px; height:110px; float:left; text-align:center; line-height:35px}
 
 #quick-details-content .quick-size{margin:5px 0px 0px 0px;color:#727272}
@@ -526,7 +526,7 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 #quick-details-content .quick-size ul li a{ text-decoration:none}
 #quick-details-content .quick-size a{ float:right; color:#6C6C6C; font-size:14px;}
 #quick-details-content .quick-size a:hover{color:#FF8000; cursor:pointer}
-
+#quick-details-content .outofstock{color:Red; font-size:11px; }
 
 #quick-details-content .quick-color{ color:#727272}
 #quick-details-content .quick-color ul{list-style:none;}
