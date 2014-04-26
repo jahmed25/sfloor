@@ -97,7 +97,7 @@ function positionPopupQuick() {
     }
     $("#overlay_form_quick").css({
         left: ($(window).width() - $('#overlay_form_quick').width()) / 2,
-        top: ($(window).width() - $('#overlay_form_quick').width()) / 7,
+        top: ($(window).width() - $('#overlay_form_quick').width()) /10,
         position: 'absolute'
     });
 }
