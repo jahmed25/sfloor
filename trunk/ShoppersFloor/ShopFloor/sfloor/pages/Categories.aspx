@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server" >
 <link href='<%=ConfigUtil.StaticPath() %>new-css/layout.css' rel="stylesheet" type="text/css" />
 <link href='<%=ConfigUtil.StaticPath() %>new-css/styles-filter.css' rel="stylesheet" type="text/css" />
-<link href='<%=ConfigUtil.StaticPath() %>new-css/internalpage.css' rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
 <script src='<%=ConfigUtil.StaticPath() %>new-js/fixsidemenu.js' type="text/javascript"></script>
@@ -34,22 +33,22 @@
     
 <div id="inner_middle_category" class="overflows">
 <div class="right_inner_categorydetailssortby">
-<div class="catcrumbs" id="crumbs">
-			<ul>
+<div class="breadcrumbs" id="crumbs">
+<ul>
 <li><a  href='<%=ConfigUtil.hostURL() %>'> Home </a></li>
 <li><a id='catNav' href='<%=catUrl%>'> <%=catName%> </a></li>
 <li><a id='subCatNav' href='<%=subCatUrl%>'> <%=subCatName%> </a></li>
 <li><a id='pTypeNav' href='<%=pTypeUrl%>'> <%=pTypeName%> </a></li>
-    
 </ul></div>
-        <div class="select-style">
+
+<div class="select-style">
                   <select ID="price_select">
                     <option value="0">Sort by price : Select</option>
                     <option value="1">Sort by price : Low to High</option>
                     <option value="2">Sort by price : High to Low</option>
-               </select>
-       </div>
-    </div>
+          </select>
+</div>
+</div>
     <!--End here Filter category-->
 <div id="filter_float_threshold_start"></div>
 <div id="floating_filter" style="width: 200px; top: 170px; position: fixed; ">
@@ -243,7 +242,7 @@
 <div class="background_overlay_quick" style="display: none;">
 </div>
 <section>
-<div  id="overlay_form_quick"  style="  display:none;">
+<div  id="overlay_form_quick"  style="margin:0 auto; display:none;">
 <div  style=" position:fixed; background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; ">
 <a title="close" style="text-align:right; font-size:20px; color:red; float:right; margin-right:10px" id="closequickview" href="#">x</a>	
 <object type="text/html" id='quickViewObj' style=" background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; "></object></div> 

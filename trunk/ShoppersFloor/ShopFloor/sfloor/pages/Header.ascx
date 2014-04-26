@@ -142,7 +142,7 @@
                                                     <div class="top-cart-contain">
                                                         <div id="mini_cart_block">
                                                             <div class="icon-wishlist-big">
-                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span class="wlcount">  <b id='favCount'><%=favDT.Rows.Count%></b></span></a>
+                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span class="wlcount"><b id='favCount'><%=favDT.Rows.Count%></b></span></a>
                                                             </div>
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
@@ -186,11 +186,12 @@
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
                                                                 <span class="top-cart-title">My Cart </span><span class="cart-arrow"></span>
-                                                                <div style="display: none;" class="top-cart-content" id='cartDiv'>
+                                                                <div style="display: none;" class="top-cart-content">
                                                                     <%if (cartDT.Rows.Count > 0)
                                                                       { %>
 
                                                                     Total:&nbsp;<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>Checkout">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
+                                                                   <div class="scrollbar" id='cartDiv'>
                                                                     <%for (int i = 0; i < cartDT.Rows.Count; i++)
                                                                       { %>
                                                                     <div class="wishlist-content">
@@ -207,6 +208,7 @@
                                                                          </p></div>
                                                                     </div>
                                                                     <%} %>
+                                                                    </div>
                                                                     <%}else{ %>
                                                                     <div class="wishlist-content">
                                                                        <span class="price">  Your Cart is Empty</span>
