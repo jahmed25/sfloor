@@ -96,7 +96,7 @@
 			</div>
 			</div>
 			<%}else { %>
-                    <p>Items is sold out, You can choose different size or color combination</p>
+                    <p class="outofstock">Items is sold out, You can choose different size or color combination</p>
 
                 <%} %>
                 <span id='errorSize' style='color:red;display:none'>Please select the size</span>

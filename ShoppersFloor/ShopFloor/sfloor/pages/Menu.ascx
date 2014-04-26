@@ -6,7 +6,8 @@
  <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
  <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
-    
+    <link href='<%=ConfigUtil.StaticPath() %>new-css/internalpage.css' rel="stylesheet" type="text/css" />
+
 <style>
     #overlay_form
     {
