@@ -23,6 +23,8 @@ namespace MFO.Constants
             public const String SHOP_BY_FOOTWEAR = "SHOP_BY_FOOTWEAR";
             public const String SHOP_BY_ACCESSORIES = "SHOP_BY_ACCESSORIES";
             public const String BRAND_MENU = "BRAND_MENU";
+            public const String PIN_DT = "PIN_DT";
+            
         }
         public static class Table
         {
