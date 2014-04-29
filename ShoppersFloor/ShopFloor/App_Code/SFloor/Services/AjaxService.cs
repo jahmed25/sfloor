@@ -6,6 +6,9 @@ using SFloor.DAO;
 using System.Data;
 using MFO.Common;
 using MFO.Commom;
+using MFO.Constants;
+using MFO.Loggers;
+using System.Collections;
 
 /// <summary>
 /// Summary description for AjaxService
@@ -51,12 +54,10 @@ namespace SFloor.Services
             return dic;
 
         }
-
         public static void clearCart(string sessionId)
         {
             CartDAO.clearCart(sessionId);
         }
-
         public static void clearFav(string sessionId)
         {
             FavDAO.clearFav(sessionId);
@@ -91,5 +92,87 @@ namespace SFloor.Services
             catch { }
             return dt;
         }
+
+        public static List<string> getPinDT(string like)
+        {
+            DataTable dt = new DataTable();
+            List<string> pinList = new List<string>();
+            if (HttpContext.Current.Application[Constant.Application.PIN_DT] != null)
+                dt = HttpContext.Current.Application[Constant.Application.PIN_DT] as DataTable;
+            else
+                dt = PinDAO.getPinDT();
+               var v =(from DataRow dr in dt.Rows
+                  where dr.Field<String>("PinCodeLocation_PinCode").StartsWith(like)
+                  select (string)dr["PinCodeLocation_PinCode"]);
+            try
+            {
+
+                pinList=v.ToList<string>();
+            }
+            catch { }
+            return pinList;
+        }
+
+        public static Dictionary<string,string> getCityState(string pin)
+        {
+            DataTable dt = new DataTable();
+            List<string> pinList = new List<string>();
+            if (HttpContext.Current.Application[Constant.Application.PIN_DT] != null)
+                dt = HttpContext.Current.Application[Constant.Application.PIN_DT] as DataTable;
+            else
+                dt = PinDAO.getPinDT();
+            IEnumerable<DataRow> query = from DataRow dr in dt.Rows
+                where dr.Field<String>("PinCodeLocation_PinCode").Equals(pin)
+                select dr;
+            dt=query.CopyToDataTable<DataRow>();
+            Dictionary<string, string> dic = new Dictionary<string,string>();
+            if(!CommonUtil.DT.isEmptyOrNull(dt))
+            {
+                dic.Add("city",dt.Rows[0]["PinCodeLocation_City"]+"");
+                dic.Add("state",dt.Rows[0]["PinCodeLocation_State"]+"");
+            }
+            return dic;
+
+        }
+
+        public static List<string> getStateDT(string startWith)
+        {
+            DataTable dt = new DataTable();
+            List<string> pinList = new List<string>();
+            if (HttpContext.Current.Application[Constant.Application.PIN_DT] != null)
+                dt = HttpContext.Current.Application[Constant.Application.PIN_DT] as DataTable;
+            else
+                dt = PinDAO.getPinDT();
+            var v = (from DataRow dr in dt.Rows
+                     where dr.Field<String>("PinCodeLocation_State").ToLower().StartsWith(startWith.ToLower())
+                     select (string)dr["PinCodeLocation_State"]);
+            try
+            {
+
+                pinList = v.ToList<string>().Distinct().ToList();
+            }
+            catch { }
+            return pinList;
+        }
+
+        public static List<string> getCityDT(string startWith)
+        {
+            DataTable dt = new DataTable();
+            List<string> pinList = new List<string>();
+            if (HttpContext.Current.Application[Constant.Application.PIN_DT] != null)
+                dt = HttpContext.Current.Application[Constant.Application.PIN_DT] as DataTable;
+            else
+                dt = PinDAO.getPinDT();
+            var v = (from DataRow dr in dt.Rows
+                     where dr.Field<String>("PinCodeLocation_City").ToLower().StartsWith(startWith.ToLower())
+                     select (string)dr["PinCodeLocation_City"]);
+            try
+            {
+                pinList = v.ToList<string>().Distinct().ToList();
+            }
+            catch { }
+            return pinList;
+        }
     }
+   
 }
