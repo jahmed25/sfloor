@@ -10,8 +10,9 @@ using MFO.Commom;
 using SFloor.DAO;
 using MFO.Utils;
 
-public partial class sfloor_pages_AddToCart : System.Web.UI.Page
+public partial class sfloor_pages_AddToCart : Page
 {
+
     public DataTable cartDT = new DataTable();
     public string total = "";
     protected void Page_Load(object sender, EventArgs e)
