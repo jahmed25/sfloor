@@ -29,9 +29,44 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "clearCart":       clearCart(); break;
             case "clearFav":        clearFav(); break;
             case "updateQty":       updateQty(); break;
-            case "removeFromCart": removeFromCart(); break;
-            case "checkInventory": checkInventory(); break;
+            case "removeFromCart":  removeFromCart(); break;
+            case "checkInventory":  checkInventory(); break;
+            case "getPin": getPin(); break;
+            case "getCityState": getCityState(); break;
+            case "getState": getState(); break;
+            case "getCity": getCity(); break;
         }
+    }
+
+    private void getCity()
+    {
+        string startWith = Request.Params["startWith"];
+        List<string> cityList = AjaxService.getCityDT(startWith);
+        if (cityList.Count >= 10)
+            cityList = cityList.GetRange(0, 10);
+        sendResponse(cityList);
+    }
+
+    private void getState()
+    {
+        string startWith = Request.Params["startWith"];
+        List<string> stareList = AjaxService.getStateDT(startWith);
+        if (stareList.Count >= 10)
+            stareList = stareList.GetRange(0, 10);
+        sendResponse(stareList);
+    }
+
+    private void getCityState()
+    {
+        sendResponse(AjaxService.getCityState(Request.Params["pin"]));
+    }
+    private void getPin() 
+    {
+        string pinStartWith =Request.Params["startWith"];
+        List<string> pinList=AjaxService.getPinDT(pinStartWith);
+        if(pinList.Count>=10)
+            pinList = pinList.GetRange(0, 10);
+        sendResponse(pinList);
     }
     private void removeFromCart()
     {
