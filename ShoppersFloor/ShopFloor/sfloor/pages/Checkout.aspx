@@ -4,17 +4,146 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Checkout</title>
+    
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
-    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
-    <script src="<%=ConfigUtil.StaticPath() %>new-js/tabcontent.js" type="text/javascript"></script>
-    <script src="<%=ConfigUtil.StaticPath() %>new-js/common1.js" type="text/javascript"></script>
-    <link href="<%=ConfigUtil.StaticPath() %>new-css/checkoutpage_n.css" rel="stylesheet" type="text/css" />
-    <link href='<%=ConfigUtil.StaticPath() %>new-css/login-forms.css' rel="stylesheet" type="text/css" />
-    
+    <script type="text/javascript" src="<%=ConfigUtil.StaticPath() %>new-js/tabcontent.js" ></script>
+    <script type="text/javascript" src="<%=ConfigUtil.StaticPath() %>new-js/common1.js"></script>
+    <link type="text/css"  href="<%=ConfigUtil.StaticPath() %>new-css/checkoutpage_n.css" rel="stylesheet" />
+    <link type="text/css"  href='<%=ConfigUtil.StaticPath() %>new-css/login-forms.css' rel="stylesheet" />
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <style type="text/css">
+		ul li:hover
+		{
+		    background-color:orange;
+		}
+	</style>
+	<script type="text/javascript">
+	    var path = '<%=ConfigUtil.hostURL() %>';
+	    var isEmail = '<%=Session["EmailID"] %>'
+	    $(function () {
+	        if (isEmail.trim().length > 0) {
+	            showShippingTab();
+	        }
+	        $(window).bind('resize', popup);
+	        $("#pinTxt").autocomplete({
+	            source: function (request, response) {
+	                $.ajax({
+	                    type: "POST",
+	                    url: path + 'sfloor/pages/AjaxService.aspx?action=getPin',
+	                    data: { startWith: request.term },
+	                    success: function (data) {
+	                        response(data);
+	                    },
+	                    error: function (msg) {
+	                        alert(msg.status + ' ' + msg.statusText);
+	                    }
+	                })
+	            },
+	            select: function (event, ui) {
+	                $.ajax({
+	                    type: "POST",
+	                    url: path + 'sfloor/pages/AjaxService.aspx?action=getCityState',
+	                    data: { pin: ui.item.label },
+	                    success: function (data) {
+	                        $("#cityTxt").val(data.city);
+	                        $("#stateTxt").val(data.state);
+	                    },
+	                    error: function (msg) {
+	                        alert(msg.status + ' ' + msg.statusText);
+	                    }
+	                })
+	            }
+	        });
+	        $("#cityTxt").autocomplete({
+	            source: function (request, response) {
+	                $.ajax({
+	                    type: "POST",
+	                    url: path + 'sfloor/pages/AjaxService.aspx?action=getCity',
+	                    data: { startWith: request.term },
+	                    success: function (data) {
+	                        response(data);
+	                    },
+	                    error: function (msg) {
+	                        alert(msg.status + ' ' + msg.statusText);
+	                    }
+	                })
+
+	            }
+	        });
+	        $("#stateTxt").autocomplete({
+	            source: function (request, response) {
+	                $.ajax({
+	                    type: "POST",
+	                    url: path + 'sfloor/pages/AjaxService.aspx?action=getState',
+	                    data: { startWith: request.term },
+	                    success: function (data) {
+	                        response(data);
+	                    },
+	                    error: function (msg) {
+	                        alert(msg.status + ' ' + msg.statusText);
+	                    }
+	                });
+	            }
+	        });
+	    });
+	   
+	</script>
+     <script type="text/javascript">
+         function showShipping() {
+             if ($("[name='uType']:checked").val() == "guest") {
+                 showShippingTab();
+             } else if ($("[name='uType']:checked").val() == "regular") {
+             alert(1);
+                 $("#checkout_overlay_form").fadeIn(1000);
+                 $(".checkout_background_overlay").fadeIn(500);
+                 popup();
+             } else { $("#errorSpan").text("Make the selection.").css({ display: block }); }
+         }
+         function popup() {
+             if (!$("#checkout_overlay_form").is(':visible')) {
+                 return;
+             }
+             $("#checkout_overlay_form").css({
+                 left: ($(window).width() - $('#checkout_overlay_form').width()) / 2,
+                 top: ($(window).width() - $('#checkout_overlay_form').width()) / 7,
+                 position: 'absolute'
+             });
+         }
+         function showShippingTab() {
+             $(".tabs li").removeClass('selected');
+             $(".tabs li:nth-child(2)").addClass("selected");
+             $(".tabcontents div").css("display", "none");
+             $("#view2").css("display", "block");
+             $("#errorSpan").css("display", "none");
+         }
+         function submitForm() {
+
+             $.ajax({
+                 type: "POST",
+                 url: path + 'sfloor/pages/AjaxService.aspx?action=getState',
+                 data: $('#cForm').serialize(),
+                 success: function (data) {
+                     if (data.error == null) {
+                         $(".tabs li").removeClass('selected');
+                         $(".tabs li:nth-child(3)").addClass("selected");
+                         $(".tabcontents div").css("display", "none");
+                         $("#view3").css("display", "block");
+                         $("#errorSpan").css("display", "none");
+                     }
+                 },
+                 error: function (msg) {
+                     alert(msg.status + ' ' + msg.statusText);
+                 }
+             })
+             
+         }
+    </script>
 </head>
-<body>
-<style>
+<body ng-app='registration' ng-controller='regCtrl'>
+<style type="text/css">
     #checkout_overlay_form
     {
         background: WHITE;
@@ -44,6 +173,7 @@
     {
         color: #FA787E; font-size:12px;
     }
+    .error{color:red}
     .button input.disabled{background-color:Blue}
 </style>
 
@@ -63,126 +193,103 @@
             </ul>
             <div class="tabcontents">
                 <div id="view1">
-                    <table>
-                        <tr>
-                            <th>
-                                Email Address:
-                            </th>
-                            <td>
-                                <input type="email" name="txt_email">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                            </th>
-                            <td>
-                                <p>
-                                    Your order details will be sent to this email address.</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                            </th>
-                            <td>
-                                <p>
-                                    <input type="radio" name="chkout_radio">&nbsp;&nbsp;Continue without password
-                                    <br>
-                                    <i>(You do not need a password)</i></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                            </th>
-                            <td>
-                                 <p><input type="radio" id="checkoutlogin" name="chkout_radio">&nbsp;&nbsp;I have a Shoppersfloor account and password<br>
-                                    <i>Sign in to your account and checkout faster</i></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                                <input class="btn_shipinfo" type="button" value="Submit">
-                            </td>
-                        </tr>
-                    </table>
+                     <span id='errorSpan' style='color: red'></span>
+                    <% if (Session[MFO.Constants.Constant.Session.LOGED_IN_EMAIL] == null)
+                       { %>
+                    <p>
+                        <input type="radio" name="uType" value='guest' />&nbsp;&nbsp;Continue without password
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i><small>(You do not need a password)</small></i></p>
+                    <p>
+                        <input type="radio" id="checkoutlogin" name="uType" value='regular' onclick='showShipping()'/>&nbsp;&nbsp;I
+                        have a Shoppersfloor account and password
+                        <br>
+                        &nbsp;&nbsp; &nbsp;&nbsp;<i><small>Sign in to your account and checkout faster</small></i></p>
+                    <input class="btn_shipinfo" onclick='showShipping()' style="float: right" type="button"
+                        value="CONTINUE" />
+                    <%}
+                       else
+                       { %>
+                    You are already logged in as '<%=Session[MFO.Constants.Constant.Session.LOGED_IN_EMAIL] %>'.
+                    <input class="btn_shipinfo" type="button" value="CONTINUE">
+                    <br>
+                    <small>If you wish to login with another account you can <a href='<%=ConfigUtil.hostURL()%>logout'>
+                        click here</a> to logout</small>
+                    <%} %>
                 </div>
                 <div id="view2">
-                    <h1>
-                        Shipping Information</h1>
-                    <table>
-                        <tr>
-                            <th>
-                                First Name
-                            </th>
-                            <td>
-                                <input type="text" name="fname">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Last Name
-                            </th>
-                            <td>
-                                <input type="text" name="lname">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Email Id
-                            </th>
-                            <td>
-                                <input type="email" name="email">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Phone No.
-                            </th>
-                            <td>
-                                <input type="text" name="phno">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Address
-                            </th>
-                            <td>
-                                <textarea name="address"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                City
-                            </th>
-                            <td>
-                                <input type="text" name="city">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                State
-                            </th>
-                            <td>
-                                <input type="text" name="state">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                Pin:
-                            </th>
-                            <td>
-                                <input type="text" name="Pin">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
-                                <input class="btn_shipinfo" type="button" value="Submit">
-                            </td>
-                        </tr>
-                    </table>
+                    		<h1> Shipping Information</h1>
+			<form id='cForm' name="cForm" novalidate ng-submit="submitForm(cForm);"> 
+			<table>
+				<tr>
+					<th>Email Id*</th>
+					<td>
+						<input type="email" name="email" required ng-model="ship.email">
+						<small class="error" ng-show="cForm.email.$error.required && !cForm.email.$pristine ">Email Id is required.</small>
+						<small class="error" ng-show="cForm.email.$invalid && !cForm.email.$pristine &&!cForm.email.$error.required">This is not an Email Id.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>First Name*</th>
+					<td>
+						<input type="text" name="fname" required ng-model="ship.fName" ng-pattern="/^([a-zA-Z-']{1,30})$/"/>
+						<small class="error" ng-show="cForm.fname.$error.required && !cForm.fname.$pristine ">First Name  required.</small>
+						<small class="error" ng-show="cForm.fname.$invalid && !cForm.fname.$pristine &&!cForm.fname.$error.required ">Name should not contain digit</small>
+					</td>
+				</tr>
+				<tr>
+					<th>Last Name*</th>
+					<td>
+						<input type="text" name="lname" required ng-model="ship.lName" ng-pattern="/^([a-zA-Z-']{1,30})$/"/>
+						<small class="error" ng-show="cForm.lname.$error.required && !cForm.lname.$pristine ">Last Name  required.</small>
+						<small class="error" ng-show="cForm.lname.$invalid && !cForm.lname.$pristine &&!cForm.lname.$error.required ">Name should not contain digit</small>
+					</td>
+				</tr>
+				<tr>
+					<th>Phone No.*</th>
+					<td>
+						<input type="text" name="phone" required ng-model="ship.phone" ng-pattern="/[0-9]/" ng-minlength="10" ng-maxlength="10"/>
+						<small class="error" ng-show="cForm.phone.$error.required && !cForm.phone.$pristine ">Phone No  required.</small>
+						<small class="error" ng-show="cForm.phone.$error.minlength ||cForm.phone.$error.maxlength && !cForm.phone.$pristine && !cForm.phone.$error.required">Phone No should  have 10 digit</small>
+					</td>
+				</tr>
+				<tr>
+					<th>Pin*</th>
+					<td>
+						<input type="text"  id='pinTxt' name="pin" required ng-model="ship.pin" ng-pattern="/[0-9]/" ng-minlength="6" ng-maxlength="6"/>
+						<small class="error" ng-show="(cForm.pin.$error.minlength || cForm.pin.$error.maxlength) && !cForm.pin.$pristine && !cForm.pin.$error.required">Pin No should have 6 digit.</small>
+						<small class="error" ng-show="cForm.pin.$error.required  && !cForm.pin.$pristine">Pin required.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>City*</th>
+					<td>
+						<input type="text" name="city" id="cityTxt" ng-keyup="getCity()" required ng-model="ship.city"/>
+						<small class="error" ng-show="cForm.city.$error.required  && !cForm.city.$pristine">City required.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>State*</th>
+					<td>
+						<input type="text" name="state" id='stateTxt' required ng-model="ship.state"/>
+						<small class="error" ng-show="cForm.state.$error.required  && !cForm.state.$pristine ">State required.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>Address street</th>
+					<td>
+						<textarea name="address"  spellcheck="true" ng-model="ship.address"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<button class="btn_shipinfo"  ng-disabled="cForm.$invalid" onclick='submitForm()'>Continue</button>
+					</td>
+				</tr>
+			</table>
+			</form>
                 </div>
                 <div id="view3">
                     <div class="cnfrm_add">
@@ -215,9 +322,10 @@
             </div>
         </div>
         <section>
-
 <div class="order-summary">
     <div class="order-summary_head">Order Summary</div>
+   <%if (!MFO.Commom.CommonUtil.DT.isEmptyOrNull(cartDT))
+     { %>
     <table><thead class="header">
             <tr>
                 <th>Product</th>
@@ -226,33 +334,44 @@
                 <th class="price-col">Price</th>
             </tr></thead>
 		<!--Loop content-->
+		 <%for (int i = 0; i < cartDT.Rows.Count; i++)
+     { %>
 		<tr class="order_cont">
-                <td class="image_sec"><img alt="" src="<%=ConfigUtil.StaticPath() %>new-images/thumbs/image1.jpg"><br>
-                            <p class="">Brand name</p>
-                            <p class="name">Product Name</p>
-                            <p class=""> <span> Size : L  </span><span> color : Red  </span></p></td>
-                <td class="">2</td>
+                <td class="image_sec"><img alt="" src="<%=ConfigUtil.getServerPath() %><%=cartDT.Rows[i]["PathInternaldetailsSmallImage"] %>"><br>
+                <p class=""><%=cartDT.Rows[i]["SKUBrand"]%></p>
+                <p class="name"><%=cartDT.Rows[i]["SKUName"]%></p>
+                <p class=""> 
+                <%if (!MFO.Utils.StringUtil.isNullOrEmpty(cartDT.Rows[i]["Size"] + ""))%>
+                    <span> Size : <%=cartDT.Rows[i]["Size"]%></span>
+                <%if (!MFO.Utils.StringUtil.isNullOrEmpty(cartDT.Rows[i]["Color"] + ""))%>
+                    <span> Color :  <%=cartDT.Rows[i]["Color"]%>  </span></p>
+                </td>
+                <td class=""><%=cartDT.Rows[i]["QTY"]%></td>
                 <td class="">3-6<small class="">Business days</small></td>
-                <td class="">Rs.2798</td>
+                <td class=""><%=cartDT.Rows[i]["TOTAL"]%></span></td>
         </tr>
+        <%} %>
         <!--End loop-->
 		<tr  class="subtotal">
                 <td colspan="3">Subtotal</td>
-                 <td>Rs.2798</td>
+                 <td><%=subTotal%></td>
             </tr>
             <tr class="subtotal">
               <td colspan="3" class="">Cash on Delivery Charges</td>
-                    <td class="">49</td>
+                    <td class="">Available</td>
 			</tr>
 			<tr class="subtotal">
 			        <td colspan="3" class="">Shipping Charges</td>
-                    <td class="shipping">Free</td>
+                    <td class="shipping">49</td>
 			</tr>
             <tr class="total">
                 <td colspan="3">Total</td>
-                <td class="sel-total">Rs.2798</td>
+                <td class="sel-total">Rs.<%=total%></td>
             </tr>
     </table>
+    <%}else{ %>
+        <p style="color:'red'">Your Cart is empty</p>        
+    <%} %>
 	</div>
 </section>
 </div>
@@ -265,10 +384,9 @@
 </div>
 </div>
 </footer>
-
 <div class="checkout_background_overlay" style="display: none;"></div>
 <section>
-<div  id="checkout_overlay_form" style="display:none" class="loginregisterform" ng-app='registration' ng-controller='regCtrl'>
+<div  id="checkout_overlay_form" style="display:none" class="loginregisterform" >
 <a title="close" class="x" id="close" href="#" >x</a>		
 <div class="loginform">
 <div class="headtitle"><span>Login</span></div>
