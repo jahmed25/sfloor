@@ -15,10 +15,10 @@ $(document).ready(function () {
     //maintain the popup at center of the page when browser resized
     $("a[name='saveLater']").on('click', function () {
         var sku1 = $(this).attr('sku');
-        var inner=$(this).attr('inner')
+        var inner = $(this).attr('inner')
         $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=addFav', data: { sku: sku1} })
 			.success(function (msg) {
-			    var json = msg;//JSON.parse(msg);
+			    var json = msg;// JSON.parse(msg);
 			    if (json.error != null)
 			        return;
 			    var div = "<div class='wishlist-content'>" +
@@ -97,33 +97,7 @@ function positionPopupQuick() {
     }
     $("#overlay_form_quick").css({
         left: ($(window).width() - $('#overlay_form_quick').width()) / 2,
-        top: ($(window).width() - $('#overlay_form_quick').width()) /10,
-        position: 'absolute'
-    });
-}
-
-$(document).ready(function () {
-    //open popup
-    $('#checkoutlogin').click(function () {
-        $("#checkout_overlay_form").fadeIn(1000);
-        $(".checkout_background_overlay").fadeIn(500);
-        checkout_positionPopup();
-    });
-    //close popup
-    $("#close, .checkout_background_overlay").click(function () {
-        $("#checkout_overlay_form").fadeOut(500);
-        $(".checkout_background_overlay").fadeOut(500);
-    });
-    $(window).bind('resize', checkout_positionPopup);
-});
-//position the popup at the center of the page
-function checkout_positionPopup() {
-    if (!$("#checkout_overlay_form").is(':visible')) {
-        return;
-    }
-    $("#checkout_overlay_form").css({
-        left: ($(window).width() - $('#checkout_overlay_form').width()) / 2,
-        top: ($(window).width() - $('#checkout_overlay_form').width()) / 7,
+        top: ($(window).width() - $('#overlay_form_quick').width()) / 7,
         position: 'absolute'
     });
 }
