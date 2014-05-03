@@ -3,7 +3,6 @@
     z-index:1000;
     font-size: 14px;
     margin: 0 auto;
-    
     border-bottom: 4px solid #d6d6d6;
 }
 .pt_custommenu div.pt_menu {
@@ -17,7 +16,7 @@
     line-height: 1.3em;
     color: #333;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 16px;
 }
 .pt_custommenu div.pt_menu.active {

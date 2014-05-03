@@ -1,4 +1,4 @@
-.loginregisterform{width:800px; min-height:470px; height:auto;  margin:0 auto; border-radius:10px }
+.loginregisterform{width:auto; min-height:240px; height:auto;  margin:0 auto; position:absolute; left:200px; border:2px solid #F15A23; border-radius:10px }
 .loginregisterform .loginform{width:333px; height:400px; float:left; margin:10px;}
 .loginregisterform .registerform{width:333px; height:400px; float:left;margin:10px;}
 .loginregisterform .midline{ float:left; width:1px; height:400px; margin:20px 20px 0px 40px;
@@ -117,3 +117,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9db31', e
 .loginregisterform .offercheck{font-size:13px; text-align:center; line-height:30px}
 .loginregisterform  .x{ font-size:25px; float:right; margin-right:10px; text-decoration:none; z-index:1000px;}
 .loginregisterform  .x:hover{ color:#FA1E05; }
+.loginregisterform  .fgtclk{ border-bottom:3px solid #404040; text-decoration:none; float:right; font-size:12px}
+.loginregisterform  .fgtclk:hover{text-decoration:none; cursor:pointer; border-bottom:3px solid orange;}
+
+.fgt_form table td{font:none; margin:0 auto; text-align:center}
+.fgt_form table input[type="button"]{float:none; width:150px}
+.fgt_form table p{text-align:center; font-size:13px; color:Black; margin:20px}
+.fgt_form table a{ margin-top:30px; border-bottom:3px solid #404040; text-decoration:none}
+.fgt_form table a:hover{text-decoration:none; cursor:pointer; border-bottom:3px solid orange;}
