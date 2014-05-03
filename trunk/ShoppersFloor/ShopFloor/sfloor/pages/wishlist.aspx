@@ -140,7 +140,6 @@
         <div class="wishlist-container">
         <span class="cross" title="Delete item" ></span>
         <span class="wishlist-shade"></span>
-        <a class="wishlist-wish-list" name='saveLater' sku='<%# Eval("SKUCode") %>'><span>Save for Later</span></a>
         <a class="wishlist-quick-view" pop='<%# Eval("SKUCode") %>' ><span>Quick View</span></a>
                  
         	<div class="slider_wrapper">
