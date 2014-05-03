@@ -157,7 +157,8 @@
                                                                     <div class="wishlist-content">
                                                                         <a class="imglist" href='<%=ConfigUtil.hostURL() %>?htm=<%=favDT.Rows[i]["SKUCode"]%>' title='<%=favDT.Rows[i]["SKUName"]%>'>
                                                                         <img  src='<%=ConfigUtil.getServerPath() %><%=favDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
-                                                                        <div class="main-cont">
+                                                                       <div class="main-cont">
+                                                                        <span class="cross" title="Delete item"></span> 
                                                                         <p class="brand"><%=favDT.Rows[i]["SKUBrand"]%></p>
                                                                         <p class="empty"><%=favDT.Rows[i]["SKUName"]%></p>
                                                                         <p class="subtotal">MRP <span class="pricecut">Rs.   <%=favDT.Rows[i]["MRP"]%></span><br />
@@ -198,6 +199,8 @@
                                                                         <a class="imglist" href='<%=ConfigUtil.hostURL() %>Add-To-Cart' title='<%=cartDT.Rows[i]["SKUName"]%>'>
                                                                         <img  src='<%=ConfigUtil.getServerPath() %><%=cartDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
                                                                         <div class="main-cont">
+                                                                        <span class="cross" title="Delete item"></span> 
+                                                                        
                                                                         <p class="brand"><%=cartDT.Rows[i]["SKUBrand"]%></p>
                                                                         <p class="empty"><%=cartDT.Rows[i]["SKUName"]%></p>
                                                                         <p class="subtotal">

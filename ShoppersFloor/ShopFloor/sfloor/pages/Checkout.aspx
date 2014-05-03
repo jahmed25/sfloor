@@ -12,8 +12,7 @@
     <script type="text/javascript" src="<%=ConfigUtil.StaticPath() %>new-js/common1.js"></script>
     <link type="text/css"  href="<%=ConfigUtil.StaticPath() %>new-css/checkoutpage_n.css" rel="stylesheet" />
     <link type="text/css"  href='<%=ConfigUtil.StaticPath() %>new-css/login-forms.css' rel="stylesheet" />
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+   
     <style type="text/css">
 		ul li:hover
 		{
