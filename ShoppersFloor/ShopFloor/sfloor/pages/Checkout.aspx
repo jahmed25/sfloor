@@ -119,25 +119,26 @@
              $("#view2").css("display", "block");
              $("#errorSpan").css("display", "none");
          }
-         function submitForm() {
-
+         function submitForm(valid) {
              $.ajax({
                  type: "POST",
-                 url: path + 'sfloor/pages/AjaxService.aspx?action=getState',
+                 url: path + 'sfloor/pages/AjaxService.aspx?action=addShipping',
                  data: $('#cForm').serialize(),
                  success: function (data) {
-                     if (data.error == null) {
+                     if (data.status) {
                          $(".tabs li").removeClass('selected');
                          $(".tabs li:nth-child(3)").addClass("selected");
                          $(".tabcontents div").css("display", "none");
                          $("#view3").css("display", "block");
                          $("#errorSpan").css("display", "none");
+                     } else {
+                         alert('not added');
                      }
                  },
                  error: function (msg) {
                      alert(msg.status + ' ' + msg.statusText);
                  }
-             })
+             });
              
          }
     </script>
@@ -219,7 +220,7 @@
                 </div>
                 <div id="view2">
                     		<h1> Shipping Information</h1>
-			<form id='cForm' name="cForm" novalidate ng-submit="submitForm(cForm);"> 
+			<form id='cForm' name="cForm" novalidate > 
 			<table>
 				<tr>
 					<th>Email Id*</th>
@@ -230,19 +231,11 @@
 					</td>
 				</tr>
 				<tr>
-					<th>First Name*</th>
+					<th>Name*</th>
 					<td>
 						<input type="text" name="fname" required ng-model="ship.fName" ng-pattern="/^([a-zA-Z-']{1,30})$/"/>
-						<small class="error" ng-show="cForm.fname.$error.required && !cForm.fname.$pristine ">First Name  required.</small>
+						<small class="error" ng-show="cForm.fname.$error.required && !cForm.fname.$pristine ">Name  required.</small>
 						<small class="error" ng-show="cForm.fname.$invalid && !cForm.fname.$pristine &&!cForm.fname.$error.required ">Name should not contain digit</small>
-					</td>
-				</tr>
-				<tr>
-					<th>Last Name*</th>
-					<td>
-						<input type="text" name="lname" required ng-model="ship.lName" ng-pattern="/^([a-zA-Z-']{1,30})$/"/>
-						<small class="error" ng-show="cForm.lname.$error.required && !cForm.lname.$pristine ">Last Name  required.</small>
-						<small class="error" ng-show="cForm.lname.$invalid && !cForm.lname.$pristine &&!cForm.lname.$error.required ">Name should not contain digit</small>
 					</td>
 				</tr>
 				<tr>
@@ -278,14 +271,14 @@
 				<tr>
 					<th>Address street</th>
 					<td>
-						<textarea name="address"  spellcheck="true" ng-model="ship.address"></textarea>
+						<textarea name="address"   spellcheck="true" ng-model="ship.address"></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td>
 					</td>
 					<td>
-						<button class="btn_shipinfo"  ng-disabled="cForm.$invalid" onclick='submitForm()'>Continue</button>
+						<button class="btn_shipinfo" ng-disable="cForm.$invalid"  onclick='submitForm(cForm.$valid)'>Continue</button>
 					</td>
 				</tr>
 			</table>
@@ -348,7 +341,7 @@
                 </td>
                 <td class=""><%=cartDT.Rows[i]["QTY"]%></td>
                 <td class="">3-6<small class="">Business days</small></td>
-                <td class=""><%=cartDT.Rows[i]["TOTAL"]%></span></td>
+                <td class=""><%=cartDT.Rows[i]["TOTAL"]%></td>
         </tr>
         <%} %>
         <!--End loop-->
