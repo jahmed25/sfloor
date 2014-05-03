@@ -173,6 +173,11 @@ namespace SFloor.Services
             catch { }
             return pinList;
         }
+
+        public static bool addShipping(string email, string name, string phone, string pin, string city, string state,string  address, string sessionId, string userId)
+        {
+            return ShippingDAO.add(email, name, phone, pin, city, state, address,sessionId, userId);
+        }
     }
    
 }
