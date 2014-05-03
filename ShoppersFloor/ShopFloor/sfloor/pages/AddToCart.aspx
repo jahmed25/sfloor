@@ -15,14 +15,6 @@
 					});
         }
         $(document).ready(function () {
-            var cartstick = $jq('.addtocart-stick').offset().bottom();
-            $jq(window).scroll(function () {
-                if ($jq(window).scrollTop() > cartstick) {
-                    $jq('.addtocart-stick').addClass("addtocart-sticky");
-                } else {
-                    $jq('.addtocart-stick').removeClass("addtocart-sticky");
-                }
-            });
             $.each($('select[qty]'), function () {
                 var selct = this;
                 $(this).find("option[value='" + $(selct).attr('qty') + "']").attr('selected', 'selected');
@@ -133,7 +125,7 @@
             </div>
             <div class="estimated"><span>Estimated Delivery</span><ul><li>Delivered in 3-6 days</li></ul>
             <span>Return Policy</span><ul><li><%=cartDT.Rows[0]["ShippingReturns"]%></li></ul></div>
-            <div class="action"><a>Remove</a></div>
+            <div class="action"><a href='#' removefromWL='<%=cartDT.Rows[0]["SKU"]%>'>Remove</a></div>
             <div class="totprice">Sub Total Rs.<span name='subTotal' sku='<%=cartDT.Rows[i]["SKU"]%>'><%=cartDT.Rows[i]["TOTAL"]%></span></div>
         </div>
       <%} %>
