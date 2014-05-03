@@ -35,7 +35,27 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "getCityState": getCityState(); break;
             case "getState": getState(); break;
             case "getCity": getCity(); break;
+            case "addShipping": addShipping(); break;
+                
         }
+    }
+
+    private void addShipping()
+    {
+        string email = Request.Params["email"];
+        string name = Request.Params["fname"];
+        string phone = Request.Params["phone"];
+        string pin = Request.Params["pin"];
+        string city = Request.Params["city"];
+        string state = Request.Params["state"];
+        string address = Request.Params["address"];
+        string sessionId = Session.SessionID;
+        string userId = Session[Constant.Session.LOGED_IN_USER_ID]!=null?Session[Constant.Session.LOGED_IN_USER_ID]+"":"";
+        bool status=AjaxService.addShipping(email, name, phone, pin, city, state,address, sessionId, userId);
+        Dictionary<string, string> dic = new Dictionary<string, string>();
+        dic.Add("status",status.ToString());
+        sendResponse(dic);
+
     }
 
     private void getCity()
