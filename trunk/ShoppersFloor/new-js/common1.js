@@ -101,3 +101,65 @@ function positionPopupQuick() {
         position: 'absolute'
     });
 }
+
+$(document).ready(function () {
+    //open popup
+    $('#checkoutlogin').click(function () {
+        $("#checkout_overlay_form").fadeIn(1000);
+        $(".checkout_background_overlay").fadeIn(500);
+        checkout_positionPopup();
+    });
+    //close popup
+    $("#close, .checkout_background_overlay").click(function () {
+        $("#checkout_overlay_form").fadeOut(500);
+        $(".checkout_background_overlay").fadeOut(500);
+    });
+    $(window).bind('resize', checkout_positionPopup);
+});
+//position the popup at the center of the page
+function checkout_positionPopup() {
+    if (!$("#checkout_overlay_form").is(':visible')) {
+        return;
+    }
+    $("#checkout_overlay_form").css({
+        left: ($(window).width() - $('#checkout_overlay_form').width()) / 2,
+        top: ($(window).width() - $('#checkout_overlay_form').width()) / 7,
+        position: 'absolute'
+    });
+}
+
+$(document).ready(function () {
+    //open popup
+    $('#fgt_clk_hre').click(function () {
+        $("#overlay_form").fadeOut(500);
+        $(".background_overlay").fadeOut(500);
+        $("#fgt_overlay_form").fadeIn(1000);
+        $(".fgt_background_overlay").fadeIn(500);
+        fgt_positionPopup();
+    });
+    $('#logsign').click(function () {
+        $("#fgt_overlay_form").fadeOut(1000);
+        $(".fgt_background_overlay").fadeOut(500);
+       
+        $("#overlay_form").fadeIn(500);
+        $(".background_overlay").fadeIn(500);
+        fgt_positionPopup();
+    });
+    //close popup
+    $("#fgt_close, .fgt_background_overlay").click(function () {
+        $("#fgt_overlay_form").fadeOut(500);
+        $(".fgt_background_overlay").fadeOut(500);
+    });
+    $(window).bind('resize', fgt_positionPopup);
+});
+//position the popup at the center of the page
+function fgt_positionPopup() {
+    if (!$("#fgt_overlay_form").is(':visible')) {
+        return;
+    }
+    $("#fgt_overlay_form").css({
+        left: ($(window).width() - $('#fgt_overlay_form').width()) / 2,
+        top: ($(window).width() - $('#fgt_overlay_form').width()) / 7,
+        position: 'absolute'
+    });
+}
