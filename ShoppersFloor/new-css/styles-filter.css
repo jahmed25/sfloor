@@ -1,17 +1,6 @@
-label{cursor:pointer}   
-
+#cssmenu  label{cursor:pointer;padding-left:10px}   
+.filters-wrapper{border:1px solid #E1E1E1; }
 /* Base Styles */
-.filters-wrapper{background: rgba(255,255,255,1);
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
-}
-.filterhead{width:200px}
-
 #cssmenu,
 #cssmenu ul,
 #cssmenu li,
@@ -34,19 +23,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 {
 padding: 5px 5px;
 margin-bottom:1px;
-border: 1px dotted rgba(252,234,187,1);
-box-shadow: 1px 1px 1px 1px white;
 clear: both;
-
 }
 
 #cssmenu ul ul::-webkit-scrollbar{
-width:3px;
+width:5px;
+height:3px;
+
 } 
 #cssmenu ul ul::-webkit-scrollbar-thumb
 {
 	background-color: orange;}     
 
+
+#cssmenu ul ul
+{
+    overflow-x:none;
+    overflow-y:scroll;
+    
+    max-height:200px;
+}
 #cssmenu input[type="checkbox"]
 {
     float:left;
@@ -69,20 +65,15 @@ width:25px;height:15px;  position:relative;  display:inline-block
 #cssmenu > ul > li > a {
  font:Normal 15px/21px "Helvetica Neue",Helvetica,Arial,sans-serif;
   display: block;
-  width:180px;
+  width:205px;
   padding:5px 5px 5px 5px;
   text-align:left;
-  color:Orange;
   text-decoration:none;
   color:#535353;
-
-  word-spacing:2px
+  font-weight:700;
+  text-transform:uppercase;
+  word-spacing:2px;
 }
-#cssmenu > ul > li > a:hover:after
-{color:orange;
-
-float:right;
-} 
 
 #cssmenu > ul > li > a > span {
   display: block;
@@ -100,26 +91,20 @@ float:right
 
 #cssmenu > ul > li.has-sub > a em 
 {
-  background: url(../new-images/menu-minus.png) right no-repeat; 
+  background: url(../new-images/exp.png)0 0 no-repeat ; margin-left:20px; float:right; width: 0px; height: 5px;
 margin-top:5px;
 }
 
 #cssmenu > ul > li.has-sub.active > a em {
  
-  background: url(../new-images/menu-plus.png) right no-repeat ; 
+  background: url(../new-images/exp.png)-29px 0px no-repeat ; float:right; width: 0px; height: 5px;
      
-}
-#cssmenu ul ul {
-  min-height:100px;
-  max-height:205px;
-  overflow:auto;
-  overflow-y:scroll;
-   overflow-x:none;
 }
 #cssmenu ul ul li {
   padding: 0;border-top: none;
   text-decoration:none;
-  }
+  text-align:left;
+}
 #cssmenu ul ul li:last-child {
   border-bottom: none;
 }
@@ -141,8 +126,8 @@ margin-top:5px;
 .sizecolor
 {
   padding:5px 5px 5px 5px;
-  background-color:#E4E4E4;
-   font:normal 15px/21px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-bottom:3px solid #F15A23;
+  font:normal 15px/21px "Helvetica Neue",Helvetica,Arial,sans-serif;
   display: block;
   width:180px;
   
@@ -150,9 +135,9 @@ margin-top:5px;
   word-spacing:2px
 
 }
-.priceinput{}
-.priceinput input[type="number"]{width:60px; margin:4px; float:left}
-.priceinput input[type="button"]{width:28px;margin:6px;  padding:1px; border-radius:20px;  outline:none;}
+.priceinput{ margin-top:5px}
+.priceinput input[type="number"]{width:70px; margin:0px 4px;  float:left}
+.priceinput input[type="button"]{width:28px;margin:6px;  padding:1px; margin-top:10px; border-radius:20px;  outline:none;}
 
 .filter-header{word-spacing:5px; padding:5px 5px 5px 5px;  margin-bottom:10px;background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */

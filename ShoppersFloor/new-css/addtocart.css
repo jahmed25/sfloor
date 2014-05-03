@@ -1,14 +1,14 @@
-
+    
 .addtocartmain{font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align:left}
-.addtocartmain{ width:1170px; margin:0 auto;  min-height:320px; height:auto; }
-.addtocartmain .cartitem{border-bottom:#BBBBBB solid 1px; height:200px; float:left; width:100%; margin-top: 10px}
+.addtocartmain{ width:1170px; margin:0 auto;  min-height:320px; height:auto;  }
+.addtocartmain .cartitem{border-bottom:#BBBBBB solid 1px; height:auto; float:left; width:100%; margin-top: 10px}
 .addtocartmain .head{border-bottom:#424242 solid 2px; float:left; width:1170px; margin-bottom:20px}
 .addtocartmain h1{ float:right; font-weight:600;  line-height:40px;text-transform:uppercase; color:Black}
 .addtocartmain .addtocartmain_img img{width:120px; height:170px; float:left; margin-right:10px; margin-left:10px}
 .addtocartmain .list {text-transform:uppercase;width:400px;color:#818181; float:left; margin-right:10px;}
 .addtocartmain .list ul{list-style:none;  }
 .addtocartmain .list ul li{ margin-bottom:10px}
-.addtocartmain .list .brand{font-weight:600;}
+.addtocartmain .list .brand{font-weight:600; color:Maroon}
 .addtocartmain .list .price{text-transform:uppercase;font-size:16px;  color:#060606; }
 .addtocartmain .list .price{margin-right:5px}
 
@@ -18,10 +18,13 @@
 .addtocartmain .list .rem_sfl span{ margin-right:20px;  font-size:12px; text-decoration:none	}
 .addtocartmain .list .rem_sfl span a{ text-decoration:none;color:#424242; text-decoration:underline }
 .addtocartmain .list .rem_sfl span a:hover{color:#FF8000}
-.addtocartmain .estimated {text-transform:uppercase;width:300px; font-size:12px; color:#818181; float:left;}
+.addtocartmain .estimated {text-transform:uppercase;width:250px; font-size:12px; color:#818181; float:left;}
 .addtocartmain .estimated ul{list-style:square; margin-bottom:10px }
 .addtocartmain .estimated ul li{float:none}
 .addtocartmain .estimated span{color:#424242; border-bottom:2px solid #060606;  }
+.addtocartmain .action a{background:url(../new-images/btn-remove.png) no-repeat; width:50px; font-size:12px; color:#818181; float:left;}
+.addtocartmain .action a{padding-left:15px; line-height:13px}
+.addtocartmain .action a:hover{color:red; cursor:pointer}
 .addtocartmain .totprice {text-transform:uppercase;width:300px; text-align:right; font-size:20px;  color:#060606; float:right;}
 .addtocartmain .totprice span{margin-left:5px}
 .addtocartmain .cont_toshop_tot{width:100%;background:#F7F7F7; height:60px;  float:left; box-shadow: 0px 18px 16px -26px #000 inset;}
