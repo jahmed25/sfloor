@@ -10,7 +10,7 @@ $(document).ready(function () {
     $("#close, .background_overlay").click(function () {
         $("#overlay_form").fadeOut(500);
         $(".background_overlay").fadeOut(500);
-    });
+    }); 
     $(window).bind('resize', positionPopup);
     //maintain the popup at center of the page when browser resized
     $("a[name='saveLater']").on('click', function () {
