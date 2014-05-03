@@ -92,7 +92,7 @@
                                 <div class="span4">
                                     <div class="footer-payment">
                                         <a href="#">
-                                            <img src="http://zenithinfo.com.208-91-199-147.plesk-web19.webhostbox.net/wishlist/sfloor/new-images/payment.png" alt=""></a></div>
+                                            <img src='<%=ConfigUtil.StaticPath() %>new-images/payment.png' alt=""></a></div>
                                 </div>
                                 <div class="span4">
                                     <address>

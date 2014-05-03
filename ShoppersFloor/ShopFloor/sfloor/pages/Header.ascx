@@ -136,8 +136,7 @@
                                         <div class="span2 cart-stick">
                                             <div class="quick-access">
                                                 <%--<div class="wishlist-big">
-                                                    <a class="icon-wishlist-big" href="#" title="Wishlist"><span>Wishlist</span></a></div>
---%>
+                                                    <a class="icon-wishlist-big" href="#" title="Wishlist"><span>Wishlist</span></a></div>--%>
                                                      <div class="top-cart-wrapper">
                                                     <div class="top-cart-contain">
                                                         <div id="mini_cart_block">
@@ -147,11 +146,11 @@
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
                                                               
-                                                                <span class="top-cart-title-wishlist">Wishlist </span><span class="cart-arrow"></span>
+                                                                <span class="top-cart-title-wishlist">Wishlist</span><span class="cart-arrow"></span>
                                                                 <div style="display: none;" class="top-cart-content" id='wishListDiv'>
                                                                 <%if(favDT.Rows.Count>0){ %>
-                                                                <a href="<%=ConfigUtil.hostURL() %>FavList" style='color:blue'>View ALL</a> 
-                                                                <a href="#" style="float:right;color:red" onclick="clearFav()">Clear All</a>
+                                                                <div class="headnav"><a href="<%=ConfigUtil.hostURL() %>FavList" style='color:blue'>View ALL</a> 
+                                                                <a href="#" style="float:right;color:red" onclick="clearFav()">Clear All</a></div>
                                                                 <div id='wishContent'>
                                                                     <%for (int i = 0; i < favDT.Rows.Count; i++)
                                                                       { %>
@@ -190,8 +189,9 @@
                                                                     <%if (cartDT.Rows.Count > 0)
                                                                       { %>
 
-                                                                    Total:&nbsp;<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>Checkout">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
-                                                                   <div class="scrollbar" id='cartDiv'>
+                                                                   <div>
+                                                                   <div class="headnav">Total:&nbsp;<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>Checkout">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
+                                                                   </div><div id='cartDiv'>
                                                                     <%for (int i = 0; i < cartDT.Rows.Count; i++)
                                                                       { %>
                                                                     <div class="wishlist-content">
@@ -238,4 +238,5 @@
                     var CUSTOMMENU_POPUP_TOP_OFFSET = 40;
 //]]>
                 </script>
+            </div>
             </div>

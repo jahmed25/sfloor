@@ -5,6 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <link rel="stylesheet" href="<%=ConfigUtil.StaticPath() %>new-css/addtocart.css">
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/fixsidemenu.js'></script>
     <script type="text/javascript">
         var pageType = 'addToCart';
         function reloadCart() {
@@ -14,7 +15,7 @@
 					});
         }
         $(document).ready(function () {
-            var cartstick = $jq('.addtocart-stick').offset().top - 50;
+            var cartstick = $jq('.addtocart-stick').offset().bottom();
             $jq(window).scroll(function () {
                 if ($jq(window).scrollTop() > cartstick) {
                     $jq('.addtocart-stick').addClass("addtocart-sticky");
@@ -66,17 +67,11 @@
             });
         });
     </script>
-    <div style="height:auto" >
+    <div style="height:auto;" >
     <div class="addtocartmain">
      <%if (!MFO.Commom.CommonUtil.DT.isEmptyOrNull(cartDT))
        {%> 
-        <div class="head addtocart-stick">
-         <a  name="cnt_toshop" href="<%=ConfigUtil.hostURL() %>Women/Clothing">CONTINUE SHOPPING</a> 
-        <a name="pcd_tochk" type='checkout' href='#'>ORDER NOW</a>
-       <h1><div class="total"><span>Total Rs.</span>
-        <span name='gTotal' class="grandtot"><%=total%></span>
-        </div></h1>
-        </div>
+     
         <!--start loop-->
       <%for (int i = 0; i < cartDT.Rows.Count; i++)
         { %>
@@ -138,6 +133,7 @@
             </div>
             <div class="estimated"><span>Estimated Delivery</span><ul><li>Delivered in 3-6 days</li></ul>
             <span>Return Policy</span><ul><li><%=cartDT.Rows[0]["ShippingReturns"]%></li></ul></div>
+            <div class="action"><a>Remove</a></div>
             <div class="totprice">Sub Total Rs.<span name='subTotal' sku='<%=cartDT.Rows[i]["SKU"]%>'><%=cartDT.Rows[i]["TOTAL"]%></span></div>
         </div>
       <%} %>
