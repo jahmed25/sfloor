@@ -115,8 +115,8 @@
          function showShippingTab() {
              $(".tabs li").removeClass('selected');
              $(".tabs li:nth-child(2)").addClass("selected");
-             $(".tabcontents div").css("display", "none");
-             $("#view2").css("display", "block");
+             $(".tabcontents > div").css("display", "none");
+             $("#view2").slideDown();
              $("#errorSpan").css("display", "none");
          }
          function submitForm(valid) {
@@ -128,9 +128,10 @@
                      if (data.status) {
                          $(".tabs li").removeClass('selected');
                          $(".tabs li:nth-child(3)").addClass("selected");
-                         $(".tabcontents div").css("display", "none");
-                         $("#view3").css("display", "block");
+                         $(".tabcontents > div").css("display", "none");
+                         $("#view3").slideDown();
                          $("#errorSpan").css("display", "none");
+
                      } else {
                          alert('not added');
                      }
@@ -285,7 +286,7 @@
 			</form>
                 </div>
                 <div id="view3">
-                    <div class="cnfrm_add">
+                    <div class="cnfrm_add" style='display:block'>
                         <span class="payemnt_sec_head">Your Shipping Address</span>
                         <ul>
                             <li>Kunal</li>
@@ -299,7 +300,7 @@
                             <input type="button" class="edit_btn" value="Edit" name="paynow">
                         </ul>
                     </div>
-                    <div class="chosoe_pmt">
+                    <div class="chosoe_pmt" style='display:block'>
                         <span class="payemnt_sec_head">Choose your mode of payment</span>
                         <p>
                             <input type="radio" id="cod" name="cod"><label for="cod">Cash-On-Delivery</label></p>
