@@ -34,11 +34,10 @@
    <div class='right_inner_categorydetailsimagesprize'>
     <asp:Panel ID ="pnl_disprice" runat="server"><img class="offerimg" id="offerprice" runat="server" /></asp:Panel>
         <img class="img_rupee" alt="" id="imgbtn_crosspriceimg" runat="server" />
-    <a href='<%# Eval("link") %>' id="lnkbtn_crossprize" runat="server" class="a_proprize" ><%# Eval("MRP")%></a>
+   <a href='<%# Eval("link") %>' id="lnkbtn_crossprize" runat="server" class="a_proprize" ><%# Eval("MRP")%></a>
         <img class="margin" alt="" id="imgbtn_crosspriceimg2" runat="server"  />
-    <a href='<%# Eval("link") %>' id="btn_crossprize" runat="server" class="a_proprize" ><%# Eval("MetaKeywords")%></a>
+   <a href='<%# Eval("link") %>' id="btn_crossprize" runat="server" class="a_proprize" ><%# Eval("MetaKeywords")%></a>
     
-     <%-- <img class="margin" src="<%=ConfigUtil.hostURL() %>Images/rupee_11px.png"/>--%>
     <span class="margin" >Rs.</span><a href='<%# Eval("link") %>' id="lnkbtn_price" runat="server" class="lnkbtn_proprize  splprice" ><%# Eval("SpecialPrice")%></a>
    <%--    <asp:Label Font-Size="0px" ID="inventory" runat="server" visible ="false" Text='<%# Eval("Inventory") %>'></asp:Label>--%>
       </div>
@@ -51,4 +50,4 @@
             </ItemTemplate>
         </asp:DataList>
             <input type="hidden" id="PBrand" value="<%=Request.Params["PBrand"] %>" />
-        <input type="hidden" value="<%=PageNo%>" name="pageNo" id="pageNo">
+        <input type="hidden" value="<%=PageNo%>" name="pageNo" id="pageNo"/>
