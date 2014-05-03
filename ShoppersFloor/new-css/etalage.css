@@ -669,46 +669,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
     
 } 
 .wishlist-container:hover .wishlist-shade{opacity:0.8; filter: alpha(opacity = 90);}
-.wishlist-container .wishlist-wish-list{cursor:pointer; background:url(../new-images/bg-wishlist.png); margin:310px 0px 0px 90px; position:absolute; height:20px;width:20px;z-index:1000; }
 
-.wishlist-container .wishlist-wish-list:hover{background:url(../new-images/bg-wishlist.png) 50% 100%; cursor:pointer}
-.wishlist-container .wishlist-wish-list:visit{background:url(../new-images/bg-wishlist.png) 50% 100%;}
-
-.wishlist-container .wishlist-quick-view{background:url(../new-images/quickviewimg.png); margin:307px 0px 0px 55px;cursor:pointer;position:absolute; padding-top:2px; height:25px;width:20px;z-index:1000;}
+.wishlist-container .wishlist-quick-view{background:url(../new-images/quickviewimg.png); margin:307px 0px 0px 75px;cursor:pointer;position:absolute; padding-top:2px; height:25px;width:20px;z-index:1000;}
 .wishlist-container .wishlist-quick-view:hover{background:url(../new-images/quickviewimg.png) 50% 100%; cursor:pointer; zoom:1}
 
-.wishlist-wish-list,.wishlist-quick-view  {
+.wishlist-quick-view  {
   display: inline;
-}
-.wishlist-wish-list span {
-  position: absolute;
-  width:100px;
-  color: #FFFFFF;
-  background: black;
-  height: 32px;
-  line-height: 32px;
-  text-align: center;
-  visibility: hidden;
-  border-radius: 6px;
-}
-.wishlist-wish-list span:after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -8px;
-  width: 0; height: 0;
-  border-top: 8px solid black;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-}
-.wishlist-wish-list:hover span {
-  visibility: visible;
-  opacity: 0.9;
-  bottom: 38px;
-  left: 50%;
-  margin-left: -50px;
-  z-index: 999;
 }
 
 .wishlist-quick-view span:after {
@@ -752,7 +718,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
   line-height: 32px;
   text-align: center;
   visibility: hidden;
-  border-radius: 6px;
 }
 
 .wishlist-main-container .wishlist-head{border:1px solid #E4E4E4;background-color:rgb(246, 246, 246); padding:10px}
