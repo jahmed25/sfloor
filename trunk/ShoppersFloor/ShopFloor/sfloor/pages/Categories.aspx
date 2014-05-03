@@ -3,7 +3,6 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server" >
-<link href='<%=ConfigUtil.StaticPath() %>new-css/layout.css' rel="stylesheet" type="text/css" />
 <link href='<%=ConfigUtil.StaticPath() %>new-css/styles-filter.css' rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
@@ -196,7 +195,6 @@
                   <a class="quick-view" pop='<%# Eval("SKUCode") %>' ><span>Quick View</span></a></div>
                     <div class="boxgrid captionfull">
                         <a href="<%# Eval("link") %>">
-                         
                             <div class="loading item">
                                <a href='<%#Eval("link") %>'> <img src="<%#ConfigUtil.getServerPath()+Eval("PathInternaldetailsSmallImage")%>"
                                     alt="<%# Eval("SKUName") %>" class="right_inner_categorydetailsimagescss" /></a>
