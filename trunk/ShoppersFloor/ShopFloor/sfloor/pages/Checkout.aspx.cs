@@ -20,7 +20,7 @@ public partial class sfloor_pages_Checkout :Page
         {
             cartDT = HomeService.getCartDT(Session.SessionID);
             subTotal = HomeService.getTotal();
-            subTotal = (float.Parse(HomeService.getTotal())+49).ToString();
+            total = (float.Parse(HomeService.getTotal()) + 49).ToString();
         }
         catch
         {
