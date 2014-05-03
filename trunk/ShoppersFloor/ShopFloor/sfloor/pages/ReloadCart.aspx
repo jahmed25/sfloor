@@ -6,7 +6,7 @@
     </div>
     <div class="block-cart mini_cart_ajax">
         <!--<span class="top-cart-icon"></span>-->
-        <span class="top-cart-title">My Cart </span><span class="cart-arrow"></span>
+        <span class="top-cart-title" >My Cart </span><span class="cart-arrow"></span>
         <div style="display: none;" class="top-cart-content" id='cartDiv'>
             <%if (cartDT.Rows.Count > 0)
                 { %>
