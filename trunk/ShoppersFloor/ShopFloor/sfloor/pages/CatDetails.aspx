@@ -163,17 +163,15 @@
             <div class="tabs">
                 <div class="tab">
                     <input id="tab-1" name="tab-group-1" checked="checked" type="radio">
-                    <label for="tab-1">
-                        FEATURES</label>
+                    <label for="tab-1">FEATURES</label>
                     <div class="billcontent">
-                        <hgroup><h2><i>Details of &nbsp;</i><%=dt.Rows[0]["SKUName"] %></h2></hgroup>
+                        <hgroup><h2><%=dt.Rows[0]["SKUName"] %></h2></hgroup>
                         <p><%=dt.Rows[0]["SKULongDescription"]%></p>
-                         <div class="tab-2_details">
                             <p><b>Brand :</b> <%=dt.Rows[0]["SKUBrand"]%></p>
                             <p><b>Wash Care : </b><%=dt.Rows[0]["WashCare"]%></p>
                             <p><b>Color : </b><%=dt.Rows[0]["Color"]%></p>
                             <p><b>Material : </b><%=dt.Rows[0]["Material"]%></p>
-                        </div>  
+                           
                     </div>
                 </div>
                 <div class="tab">
@@ -190,10 +188,10 @@
                         RETURN</label>
                     <div class="billcontent">
                         <ul>
-                           <li><a>We will leave no stone unturned in getting that curve back on your face.</a></li>
-                           <li><a>Whatever may be the reason, if you want to return your purchase, we will pick the product back from your doorstep, free of cost. <%=dt.Rows[0]["ShippingReturns"]%>&nbsp;of receipt.</a></li>
-                           <li><a>Please make sure it is not a USED product, should be in the original box and with all price tags attached as you got them.</a></li>
-                           <li><a>To know more, please</a>&nbsp;<a class="a_faq" href="faq.aspx">Click here</a></li>
+                           <li>We will leave no stone unturned in getting that curve back on your face.</li>
+                           <li>Whatever may be the reason, if you want to return your purchase, we will pick the product back from your doorstep, free of cost. <%=dt.Rows[0]["ShippingReturns"]%>&nbsp;of receipt.</li>
+                           <li>Please make sure it is not a USED product, should be in the original box and with all price tags attached as you got them.</li>
+                           <li>To know more, please&nbsp;<a style="color:Orange" href="faq.aspx">Click here</a></li>
                         </ul>
                     </div>
                 </div>
@@ -205,19 +203,19 @@
                 <%for (int i = 0; i < relProductDT.Rows.Count;i++ ) {%>
                     <li><a href="<%=ConfigUtil.hostURL() %><%=StringUtil.urlEncode(relProductDT.Rows[i]["SKUName"]+"") %>?htm=<%=relProductDT.Rows[i]["SKUCode"] %>" class="">
                         <img src="<%=ConfigUtil.getServerPath() %><%=relProductDT.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /><br>
-                        <span><%=relProductDT.Rows[i]["SKUName"] %></span><br>
+                        <span style="width:230px; overflow:hidden" ><%=relProductDT.Rows[i]["SKUName"] %></span><br>
                         <span>Rs.<%=relProductDT.Rows[i]["SpecialPrice"] %></span></a></li>
                    <%} %>
                 </ul>
             </div>
-            <div class="relateditem">
+            <div class="recentitem">
                 <h2>
                     Recent View</h2>
                 <ul id="carousel1" class="elastislide-list">
                      <%for (int i = 0; i < recentProductTD.Rows.Count;i++ ) {%>
                     <li><a href="<%=ConfigUtil.hostURL() %><%=StringUtil.urlEncode(recentProductTD.Rows[i]["SKUName"]+"") %>?htm=<%=recentProductTD.Rows[i]["SKUCode"] %>" class="">
                         <img src="<%=ConfigUtil.getServerPath() %><%=recentProductTD.Rows[i]["PathInternaldetailsSmallImage"] %>" alt="image01" /><br>
-                        <span><%=recentProductTD.Rows[i]["SKUName"]%></span><br>
+                        <span style="width:230px; overflow:hidden" ><%=recentProductTD.Rows[i]["SKUName"]%></span><br>
                         <span>Rs.<%=recentProductTD.Rows[i]["SpecialPrice"]%></span></a></li>
                    <%} %>                
                    </ul>

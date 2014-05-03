@@ -28,6 +28,22 @@
         background: black;
         opacity: 0.9;
     }
+  #pcd_overlay_form_quick
+    {
+        background: WHITE;
+        z-index: 100000; border-radius:10px;
+    }
+    .pcd_background_overlay_quick
+    {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 100000;
+        background: black;
+        opacity: 0.9;
+    }
     </style>
 
     
@@ -51,7 +67,7 @@
 </div>
     <!--End here Filter category-->
 <div id="filter_float_threshold_start"></div>
-<div id="floating_filter" style="width: 200px; top: 170px; position: fixed; ">
+<div id="floating_filter" style="width: 230px;top: 190px; position: fixed; ">
 
 <div  class="inner_category_left">
 
@@ -69,8 +85,8 @@
 <div id='cssmenu'>
 <ul>
 <li></li>
-<li class='has-sub'><a href='#' id="MainCatHeader"  style="background-color:#E4E4E4;" runat="server">Accessories<em></em></a><a style="width:25px; z-index:1; text-align:right; background:transparant; float:right; padding:2px 10px 10px 160px;top:5px; cursor:pointer;  position:absolute"><em></em></a>
-<ul style="height:auto">
+<li class='has-sub'><a href='#' id="MainCatHeader" style="border:1px solid #E4E4E4;background-color:rgb(246, 246, 246)" runat="server">Accessories<em></em></a><a style="width:25px; z-index:1; text-align:right; background:transparant; float:right; padding:0px 10px 10px 185px;top:5px; cursor:pointer;  position:absolute"><em></em></a>
+<ul style="height:auto" class="scrollbar">
     <asp:DataList ID="datalist_categoryname" Visible="true" runat="server" RepeatDirection="Vertical" RepeatColumns="1" > 
         <ItemTemplate> 
         <li>
@@ -86,7 +102,7 @@
 <div class="clear"></div>
 <div id='cssmenu'>
 <ul>
-<li class='has-sub'><a href='#' style="background-color:#E4E4E4" >Brand <em></em></a>
+<li class='has-sub'><a href='#' style="border:1px solid #E4E4E4;background-color:rgb(246, 246, 246)" >Brand <em></em></a>
 <ul>
  <asp:DataList ID="datalist_brandname" runat="server" RepeatDirection="Vertical" RepeatColumns="1" > 
         <ItemTemplate>      
@@ -102,10 +118,11 @@
 <div class="clear"></div>
 <div id='cssmenu' class="">
 <ul>
-<li class='has-sub'><a href='#' style="background-color:#E4E4E4">Price (Rs.)<em></em></a>
+<li class='has-sub'><a href='#' style="border:1px solid #E4E4E4;background-color:rgb(246, 246, 246)">Price (Rs.)<em></em></a>
 <ul>
 <div class="priceinput">
-<input type="number" name="min" id='minTxt' min="0" /><input id='maxTxt' type="number" min="0" name="max" /><input type="button" value="GO" id='priceRangeBtn'/><br><span id='errRange' style='display:none;color:red'>Please enter the min and max price</span></div>
+<input type="number" name="min" id='minTxt' min="0" /><input id='maxTxt' type="number" min="0" name="max" />
+<input type="button" value="GO" id='priceRangeBtn'/><br><p id='errRange' style='display:none;color:red'>Please enter the min and max price</p></div>
 </ul></li>
 </ul>
 </div>
@@ -113,8 +130,8 @@
 
 <div id="cssmenu">
 <ul  class="color1">
-<li class='has-sub'><a href='#' style="background-color:#E4E4E4">Color<em></em></a>
-<ul>
+<li class='has-sub'><a href='#' style="border:1px solid #E4E4E4;background-color:rgb(246, 246, 246)">Color<em></em></a>
+<ul class="scrollbar">
 <li><input type="checkbox" id="black"/><a href="#" title="black" style="background-color: Black"></a><label for="black">Black</label></li>
 <li><input type="checkbox" id="brown"/><a href="#" title="brown" style="background-color: #7e4f2f"></a><label for="brown">Brown</label></li>
 <li><input type="checkbox" id="cream"/><a href="#" title="cream"  style="background-color: #f4eedb"></a><label for="cream">Cream</label></li>
@@ -136,7 +153,7 @@
 
 <div id="cssmenu">
 <ul  class="color1">
-<li class='has-sub'><a href='#' style="background-color:#E4E4E4">Size<em></em></a>
+<li class='has-sub'><a href='#' style="border:1px solid #E4E4E4;background-color:rgb(246, 246, 246)" >Size<em></em></a>
 <ul>
 <div id="size">
 <li id="li"><a href="#">0</a></li>
@@ -177,7 +194,7 @@
                  <span class="hover-image1"></span> 
                  <a class="wish-list" name='saveLater' sku='<%# Eval("SKUCode") %>'><span>Save for Later</span></a>
                   <a class="quick-view" pop='<%# Eval("SKUCode") %>' ><span>Quick View</span></a></div>
-                    <div class="boxgrid captionfull"
+                    <div class="boxgrid captionfull">
                         <a href="<%# Eval("link") %>">
                          
                             <div class="loading item">
@@ -243,9 +260,17 @@
 </div>
 <section>
 <div  id="overlay_form_quick"  style="margin:0 auto; display:none;">
-<div  style=" position:fixed; background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; ">
+<div  style=" position:fixed; left:200px; top:10px; background:white; width:1000px; border-radius:10px; height:580px; ">
+
 <a title="close" style="text-align:right; font-size:20px; color:red; float:right; margin-right:10px" id="closequickview" href="#">x</a>	
-<object type="text/html" id='quickViewObj' style=" background:white; margin:0 auto; width:950px; border-radius:10px; height:580px; "></object></div> 
+<object type="text/html" id='quickViewObj' style=" background:white; margin:0 auto;  width:1000px; border-radius:10px; height:580px; "></object></div> 
+</div>
+<div class="pcd_background_overlay" style="display: none;"></div>
+
+<div  id="pcd_overlay_form_quick"  style="margin:0 auto; display:none;">
+<div  style=" position:fixed; left:200px; top:10px; background:white; width:300px; border-radius:10px; height:80px; ">
+<a title="close" style="text-align:right; font-size:20px; color:red; float:right; margin-right:10px" id="A1" href="#">x</a>	
+<div><input type="button" value="Continue to shopping" /> <input type="button" value="Proceed to buy" /></div>
 </div>
 </section>
 <div style=" clear:both"></div>
