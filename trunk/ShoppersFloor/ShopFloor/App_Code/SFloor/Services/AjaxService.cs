@@ -9,6 +9,7 @@ using MFO.Commom;
 using MFO.Constants;
 using MFO.Loggers;
 using System.Collections;
+using MFO.Utils;
 
 /// <summary>
 /// Summary description for AjaxService
@@ -78,12 +79,15 @@ namespace SFloor.Services
         }
         public static DataTable getVarientProd(string style,string size,string color)
         {
+            style = style == null ? "" : style.Trim();
+            size = size == null ? "" : size.Trim();
+            color = color == null ? "" : color.Trim();
             DataTable dt = GenericService.getVewImageNewMasterDT();
             IEnumerable<DataRow> query =
             from dr in dt.AsEnumerable()
-                where dr.Field<String>("StyleCode") == style
-                    && dr.Field<String>("Color") == color
-                    && dr.Field<String>("Size") == size
+            where style.Equals(dr["StyleCode"]+"".Trim())
+                    && color.Equals(dr["Color"] + "".Trim())
+                    && size.Equals(dr["Size"] + "".Trim()) 
             select dr;
             try
             {
@@ -176,7 +180,61 @@ namespace SFloor.Services
 
         public static bool addShipping(string email, string name, string phone, string pin, string city, string state,string  address, string sessionId, string userId)
         {
-            return ShippingDAO.add(email, name, phone, pin, city, state, address,sessionId, userId);
+            return ShippingDAO.addOrUpdate(email, name, phone, pin, city, state, address,sessionId, userId);
+        }
+
+        public static string createOrder(string sessionID,string shippingEmail,string payMode,string userID)
+        {
+            DataTable carDT = HomeService.getCartDT(sessionID);
+            string total = HomeService.getTotal();
+
+            string shippingId = "";
+            if (StringUtil.isNullOrEmpty(userID))
+                shippingId = ShippingDAO.getShippinIDByEmail(shippingEmail);
+            else
+                shippingId = ShippingDAO.getShippinIDByUserID(userID);
+
+            int orderID= OrderDAO.createOrder(total, payMode, shippingId);
+            OrderDAO.createOrderStatus(orderID);
+            OrderDAO.createOrderDetails(carDT,orderID.ToString());
+            return orderID+"";
+        }
+
+      
+        public static bool removeProdFromInventory(string p)
+        {
+            throw new NotImplementedException();
+        }
+        public static int getInventory(string sku)
+        {
+            return ProductDAO.getInventory(sku);
+        }
+        public static Dictionary<string, string> checkInventory(DataTable dt, string sessionId)
+        {
+            Dictionary<string, string> invDic = new Dictionary<string, string>();
+            if (CommonUtil.DT.isEmptyOrNull(dt))
+                dt = HomeService.getCartDT(sessionId);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Dictionary<string, string> dic = new Dictionary<string, string>();
+                int inventory = AjaxService.getInventory(dt.Rows[i]["SKU"] + "");
+                if (inventory == 0)
+                {
+                    invDic.Add(dt.Rows[i]["SKU"] + "", "SOLD_OUT");
+                }
+                else if (inventory < Int32.Parse(dt.Rows[i]["QTY"] + ""))
+                {
+                    string msg = "Only " + inventory + " Item(s) are left in inventory!!";
+                    invDic.Add(dt.Rows[i]["SKU"] + "", msg);
+
+                }
+            }
+            return invDic;
+        }
+
+        public static void updateInventroy(string sessionId)
+        {
+            ProductDAO.updateInventory(HomeService.getCartDT(sessionId));
         }
     }
    
