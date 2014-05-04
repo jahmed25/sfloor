@@ -12,21 +12,64 @@
     <script type="text/javascript" src="<%=ConfigUtil.StaticPath() %>new-js/common1.js"></script>
     <link type="text/css"  href="<%=ConfigUtil.StaticPath() %>new-css/checkoutpage_n.css" rel="stylesheet" />
     <link type="text/css"  href='<%=ConfigUtil.StaticPath() %>new-css/login-forms.css' rel="stylesheet" />
-   
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <style type="text/css">
 		ul li:hover
 		{
 		    background-color:orange;
 		}
 	</style>
-	
-    <script type="text/javascript">
+    <%if(!MFO.Commom.CommonUtil.DT.isEmptyOrNull(shipDT)){ %>
+           <script type="text/javascript">
+               function getShip() {
+               var scope = angular.element($("body")).scope();
+               scope.$apply(function () {
+                   scope.ship= {city : '<%=shipDT.Rows[0]["CITY"] %>',
+                       state :'<%=shipDT.Rows[0]["STATE"] %>',
+                       email : '<%=shipDT.Rows[0]["EMAIL"] %>',
+                       fName : '<%=shipDT.Rows[0]["NAME"] %>',
+                       phone : '<%=shipDT.Rows[0]["MOBILE"] %>',
+                       pin : '<%=shipDT.Rows[0]["PIN"] %>',
+                       address : '<%=shipDT.Rows[0]["ADDRESS"] %>'
+                   }
+               });
+           }
+           </script>
+        <%} %>
+           
+	<script type="text/javascript">
 	    var path = '<%=ConfigUtil.hostURL() %>';
 	    var isEmail = '<%=Session["EmailID"] %>'
+	    var isShip = '<%=shipDT.Rows.Count%>'
+	    var tab = '<%=Session["tab"] %>'
 	    $(function () {
-	        if (isEmail.trim().length > 0) {
-	            showShippingTab();
+	        if (tab == 3) {
+	            thirdTab();
 	        }
+	        else if (isEmail.trim().length > 0 && isShip > 0) {
+	            thirdTab();
+	        }
+	        else if (isEmail.trim().length > 0) {
+	            secondTab();
+	        }
+
+	        $("[qtyUpdate]").on("change", function () {
+	            var sku = $(this).attr('qtyUpdate');
+	            var qty = $(this).val();
+	            $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=updateQty', data: { sku: sku, qty: qty} })
+					.success(function (msg) {
+					    window.location = path + 'check-out';
+					});
+	        });
+	        $("[remove]").on("click", function () {
+	            var sku = $(this).attr('sku')
+	            $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=removeFromCart', data: { sku: sku} })
+					.success(function (msg) {
+					    window.location = path + 'check-out';
+					});
+
+	        });
 	        $(window).bind('resize', popup);
 	        $("#pinTxt").autocomplete({
 	            source: function (request, response) {
@@ -92,9 +135,13 @@
 	   
 	</script>
      <script type="text/javascript">
-         function showShipping() {
+         function showShipping(v) {
+             if (v == 1) {
+                 secondTab();
+                 return;
+             }
              if ($("[name='uType']:checked").val() == "guest") {
-                 showShippingTab();
+                 secondTab();
              } else if ($("[name='uType']:checked").val() == "regular") {
                  $("#checkout_overlay_form").fadeIn(1000);
                  $(".checkout_background_overlay").fadeIn(500);
@@ -111,7 +158,7 @@
                  position: 'absolute'
              });
          }
-         function showShippingTab() {
+         function secondTab() {
              $(".tabs li").removeClass('selected');
              $(".tabs li:nth-child(2)").addClass("selected");
              $(".tabcontents > div").css("display", "none");
@@ -125,12 +172,14 @@
                  data: $('#cForm').serialize(),
                  success: function (data) {
                      if (data.status) {
-                         $(".tabs li").removeClass('selected');
-                         $(".tabs li:nth-child(3)").addClass("selected");
-                         $(".tabcontents > div").css("display", "none");
-                         $("#view3").slideDown();
-                         $("#errorSpan").css("display", "none");
-
+                         thirdTab();
+                         var city = $('#cityTxt').val();
+                         var state = $('#stateTxt').val();
+                         var scope = angular.element($("body")).scope();
+                         scope.$apply(function () {
+                             scope.ship.city = city;
+                             scope.ship.state = state;
+                         });
                      } else {
                          alert('not added');
                      }
@@ -139,11 +188,20 @@
                      alert(msg.status + ' ' + msg.statusText);
                  }
              });
-             
+
          }
+         function thirdTab() {
+             $(".tabs li").removeClass('selected');
+             $(".tabs li:nth-child(3)").addClass("selected");
+             $(".tabcontents > div").css("display", "none");
+             $("#view3").slideDown();
+             $("#errorSpan").css("display", "none");
+         }
+         
     </script>
 </head>
-<body ng-app='registration' ng-controller='regCtrl'>
+<body ng-app='registration' ng-controller='regCtrl' onload="getShip()">
+<%if(!MFO.Commom.CommonUtil.DT.isEmptyOrNull(cartDT)){ %>
 <style type="text/css">
     #checkout_overlay_form
     {
@@ -223,13 +281,13 @@
                         have a Shoppersfloor account and password
                         <br>
                         &nbsp;&nbsp; &nbsp;&nbsp;<i><small>Sign in to your account and checkout faster</small></i></p>
-                    <input class="btn_shipinfo" onclick='showShipping()' style="float: right" type="button"
+                    <input class="btn_shipinfo" onclick='showShipping(0)' style="float: right" type="button"
                         value="CONTINUE" />
                     <%}
                        else
                        { %>
                     You are already logged in as '<%=Session[MFO.Constants.Constant.Session.LOGED_IN_EMAIL] %>'.
-                    <input class="btn_shipinfo" type="button" value="CONTINUE">
+                    <input class="btn_shipinfo" type="button" onclick='showShipping(1)' value="CONTINUE">
                     <br>
                     <small>If you wish to login with another account you can <a href='<%=ConfigUtil.hostURL()%>logout'>
                         click here</a> to logout</small>
@@ -281,7 +339,7 @@
 				<tr>
 					<th>State*</th>
 					<td>
-						<input type="text" name="state" id='stateTxt' required ng-model="ship.state"/>
+						<input type="text" name="state" id='stateTxt' required  updateVal ng-model="ship.state"/>
 						<small class="error" ng-show="cForm.state.$error.required  && !cForm.state.$pristine ">State required.</small>
 					</td>
 				</tr>
@@ -302,31 +360,26 @@
 			</form>
                 </div>
                 <div id="view3">
-                    <div class="cnfrm_add" style='display:block'>
-                        <span class="payemnt_sec_head">Your Shipping Address</span>
-                        <ul>
-                            <li>Kunal</li>
-                            <li>Sharma</li>
-                            <li>kk@gmail.com</li>
-                            <li>987171717</li>
-                            <li>Khandsa, GGN</li>
-                            <li>Gurgaon</li>
-                            <li>haryana</li>
-                            <li>1111111</li>
-                            <input type="button" class="edit_btn" value="Edit" name="paynow">
-                        </ul>
-                    </div>
                     <div class="chosoe_pmt" style='display:block'>
                         <span class="payemnt_sec_head">Choose your mode of payment</span>
                         <p>
-                            <input type="radio" id="cod" name="cod"><label for="cod">Cash-On-Delivery</label></p>
+                            <input type="radio" id="cod" name="cod" selected><label for="cod">Cash-On-Delivery</label></p>
                         <p>
-                            <input type="radio" id="nb" name="cod"><label for="nb">Net Bankiing</label></p>
+                            <input type="radio" id="nb" name="cod" disabled><label for="nb">Net Bankiing</label></p>
                         <p>
-                            <input type="radio" id="debitcard" name="cod"><label for="debitcard">Debit Cart & ATM</label></p>
+                            <input type="radio" id="debitcard" name="cod" disabled><label for="debitcard">Debit Cart & ATM</label></p>
                         <p>
-                            <input type="radio" id="creditcard" name="cod"><label for="creditcard">Credit Card</label></p>
-                        <input type="button" class="btn_shipinfo" value="Pay Now" name="paynow">
+                            <input type="radio" id="creditcard" name="cod" disabled><label for="creditcard">Credit Card</label></p>
+                        <a class="btn_shipinfo" href='<%=ConfigUtil.hostURL() %>doPaymint'  title="Pay Now">Pay Now</a>
+                    </div>
+                    <div class="cnfrm_add" style='display:block'>
+                            
+                        <small style='float:right;text-align:right'><i>
+                           {{ship.fName}} <br />
+                          {{ship.address}},{{ship.city}},{{ship.state}} {{ship.pin}}  <br />
+                          {{ship.email}}, {{ship.phone}}</i><br>
+                          <a href='#' onclick='secondTab()'>edit</a>
+                          </small>
                     </div>
                 </div>
             </div>
@@ -345,18 +398,33 @@
             </tr></thead>
 		<!--Loop content-->
 		 <%for (int i = 0; i < cartDT.Rows.Count; i++)
-     { %>
+        {    %>
+        <%if (invDic.ContainsKey(cartDT.Rows[i]["SKU"] + "")){ %>
+            <tr>
+                <td colspan='3'> <span style="color:Red"><%=invDic[cartDT.Rows[i]["SKU"] + ""]%> </span></td>
+                <td>
+                    <a class='class="rem_sfl"'href='#' remove sku='<%=cartDT.Rows[i]["SKU"] %>'>Remove</a>
+                </td>          
+            </tr>
+        <%} %>
 		<tr class="order_cont">
                 <td class="image_sec"><img alt="" src="<%=ConfigUtil.getServerPath() %><%=cartDT.Rows[i]["PathInternaldetailsSmallImage"] %>"><br>
                 <p class=""><%=cartDT.Rows[i]["SKUBrand"]%></p>
                 <p class="name"><%=cartDT.Rows[i]["SKUName"]%></p>
+                <p class="name"><%=cartDT.Rows[i]["SKU"]%></p>
                 <p class=""> 
                 <%if (!MFO.Utils.StringUtil.isNullOrEmpty(cartDT.Rows[i]["Size"] + ""))%>
                     <span> Size : <%=cartDT.Rows[i]["Size"]%></span>
                 <%if (!MFO.Utils.StringUtil.isNullOrEmpty(cartDT.Rows[i]["Color"] + ""))%>
                     <span> Color :  <%=cartDT.Rows[i]["Color"]%>  </span></p>
                 </td>
-                <td class=""><%=cartDT.Rows[i]["QTY"]%></td>
+                <td class="">
+                    <%if (invDic.ContainsKey(cartDT.Rows[i]["SKU"] + "")){ %>
+                      <input type='text' maxlength='3' size='3' qtyUpdate='<%=cartDT.Rows[i]["SKU"]%>' value='<%=cartDT.Rows[i]["QTY"]%>' />
+                    <%} else{ %>
+                        <%=cartDT.Rows[i]["QTY"]%>
+                     <%} %>
+                 </td>
                 <td class="">3-6<small class="">Business days</small></td>
                 <td class=""><%=cartDT.Rows[i]["TOTAL"]%></td>
         </tr>
@@ -471,6 +539,8 @@ ng-change="removelogErro('email')">
 </div>
 </div>
 </section>
-
+<%}else{ %>
+   <span style='color:red'> Your shopping cart is Empty, <a href=''>Click here to Shopping continue.</a></span>
+<%} %>
 </body>
 </html>

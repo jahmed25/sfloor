@@ -13,9 +13,6 @@
         .catcrumbs ul li { display: inline; }}
     </style>
     <script type="text/javascript">
-
-     </script>
-    <script type="text/javascript">
         CloudZoom.quickStart();
         function selectSize(txt) {
             $("li[namespace='sizeBtn']").css({ 'background-color': '#EBEBEB', 'color': 'black' })
@@ -28,10 +25,20 @@
                 $('#errorSize').css('display', 'block').text('Please select the size');
                 return;
             }
+            var data = {
+                sku:$('#style').val(),
+                qty:$("#dd_quantity option:selected").val(),
+                color:$("#color").val(),
+                size:$("#size").val(),
+                isColor:$("#isColor").val(),
+                isSize:$("#isSize").val(),
+                isSku:$("#isSku").val()
+            }
             $.ajax({
                 type: "get",
                 contentType: "application/json; charset=utf-8",
-                url: "<%=ConfigUtil.hostURL()%>sfloor/pages/AjaxService.aspx?action=addToCart&sku=" + $('#style').val() + "&qty=" + $("#dd_quantity option:selected").val() + "&color=" + $("#color").val() + "&size=" + $("#size").val() + "&isColor=" + $("#isColor").val() + "&isSize=" + $("#isSize").val() + "&isSku=" + $("#isSku").val(),
+                url: "<%=ConfigUtil.hostURL()%>sfloor/pages/AjaxService.aspx?action=addToCart",
+                data:data,
                 success: function (data) {
                     if (data.error != null) {
                         $('#errorSize').css('display', 'block').text(data.error);
@@ -119,7 +126,12 @@
                         <input type="button" onclick="addtoCart()" title="add  to cart" value="BUY NOW" class="addtocartbtn"/></div>
                 </div>
                 <%}else { %>
-                    <p>Items is sold out, You can choose different size or color combination</p>
+                    <p style='color:Red'>Items is sold out
+                        <%if(!"Normal".Equals(dt.Rows[0]["SKUClassification"] + "")){%>
+                         ,You can choose different size or color combination
+                         <%} %>
+                         .
+                    </p>
 
                 <%} %>
             </div>
