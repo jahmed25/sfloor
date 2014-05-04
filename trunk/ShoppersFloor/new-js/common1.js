@@ -133,6 +133,9 @@ $(document).ready(function () {
     $('#fgt_clk_hre').click(function () {
         $("#overlay_form").fadeOut(500);
         $(".background_overlay").fadeOut(500);
+        $("#checkout_overlay_form").fadeOut(500);
+
+        $(".checkout_background_overlay").fadeOut(500);
         $("#fgt_overlay_form").fadeIn(1000);
         $(".fgt_background_overlay").fadeIn(500);
         fgt_positionPopup();
@@ -140,6 +143,9 @@ $(document).ready(function () {
     $('#logsign').click(function () {
         $("#fgt_overlay_form").fadeOut(1000);
         $(".fgt_background_overlay").fadeOut(500);
+        $("#checkout_overlay_form").fadeIn(500);
+
+        $(".checkout_background_overlay").fadeIn(500);
        
         $("#overlay_form").fadeIn(500);
         $(".background_overlay").fadeIn(500);
