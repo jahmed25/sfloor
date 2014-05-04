@@ -1,10 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/MasterPageLayout.master" AutoEventWireup="true" enableEventValidation="false" enableViewStateMac="false" viewStateEncryptionMode="Never" CodeFile="Categories.aspx.cs" Inherits="Categories" %>
 
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server" >
 <link href='<%=ConfigUtil.StaticPath() %>new-css/styles-filter.css' rel="stylesheet" type="text/css" />
-
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
 <script src='<%=ConfigUtil.StaticPath() %>new-js/fixsidemenu.js' type="text/javascript"></script>
 <script src='<%=ConfigUtil.StaticPath() %>new-js/main.js' type="text/javascript"></script>
@@ -44,18 +41,19 @@
         opacity: 0.9;
     }
     </style>
+
 <script type="text/javascript">
     $(document).ready(function () {
-       if($('#crumb4').text().trim().length == 0)
-       {
-           $('#crumb4').css('display', 'none');
-       }
-       else {
-           $('#crumb4').css('display', 'block');
-       }
-        });
+        if ($('#crumb4').text().trim().length == 0) {
+         
+            $('#crumb4').css('display', 'none');
+        }
+        else {
+            $('#crumb4').css('display', 'block');
+        }
+    });
 </script>
-    
+
 <div id="inner_middle_category" class="overflows">
 <div class="right_inner_categorydetailssortby">
 <div class="bradcrumbs-contain">
@@ -67,6 +65,7 @@
 <li id="crumb4"><span></span><a id='pTypeNav' href='<%=pTypeUrl%>'> <%=pTypeName%></a></li>
 </ul></div>
 </div>
+
 <div class="dropdown">
                   <select class="dropdown-select" ID="price_select">
                     <option value="0">Sort by price : Select</option>
@@ -75,7 +74,7 @@
           </select>
 </div>
 </div>
-    <!--End here Filter category-->
+ <!--End here Filter category-->
 <div id="filter_float_threshold_start"></div>
 <div id="floating_filter" style="width: 230px;top: 190px; position: fixed; ">
 
@@ -133,6 +132,8 @@
 <div class="priceinput">
 <input type="number" name="min" id='minTxt' min="0" /><input id='maxTxt' type="number" min="0" name="max" />
 <input type="button" value="GO" id='priceRangeBtn'/><br><p id='errRange' style='display:none;color:red'>Please enter the min and max price</p></div>
+
+
 </ul></li>
 </ul>
 </div>
