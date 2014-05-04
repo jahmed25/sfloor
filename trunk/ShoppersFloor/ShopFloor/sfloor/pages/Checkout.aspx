@@ -19,7 +19,8 @@
 		    background-color:orange;
 		}
 	</style>
-	<script type="text/javascript">
+	
+    <script type="text/javascript">
 	    var path = '<%=ConfigUtil.hostURL() %>';
 	    var isEmail = '<%=Session["EmailID"] %>'
 	    $(function () {
@@ -95,7 +96,6 @@
              if ($("[name='uType']:checked").val() == "guest") {
                  showShippingTab();
              } else if ($("[name='uType']:checked").val() == "regular") {
-             alert(1);
                  $("#checkout_overlay_form").fadeIn(1000);
                  $(".checkout_background_overlay").fadeIn(500);
                  popup();
@@ -161,6 +161,23 @@
         background: black;
         opacity: 0.9;
     }
+    #fgt_overlay_form
+    {
+        background: WHITE;
+        z-index: 100000;
+    }
+    .fgt_background_overlay
+    {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 100000;
+        background: black;
+        opacity: 0.8;
+    }
+
     .css-form input.ng-invalid.ng-dirty
     {
         border: 2PX SOLID #FA787E;
@@ -397,6 +414,8 @@ ng-change="removelogErro('pwd')">
 <p ng-show="loginForm.logPwd.$invalid && !loginForm.logPwd.$pristine" class="help-block">Password required length between 8 to 20</p>
 <p ng-show="login.errors.pwd" class="help-block" id='errlogPwd'> {{login.errors.pwd}}.</p>
 </td></tr>
+<tr><th></th><td><p id="fgt_clk_hre" ><a class="fgtclk">Forgot password? click here</a></p></td></tr>
+
 <tr><th></th><td> <input type="button" value="Login" ng-click="login()" ng-disabled="loginForm.$invalid"></td></tr>
 </table>
 </form>
@@ -431,5 +450,27 @@ ng-change="removelogErro('pwd')">
 </div>
 </div>
 </section>
+<div class="fgt_background_overlay" style="display: none;"></div>
+<section>
+<div  id="fgt_overlay_form" style="display:none;" class="loginregisterform" ng-app='registration' ng-controller='regCtrl'>
+<a title="close" class="x" id="fgt_close" href="#" >x</a>		
+<div class="loginform">
+<div class="headtitle"><span>Forgot Password</span></div>
+<form name='loginForm' class='css-form fgt_form ' >	
+<p ng-show="login.errors.system" class="help-block" id='P6'> {{login.errors.system}}.</p>
+<table><tr><td>Enter your email address</td></tr>
+<tr><td><input type="email" name='logEmail' ng-keyup="validateEmail()" placeholder="e.g. example@example.com" required  ng-model="login.email" 
+ng-change="removelogErro('email')">
+<p ng-show="loginForm.logEmail.$invalid && !loginForm.logEmail.$pristine" class="help-block">Email is not valid.</p>
+<p ng-show="login.errors.email" class="help-block" id='P7'> {{login.errors.email}}.</p>
+<p ng-show="login.errors.info" style="color:Green" id='P8'> {{login.errors.info}}.</p></td></tr>
+<tr><td><p>We'll send you a link to reset your password.</p></td></tr>
+<tr><td><input type="button" value="Send" class="button" ng-click="login()" ng-disabled="loginForm.$invalid"></td></tr>
+<tr><td><p><a id="logsign">Signup / Login</a></p> </td></tr></table>
+</form>
+</div>
+</div>
+</section>
+
 </body>
 </html>
