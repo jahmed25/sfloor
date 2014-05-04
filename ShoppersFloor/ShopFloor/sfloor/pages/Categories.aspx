@@ -44,20 +44,31 @@
         opacity: 0.9;
     }
     </style>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+       if($('#crumb4').text().trim().length == 0)
+       {
+           $('#crumb4').css('display', 'none');
+       }
+       else {
+           $('#crumb4').css('display', 'block');
+       }
+        });
+</script>
     
 <div id="inner_middle_category" class="overflows">
 <div class="right_inner_categorydetailssortby">
+<div class="bradcrumbs-contain">
 <div class="breadcrumbs" id="crumbs">
 <ul>
-<li><a  href='<%=ConfigUtil.hostURL() %>'> Home </a></li>
-<li><a id='catNav' href='<%=catUrl%>'> <%=catName%> </a></li>
-<li><a id='subCatNav' href='<%=subCatUrl%>'> <%=subCatName%> </a></li>
-<li><a id='pTypeNav' href='<%=pTypeUrl%>'> <%=pTypeName%> </a></li>
+<li id="crumb1"><a  href='<%=ConfigUtil.hostURL() %>'> Home </a></li>
+<li id="crumb2"><span></span><a id='catNav' href='<%=catUrl%>'> <%=catName%> </a></li>
+<li id="crumb3"><span></span><a id='subCatNav' href='<%=subCatUrl%>'> <%=subCatName%> </a></li>
+<li id="crumb4"><span></span><a id='pTypeNav' href='<%=pTypeUrl%>'> <%=pTypeName%></a></li>
 </ul></div>
-
-<div class="select-style">
-                  <select ID="price_select">
+</div>
+<div class="dropdown">
+                  <select class="dropdown-select" ID="price_select">
                     <option value="0">Sort by price : Select</option>
                     <option value="1">Sort by price : Low to High</option>
                     <option value="2">Sort by price : High to Low</option>

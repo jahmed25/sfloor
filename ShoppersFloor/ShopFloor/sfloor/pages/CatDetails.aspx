@@ -13,6 +13,9 @@
         .catcrumbs ul li { display: inline; }}
     </style>
     <script type="text/javascript">
+
+     </script>
+    <script type="text/javascript">
         CloudZoom.quickStart();
         function selectSize(txt) {
             $("li[namespace='sizeBtn']").css({ 'background-color': '#EBEBEB', 'color': 'black' })
@@ -42,17 +45,29 @@
             });
         }
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($('#crumb4').text().trim().length == 0) {
+                $('#crumb4').css('display', 'none');
+            }
+            else {
+                $('#crumb4').css('display', 'block');
+            }
+        });
+</script>
+    
    
 <div class="categorypage-content">
 <div class="right_inner_categorydetailssortby">
+<div class="bradcrumbs-contain">
 <div class="breadcrumbs" id="crumbs">
 <ul>
-<li><a  href='<%=ConfigUtil.hostURL() %>'> Home </a></li>
-<li><a id='catNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>'> <%=dt.Rows[0]["SKUCategory"]%> </a></li>
-<li><a id='subCatNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUCategoryType"]+"")%>'> <%=dt.Rows[0]["SKUCategoryType"]%>  </a></li>
-<li><a id='pTypeNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUCategoryType"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUProductType"]+"")%>'> <%=dt.Rows[0]["SKUProductType"]%>  </a></li>
+<li id="crumb1"><a  href='<%=ConfigUtil.hostURL() %>'> Home </a></li>
+<li id="crumb2"><span></span><a id='catNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>'> <%=dt.Rows[0]["SKUCategory"]%> </a></li>
+<li id="crumb3"><span></span><a id='subCatNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUCategoryType"]+"")%>'> <%=dt.Rows[0]["SKUCategoryType"]%>  </a></li>
+<li id="crumb4"><span></span><a id='pTypeNav' href='<%=ConfigUtil.hostURL() + StringUtil.urlEncode(dt.Rows[0]["SKUCategory"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUCategoryType"]+"")%>/<%=StringUtil.urlEncode(dt.Rows[0]["SKUProductType"]+"")%>'> <%=dt.Rows[0]["SKUProductType"]%> </a></li>
 </ul></div>
-</div>
+</div></div>
         <div id="details-image">
             <%if (!StringUtil.isNullOrEmpty((dt.Rows[0]["PathInternaldetailsZoomImage"] + "")))
               { %>
