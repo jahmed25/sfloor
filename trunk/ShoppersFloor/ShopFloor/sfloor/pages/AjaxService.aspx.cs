@@ -36,7 +36,28 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "getState": getState(); break;
             case "getCity": getCity(); break;
             case "addShipping": addShipping(); break;
-                
+            case "doPaymint": doPaymint(); break;
+        }
+    }
+
+    private void doPaymint()
+    {
+        Dictionary<string,string> inventDic=AjaxService.checkInventory(null,Session.SessionID);
+        if (inventDic.Count==0)
+        {
+            String payMode = "COD";// this is hard code need to be change when paymint gatway will intigrate
+            string orderId = AjaxService.createOrder(Session.SessionID, Session[Constant.Session.SHIPING_EMAIL]+"", payMode, Session[Constant.Session.LOGED_IN_USER_ID] + "");
+            Session[Constant.Session.CURRENT_ORDER] = orderId;
+            AjaxService.updateInventroy(Session.SessionID);
+            AjaxService.clearCart(Session.SessionID);
+            Session.Remove(Constant.Session.CART_ITEMS);
+            Session.Remove(Constant.Session.TOTAL);
+
+            Response.Redirect(ConfigUtil.hostURL() + "order-summary");
+
+        }
+        else {
+            Response.Redirect(ConfigUtil.hostURL() + "check-out");
         }
     }
 
@@ -54,6 +75,8 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         bool status=AjaxService.addShipping(email, name, phone, pin, city, state,address, sessionId, userId);
         Dictionary<string, string> dic = new Dictionary<string, string>();
         dic.Add("status",status.ToString());
+        Session[Constant.Session.SHIPING_EMAIL]=email;
+        Session["tab"] = "3";
         sendResponse(dic);
 
     }
@@ -438,7 +461,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             int t = Convert.ToInt32(qty) + cartQuantity;
             int u = Convert.ToInt32(dt1.Rows[0]["UNIT_PRICE"]+"");
             int TotalPrice = t * u;
-            checkInventroy(t.ToString(),dic,dt,cartQuantity.ToString());
+            checkInventroy(t.ToString(),dic,dt1,cartQuantity.ToString());
             if (dic.Count == 0)
             {
                 GenericDAO.updateQuery("update CART set QTY ='" + t + "', TOTAL='" + TotalPrice + "' where SESSION_ID='" + Session.SessionID + "' and SKU ='" + dt1.Rows[0]["SKU"] + "'");
@@ -454,8 +477,8 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
                 string userID = "";
                 int price = Convert.ToInt32("" + dt.Rows[0]["SpecialPrice"]);
                 int Total = price * Int32.Parse(qty);
-                if (Session[Constant.Session.LOGED_IN_EMAIL] != null)
-                    userID = Session[Constant.Session.LOGED_IN_EMAIL].ToString();
+                if (Session[Constant.Session.LOGED_IN_USER_ID] != null)
+                    userID = Session[Constant.Session.LOGED_IN_USER_ID].ToString();
                 CartDAO.addToCart(Session.SessionID, qty, price.ToString(), Total.ToString(), dt.Rows[0]["SKUCode"] + "", userID);
                 Session.Remove(Constant.Session.CART_ITEMS);
                 Session.Remove(Constant.Session.TOTAL);
@@ -467,11 +490,12 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
 
     private static void checkInventroy(string qty, Dictionary<string, string> dic, DataTable dt,string addQTY)
     {
-        int inventory = 0;
-        if (StringUtil.isNullOrEmpty(dt.Rows[0]["Inventory"] + ""))
-            inventory = 0;
+        int inventory=0;
+        if (StringUtil.isNullOrEmpty(addQTY))
+             inventory = AjaxService.getInventory(dt.Rows[0]["SKUCode"]+"");
         else
-            inventory = (int)float.Parse(dt.Rows[0]["Inventory"] as String);
+            inventory = AjaxService.getInventory(dt.Rows[0]["SKU"] + "");
+
         if (inventory == 0)
         {
             dic.Add("error", "Product is Sold Out!!");
@@ -549,11 +573,7 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Dictionary<string, string> dic = new Dictionary<string, string>();
-                int inventory = 0;
-                if (StringUtil.isNullOrEmpty(dt.Rows[i]["Inventory"] + ""))
-                    inventory = 0;
-                else
-                    inventory = (int)float.Parse(dt.Rows[i]["Inventory"] as String);
+                int inventory = AjaxService.getInventory(dt.Rows[i]["SKU"]+"");
                 if (inventory == 0)
                 {
                     dic.Add("sku",dt.Rows[i]["SKU"] + "");
