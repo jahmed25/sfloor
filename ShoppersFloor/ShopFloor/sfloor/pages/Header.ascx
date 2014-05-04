@@ -71,7 +71,7 @@
                                                         <a href="<%=ConfigUtil.hostURL() %>Account" title="My Account">My Account</a>
                                                      </li>
                                                     <li >
-                                                        <a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">Checkout </a>
+                                                        <a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">check-out </a>
                                                     </li>
                                                 <li class="last"><a href='<%=ConfigUtil.hostURL() %>Help' title="Help">Help</a></li>
 
@@ -190,7 +190,7 @@
                                                                       { %>
 
                                                                    <div>
-                                                                   <div class="headnav">Total:&nbsp;<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>Checkout">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
+                                                                   <div class="headnav">Total:&nbsp;<span class="price"><%=total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>check-out">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
                                                                    </div><div id='cartDiv'>
                                                                     <%for (int i = 0; i < cartDT.Rows.Count; i++)
                                                                       { %>
