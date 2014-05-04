@@ -86,10 +86,7 @@ public partial class sfloor_pages_quickview : System.Web.UI.Page
             color = colorDT.Rows[0]["Color"] + "";
         isColor = CommonUtil.DT.isEmptyOrNull(colorDT) ? "false" : "true";
         isSku = StringUtil.isNullOrEmpty(dt.Rows[0]["StyleCode"] + "") ? "false" : "true";
-        if (StringUtil.isNullOrEmpty(dt.Rows[0]["Inventory"] + ""))
-            inventory = 0;
-        else
-            inventory = (int)float.Parse(dt.Rows[0]["Inventory"] as String);
+        inventory = AjaxService.getInventory(dt.Rows[0]["SKUCode"] + "");
         if (inventory < 20)
         {
             if (inventory == 0)
