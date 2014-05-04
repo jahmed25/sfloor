@@ -108,6 +108,7 @@
                                 </div>
                                 <%--end--%>
 
+                                <%--Desktop view--%>
                                 <div class="header-content visible-desktop">
                                     <div class="row-fluid">
                                         <div class="span4">
@@ -125,7 +126,7 @@
                                                         onblur="this.value=!this.value?'Search Here...':this.value;" value="Search Here..."
                                                         class="input-text" maxlength="128" type="text">
                                                     <button type="submit" title="Search" class="button">
-                                                        <i class="icon-search"></i>
+                                                        
                                                     </button>
                                                     <div id="search_autocomplete" class="search-autocomplete">
                                                     </div>
@@ -135,8 +136,6 @@
                                         </div>
                                         <div class="span2 cart-stick">
                                             <div class="quick-access">
-                                                <%--<div class="wishlist-big">
-                                                    <a class="icon-wishlist-big" href="#" title="Wishlist"><span>Wishlist</span></a></div>--%>
                                                      <div class="top-cart-wrapper">
                                                     <div class="top-cart-contain">
                                                         <div id="mini_cart_block">
