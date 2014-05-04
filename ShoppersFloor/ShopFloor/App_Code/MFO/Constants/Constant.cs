@@ -53,7 +53,9 @@ namespace MFO.Constants
             public const String FAV_LIST = "FAV_LIST";
             public const String CART_ITEMS = "CART_ITEMS";
             public const String TOTAL = "TOTAL";
-
+            public const String CURRENT_ORDER = "CURRENT_ORDER";
+            public const String SHIPING_EMAIL = "SHIPING_EMAIL";
+            
         }
         public static class ColumnValue
         {
