@@ -96,8 +96,12 @@
 			</div>
 			</div>
 			<%}else { %>
-                    <p class="outofstock">Items is sold out, You can choose different size or color combination</p>
-
+                    <p style='color:Red'>Items is sold out
+                        <%if(!"Normal".Equals(dt.Rows[0]["SKUClassification"] + "")){%>
+                         ,You can choose different size or color combination
+                         <%} %>
+                         .
+                    </p>
                 <%} %>
                 <span id='errorSize' style='color:red;display:none'>Please select the size</span>
             <%if ("true".Equals(isSize))
