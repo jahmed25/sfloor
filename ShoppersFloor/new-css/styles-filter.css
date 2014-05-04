@@ -1,6 +1,9 @@
 #cssmenu  label{cursor:pointer;padding-left:10px}   
 .filters-wrapper{border:1px solid #E1E1E1; }
+.filter-head{border-bottom:3px solid red; margin-bottom:4px; padding:5px 0;  font-size:18px; text-transform:uppercase;
+             }
 /* Base Styles */
+
 #cssmenu,
 #cssmenu ul,
 #cssmenu li,
