@@ -65,18 +65,7 @@ public partial class Categories : System.Web.UI.Page
             fillBrandPanal();
         }
         String pType = getProductType();
-        //if (!"".Equals(pType))
-        //{
-        //    base.Master.Page.Title = "Buy " + lnkbtn_category.Text + " " + pType + " Online in India | Megafactoryoutlet.com";
-        //    base.Master.Page.MetaKeywords = "" + pType + ", Buy " + pType + ", Buy " + lnkbtn_category.Text + " " + pType + ", Shop " + pType + ", Megafactoryoutlet, Megafactoryoutlet.com ";
-        //}
-        //else
-        //{
-        //    base.Master.Page.Title = "Buy " + lnkbtn_category.Text + " " + lnkbtn_categorytype.Text + " Online in India - " + lnkbtn_categorytype.Text + " For " + lnkbtn_category.Text + " | Megafactoryoutlet.com";
-        //    base.Master.Page.MetaKeywords = "" + lnkbtn_category.Text + " " + lnkbtn_categorytype.Text + " , " + lnkbtn_categorytype.Text + " For " + lnkbtn_category.Text + " , " + lnkbtn_categorytype.Text + " , Megafactoryoutlet.com ";
-
-        //}
-
+       
     }
     private void fillCategory(DataTable dt)
     {
@@ -116,38 +105,15 @@ public partial class Categories : System.Web.UI.Page
             if (dt.Rows.Count > 0)
             {
                 datalist_categoryname.DataSource = dt;
-                String str = "";                         // Using this String and loop for MetaDescription
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-
-                    str += dt.Rows[i]["SKUProducttype"] + " , ";
-                }
-                str = str.Substring(0, str.Length - 1);
-                if (Session["SKUProducttype"] == null)
-                {
-                    Session.Add("SKUProducttype", str);
-                }
-                else
-                {
-                    Session["SKUProducttype"] = str;
-                }
-
                 dt.Columns.Add("url", typeof(string));
-
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    dt.Rows[i]["url"] = removeAND(dt.Rows[i]["SKUProductType"] as String);
+                    dt.Rows[i]["url"] = removeAND(dt.Rows[i]["CategoryTypeUrlName"] + "", dt.Rows[i]["SKUProductType"] + "");
                 }
                 datalist_categoryname.DataSource = dt;
                 datalist_categoryname.DataBind();
                 MainCatHeader.InnerHtml = (String)dt.Rows[0]["SKUCategoryType"];
-
-
                 String pType = getProductType();
-                //if (!"".Equals(pType))
-                //    base.Master.Page.MetaDescription = " Shop " + lnkbtn_category.Text + " " + pType + " online at best price in India. Free Shipping, Cash on Delivery, 30 Days-Return Policy, 24x7 Customer Support at Megafactoryoutlet.com";
-                //else
-                //   // base.Master.Page.MetaDescription = " Shop " + lnkbtn_category.Text + " " + lnkbtn_categorytype.Text + " online at best price in India. Get branded " + str + " online in India ";
 
             }
             else
@@ -160,16 +126,11 @@ public partial class Categories : System.Web.UI.Page
        
     }
     
-    String removeAND(String baseStr)
+    String removeAND(string caturl,String productType)
     {
-       
-            String first = Request.RawUrl.Split('/')[1].Replace(" ", "-").Replace("&", "").Replace("--", "-");
-            String sec = Request.RawUrl.Split('/')[2].Replace(" ", "-").Replace("&", "").Replace("--", "-");
-            baseStr = baseStr.Replace(" ", "-").Replace("&", "").Replace("--", "-");
-
-
-            return ConfigUtil.hostURL() + first + "/" + sec + "/" + baseStr;
-      
+          string url=ConfigUtil.hostURL() + "" +caturl+ "";
+          productType = productType.Replace(" ", "-").Replace("&", "").Replace("--", "-");
+          return url+="/" + productType;
     }
     DataTable addColm(DataTable dt)
     {
