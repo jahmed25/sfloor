@@ -467,7 +467,7 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 .cloudzoom-gallery{width:70px; height:80px; padding:1px}
 .cloudzoom-gallery:hover{border:1px orange solid; padding:0px; cursor:pointer}
 
-.cloudzoom{width:400px; height:500px}
+.cloudzoom{width:420px; height:560px}
 @media(max-width:700px)(min-width:800px){
 .cloudzoom{width:300px; height:400px}
 }
