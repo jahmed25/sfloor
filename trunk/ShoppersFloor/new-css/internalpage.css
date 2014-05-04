@@ -616,8 +616,8 @@ a.DepartmentSelected {
         position:absolute;
         background: url(../new-images/loader.gif) no-repeat center;
         width:290px; height:345px;
-  }
-.loading img{ width:100%;}
+    }
+  .loading img{width:290px; height:345px;}
      
    img  
    {
