@@ -48,5 +48,10 @@ namespace SFloor.DAO
            GenericDAO.updateQuery("delete FAV_LIST where SESSION_ID='" + sessionId + "'");
 
        }
+
+       public static void removeFromWL(string sessionId, string sku)
+       {
+           GenericDAO.deleteQuery("delete FAV_LIST where SESSION_ID='" + sessionId + "' and sku='" + sku + "'");
+       }
     }
 }
