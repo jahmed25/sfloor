@@ -12,20 +12,47 @@ using SFloor.DTO;
 
 public partial class Menu : System.Web.UI.UserControl
 {
-    protected List<MenuDTO> womenDTO;
-    protected List<MenuDTO> menDTO;
-    protected List<MenuDTO> hdDTO;
-    protected List<MenuDTO> brandDTO;
-    protected List<MenuDTO> offerDTO;
+    List<MenuDTO> womenDTO;
+    List<MenuDTO> menDTO;
+    List<MenuDTO> hdDTO;
+    List<MenuDTO> brandDTO;
+    List<MenuDTO> offerDTO;
 
-    protected void Page_Load(object sender, EventArgs e)
+    public List<MenuDTO> WomenDTO
     {
+        get {
+            womenDTO = HomeService.getMenuDT(Constant.ColumnValue.WOMEN);
+            return womenDTO; 
+        }
         
-        womenDTO = HomeService.getMenuDT(Constant.ColumnValue.WOMEN);
-        menDTO = HomeService.getMenuDT(Constant.ColumnValue.MEN);
-        hdDTO = HomeService.getMenuDT(Constant.ColumnValue.HOME_DECOR);
-        brandDTO = HomeService.getBrandMenuDT();
-       // offerDTO = HomeService.getMenuDT(Constant.ColumnValue.WOMEN);
     }
+    public List<MenuDTO> MenDTO
+    {
+        get {
+            menDTO = HomeService.getMenuDT(Constant.ColumnValue.MEN);
+            return menDTO; 
+        }
 
+    }
+    public List<MenuDTO> HdDTO
+    {
+        get {
+            hdDTO=HomeService.getMenuDT(Constant.ColumnValue.HOME_DECOR);
+            return hdDTO; 
+        }
+
+    }
+    public List<MenuDTO> BrandDTO
+    {
+        get {
+            brandDTO = HomeService.getBrandMenuDT();
+            return brandDTO; 
+        }
+
+    }
+    public List<MenuDTO> OfferDTO
+    {
+        get { return offerDTO; }
+
+    }
 }
