@@ -12,6 +12,7 @@ namespace SFloor.Pages
     {
         string header;
         string footer;
+        string head;
         public String Header
         {
             get { return header; }
@@ -20,6 +21,10 @@ namespace SFloor.Pages
         {
             get { return footer; }
         }
+        public String Head
+        {
+            get { return head; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //load Header
@@ -27,8 +32,10 @@ namespace SFloor.Pages
             header = RenderControl(c);
 
             c = LoadControl("~/Footer.ascx");
-            header = RenderControl(c);
+            footer = RenderControl(c);
 
+            c = LoadControl("~/Head.ascx");
+            head = RenderControl(c);
             load(sender, e);
         }
 
