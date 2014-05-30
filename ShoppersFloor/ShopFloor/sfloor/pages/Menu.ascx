@@ -1,61 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Menu.ascx.cs" Inherits="Menu" %>
 <%@ Import Namespace="SFloor.DTO" %>
-<link href='<%=ConfigUtil.StaticPath() %>new-css/custommenu.css' rel="stylesheet"
-   type="text/css" />
-<link href='<%=ConfigUtil.StaticPath() %>new-css/shoppersfloor.css' rel="stylesheet"
-   type="text/css" media="all" />
-<link href='<%=ConfigUtil.StaticPath() %>new-css/login-forms.css' rel="stylesheet"
-   type="text/css" />
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
-<link href='<%=ConfigUtil.StaticPath() %>new-css/internalpage.css' rel="stylesheet"
-   type="text/css" />
-<style>
-   #overlay_form
-   {
-   background: WHITE;
-   z-index: 100000;
-   }
-   .background_overlay
-   {
-   position: fixed;
-   left: 0px;
-   top: 0px;
-   width: 100%;
-   height: 100%;
-   z-index: 100000;
-   background: black;
-   opacity: 0.8;
-   }
-   #fgt_overlay_form
-   {
-   background: WHITE;
-   z-index: 100000;
-   }
-   .fgt_background_overlay
-   {
-   position: fixed;
-   left: 0px;
-   top: 0px;
-   width: 100%;
-   height: 100%;
-   z-index: 100000;
-   background: black;
-   opacity: 0.8;
-   }
-   .css-form input.ng-invalid.ng-dirty
-   {
-   border: 2PX SOLID #FA787E;
-   }
-   .css-form input.ng-valid.ng-dirty
-   {
-   border: 2PX SOLID #78FA89;
-   }
-   .css-form .help-block
-   {
-   color: #FA787E;
-   font-size: 12px;
-   }
-</style>
 <%--for mobile navigation view--%>
 <div class="nav-mobile-container hidden-desktop">
    <div class="container">
@@ -283,7 +227,7 @@
                </div>
                <div id="popup3" class="popup" style="width: 100%; top: 40px; left: 0px; display: none;">
                   <div class="block1" id="block13">
-                     <%foreach (MenuDTO menu in womenDTO)
+                     <%foreach (MenuDTO menu in WomenDTO)
                         {
                             int i = 1; string first = "first"; %>
                      <div class='column <%=first %> col<%=i%>'>
@@ -331,7 +275,7 @@
                </div>
                <div id="popup4" class="popup" style="width: 100%; top: 40px; left: 0px; display: none;">
                   <div class="block1" id="block14">
-                     <%foreach (MenuDTO menu in menDTO)
+                     <%foreach (MenuDTO menu in MenDTO)
                         {
                             int i = 1; string first = "first"; %>
                      <div class='column <%=first %> col<%=i%>'>
@@ -374,7 +318,7 @@
                </div>
                <div id="popup5" class="popup" style="width: 100%; top: 40px; left: 0px; display: none;">
                   <div class="block1" id="block15">
-                     <%foreach (MenuDTO menu in hdDTO)
+                     <%foreach (MenuDTO menu in HdDTO)
                         {
                             int i = 1; string first = "first"; %>
                      <div class='column <%=first %> col<%=i%>'>
@@ -422,7 +366,7 @@
                </div>
                <div id="Div1" class="popup" style="width: 100%; top: 40px; left: 0px; display: none;">
                   <div class="block1" id="Div2">
-                     <%foreach (MenuDTO menu in brandDTO)
+                     <%foreach (MenuDTO menu in BrandDTO)
                         {
                             int i = 1; string first = "first"; %>
                      <div class='column <%=first %> col<%=i%>'>

@@ -9,20 +9,32 @@ using SFloor.Services;
 
 public partial class Header : System.Web.UI.UserControl
 {
-    public DataTable favDT = new DataTable();
-    public DataTable cartDT = new DataTable();
-    public string total = "";
-    protected void Page_Load(object sender, EventArgs e)
+    DataTable favDT = new DataTable();
+    DataTable cartDT = new DataTable();
+    string total = "";
+    public DataTable FavDT
     {
-        try
-        {
-           favDT = HomeService.getFavDT(Session.SessionID);
-           cartDT = HomeService.getCartDT(Session.SessionID);
-           total = HomeService.getTotal();
-        }
-        catch {
-             favDT = new DataTable();
-             cartDT = new DataTable();
+        get {
+            favDT=HomeService.getFavDT(Session.SessionID);
+            return favDT; 
         }
     }
+    public DataTable CartDT
+    {
+        get
+        {
+            cartDT=HomeService.getCartDT(Session.SessionID);
+            return cartDT;
+        }
+    }
+    public String Total
+    {
+        get
+        {
+            total=HomeService.getTotal();
+            return total;
+        }
+    }
+   
+
 }
