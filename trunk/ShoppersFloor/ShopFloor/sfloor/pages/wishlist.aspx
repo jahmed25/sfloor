@@ -20,23 +20,23 @@
 
     function init() {
         ul = document.getElementById('image_slider');
-//        for (var i = 0; i < uls.length;i++ )
-//            ul=uls[i];
-            liItems = ul.children;
-            imageNumber = liItems.length;
-            imageWidth = liItems[0].children[0].clientWidth;
-            ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
-            prev = document.getElementById("prev");
-            next = document.getElementById("next");
-            generatePager(imageNumber);
-            //.onclike = slide(-1) will be fired when onload;
-            /*
-            prev.onclick = function(){slide(-1);};
-            next.onclick = function(){slide(1);};*/
-            prev.onclick = function () { onClickPrev(); };
-            next.onclick = function () { onClickNext(); };
-        }
-    
+        //        for (var i = 0; i < uls.length;i++ )
+        //            ul=uls[i];
+        liItems = ul.children;
+        imageNumber = liItems.length;
+        imageWidth = liItems[0].children[0].clientWidth;
+        ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
+        prev = document.getElementsByName("prv");
+        next = document.getElementsByName("next");
+        generatePager(imageNumber);
+        //.onclike = slide(-1) will be fired when onload;
+        /*
+        prev.onclick = function(){slide(-1);};
+        next.onclick = function(){slide(1);};*/
+        prev.onclick = function () { onClickPrev(); };
+        next.onclick = function () { onClickNext(); };
+    }
+
 
     function animate(opts) {
         var start = new Date;
@@ -115,6 +115,34 @@
     }
     window.onload = init;
 </script>
+<script>
+    $(document).ready(function () {
+        $('[next]').on("click", function () {
+            var ul = $("ul[sku='" + $(this).attr('next') + "']");
+            if ($(ul).css('left') == '0px') {   
+                $(ul).css('left', '-268px');
+            } else if ($(ul).css('left') == '-268px') {
+                $(ul).css('left', '-536px');
+            } else {
+                $(ul).css('left', '0px');
+            }
+
+        });
+        $('[prev]').on("click", function () {
+            var ul = $("ul[sku='" + $(this).attr('prev') + "']");
+            if ($(ul).css('left') == '0px') {
+                $(ul).css('left', '-536px');
+            } else if ($(ul).css('left') == '-268px') {
+                $(ul).css('left', '0px');
+            } else {
+                $(ul).css('left', '-268px');
+            }
+
+
+        });
+    });
+</script>
+  
 <style>
 #overlay_form_quick
     {
@@ -137,31 +165,35 @@
 	<div class="wishlist-head"><span class="title">Wishlist &nbsp;<i>1</i>&nbsp; item</span><span class="btnright"><input type="button" class="addtocartbtn" name="btn_wish_cntshop" value="Continue Shopping" />
     <input type="button" class="addtocartbtn" name="btn_wish_viewcart" value="View Cart" /></span>
     </div>	
+      <%foreach(System.Data.DataRow r in favDT.Rows){ %>
         <div class="wishlist-container">
         <span class="cross" title="Delete item" ></span>
         <span class="wishlist-shade"></span>
-        <a class="wishlist-quick-view" pop='<%# Eval("SKUCode") %>' ><span>Quick View</span></a>
-                 
+        <a class="wishlist-quick-view" pop='<%=r["SKUCode"]%>' ><span>Quick View</span></a>
         	<div class="slider_wrapper">
-				<ul id="image_slider">
-					<li><img src='<%=ConfigUtil.StaticPath() %>new-images/sample-_12__2_1.jpg'></li>
-					<li><img src='<%=ConfigUtil.StaticPath() %>new-images/sample-_13__2_1_1_1.jpg'></li>
-					<li><img src='<%=ConfigUtil.StaticPath() %>new-images/sample-_6__1.jpg'></li>
+				<ul id="image_slider" sku='<%=r["SKUCode"]%>' style='left:0px'>
+					 <%if (!MFO.Utils.StringUtil.isNullOrEmpty((r["PathInternaldetailsSmallImage"] + "")))%>
+			            <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathInternaldetailsSmallImage"]%>'/></li>
+                     <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathUpperInternaldetailsSmallImage"] + "")) %>
+					    <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathUpperInternaldetailsSmallImage"]%>'/></li>
+                     <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathLowerInternaldetailsSmallImage"] + ""))%>
+					    <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathLowerInternaldetailsSmallImage"]%>'/></li>
+                     <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathBackInternaldetailsSmallImage"] + "")) %>
+					    <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathBackInternaldetailsSmallImage"]%>'/></li>
 				</ul>
-               					
-				<span class="nvgt" id="prev"></span>
-				<span class="nvgt" id="next"></span>		
+				<span class="nvgt" prev='<%=r["SKUCode"]%>' name='pre' id='prev'></span>
+				<span class="nvgt" next='<%=r["SKUCode"]%>' name='next' id='next'></span>		
 			</div>
 			<ul id="pager">
 			</ul>
             <div class="bottom">
-            <p class="brand"><span>Brand</span></p>
-        
-		    <p class="name"><span>Name</span></p>
-            <p class="price"><span class="oldprice">Rs.&nbsp;000</span><span>Rs.&nbsp;000</span></p>
-            <p><input type="button" class="addtocartbtn" name="btn_wish_addcrt" value="Buy now" /></p>
+            <p class="brand"><span><%=r["SKUBrand"]%></span></p>
+		    <p class="name"><span><%=r["SKUName"]%></span></p>
+            <p class="price"><span class="oldprice">Rs.&nbsp;<%=r["MRP"]%></span><span>Rs.&nbsp;<%=r["SpecialPrice"]%></span></p>
+            <p><a  class="addtocartbtn" name="btn_wish_addcrt" href="<%=ConfigUtil.hostURL() %><%=MFO.Utils.StringUtil.urlEncode(r["SKUName"]+"") %>?htm=<%=r["SKUCode"] %>"/>Buy now</a></p>
             </div>
 		</div>
+     <%} %>
 <div  id="overlay_form_quick"  style="margin:0 auto; display:none;">
 <div  style=" position:fixed; left:200px; top:10px; background:white; width:1000px; border-radius:10px; height:580px; ">
 

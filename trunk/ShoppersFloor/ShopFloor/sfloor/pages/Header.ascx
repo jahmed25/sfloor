@@ -138,9 +138,9 @@
                                             <div class="quick-access">
                                                      <div class="top-cart-wrapper">
                                                     <div class="top-cart-contain">
-                                                        <div id="mini_cart_block">
+                                                        <div id="mini_cart_block" name='WLContainer'>
                                                             <div class="icon-wishlist-big">
-                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>Add-To-Cart'><span class="wlcount"><b id='favCount'><%=favDT.Rows.Count%></b></span></a>
+                                                                <a class="cart-url" href='<%=ConfigUtil.hostURL() %>fav-items'><span class="wlcount"><b id='favCount'><%=favDT.Rows.Count%></b></span></a>
                                                             </div>
                                                             <div class="block-cart mini_cart_ajax">
                                                                 <!--<span class="top-cart-icon"></span>-->
@@ -148,7 +148,7 @@
                                                                 <span class="top-cart-title-wishlist">Wishlist</span><span class="cart-arrow"></span>
                                                                 <div style="display: none;" class="top-cart-content" id='wishListDiv'>
                                                                 <%if(favDT.Rows.Count>0){ %>
-                                                                <div class="headnav"><a href="<%=ConfigUtil.hostURL() %>FavList" style='color:blue'>View ALL</a> 
+                                                                <div class="headnav"><a href="<%=ConfigUtil.hostURL() %>fav-items" style='color:blue'>View ALL</a> 
                                                                 <a href="#" style="float:right;color:red" onclick="clearFav()">Clear All</a></div>
                                                                 <div id='wishContent'>
                                                                     <%for (int i = 0; i < favDT.Rows.Count; i++)
@@ -157,7 +157,7 @@
                                                                         <a class="imglist" href='<%=ConfigUtil.hostURL() %>?htm=<%=favDT.Rows[i]["SKUCode"]%>' title='<%=favDT.Rows[i]["SKUName"]%>'>
                                                                         <img  src='<%=ConfigUtil.getServerPath() %><%=favDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
                                                                        <div class="main-cont">
-                                                                        <span class="cross" title="Delete item"></span> 
+                                                                        <span class="cross" title="Delete item" sku='<%=favDT.Rows[i]["SKUCode"]%>' WL></span> 
                                                                         <p class="brand"><%=favDT.Rows[i]["SKUBrand"]%></p>
                                                                         <p class="empty"><%=favDT.Rows[i]["SKUName"]%></p>
                                                                         <p class="subtotal">MRP <span class="pricecut">Rs.   <%=favDT.Rows[i]["MRP"]%></span><br />
@@ -198,7 +198,7 @@
                                                                         <a class="imglist" href='<%=ConfigUtil.hostURL() %>Add-To-Cart' title='<%=cartDT.Rows[i]["SKUName"]%>'>
                                                                         <img  src='<%=ConfigUtil.getServerPath() %><%=cartDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
                                                                         <div class="main-cont">
-                                                                        <span class="cross" title="Delete item"></span> 
+                                                                        <span class="cross" title="Delete item" sku='<%=cartDT.Rows[i]["SKU"]%>' cart></span> 
                                                                         
                                                                         <p class="brand"><%=cartDT.Rows[i]["SKUBrand"]%></p>
                                                                         <p class="empty"><%=cartDT.Rows[i]["SKUName"]%></p>

@@ -38,12 +38,12 @@
                 var sku = $(this).attr('removefromWL')
                 $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=removeFromCart', data: { sku: sku} })
 					.success(function (msg) {
-					    if ($('.cartitem').length == 1) {
-					        $('.addtocartmain').html("<center><p style='color:red'>Your Cart Is Empty!!!<p></center>")
-					    } else {
-					        $('div[sku="' + sku + '"]').remove();
-					    }
-					    reloadCart();
+//					    if ($('.cartitem').length == 1) {
+//					        $('.addtocartmain').html("<center><p style='color:red'>Your Cart Is Empty!!!<p></center>")
+//					    } else {
+//					        $('div[sku="' + sku + '"]').remove();
+//					    }
+					    $("[name='cartContainer']").html($(msg).filter('#mini_cart_block').html()); ;
 					});
             });
             $("[type='checkout']").on("click", function () {
