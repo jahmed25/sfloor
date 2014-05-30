@@ -28,13 +28,13 @@ namespace SFloor.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
             //load Header
-            Control c = LoadControl("~/Header.ascx");
+            Control c = LoadControl("~/sfloor/pages/Header.ascx");
             header = RenderControl(c);
 
-            c = LoadControl("~/Footer.ascx");
+            c = LoadControl("~/sfloor/pages/Footer.ascx");
             footer = RenderControl(c);
 
-            c = LoadControl("~/Head.ascx");
+            c = LoadControl("~/sfloor/pages/Head.ascx");
             head = RenderControl(c);
             load(sender, e);
         }
