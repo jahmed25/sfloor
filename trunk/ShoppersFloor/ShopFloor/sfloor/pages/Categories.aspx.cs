@@ -22,7 +22,8 @@ using MFO.Loggers;
 using MFO.Services;
 using MFO.Constants;
 using MFO.Utils;
-public partial class Categories : System.Web.UI.Page
+using SFloor.Pages;
+public partial class Categories : GenericPage
 {
 
     DataTable dt = null;
@@ -33,7 +34,7 @@ public partial class Categories : System.Web.UI.Page
     public string pTypeUrl;
     public string pTypeName;
     public string hostURL = ConfigUtil.hostURL();
-    protected void Page_Load(object sender, EventArgs e)
+    public override void load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {

@@ -24,8 +24,9 @@ using MFO.Constants;
 using MFO.Utils;
 using MFO.Common;
 using SFloor.Services;
+using SFloor.Pages;
 
-public partial class sfloor_CatDetails : System.Web.UI.Page
+public partial class sfloor_CatDetails : GenericPage
 {
     public string style;
     public string SKUClassification, VariantType;
@@ -44,7 +45,7 @@ public partial class sfloor_CatDetails : System.Web.UI.Page
     protected DataTable sizeDT = null;
     protected DataTable colorDT = null;
 
-    protected void Page_Load(object sender, EventArgs e)
+    public override void load(object sender, EventArgs e)
     {
         style = Request.QueryString["htm"];
         qty = Request.QueryString["qty"];

@@ -21,15 +21,16 @@ using MFO.Commom;
 using MFO.services;
 using MFO.Services;
 using MFO.Constants;
+using SFloor.Pages;
 
-public partial class CategoryDetails : System.Web.UI.Page
+public partial class CategoryDetails : GenericPage
 {
     
     string  styleCodeParam;
     string SKUClassification, VariantType;
     DataTable dt;
     #region Page Load
-    protected void Page_Load(object sender, EventArgs e)
+    public override void load(object sender, EventArgs e)
     {
         moreThanFiveSpan.Visible = false;
         NameValueCollection n = Request.QueryString;

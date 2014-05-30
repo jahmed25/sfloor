@@ -9,13 +9,14 @@ using SFloor.Services;
 using MFO.Commom;
 using SFloor.DAO;
 using MFO.Utils;
+using SFloor.Pages;
 
-public partial class sfloor_pages_AddToCart : Page
+public partial class sfloor_pages_AddToCart : GenericPage
 {
 
     public DataTable cartDT = new DataTable();
     public string total = "";
-    protected void Page_Load(object sender, EventArgs e)
+    public override void load(object sender, EventArgs e)
     {
         cartDT = HomeService.getCartDT(Session.SessionID);
         total = HomeService.getTotal();
