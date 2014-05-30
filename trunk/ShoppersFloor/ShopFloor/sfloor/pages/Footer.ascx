@@ -1,6 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Footer.ascx.cs" Inherits="Footer" %>
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
 
 <div class="footer-static-container">
                     <div class="container">
