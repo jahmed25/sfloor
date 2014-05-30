@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/MasterPageLayout.master" AutoEventWireup="true" enableEventValidation="false" enableViewStateMac="false" viewStateEncryptionMode="Never" CodeFile="Categories.aspx.cs" Inherits="Categories" %>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server" >
 <link href='<%=ConfigUtil.StaticPath() %>new-css/styles-filter.css' rel="stylesheet" type="text/css" />
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
@@ -7,7 +6,21 @@
 <script src='<%=ConfigUtil.StaticPath() %>new-js/main.js' type="text/javascript"></script>
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/category.js'></script>
 
-<style>
+<style >
+div#spinner
+{
+    display: none;
+    width:100px;
+    height: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    margin-left: -50px;
+    margin-top: -100px;
+    z-index:2;
+    overflow: auto;
+}    
   #overlay_form_quick
     {
         background: WHITE;
@@ -53,7 +66,9 @@
         }
     });
 </script>
-
+<div id="spinner">
+    <img src="<%=ConfigUtil.StaticPath()%>new-images/sf.GIF" alt="Loading..."/>
+</div>
 <div id="inner_middle_category" class="overflows">
 <div class="right_inner_categorydetailssortby">
 <div class="bradcrumbs-contain">

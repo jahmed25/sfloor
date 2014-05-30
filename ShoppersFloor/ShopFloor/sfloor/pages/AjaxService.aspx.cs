@@ -29,7 +29,8 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
             case "clearCart":       clearCart(); break;
             case "clearFav":        clearFav(); break;
             case "updateQty":       updateQty(); break;
-            case "removeFromCart":  removeFromCart(); break;
+            case "removeFromCart": removeFromCart(); break;
+            case "removeFromWL": removeFromWL(); break;
             case "checkInventory":  checkInventory(); break;
             case "getPin": getPin(); break;
             case "getCityState": getCityState(); break;
@@ -116,9 +117,19 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         CartDAO.removeFromCart(Session.SessionID, Request.Params["sku"]);
         Session.Remove(Constant.Session.CART_ITEMS);
         Session.Remove(Constant.Session.TOTAL);
-        Dictionary<string, string> dic = new Dictionary<string, string>();
-        dic.Add("success", "success");
-        sendResponse(dic);
+        Server.Transfer("ReloadCart.aspx");
+        //Dictionary<string, string> dic = new Dictionary<string, string>();
+        //dic.Add("success", "success");
+        //sendResponse(dic);
+    }
+    private void removeFromWL()
+    {
+        FavDAO.removeFromWL(Session.SessionID, Request.Params["sku"]);
+        Session.Remove(Constant.Session.FAV_LIST);
+        Server.Transfer("ReloadWL.aspx");
+        //Dictionary<string, string> dic = new Dictionary<string, string>();
+        //dic.Add("success", "success");
+        //sendResponse(dic);
     }
     private void updateQty()
     {
