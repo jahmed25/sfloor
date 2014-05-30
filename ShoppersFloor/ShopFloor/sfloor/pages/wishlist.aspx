@@ -1,9 +1,56 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageLayout.master" AutoEventWireup="true" CodeFile="wishlist.aspx.cs" Inherits="sfloor_pages_wishlist" %>
+﻿<%@ Page Title="" Language="C#"  CodeFile="wishlist.aspx.cs" Inherits="sfloor_pages_wishlist" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/category.js'></script>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Shoppers floor</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <link rel="icon" href="" type="image/x-icon">
+    <script type="text/javascript">
+        var staticPath = '<%=ConfigUtil.StaticPath() %>';
+        var path = '<%=ConfigUtil.hostURL() %>';
+        var serverPath = '<%=ConfigUtil.getServerPath() %>';
+    </script>
+    
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href='<%=ConfigUtil.StaticPath() %>new-css/css.css'  type="text/css" media="all">
+    <link rel="stylesheet" href='<%=ConfigUtil.StaticPath() %>new-css/custommenu.css' type="text/css" media="screen">
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/sfloorall.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ajax_cart_super.js'></script>
+
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/ie6.css' media="all" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/ie8.css' media="all" />
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ie7.js'></script>
+    <![endif]-->
+  
+    <!-- MENU -->
+    
+</head>
+<body class=" cms-index-index cms-home">
+    <div>
+        <noscript>
+            <div class="global-site-notice noscript">
+                <div class="notice-inner">
+                    <p>
+                        <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                        You must have JavaScript enabled in your browser to utilize the functionality of
+                        this website.
+                    </p>
+                </div>
+            </div>
+        </noscript>
+        <div class="page">
+            <%=Header %>
+          <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/category.js'></script>
 
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
 <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/etalage.css'/>
@@ -119,7 +166,7 @@
     $(document).ready(function () {
         $('[next]').on("click", function () {
             var ul = $("ul[sku='" + $(this).attr('next') + "']");
-            if ($(ul).css('left') == '0px') {   
+            if ($(ul).css('left') == '0px') {
                 $(ul).css('left', '-268px');
             } else if ($(ul).css('left') == '-268px') {
                 $(ul).css('left', '-536px');
@@ -202,5 +249,16 @@
 </div>
         
         </div>
-</asp:Content>
 
+            <!-- End -->
+
+             <%=Footer %>
+        </div>
+    </div>
+    <div id="ajaxconfig_info" style="display: none">
+        <button name="white" value="0.7">
+        </button>
+        <input id="enable_module" value="1" type="hidden">
+    </div>
+</body>
+</html>

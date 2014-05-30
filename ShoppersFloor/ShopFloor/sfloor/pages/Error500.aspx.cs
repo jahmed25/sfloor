@@ -4,11 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SFloor.Pages;
 
-public partial class sfloor_pages_Error500 : System.Web.UI.Page
+public partial class sfloor_pages_Error500 : GenericPage
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
+    
 }

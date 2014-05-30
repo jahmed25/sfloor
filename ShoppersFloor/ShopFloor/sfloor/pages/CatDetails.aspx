@@ -1,9 +1,58 @@
-﻿<%@ Page Title="" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/MasterPageLayout.master"
-    AutoEventWireup="true" EnableEventValidation="false" EnableViewStateMac="false"
-    ViewStateEncryptionMode="Never" CodeFile="CatDetails.aspx.cs" Inherits="sfloor_CatDetails" %>
+﻿<%@ Page Language="C#"  CodeFile="CatDetails.aspx.cs" Inherits="sfloor_CatDetails" %>
 <%@ Import Namespace="MFO.Utils" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Shoppers floor</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+    <link rel="icon" href="" type="image/x-icon">
+    <script type="text/javascript">
+        var staticPath = '<%=ConfigUtil.StaticPath() %>';
+        var path = '<%=ConfigUtil.hostURL() %>';
+        var serverPath = '<%=ConfigUtil.getServerPath() %>';
+    </script>
+    
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href='<%=ConfigUtil.StaticPath() %>new-css/css.css'  type="text/css" media="all">
+    <link rel="stylesheet" href='<%=ConfigUtil.StaticPath() %>new-css/custommenu.css' type="text/css" media="screen">
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/sfloorall.js'></script>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ajax_cart_super.js'></script>
+
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/ie6.css' media="all" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/ie8.css' media="all" />
+    <![endif]-->
+    <!--[if lt IE 7]>
+    <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ie7.js'></script>
+    <![endif]-->
+  
+    <!-- MENU -->
+    
+</head>
+<body class=" cms-index-index cms-home">
+    <div>
+        <noscript>
+            <div class="global-site-notice noscript">
+                <div class="notice-inner">
+                    <p>
+                        <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                        You must have JavaScript enabled in your browser to utilize the functionality of
+                        this website.
+                    </p>
+                </div>
+            </div>
+        </noscript>
+        <div class="page">
+            <%=Header %>
+            
+            <!-- start end-->
     <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/etalage.css'>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/modernizr.custom.17475.js'></script>
     <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
@@ -20,25 +69,25 @@
             $("#size").val($(txt).text());
         }
         function addtoCart() {
-           
+
             if ($('#isSize').val() == 'true' && $('#size').val().length == 0) {
                 $('#errorSize').css('display', 'block').text('Please select the size');
                 return;
             }
             var data = {
-                sku:$('#style').val(),
-                qty:$("#dd_quantity option:selected").val(),
-                color:$("#color").val(),
-                size:$("#size").val(),
-                isColor:$("#isColor").val(),
-                isSize:$("#isSize").val(),
-                isSku:$("#isSku").val()
+                sku: $('#style').val(),
+                qty: $("#dd_quantity option:selected").val(),
+                color: $("#color").val(),
+                size: $("#size").val(),
+                isColor: $("#isColor").val(),
+                isSize: $("#isSize").val(),
+                isSku: $("#isSku").val()
             }
             $.ajax({
                 type: "get",
                 contentType: "application/json; charset=utf-8",
                 url: "<%=ConfigUtil.hostURL()%>sfloor/pages/AjaxService.aspx?action=addToCart",
-                data:data,
+                data: data,
                 success: function (data) {
                     if (data.error != null) {
                         $('#errorSize').css('display', 'block').text(data.error);
@@ -260,4 +309,15 @@
         <input type="hidden" id='size' value='' />
         <input type="hidden" id='isSku' value='<%=isSku%>' />
         <input type="hidden" id='isSize' value='<%=isSize%>' />
-</asp:Content>
+            <!-- End -->
+
+             <%=Footer %>
+        </div>
+    </div>
+    <div id="ajaxconfig_info" style="display: none">
+        <button name="white" value="0.7">
+        </button>
+        <input id="enable_module" value="1" type="hidden">
+    </div>
+</body>
+</html>
