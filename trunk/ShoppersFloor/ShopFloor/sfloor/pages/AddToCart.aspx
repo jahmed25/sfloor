@@ -4,55 +4,55 @@
    <head>
       <%=Head %>
       <link rel="stylesheet"
-         href="<%=ConfigUtil.StaticPath() %>new-css/addtocart.css">
+         href="<%=ConfigUtil.StaticPath() %>new-css/addtocart.css"/>
       <script type="text/javascript"
          src='<%=ConfigUtil.StaticPath() %>new-js/fixsidemenu.js'></script>
       <script type="text/javascript">
           var pageType = 'addToCart';
           function reloadCart() {
-              $.ajax({ method: 'POST', url: path + 'sfloor/pages/ReloadCart.aspx' })
+             jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/ReloadCart.aspx' })
          .success(function (msg) {
-             $("[name='cartContainer']").html($(msg).filter('#mini_cart_block').html());
+            jQuery("[name='cartContainer']").html(jQuery(msg).filter('#mini_cart_block').html());
          });
           }
-          $(document).ready(function () {
-              $.each($('select[qty]'), function () {
+          jQuery(document).ready(function () {
+              jQuery.each(jQuery('select[qty]'), function () {
                   var selct = this;
-                  $(this).find("option[value='" + $(selct).attr('qty') + "']").attr('selected', 'selected');
+                  jQuery(this).find("option[value='" + jQuery(selct).attr('qty') + "']").attr('selected', 'selected');
               });
-              $("select").on('change', function () {
-                  var sku = $(this).attr('sku');
-                  var qty = $(this).find('option:selected').val();
-                  $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=updateQty', data: { sku: sku, qty: qty} })
+              jQuery("select").on('change', function () {
+                  var sku = jQuery(this).attr('sku');
+                  var qty = jQuery(this).find('option:selected').val();
+                  jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=updateQty', data: { sku: sku, qty: qty} })
          .success(function (msg) {
              var json = msg; //JSON.parse(msg);
              if (json.error != null) {
-                 $("span[name='error'][sku='" + sku + "']").text(json.error);
+                 jQuery("span[name='error'][sku='" + sku + "']").text(json.error);
              } else {
-                 $("[name='subTotal'][sku='" + sku + "']").text(json.subTotal);
-                 $("[name='gTotal']").text(json.total);
+                 jQuery("[name='subTotal'][sku='" + sku + "']").text(json.subTotal);
+                 jQuery("[name='gTotal']").text(json.total);
                  reloadCart();
              }
          });
               });
-              $("[removefromWL]").on("click", function () {
-                  var sku = $(this).attr('removefromWL')
-                  $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=removeFromCart', data: { sku: sku} })
-         .success(function (msg) {
-             //					    if ($('.cartitem').length == 1) {
-             //					        $('.addtocartmain').html("<center><p style='color:red'>Your Cart Is Empty!!!<p></center>")
-             //					    } else {
-             //					        $('div[sku="' + sku + '"]').remove();
-             //					    }
-             $("[name='cartContainer']").html($(msg).filter('#mini_cart_block').html()); ;
-         });
+              jQuery("[removefromWL]").on("click", function () {
+                  var sku = jQuery(this).attr('removefromWL')
+                  jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=removeFromCart', data: { sku: sku} })
+                    .success(function (msg) {
+                        if (jQuery('.cartitem').length == 1) {
+                            jQuery('.addtocartmain').html("<center><p style='color:red'>Your Cart Is Empty!!!<p></center>")
+					    } else {
+					          jQuery('div[sku="' + sku + '"]').remove();
+					    }
+                        jQuery("[name='cartContainer']").html(jQuery(msg).filter('#mini_cart_block').html()); ;
+                    });
               });
-              $("[type='checkout']").on("click", function () {
-                  $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=checkInventory' })
+              jQuery("[type='checkout']").on("click", function () {
+                  jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=checkInventory' })
          .success(function (json) {
              if (json.length > 0) {
                  for (i = 0; i < json.length; i++)
-                     $("span[name='error'][sku='" + json[i].sku + "']").text(json[i].error);
+                     jQuery("span[name='error'][sku='" + json[i].sku + "']").text(json[i].error);
              } else {
                  window.location = path + 'check-out';
              }

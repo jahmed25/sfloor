@@ -5,10 +5,106 @@
 <meta name="keywords" content=""/>
 <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
 <link rel="icon" href="" type="image/x-icon"/>
+<script src="<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
+
 <script type="text/javascript">
     var staticPath = '<%=ConfigUtil.StaticPath() %>';
     var path = '<%=ConfigUtil.hostURL() %>';
     var serverPath = '<%=ConfigUtil.getServerPath() %>';
+</script>
+<script>
+
+    jQuery(document).ready(function () {
+       
+        jQuery('.ajaxcartsuper-index-productview #mini_cart_block').hide(150);
+        slideEffectAjax();
+
+        //open popup
+        jQuery("#log").on("click", function () {
+            jQuery("#overlay_form").fadeIn(1000);
+            jQuery(".background_overlay").fadeIn(500);
+            positionPopup();
+        });
+
+        //close popup
+        jQuery("#close, .background_overlay").on("click", function () {
+            jQuery("#overlay_form").fadeOut(500);
+            jQuery(".background_overlay").fadeOut(500);
+        });
+        jQuery(window).bind('resize', positionPopup);
+
+        jQuery("[WL]").on('click', function () {
+            var sku = jQuery(this).attr('sku');
+            var param = { action: 'removeFromWL', sku: sku };
+            jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx', data: param })
+			    .success(function (msg) {
+			        jQuery("[name='WLContainer']").html(jQuery(msg).filter('#mini_cart_block').html());
+			    });
+        });
+        jQuery("[cart]").on('click', function () {
+            var sku = jQuery(this).attr('sku');
+            var param = { action: 'removeFromCart', sku: sku };
+            jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx', data: param })
+			        .success(function (msg) {
+			            jQuery("[name='cartContainer']").html(jQuery(msg).filter('#mini_cart_block').html());
+			        });
+        });
+        //maintain the popup at center of the page when browser resized
+        jQuery("a[name='saveLater']").on('click', function () {
+            var sku1 = jQuery(this).attr('sku');
+            var inner = jQuery(this).attr('inner')
+            jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=addFav', data: { sku: sku1} })
+			.success(function (msg) {
+			    reloadWL();
+			});
+        });
+        //---------------
+        
+        //---------------
+        //open popup
+        jQuery('#checkoutlogin').on("click", function () {
+            jQuery("#checkout_overlay_form").fadeIn(1000);
+            jQuery(".checkout_background_overlay").fadeIn(500);
+            checkout_positionPopup();
+        });
+        //close popup
+        jQuery("#close, .checkout_background_overlay").on("click", function () {
+            jQuery("#checkout_overlay_form").fadeOut(500);
+            jQuery(".checkout_background_overlay").fadeOut(500);
+        });
+        jQuery(window).bind('resize', checkout_positionPopup);
+
+        //open popup
+        jQuery('#fgt_clk_hre').on("click", function () {
+            jQuery("#overlay_form").fadeOut(500);
+            jQuery(".background_overlay").fadeOut(500);
+            jQuery("#checkout_overlay_form").fadeOut(500);
+
+            jQuery(".checkout_background_overlay").fadeOut(500);
+            jQuery("#fgt_overlay_form").fadeIn(1000);
+            jQuery(".fgt_background_overlay").fadeIn(500);
+            fgt_positionPopup();
+        });
+        jQuery('#logsign').on("click", function () {
+            jQuery("#fgt_overlay_form").fadeOut(1000);
+            jQuery(".fgt_background_overlay").fadeOut(500);
+            jQuery("#checkout_overlay_form").fadeIn(500);
+
+            jQuery(".checkout_background_overlay").fadeIn(500);
+
+            jQuery("#overlay_form").fadeIn(500);
+            jQuery(".background_overlay").fadeIn(500);
+            fgt_positionPopup();
+        });
+        //close popup
+        jQuery("#fgt_close, .fgt_background_overlay").on("click", function () {
+            jQuery("#fgt_overlay_form").fadeOut(500);
+            jQuery(".fgt_background_overlay").fadeOut(500);
+        });
+        jQuery(window).bind('resize', fgt_positionPopup);
+
+    });
 </script>
 <link rel="shortcut icon" href="" type="image/x-icon" />
 <link rel="stylesheet" href='<%=ConfigUtil.StaticPath() %>new-css/css.css' type="text/css"   media="all" />
@@ -35,15 +131,10 @@
 
 
 <!-- For Menu.axcx  Start-->
-<link href='<%=ConfigUtil.StaticPath() %>new-css/internalpage.css' rel="stylesheet"  type="text/css" />
+<%--<link href='<%=ConfigUtil.StaticPath() %>new-css/internalpage.css' rel="stylesheet"  type="text/css" />--%>
 <!-- For Menu.axcx  End-->
 
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/jquery-1.8.3.min.js'></script>
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/lib/angular.js'></script>
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/sfloorall.js'></script>
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/ajax_cart_super.js'></script>
-<script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
-
 <!-- For Menu.axcx  Start-->
 <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/menu.js'></script>
 <!-- For Menu.axcx  End-->
@@ -104,23 +195,87 @@
 <!--For Header.ascx Start-->
 <script type="text/javascript">
     function clearCart() {
-        $.ajax({ method: 'POST', url: path + "sfloor/pages/AjaxService.aspx?action=clearCart" })
+        jQuery.ajax({ method: 'POST', url: path + "sfloor/pages/AjaxService.aspx?action=clearCart" })
    .success(function (msg) {
-       $("#cartDiv").html("<p style='color:red'>Your Cart Is Empty</p>")
-       $("#cCount").text("0");
+       jQuery("#cartDiv").html("<p style='color:red'>Your Cart Is Empty</p>")
+       jQuery("#cCount").text("0");
        if (pageType == 'addToCart') {
-           $('.addtocartmain').html("<center><p style='color:red'>All item(s) has been Deleted from your Cart</center>")
+           jQuery('.addtocartmain').html("<center><p style='color:red'>All item(s) has been Deleted from your Cart</center>")
        }
 
    });
     }
     function clearFav() {
-        $.ajax({ method: 'POST', url: path + "sfloor/pages/AjaxService.aspx?action=clearFav" })
+        jQuery.ajax({ method: 'POST', url: path + "sfloor/pages/AjaxService.aspx?action=clearFav" })
    .success(function (msg) {
-       $("#wishListDiv").html("<p style='color:red'>Your Wish List Is Empty</p>")
-       $("#favCount").text("0");
+       jQuery("#wishListDiv").html("<p style='color:red'>Your Wish List Is Empty</p>")
+       jQuery("#favCount").text("0");
 
    });
     }
 </script>
 <!--For Header.ascx End-->
+<script>
+function slideEffectAjax() {
+    jQuery('.top-cart-contain').mouseenter(function () {
+        jQuery(this).find(".top-cart-content").stop(true, true).show();
+    });
+    //hide submenus on exit
+    jQuery('.top-cart-contain').mouseleave(function () {
+        jQuery(this).find(".top-cart-content").stop(true, true).hide();
+    });
+}
+//jQuery(document).ready(function () {
+//    alert("Supercart");
+//    
+//    jQuery('.ajaxcartsuper-index-productview #mini_cart_block').hide(150);
+//    slideEffectAjax();
+//});
+</script>
+
+<!--Common1.js Start -->
+<script type="text/javascript">
+    function reloadWL() {
+        jQuery.ajax({ method: 'POST', url: path + 'sfloor/pages/ReloadWL.aspx' })
+			.success(function (msg) {
+			    jQuery("[name='WLContainer']").html(jQuery(msg).filter('#mini_cart_block').html());
+			});
+    }
+    //position the popup at the center of the page
+    function positionPopup() {
+        if (!jQuery("#overlay_form").is(':visible')) {
+            return;
+        }
+        jQuery("#overlay_form").css({
+            left: (jQuery(window).width() - jQuery('#overlay_form').width()) / 2,
+            top: (jQuery(window).width() - jQuery('#overlay_form').width()) / 7,
+            position: 'absolute'
+        });
+    }
+
+  
+    //position the popup at the center of the page
+    function checkout_positionPopup() {
+        if (!jQuery("#checkout_overlay_form").is(':visible')) {
+            return;
+        }
+        jQuery("#checkout_overlay_form").css({
+            left: (jQuery(window).width() - jQuery('#checkout_overlay_form').width()) / 2,
+            top: (jQuery(window).width() - jQuery('#checkout_overlay_form').width()) / 7,
+            position: 'absolute'
+        });
+    }
+    //position the popup at the center of the page
+    function fgt_positionPopup() {
+        if (!jQuery("#fgt_overlay_form").is(':visible')) {
+            return;
+        }
+        jQuery("#fgt_overlay_form").css({
+            left: (jQuery(window).width() - jQuery('#fgt_overlay_form').width()) / 2,
+            top: (jQuery(window).width() - jQuery('#fgt_overlay_form').width()) / 7,
+            position: 'absolute'
+        });
+    }
+
+</script>
+<!-- Common1.js End-->

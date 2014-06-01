@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
    <head>
       <%=Head %>
-      <link href='<%=ConfigUtil.StaticPath() %>new-css/styles-filter.css' rel="stylesheet"
-         type="text/css" />
+      <link href='<%=ConfigUtil.StaticPath() %>new-css/styles-filter.css' rel="stylesheet" />
+      <link href='<%=ConfigUtil.StaticPath() %>new-css/internalpage.css' rel="stylesheet" type="text/css" />
       <script src='<%=ConfigUtil.StaticPath() %>new-js/main.js' type="text/javascript"></script>
+      <script src='<%=ConfigUtil.StaticPath() %>new-js/fixsidemenu.js' type="text/javascript"></script>
       <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/category.js'></script>
       <style>
          div#spinner
@@ -57,30 +58,19 @@
          }
       </style>
       <script type="text/javascript">
-          $(document).ready(function () {
-              if ($('#crumb4').text().trim().length == 0) {
+          jQuery(document).ready(function () {
+              if (jQuery('#crumb4').text().trim().length == 0) {
 
-                  $('#crumb4').css('display', 'none');
+                  jQuery('#crumb4').css('display', 'none');
               }
               else {
-                  $('#crumb4').css('display', 'block');
+                  jQuery('#crumb4').css('display', 'block');
               }
           });
       </script>
    </head>
    <body class=" cms-index-index cms-home">
       <div>
-      <noscript>
-         <div class="global-site-notice noscript">
-            <div class="notice-inner">
-               <p>
-                  <strong>JavaScript seems to be disabled in your browser.</strong><br />
-                  You must have JavaScript enabled in your browser to utilize the functionality of
-                  this website.
-               </p>
-            </div>
-         </div>
-      </noscript>
       <div class="page">
          <%=Header %>
          <!-- start end-->

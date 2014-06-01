@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
    <head>
+        <title>Shoppers Floor Home Page</title>
       <%=Head %>
    </head>
    <body class=" cms-index-index cms-home">
@@ -25,7 +27,7 @@
                      <div style="display: none;" class="loading">
                      </div>
                      <script type="text/javascript">
-                         $jq(window).load(function () {
+                         jQueryjq(window).load(function () {
                              $jq('.banner7-container .flexslider').flexslider({
                                  animation: "slide",
                                  slideshowSpeed: 3000,
