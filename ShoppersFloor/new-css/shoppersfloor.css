@@ -1,5 +1,5 @@
 
-::selection {color:orange;background:none;}
+::selection {}
 ::-moz-selection {color:orange;background:none;}
 .clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;line-height:0;content:""}.clearfix:after{clear:both}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
@@ -353,13 +353,13 @@ fgfgfh {
 .header .quick-access a { font-family: 'Open Sans', sans-serif; font-weight: 300; }
 .header .welcome-msg { margin:0; text-align: right; padding: 0; }
 .header .welcome-msg a { color:#E6415F; }
-.header .form-search { padding: 0 15px 0 0; margin: 0 auto; width: 300px; height: 34px; }
+.header .form-search { padding: 0 15px 0 0; margin: 0 auto; width: 400px; height: 34px; }
 .header .form-search:hover { }
 .header .search-contain:hover { background-position: 50% 100%; }
 .header .search-content { background: #fff; float: left; border: 1px solid #333333; text-align: left; height: 30px; }
 
 .header .form-search label { float:left; width:0; height:21px; text-align:left; text-indent:-999em; overflow:hidden; }
-.header .form-search input.input-text { text-transform: uppercase; font-family: 'Open Sans', sans-serif; font-weight: 300; color: #333333;  background: none; float:left;  width:245px; height: 21px; padding: 4px 9px; border: 0; box-shadow: none;  }
+.header .form-search input.input-text { text-transform: uppercase; font-family: 'Open Sans', sans-serif; font-weight: 300; color: #333333;  background: none; float:left;  width:320px; height: 21px; padding: 15px 9px; border: 0; box-shadow: none;  }
 .header .form-search button.button { float: right; background:url(../new-images/icon_fancybox.png) transparent; height:30px; width:30px; padding:5px; box-shadow: none; -webkit-box-shadow:none; -moz-box-shadow:none; }
 .header .form-search button.button span { color: #333333; background:none; border:0; width:34px; height:31px;  padding:0;  }
 .header .form-search button.button span span { color: #333333;background:none;  float:left;  padding:0; font-size: 14px; }
