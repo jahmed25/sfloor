@@ -2,6 +2,18 @@
 <%@ Register src="Menu.ascx" tagname="MenuUserControl" tagprefix="m" %>
 <%@ Import Namespace="MFO.Constants" %>
 <!-- MENU -->
+      <noscript>
+         <div class="global-site-notice noscript">
+            <div class="notice-inner">
+               <p>
+                  <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                  You must have JavaScript enabled in your browser to utilize the functionality of
+                  this website.
+               </p>
+            </div>
+         </div>
+      </noscript>
+
 <div class="header-wrapper" ng-app='registration' ng-controller='regCtrl'>
    <div class="header-container">
       <div class="container">

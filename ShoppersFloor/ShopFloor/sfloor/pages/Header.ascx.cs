@@ -9,13 +9,14 @@ using SFloor.Services;
 
 public partial class Header : System.Web.UI.UserControl
 {
-    DataTable favDT = new DataTable();
-    DataTable cartDT = new DataTable();
+    DataTable favDT;
+    DataTable cartDT;
     string total = "";
     public DataTable FavDT
     {
         get {
             favDT=HomeService.getFavDT(Session.SessionID);
+            favDT = favDT == null ? new DataTable() : favDT;
             return favDT; 
         }
     }
@@ -24,6 +25,7 @@ public partial class Header : System.Web.UI.UserControl
         get
         {
             cartDT=HomeService.getCartDT(Session.SessionID);
+            cartDT = cartDT == null ? new DataTable() : cartDT;
             return cartDT;
         }
     }
