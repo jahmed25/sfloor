@@ -362,78 +362,20 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 	background-position: -2px -73px
 }
 
-.relateditem h2{ font-size:24px; font-weight:500; margin:130px 0 10PX 0px; border:#D5D5D5 solid 1PX; background:#F5F5F5; padding:5px 0px 5px 5px; color:#FF8040; line-height:22px; text-transform:uppercase   }
+.relateditem h2{ font-size:24px; font-weight:500; border:#D5D5D5 solid 1PX; background:#F5F5F5; padding:5px 0px 5px 5px; color:#FF8040; line-height:22px; text-transform:uppercase   }
 .recentitem h2{ font-size:24px; font-weight:500; margin:50px 0 10PX 0px; border:#D5D5D5 solid 1PX; background:#F5F5F5; padding:5px 0px 5px 5px; color:#FF8040; line-height:22px; text-transform:uppercase   }
 
-
-    .tabs {
-      position: relative;   
-      min-height: 300px; /* This part sucks */
-      clear: both;
-	  height:auto;
-	  width:1170px;
-      margin: 25px 0;
-    }
-    .tab {
-      float: left;
-	height:auto  
-    }
-    .tab label {
-      
-      padding:10px 50px 10px 50px; 
-	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-	   margin-left: -1px; 
-      position: relative;
-      left: 1px; 
-    }
-    .tab [type=radio] {
-      display: none;   
-	  
-    }
-    .billcontent {
-      position: absolute;
-      top: 36px;
-      left: 0;
-      background: white;
-      right: 0;
-     min-height:320px;
-	 height:auto;
-	 margin-bottom:30px;
-	  bottom: 0;
-      padding: 20px;
-      border: 1px solid #ccc; 
-      width:auto;
-      overflow: inherit;
-    }
-    .billcontent > * {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 0, 0);
-      -webkit-transform: translateX(-100%);
-      -moz-transform:    translateX(-100%);
-      -ms-transform:     translateX(-100%);
-      -o-transform:      translateX(-100%);
-      -webkit-transition: all 0.6s ease;
-      -moz-transition:    all 0.6s ease;
-      -ms-transition:     all 0.6s ease;
-      -o-transition:      all 0.6s ease;
-    }
-    [type=radio]:checked ~ label {
-      background: white;
-      border-bottom: 3px solid orange;
-	  color:#FF8040;
-      z-index: 2;
-    }
-    [type=radio]:checked ~ label ~ .billcontent {
-      z-index: 1;
-    }
-    [type=radio]:checked ~ label ~ .billcontent > * {
-      opacity: 1;
-      
-      -webkit-transform: translateX(0);
-      -moz-transform:    translateX(0);
-      -ms-transform:     translateX(0);
-      -o-transform:      translateX(0);
-    }
+#tabContainer{ position:relative; margin-top:50px}
+#tabMenu{ width:100%; position:relative; height:30px; }
+#tabContent{ position:relative; margin-top:5px; min-height:200px; height:auto;color:#444444; border:1px solid #444444; overflow:auto; }
+#tabContent .content{ display:none; } #tabContent .active{ padding:5px 10px; display:block; }
+.menu{margin:0 auto; padding:0;  width:100%; display:block}
+.menu li{padding:0; margin:0; list-style:none;text-align:center; display:inline;}
+.menu li a{float:left; text-align:center; padding-right:5px ; display:block; text-decoration:none;cursor:pointer; }
+.menu li a span{line-height:30px; float:left; text-align:center; display:block; padding:0px 10px; border:#D5D5D5 solid 1PX;}
+.menu li a span:hover{border-bottom:solid 4px maroon}
+ .menu li a.active, .menu li a.active:hover{line-height:30px;  }
+.menu li a.active span, .menu li a.active:hover span{border-bottom:solid 4px maroon; color:black}
 	
 	.newproduct{ width:400px; height:500px; border:#C0C0C0 dashed 5px; position:absolute; right:0px; top:600px}
 	
@@ -466,8 +408,11 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 
 .cloudzoom-gallery{width:70px; height:80px; padding:1px}
 .cloudzoom-gallery:hover{border:1px orange solid; padding:0px; cursor:pointer}
+.cloudzoom-gallery:active{border:1px orange solid; padding:0px; cursor:pointer}
 
 .cloudzoom{width:420px; height:560px}
+.cloudzoom-quick{width:380px; height:500px}
+
 @media(max-width:700px)(min-width:800px){
 .cloudzoom{width:300px; height:400px}
 }
@@ -494,7 +439,7 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 {
     background-repeat:no-repeat;
     background-image:url(../new-images/loading.gif) ;
-    width:23px;
+    width:130px;
     height:23px;
 }   
 .quickview-content{ background:#fff; line-height:22px; color:#444; width:1000px; margin:0 auto; text-shadow:0 0 1px #f7f7f7; top:0; border-radius:10px; }
