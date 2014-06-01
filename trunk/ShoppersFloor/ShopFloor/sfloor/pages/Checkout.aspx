@@ -448,7 +448,7 @@
             </tr>
     </table>
     <%}else{ %>
-        <p style="color:'red'">Your Cart is empty</p>        
+        <p style="color:red">Your Cart is empty</p>        
     <%} %>
 	</div>
 </section>

@@ -117,7 +117,7 @@
                                        <span class="top-cart-title-wishlist">Wishlist</span><span class="cart-arrow"></span>
                                        <div style="display: none;" class="top-cart-content" id='wishListDiv'>
                                           <%if(FavDT.Rows.Count>0){ %>
-                                          <div class="headnav"><a href="<%=ConfigUtil.hostURL() %>fav-items" style='color:blue'>View ALL</a> 
+                                          <div class="headnav-popup"><a href="<%=ConfigUtil.hostURL() %>fav-items" style='color:blue'>View ALL</a> 
                                              <a href="#" style="float:right;color:red" onclick="clearFav()">Clear All</a>
                                           </div>
                                           <div id='wishContent'>
@@ -127,7 +127,7 @@
                                                 <a class="imglist" href='<%=ConfigUtil.hostURL() %>?htm=<%=FavDT.Rows[i]["SKUCode"]%>' title='<%=FavDT.Rows[i]["SKUName"]%>'>
                                                 <img  src='<%=ConfigUtil.getServerPath() %><%=FavDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
                                                 <div class="main-cont">
-                                                   <span class="cross" title="Delete item" sku='<%=FavDT.Rows[i]["SKUCode"]%>' WL></span> 
+                                                   <span class="cross-del" title="Delete item" sku='<%=FavDT.Rows[i]["SKUCode"]%>' WL></span> 
                                                    <p class="brand"><%=FavDT.Rows[i]["SKUBrand"]%></p>
                                                    <p class="empty"><%=FavDT.Rows[i]["SKUName"]%></p>
                                                    <p class="subtotal">MRP <span class="pricecut">Rs.   <%=FavDT.Rows[i]["MRP"]%></span><br />
@@ -158,7 +158,7 @@
                                           <%if (CartDT.Rows.Count > 0)
                                              { %>
                                           <div>
-                                             <div class="headnav">Total:&nbsp;<span class="price"><%=Total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>check-out">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
+                                             <div class="headnav-popup">Total:&nbsp;<span class="price"><%=Total%></span>&nbsp;&nbsp;<a href="<%=ConfigUtil.hostURL() %>Add-To-Cart" style='color:blue'>View ALL</a>&nbsp;&nbsp;<a style='color:blue' href="<%=ConfigUtil.hostURL() %>check-out">Checkout</a> <a href="#" style="float:right;color:red" onclick="clearCart()">Clear All</a>
                                              </div>
                                              <div id='cartDiv'>
                                                 <%for (int i = 0; i < CartDT.Rows.Count; i++)
@@ -182,7 +182,7 @@
                                              </div>
                                              <%}else{ %>
                                              <div class="wishlist-content">
-                                                <span class="price">  Your Cart is Empty</span>
+                                                <span style='color:red;'>  Your Cart is Empty</span>
                                              </div>
                                              <%} %>
                                           </div>
@@ -197,7 +197,7 @@
                </div>
             </div>
          </div>
-      </div>
+      
       <m:MenuUserControl ID="menu" runat="server" />
       <script type="text/javascript">
          //<![CDATA[
