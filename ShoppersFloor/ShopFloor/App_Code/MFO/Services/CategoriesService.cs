@@ -39,7 +39,15 @@ namespace MFO.Services
         }
         private static DataTable applyPagination(int pageNo, ref DataTable dt, ref IEnumerable<DataRow> query)
         {
-            dt = query.CopyToDataTable<DataRow>();
+            try
+            {
+                dt = query.CopyToDataTable<DataRow>();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
 
             if (dt.Rows.Count > ((pageNo * 15) + 15))
             {
