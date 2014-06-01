@@ -359,7 +359,7 @@ fgfgfh {
 .header .search-content { background: #fff; float: left; border: 1px solid #333333; text-align: left; height: 30px; }
 
 .header .form-search label { float:left; width:0; height:21px; text-align:left; text-indent:-999em; overflow:hidden; }
-.header .form-search input.input-text { text-transform: uppercase; font-family: 'Open Sans', sans-serif; font-weight: 300; color: #333333;  background: none; float:left;  width:320px; height: 21px; padding: 15px 9px; border: 0; box-shadow: none;  }
+.header .form-search input.input-text { text-transform: uppercase; font-family: 'Open Sans', sans-serif; font-weight: 300; color: #333333;  background: none; float:left;  width:320px; height: 21px; padding: 5px 9px; border: 0; box-shadow: none;  }
 .header .form-search button.button { float: right; background:url(../new-images/icon_fancybox.png) transparent; height:30px; width:30px; padding:5px; box-shadow: none; -webkit-box-shadow:none; -moz-box-shadow:none; }
 .header .form-search button.button span { color: #333333; background:none; border:0; width:34px; height:31px;  padding:0;  }
 .header .form-search button.button span span { color: #333333;background:none;  float:left;  padding:0; font-size: 14px; }
