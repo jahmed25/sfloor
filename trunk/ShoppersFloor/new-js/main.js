@@ -1,25 +1,25 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
-    $('#cssmenu > ul > li:has(ul)').addClass("has-sub");
+    jQuery('#cssmenu > ul > li:has(ul)').addClass("has-sub");
 
-    $('#cssmenu > ul > li > a').click(function () {
-        var checkElement = $(this).next();
+    jQuery('#cssmenu > ul > li > a').click(function () {
+        var checkElement = jQuery(this).next();
 
-        $('#cssmenu > ul > li:has(ul)').removeClass("has-sub");
-     //   $('#cssmenu li').removeClass('active');
-       // $(this).closest('li').addClass('active');
+        jQuery('#cssmenu > ul > li:has(ul)').removeClass("has-sub");
+     //   jQuery('#cssmenu li').removeClass('active');
+       // jQuery(this).closest('li').addClass('active');
 
 
         if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-            $(this).closest('li').addClass('active');
+            jQuery(this).closest('li').addClass('active');
             checkElement.slideUp('normal');
         }
 
         if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-            $('#cssmenu ul ul:visible').slideUp('normal');
+            jQuery('#cssmenu ul ul:visible').slideUp('normal');
 
-            $(this).closest('li').removeClass('active');
-            $('#cssmenu > ul > li:has(ul)').addClass("has-sub");
+            jQuery(this).closest('li').removeClass('active');
+            jQuery('#cssmenu > ul > li:has(ul)').addClass("has-sub");
             checkElement.slideDown('normal');
         }
 

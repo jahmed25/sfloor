@@ -115,3 +115,4 @@ app.service('regService', function ($http) {
 					});
 	};
 });
+

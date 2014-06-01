@@ -10,53 +10,39 @@ $(document).ready(function () {
     $("#close, .background_overlay").click(function () {
         $("#overlay_form").fadeOut(500);
         $(".background_overlay").fadeOut(500);
-    }); 
+    });
     $(window).bind('resize', positionPopup);
+
+    $("[WL]").on('click', function () {
+        var sku = $(this).attr('sku');
+        var param = { action: 'removeFromWL', sku: sku };
+        $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx', data: param })
+			    .success(function (msg) {
+			        $("[name='WLContainer']").html($(msg).filter('#mini_cart_block').html());
+			    });
+    });
+    $("[cart]").on('click', function () {
+        var sku = $(this).attr('sku');
+        var param = { action: 'removeFromCart', sku: sku };
+        $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx', data: param })
+			        .success(function (msg) {
+			            $("[name='cartContainer']").html($(msg).filter('#mini_cart_block').html());
+			        });
+    });
+    function reloadWL() {
+        $.ajax({ method: 'POST', url: path + 'sfloor/pages/ReloadWL.aspx' })
+			.success(function (msg) {
+			    $("[name='WLContainer']").html($(msg).filter('#mini_cart_block').html());
+			});
+    }
+
     //maintain the popup at center of the page when browser resized
     $("a[name='saveLater']").on('click', function () {
         var sku1 = $(this).attr('sku');
         var inner = $(this).attr('inner')
         $.ajax({ method: 'POST', url: path + 'sfloor/pages/AjaxService.aspx?action=addFav', data: { sku: sku1} })
 			.success(function (msg) {
-			    var json = msg;// JSON.parse(msg);
-			    if (json.error != null)
-			        return;
-			    var div = "<div class='wishlist-content'>" +
-				"<a  class='imglist' href='" + path + "?htm=" + json.sku + "'><img  src='" + serverPath + json.image + "' width='30px' height='30px'/>" +
-				"<div class='main-cont'><p class='brand'>" + json.brand + "</p>" +
-				"<p class='empty'>" + json.name + "</p>" +
-				"<p class='subtotal'>" +
-					"MRP <span class='pricecut'>Rs. " + json.mrp + "</span><br>" +
-					"Actual Price <span class='price'>Rs. " + json.price + "</span>" +
-					"</p></div>" +
-				"</div>";
-			    if (inner == 'true') {
-			        var wc = parent.document.getElementById('wishContent');
-			        var wd = parent.document.getElementById('wishListDiv');
-			        if ($(wc).text().length == 0) {
-			            var v1 = "<a href='" + path + "FavList' style='color:blue'>View ALL</a>";
-			            v1 += "<a href='#' style='float:right;color:red' onclick='clearFav()'>Clear All</a><div id='wishContent'>" + div + "</div>";
-			            $(wd).html(v1);
-			        } else {
-			            $(wd).prepend(div);
-			        }
-			        var fav = parent.document.getElementById('favCount');
-			        var count = $(fav).text();
-			        count = parseInt(count) + 1;
-			        $(fav).text(count);
-
-			    } else {
-			        if ($("#wishContent").text().length == 0) {
-			            var v1 = "<a href='" + path + "FavList' style='color:blue'>View ALL</a>";
-			            v1 += "<a href='#' style='float:right;color:red' onclick='clearFav()'>Clear All</a><div id='wishContent'>" + div + "</div>";
-			            $("#wishListDiv").html(v1);
-			        } else {
-			            $("#wishContent").prepend(div);
-			        }
-			        var count = $("#favCount").text();
-			        count = parseInt(count) + 1;
-			        $("#favCount").text(count);
-			    }
+			    reloadWL();
 			});
     });
 

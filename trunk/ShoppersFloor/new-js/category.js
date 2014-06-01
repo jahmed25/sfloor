@@ -1,124 +1,162 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
 
-    $("a[data='" + $('#pTypeNav').text().trim() + "']").css('color', 'rgba(252,178,104,1)');
-    //for display loading image while ajax calling.
-    $("#loading-div-background").css({ opacity: 0.4 });
-    $(document).ajaxStart(function () {
-        $("#loading-div-background").show();
-    });
-    $(document).ajaxComplete(function () {
-        $("#loading-div-background").hide();
-    });
-
+    jQuery("a[data='" + jQuery('#pTypeNav').text().trim() + "']").css('color', 'rgba(252,178,104,1)');
+    //open popup
     // Ajax on click on brand links
-    $(".lnkbtn_category").on("click", function () {
-
-        $('#error').val('false');
-        $("#PType").val('');
-        $('#sortPrice').val('');
-        $('#range').val('');
-        var brand = $(this).text();
-        var cat = $("#catNav").text();
-        var subCat = $("#subCatNav").text();
-        url = path + "CategoriesScroll";
-        $.ajax({
+    jQuery(".lnkbtn_category").on("click", function () {
+        jQuery('#error').val('false');
+        jQuery("#PType").val('');
+        jQuery('#sortPrice').val('');
+        jQuery('#range').val('');
+        var brand = jQuery(this).text() == null ? null : jQuery(this).text().trim();
+        var cat = jQuery("#catNav").text() == null ? null : jQuery("#catNav").text().trim();
+        var subCat = jQuery("#subCatNav").text() == null ? null : jQuery("#subCatNav").text().trim();
+        url = path + "sfloor/pages/CategoriesScroll.aspx";
+        // alert("brand " + brand + ", cat:" + cat+" subCat:"+subCat);
+        jQuery.ajax({
             url: url,
             data: { PBrand: brand, cat: cat, subCat: subCat, pageNo: 0 },
-            async: false
+            async: false,
+            before: function () {
+                jQuery('#spinner').show();
+            },
+            error: function () {
+                jQuery('#spinner').hide();
+            }
         }).done(function (msg) {
-            $("#ContentPlaceHolder1_categories").html($(msg).filter("#categories").html());
-            $("#PBrand").val($(msg).filter("#PBrand").val());
+            jQuery('#spinner').hide();
+            jQuery("#categories").html(jQuery(msg).filter("#categories").html());
+            jQuery("#PBrand").val(jQuery(msg).filter("#PBrand").val());
         });
     });
     // Ajax calling  for sorting by ascending or descending	
-    $("#price_select").on("change", function () {
-        $('#error').val('false');
-        var SortPrice = $(this).val();
-        $('#sortPrice').val(SortPrice);
-        var cat = $("#catNav").text();
-        var subCat = $("#subCatNav").text();
-        var PType = $("#PType").val();
-        var PBrand = $("#PBrand").val();
+    jQuery("#price_select").on("change", function () {
+        jQuery('#error').val('false');
+        var SortPrice = jQuery(this).val();
+        jQuery('#sortPrice').val(SortPrice);
+        var cat = jQuery("#catNav").text();
+        var subCat = jQuery("#subCatNav").text();
+        var PType = jQuery("#PType").val();
+        var PBrand = jQuery("#PBrand").val();
         if (SortPrice != 0) {
-            url = path + "CategoriesScroll";
-            $.ajax({
+            url = path + "sfloor/pages/CategoriesScroll.aspx";
+            jQuery.ajax({
                 url: url,
                 data: { SortPrice: SortPrice, cat: cat, subCat: subCat, PType: PType, PBrand: PBrand, pageNo: 0 },
-                async: false
+                async: false,
+                before: function () {
+                    jQuery('#spinner').show();
+                },
+                error: function () {
+                    jQuery('#spinner').hide();
+                }
             }).done(function (msg) {
-                $("#ContentPlaceHolder1_categories").html($(msg).filter("#categories").html());
-                $("#pageNo").val($(msg).filter("#pageNo").val());
-            }); ;
+                jQuery('#spinner').hide();
+                jQuery("#categories").html(jQuery(msg).filter("#categories").html());
+                jQuery("#pageNo").val(jQuery(msg).filter("#pageNo").val());
+            });
         }
     });
     // Ajax calling to sort by price
-    $("#priceRangeBtn").on("click", function () {
-        $('#error').val('false');
-        var th = $(this);
-        var cat = $("#catNav").text();
-        var subCat = $("#subCatNav").text();
-        var PType = $("#PType").val();
-        var PBrand = $("#PBrand").val();
-        var min = $("#minTxt").val();
-        var max = $("#maxTxt").val();
+    jQuery("#priceRangeBtn").on("click", function () {
+        jQuery('#error').val('false');
+        var th = jQuery(this);
+        var cat = jQuery("#catNav").text();
+        var subCat = jQuery("#subCatNav").text();
+        var PType = jQuery("#PType").val();
+        var PBrand = jQuery("#PBrand").val();
+        var min = jQuery("#minTxt").val();
+        var max = jQuery("#maxTxt").val();
         if (min.length == 0 || min.length == 0) {
-            $('#errRange').css('display', 'block');
+            jQuery('#errRange').css('display', 'block');
             return;
         }
-        $('#errRange').css('display', 'none');
-        url = path + 'CategoriesScroll';
-        $.ajax({
+        jQuery('#errRange').css('display', 'none');
+        url = path + 'sfloor/pages/CategoriesScroll.aspx';
+        jQuery.ajax({
             url: url,
             data: { min: min, max: max, cat: cat, subCat: subCat, PType: PType, PBrand: PBrand, pageNo: 0 },
             async: false,
-            error: function (err) {
-                $("#loading-div-background").hide();
-                $("#ContentPlaceHolder1_categories").html($("#message_main_box").removeClass("notfound"));
+            before: function () {
+                jQuery('#spinner').show();
+            },
+            error: function () {
+                jQuery('#spinner').hide();
             }
         }).done(function (msg) {
-            if ($(msg).find($("#ContentPlaceHolder1_categories tbody tr").length > 0)) {
-                $("#ContentPlaceHolder1_categories").html($(msg).filter("#categories").html());
-                $("#pageNo").val($(msg).filter("#pageNo").val());
-                $(th).attr("checked", true);
+            jQuery('#spinner').hide();
+            if (jQuery(msg).find(jQuery("#categories tbody tr").length > 0)) {
+                jQuery("#categories").html(jQuery(msg).filter("#categories").html());
+                jQuery("#pageNo").val(jQuery(msg).filter("#pageNo").val());
+                jQuery(th).attr("checked", true);
             }
 
         });
     });
 
     var a;
-    $(window).scroll(function (e) {
-        if ($(document).height() - 60 <= $(window).scrollTop() + $(window).height()) {
+    jQuery(window).scroll(function (e) {
+        if (jQuery(document).height() - 60 <= jQuery(window).scrollTop() + jQuery(window).height()) {
             loadProduct();
 
         }
     });
-   });
+});
 	
 // for load product on demand by scrolling
 function loadProduct() {
-	var pageNo = $("#pageNo").val();
-	var cat = $("#catNav").text();
-	var subCat = $("#subCatNav").text();
-	var brand = $("#PBrand").val();
-	var ptype = $('#PType').val();
-	var SortPrice = $('#sortPrice').val();
-	var Range = $('#range').val();
-	if ($('#error').val() == 'true')
+	var pageNo = jQuery("#pageNo").val();
+	var cat = jQuery("#catNav").text();
+	var subCat = jQuery("#subCatNav").text();
+	var brand = jQuery("#PBrand").val();
+	var ptype = jQuery('#PType').val();
+	var SortPrice = jQuery('#sortPrice').val();
+	var Range = jQuery('#range').val();
+	if (jQuery('#error').val() == 'true')
 		return;
-	url = path+"CategoriesScroll";
-	$.ajax({
+	url = path+"sfloor/pages/CategoriesScroll.aspx";
+	jQuery.ajax({
 		url: url,
 		async: false,
 		data: { cat: cat, subCat: subCat, pageNo: pageNo, PBrand: brand, PType: ptype, SortPrice: SortPrice, Range: Range },
 		error: function (err) {
-			$('#error').val('true');
-			$("#loading-div-background").hide();
+			jQuery('#error').val('true');
+			jQuery("#loading-div-background").hide();
 		}
 	}).done(function (msg) {
-		// alert($(msg).filter("#categories").html());
-		if ($(msg).filter("#categories").html() != undefined) {
-			$("#ContentPlaceHolder1_categories").append($(msg).filter("#categories").html());
-			$("#pageNo").val($(msg).filter("#pageNo").val());
+		// alert(jQuery(msg).filter("#categories").html());
+		if (jQuery(msg).filter("#categories").html() != undefined) {
+			jQuery("#categories").append(jQuery(msg).filter("#categories").html());
+			jQuery("#pageNo").val(jQuery(msg).filter("#pageNo").val());
 		}
 	});
+}
+
+jQuery(document).ready(function () {
+    //open popup
+    jQuery("a[pop]").on('click', function () {
+        jQuery('#quickViewObj').attr("data", path + "sfloor/pages/QuickView.aspx?sku=" + jQuery(this).attr('pop'));
+        jQuery("#overlay_form_quick").fadeIn(1000);
+        jQuery(".background_overlay_quick").fadeIn(500);
+        positionPopupQuick();
+    });
+
+    //close popup
+    jQuery("#closequickview, .background_overlay_quick").click(function () {
+        jQuery("#overlay_form_quick").hide();
+        jQuery(".background_overlay_quick").hide();
+    });
+    jQuery(window).bind('resize', positionPopupQuick);
+    //maintain the popup at center of the page when browser resized
+});
+//position the popup at the center of the page
+function positionPopupQuick() {
+    if (!jQuery("#overlay_form_quick").is(':visible')) {
+        return;
+    }
+    jQuery("#overlay_form_quick").css({
+        left: (jQuery(window).width() - jQuery('#overlay_form_quick').width()) / 2,
+        top: (jQuery(window).width() - jQuery('#overlay_form_quick').width()) / 7,
+        position: 'absolute'
+    });
 }
