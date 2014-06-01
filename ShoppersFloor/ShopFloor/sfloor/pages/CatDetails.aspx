@@ -13,55 +13,56 @@
          .catcrumbs ul li { display: inline; }}
       </style>
       <script type="text/javascript">
-          CloudZoom.quickStart();
-          function selectSize(txt) {
-              $("li[namespace='sizeBtn']").css({ 'background-color': '#EBEBEB', 'color': 'black' })
-              $(txt).css({ 'background-color': '#464646', 'color': 'white' });
-              $("#size").val($(txt).text());
-          }
-          function addtoCart() {
-
-              if ($('#isSize').val() == 'true' && $('#size').val().length == 0) {
-                  $('#errorSize').css('display', 'block').text('Please select the size');
-                  return;
-              }
-              var data = {
-                  sku: $('#style').val(),
-                  qty: $("#dd_quantity option:selected").val(),
-                  color: $("#color").val(),
-                  size: $("#size").val(),
-                  isColor: $("#isColor").val(),
-                  isSize: $("#isSize").val(),
-                  isSku: $("#isSku").val()
-              }
-              $.ajax({
-                  type: "get",
-                  contentType: "application/json; charset=utf-8",
-                  url: "<%=ConfigUtil.hostURL()%>sfloor/pages/AjaxService.aspx?action=addToCart",
-                  data: data,
-                  success: function (data) {
-                      if (data.error != null) {
-                          $('#errorSize').css('display', 'block').text(data.error);
-                      } else {
-                          window.location = '<%=ConfigUtil.hostURL()%>Add-To-Cart'
-                      }
-                  },
-                  error: function (result) {
-                      alert("Error......");
-                  }
-              });
-          }
+         CloudZoom.quickStart();
+         function selectSize(txt) {
+             $("li[namespace='sizeBtn']").css({ 'background-color': '#EBEBEB', 'color': 'black' })
+             $(txt).css({ 'background-color': '#464646', 'color': 'white' });
+             $("#size").val($(txt).text());
+         }
+         function addtoCart() {
+         
+             if ($('#isSize').val() == 'true' && $('#size').val().length == 0) {
+                 $('#errorSize').css('display', 'block').text('Please select the size');
+                 return;
+             }
+             var data = {
+                 sku: $('#style').val(),
+                 qty: $("#dd_quantity option:selected").val(),
+                 color: $("#color").val(),
+                 size: $("#size").val(),
+                 isColor: $("#isColor").val(),
+                 isSize: $("#isSize").val(),
+                 isSku: $("#isSku").val()
+             }
+             $.ajax({
+                 type: "get",
+                 contentType: "application/json; charset=utf-8",
+                 url: "<%=ConfigUtil.hostURL()%>sfloor/pages/AjaxService.aspx?action=addToCart",
+                 data: data,
+                 success: function (data) {
+                     if (data.error != null) {
+                         $('#errorSize').css('display', 'block').text(data.error);
+                     } else {
+                         window.location = '<%=ConfigUtil.hostURL()%>Add-To-Cart'
+                     }
+                 },
+                 error: function (result) {
+                     alert("Error......");
+                 }
+             });
+         }
       </script>
       <script type="text/javascript">
-          $(document).ready(function () {
-              if ($('#crumb4').text().trim().length == 0) {
-                  $('#crumb4').css('display', 'none');
-              }
-              else {
-                  $('#crumb4').css('display', 'block');
-              }
-          });
+         $(document).ready(function () {
+             if ($('#crumb4').text().trim().length == 0) {
+                 $('#crumb4').css('display', 'none');
+             }
+             else {
+                 $('#crumb4').css('display', 'block');
+             }
+         });
       </script>
+      <script type="text/javascript">     $(document).ready(function () { initTabs(); }); function initTabs() { $('#tabMenu a').bind('click', function (e) { e.preventDefault(); var thref = $(this).attr("href").replace(/#/, ''); $('#tabMenu a').removeClass('active'); $(this).addClass('active'); $('#tabContent div.content').removeClass('active'); $('#' + thref).addClass('active'); }); } </script>
    </head>
    <body class=" cms-index-index cms-home">
       <div>
@@ -204,44 +205,75 @@
                      </div>
                   </div>
                </div>
-               <div id="description-content">
-                  <div class="tabs">
-                     <div class="tab">
-                        <input id="tab-1" name="tab-group-1" checked="checked" type="radio">
-                        <label for="tab-1">FEATURES</label>
-                        <div class="billcontent">
-                           <hgroup>
-                              <h2><%=dt.Rows[0]["SKUName"] %></h2>
-                           </hgroup>
-                           <p><%=dt.Rows[0]["SKULongDescription"]%></p>
-                           <p><b>Brand :</b> <%=dt.Rows[0]["SKUBrand"]%></p>
-                           <p><b>Wash Care : </b><%=dt.Rows[0]["WashCare"]%></p>
-                           <p><b>Color : </b><%=dt.Rows[0]["Color"]%></p>
-                           <p><b>Material : </b><%=dt.Rows[0]["Material"]%></p>
-                        </div>
+               <div id="tabContainer">
+                  <div id="tabMenu">
+                     <ul class="menu">
+                        <li><a href="css" class="active"><span>FEATURES</span></a></li>
+                        <li><a href="html"><span>At a Glance</span></a></li>
+                        <li><a href="jquery"><span>RETURN</span></a></li>
+                     </ul>
+                  </div>
+                  <div id="tabContent">
+                     <div id="css" class="content active">
+                        <hgroup>
+                           <h2><%=dt.Rows[0]["SKUName"] %></h2>
+                        </hgroup>
+                        <p><%=dt.Rows[0]["SKULongDescription"]%></p>
+                        <p><b>Brand :</b> <%=dt.Rows[0]["SKUBrand"]%></p>
+                        <p><b>Wash Care : </b><%=dt.Rows[0]["WashCare"]%></p>
+                        <p><b>Color : </b><%=dt.Rows[0]["Color"]%></p>
+                        <p><b>Material : </b><%=dt.Rows[0]["Material"]%></p>
                      </div>
-                     <div class="tab">
-                        <input id="tab-2" name="tab-group-1" type="radio">
-                        <label for="tab-2">
-                        At a Glance</label>
-                        <div class="billcontent">
-                           <p><%=dt.Rows[0]["SKUProductDetails"] %></p>
-                        </div>
+                     <div id="html" class="content">
+                        <p><%=dt.Rows[0]["SKUProductDetails"] %></p>
                      </div>
-                     <div class="tab">
-                        <input id="tab-3" name="tab-group-1" type="radio">
-                        <label for="tab-3">
-                        RETURN</label>
-                        <div class="billcontent">
-                           <ul>
-                              <li>We will leave no stone unturned in getting that curve back on your face.</li>
-                              <li>Whatever may be the reason, if you want to return your purchase, we will pick the product back from your doorstep, free of cost. <%=dt.Rows[0]["ShippingReturns"]%>&nbsp;of receipt.</li>
-                              <li>Please make sure it is not a USED product, should be in the original box and with all price tags attached as you got them.</li>
-                              <li>To know more, please&nbsp;<a style="color:Orange" href="faq.aspx">Click here</a></li>
-                           </ul>
-                        </div>
+                     <div id="jquery" class="content">
+                        <ul>
+                           <li>We will leave no stone unturned in getting that curve back on your face.</li>
+                           <li>Whatever may be the reason, if you want to return your purchase, we will pick the product back from your doorstep, free of cost. <%=dt.Rows[0]["ShippingReturns"]%>&nbsp;of receipt.</li>
+                           <li>Please make sure it is not a USED product, should be in the original box and with all price tags attached as you got them.</li>
+                           <li>To know more, please&nbsp;<a style="color:Orange" href="faq.aspx">Click here</a></li>
+                        </ul>
                      </div>
                   </div>
+               </div>
+               <div id="description-content">
+                  <%--                    <div class="tabs">
+                     <div class="tab">
+                         <input id="tab-1" name="tab-group-1" checked="checked" type="radio">
+                         <label for="tab-1">FEATURES</label>
+                         <div class="billcontent">
+                             <hgroup><h2><%=dt.Rows[0]["SKUName"] %></h2></hgroup>
+                             <p><%=dt.Rows[0]["SKULongDescription"]%></p>
+                                 <p><b>Brand :</b> <%=dt.Rows[0]["SKUBrand"]%></p>
+                                 <p><b>Wash Care : </b><%=dt.Rows[0]["WashCare"]%></p>
+                                 <p><b>Color : </b><%=dt.Rows[0]["Color"]%></p>
+                                 <p><b>Material : </b><%=dt.Rows[0]["Material"]%></p>
+                                
+                         </div>
+                     </div>
+                     <div class="tab">
+                         <input id="tab-2" name="tab-group-1" type="radio">
+                         <label for="tab-2">
+                             At a Glance</label>
+                         <div class="billcontent">
+                             <p><%=dt.Rows[0]["SKUProductDetails"] %></p>
+                         </div>
+                     </div>
+                     <div class="tab">
+                         <input id="tab-3" name="tab-group-1" type="radio">
+                         <label for="tab-3">
+                             RETURN</label>
+                         <div class="billcontent">
+                             <ul>
+                                <li>We will leave no stone unturned in getting that curve back on your face.</li>
+                                <li>Whatever may be the reason, if you want to return your purchase, we will pick the product back from your doorstep, free of cost. <%=dt.Rows[0]["ShippingReturns"]%>&nbsp;of receipt.</li>
+                                <li>Please make sure it is not a USED product, should be in the original box and with all price tags attached as you got them.</li>
+                                <li>To know more, please&nbsp;<a style="color:Orange" href="faq.aspx">Click here</a></li>
+                             </ul>
+                         </div>
+                     </div>
+                     </div>--%>
                   <div class="relateditem">
                      <h2>
                         Related Product
@@ -274,8 +306,8 @@
             </div>
             <script type="text/javascript" src="<%=ConfigUtil.StaticPath() %>new-js/jquery.elastislide.js"></script>
             <script type="text/javascript">
-                $('#carousel').elastislide();
-                $('#carousel1').elastislide();
+               $('#carousel').elastislide();
+               $('#carousel1').elastislide();
             </script>
             <input type="hidden" id='style' value='<%=style%>' />
             <input type="hidden" id='color' value='<%=color%>' />
