@@ -27,7 +27,7 @@
                      <div style="display: none;" class="loading">
                      </div>
                      <script type="text/javascript">
-                         jQueryjq(window).load(function () {
+                         $jq(window).load(function () {
                              $jq('.banner7-container .flexslider').flexslider({
                                  animation: "slide",
                                  slideshowSpeed: 3000,

@@ -54,16 +54,16 @@
          .button input.disabled{background-color:Blue}
       </style>
    </head>
-   <body>
+   <body ng-app='registration' ng-controller='regCtrl'>
       <ch:checkoutHeader runat="server" ID="chHeader"/>
       <script type="text/javascript">
           function showShipping(v) {
               if (v == 1) {
-                  window.location = path + "checkout-step1"
+                  window.location = path + "checkout-step-2"
                   return;
               }
               if ($("[name='uType']:checked").val() == "guest") {
-                  window.location = path + "checkout-step1"
+                  window.location = path + "checkout-step-2"
               } else if ($("[name='uType']:checked").val() == "regular") {
                   $("#checkout_overlay_form").fadeIn(1000);
                   $(".checkout_background_overlay").fadeIn(500);
@@ -86,7 +86,7 @@
       <div class="ckeckoutmain_sec">
          <div class="ckeckoutmain">
             <ul class="tabs">
-               <li><a href="#view1">Email Or Login <span>1</span></a></li>
+               <li class='selected'><a href="#view1">Email Or Login <span>1</span></a></li>
                <li><a ">Shipping <span>2</span></a></li>
                <li><a >Payment <span>3</span></a></li>
             </ul>

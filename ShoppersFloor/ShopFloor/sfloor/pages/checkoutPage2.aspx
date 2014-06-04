@@ -7,11 +7,11 @@
       <title>Check-out Step two</title>
    
    </head>
-   <body ng-app='registration' ng-controller='regCtrl' onload="getShip()">
+   <body ng-app='registration' ng-controller='regCtrl' >
       <ch:checkoutHeader runat="server" ID="chHeader"/>
        <%if(!MFO.Commom.CommonUtil.DT.isEmptyOrNull(shipDT)){ %>
            <script type="text/javascript">
-               function getShip() {
+               $(document).ready(function () { 
                    var scope = angular.element($("body")).scope();
                    scope.$apply(function () {
                        scope.ship = { city: '<%=shipDT.Rows[0]["CITY"] %>',
@@ -23,10 +23,12 @@
                            address: '<%=shipDT.Rows[0]["ADDRESS"] %>'
                        }
                    });
-               }
+           });
            </script>
         <%} %>
       <script type="text/javascript">
+               $(document).ready(function () { 
+
           $("#pinTxt").autocomplete({
 	            source: function (request, response) {
 	                $.ajax({
@@ -58,6 +60,7 @@
 	        });
 	        $("#cityTxt").autocomplete({
 	            source: function (request, response) {
+                    alert(1)
 	                $.ajax({
 	                    type: "POST",
 	                    url: path + 'sfloor/pages/AjaxService.aspx?action=getCity',
@@ -88,38 +91,30 @@
 	            }
 	        });
 	    });
-         function submitForm(valid) {
-             $.ajax({
-                 type: "POST",
-                 url: path + 'sfloor/pages/AjaxService.aspx?action=addShipping',
-                 data: $('#cForm').serialize(),
-                 success: function (data) {
-                     if (data.status) {
-//                         thirdTab();
-//                         var city = $('#cityTxt').val();
-//                         var state = $('#stateTxt').val();
-//                         var scope = angular.element($("body")).scope();
-//                         scope.$apply(function () {
-//                             scope.ship.city = city;
-//                             scope.ship.state = state;
-//                         });
-                        window.location=path+"checkout-step3"
-                     } else {
-                         alert('not added');
-                     }
-                 },
-                 error: function (msg) {
-                     alert(msg.status + ' ' + msg.statusText);
-                 }
-             });
-
+	        function submitForm() {
+	            $.ajax({
+	                type: "POST",
+	                url: path + 'sfloor/pages/AjaxService.aspx?action=addShipping',
+	                data: $('#cForm').serialize(),
+	                success: function (data) {
+	                    if (data.status) {
+	                        window.location = path + "checkout-step-3"
+	                    } else {
+	                        alert('not added');
+	                    }
+	                },
+	                error: function (msg) {
+	                    alert(msg.status + ' ' + msg.statusText);
+	                }
+	            });
+	        }
       </script>
       <%if(!MFO.Commom.CommonUtil.DT.isEmptyOrNull(cartDT)){ %>
       <div class="ckeckoutmain_sec">
          <div class="ckeckoutmain">
             <ul class="tabs">
-               <li><a href="<%=ConfigUtil.hostURL() %>checkout-step1">Email Or Login <span>1</span></a></li>
-               <li><a >Shipping <span>2</span></a></li>
+               <li><a href="<%=ConfigUtil.hostURL() %>checkout-step-1">Email Or Login <span>1</span></a></li>
+               <li class='selected'><a >Shipping <span>2</span></a></li>
                <li><a >Payment <span>3</span></a></li>
             </ul>
             <div class="tabcontents">
@@ -138,7 +133,7 @@
 				<tr>
 					<th>Name*</th>
 					<td>
-						<input type="text" name="fname" required ng-model="ship.fName" ng-pattern="/^([a-zA-Z-']{1,30})$/"/>
+						<input type="text" name="fname"  required ng-model="ship.fName" ng-pattern="/^([a-zA-Z-']{1,30})$/"/>
 						<small class="error" ng-show="cForm.fname.$error.required && !cForm.fname.$pristine ">Name  required.</small>
 						<small class="error" ng-show="cForm.fname.$invalid && !cForm.fname.$pristine &&!cForm.fname.$error.required ">Name should not contain digit</small>
 					</td>
@@ -146,7 +141,7 @@
 				<tr>
 					<th>Phone No.*</th>
 					<td>
-						<input type="text" name="phone" required ng-model="ship.phone" ng-pattern="/[0-9]/" ng-minlength="10" ng-maxlength="10"/>
+						<input type="text" name="phone"  required ng-model="ship.phone" ng-pattern="/[0-9]/" ng-minlength="10" ng-maxlength="10"/>
 						<small class="error" ng-show="cForm.phone.$error.required && !cForm.phone.$pristine ">Phone No  required.</small>
 						<small class="error" ng-show="cForm.phone.$error.minlength ||cForm.phone.$error.maxlength && !cForm.phone.$pristine && !cForm.phone.$error.required">Phone No should  have 10 digit</small>
 					</td>
@@ -154,7 +149,7 @@
 				<tr>
 					<th>Pin*</th>
 					<td>
-						<input type="text"  id='pinTxt' name="pin" required ng-model="ship.pin" ng-pattern="/[0-9]/" ng-minlength="6" ng-maxlength="6"/>
+						<input type="text"  id='pinTxt'  name="pin" required ng-model="ship.pin" ng-pattern="/[0-9]/" ng-minlength="6" ng-maxlength="6"/>
 						<small class="error" ng-show="(cForm.pin.$error.minlength || cForm.pin.$error.maxlength) && !cForm.pin.$pristine && !cForm.pin.$error.required">Pin No should have 6 digit.</small>
 						<small class="error" ng-show="cForm.pin.$error.required  && !cForm.pin.$pristine">Pin required.</small>
 					</td>
@@ -162,28 +157,28 @@
 				<tr>
 					<th>City*</th>
 					<td>
-						<input type="text" name="city" id="cityTxt" ng-keyup="getCity()" required ng-model="ship.city"/>
+						<input type="text" name="city" value='<%=shipDT.Rows[0]["CITY"] %>' id="cityTxt" ng-keyup="getCity()" required ng-model="ship.city"/>
 						<small class="error" ng-show="cForm.city.$error.required  && !cForm.city.$pristine">City required.</small>
 					</td>
 				</tr>
 				<tr>
 					<th>State*</th>
 					<td>
-						<input type="text" name="state" id='stateTxt' required  updateVal ng-model="ship.state"/>
+						<input type="text" name="state" value='<%=shipDT.Rows[0]["STATE"] %>' id='stateTxt' required  updateVal ng-model="ship.state"/>
 						<small class="error" ng-show="cForm.state.$error.required  && !cForm.state.$pristine ">State required.</small>
 					</td>
 				</tr>
 				<tr>
 					<th>Address street</th>
 					<td>
-						<textarea name="address"   spellcheck="true" ng-model="ship.address"></textarea>
+						<textarea name="address"   spellcheck="true" ng-model="ship.address"><%=shipDT.Rows[0]["ADDRESS"]%></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td>
 					</td>
 					<td>
-						<button class="btn_shipinfo" ng-disable="cForm.$invalid"  onclick='submitForm(cForm.$valid)'>Continue</button>
+						<button class="btn_shipinfo" ng-disable="cForm.$invalid"  onclick='submitForm()'>Continue</button>
 					</td>
 				</tr>
 			</table>
