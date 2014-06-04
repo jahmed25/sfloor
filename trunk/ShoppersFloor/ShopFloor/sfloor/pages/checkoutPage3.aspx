@@ -100,9 +100,9 @@
       <div class="ckeckoutmain_sec">
          <div class="ckeckoutmain">
             <ul class="tabs">
-               <li><a href="<%=ConfigUtil.hostURL() %>checkout-step1">Email Or Login <span>1</span></a></li>
-               <li><a href="<%=ConfigUtil.hostURL() %>checkout-step2" >Shipping <span>2</span></a></li>
-               <li><a >Payment <span>3</span></a></li>
+               <li><a href="<%=ConfigUtil.hostURL() %>checkout-step-1">Email Or Login <span>1</span></a></li>
+               <li><a href="<%=ConfigUtil.hostURL() %>checkout-step-2" >Shipping <span>2</span></a></li>
+               <li class='selected'><a >Payment <span>3</span></a></li>
             </ul>
             <div class="tabcontents">
               
@@ -124,7 +124,7 @@
                           <%=shipDT.Rows[0]["NAME"] %> <br />
                           <%=shipDT.Rows[0]["ADDRESS"] %>,<%=shipDT.Rows[0]["CITY"] %>,<%=shipDT.Rows[0]["STATE"] %> <%=shipDT.Rows[0]["PIN"] %>  <br />
                          <%=shipDT.Rows[0]["EMAIL"] %>, <%=shipDT.Rows[0]["MOBILE"] %></i><br>
-                          <a href='<%=ConfigUtil.hostURL() %>checkout-step2' '>Edit Shipping Details</a>
+                          <a href='<%=ConfigUtil.hostURL() %>checkout-step-2'>Edit Shipping Details</a>
                           </small>
                     </div>
                

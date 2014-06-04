@@ -21,137 +21,33 @@
             <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/category.js'></script>
             <script type="text/javascript" src='<%=ConfigUtil.StaticPath() %>new-js/common1.js'></script>
             <link rel="stylesheet" type="text/css" href='<%=ConfigUtil.StaticPath() %>new-css/etalage.css'/>
-            <script>                //1. set ul width 
-                //2. image when click prev/next button
-                var ul;
-                var liItems;
-                var imageNumber;
-                var imageWidth;
-                var prev, next;
-                var currentPostion = 0;
-                var currentImage = 0;
-
-
-                function init() {
-                    ul = document.getElementById('image_slider');
-                    //        for (var i = 0; i < uls.length;i++ )
-                    //            ul=uls[i];
-                    liItems = ul.children;
-                    imageNumber = liItems.length;
-                    imageWidth = liItems[0].children[0].clientWidth;
-                    ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
-                    prev = document.getElementsByName("prv");
-                    next = document.getElementsByName("next");
-                    generatePager(imageNumber);
-                    //.onclike = slide(-1) will be fired when onload;
-                    /*
-                    prev.onclick = function(){slide(-1);};
-                    next.onclick = function(){slide(1);};*/
-                    prev.onclick = function () { onClickPrev(); };
-                    next.onclick = function () { onClickNext(); };
-                }
-
-
-                function animate(opts) {
-                    var start = new Date;
-                    var id = setInterval(function () {
-                        var timePassed = new Date - start;
-                        var progress = timePassed / opts.duration;
-                        if (progress > 1) {
-                            progress = 1;
-                        }
-                        var delta = opts.delta(progress);
-                        opts.step(delta);
-                        if (progress == 1) {
-                            clearInterval(id);
-                            opts.callback();
-                        }
-                    }, opts.delay || 17);
-                    //return id;
-                }
-
-                function slideTo(imageToGo) {
-                    var direction;
-                    var numOfImageToGo = Math.abs(imageToGo - currentImage);
-                    // slide toward left
-
-                    direction = currentImage > imageToGo ? 1 : -1;
-                    currentPostion = -1 * currentImage * imageWidth;
-                    var opts = {
-                        duration: 1000,
-                        delta: function (p) { return p; },
-                        step: function (delta) {
-                            ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
-                        },
-                        callback: function () { currentImage = imageToGo; }
-                    };
-                    animate(opts);
-                }
-
-                function onClickPrev() {
-                    if (currentImage == 0) {
-                        slideTo(imageNumber - 1);
-                    }
-                    else {
-                        slideTo(currentImage - 1);
-                    }
-                }
-
-                function onClickNext() {
-                    if (currentImage == imageNumber - 1) {
-                        slideTo(0);
-                    }
-                    else {
-                        slideTo(currentImage + 1);
-                    }
-                }
-
-                function generatePager(imageNumber) {
-                    var pageNumber;
-                    var pagerDiv = document.getElementById('pager');
-                    for (i = 0; i < imageNumber; i++) {
-                        var li = document.createElement('li');
-                        pageNumber = document.createTextNode(parseInt(i + 1));
-                        li.appendChild(pageNumber);
-                        pagerDiv.appendChild(li);
-                        // add event inside a loop, closure issue.
-                        li.onclick = function (i) {
-                            return function () {
-                                slideTo(i);
-                            }
-                        } (i);
-                    }
-                    var computedStyle = document.defaultView.getComputedStyle(li, null);
-                    //border width 1px; offsetWidth = 22
-                    var liWidth = parseInt(li.offsetWidth);
-                    var liMargin = parseInt(computedStyle.margin.replace('px', ""));
-                    pagerDiv.style.width = parseInt((liWidth + liMargin * 2) * imageNumber) + 'px';
-                }
-                window.onload = init;
-            </script>
             <script>
-                $(document).ready(function () {
-                    $('[next]').on("click", function () {
-                        var ul = $("ul[sku='" + $(this).attr('next') + "']");
-                        if ($(ul).css('left') == '0px') {
-                            $(ul).css('left', '-268px');
-                        } else if ($(ul).css('left') == '-268px') {
-                            $(ul).css('left', '-536px');
+                jQuery(document).ready(function () {
+                    jQuery('.slider_wrapper').each(function (i) {
+                        jQuery(this).find("ul li:first").addClass('disp');
+                    });
+                    jQuery('[next]').on("click", function () {
+
+                        var selectEl = jQuery('ul[sku="' + jQuery(this).attr('next') + '"]').find(".disp").removeClass('disp');
+                        if (jQuery(selectEl).find('img').attr('src') == jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li:last').find('img').attr('src')) {
+                            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li').hide('slow');
+                            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li:first').show().addClass('disp');
                         } else {
-                            $(ul).css('left', '0px');
+                            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li').hide('slow');
+                            jQuery(selectEl).next().show('slow').addClass('disp'); ;
                         }
+
 
                     });
-                    $('[prev]').on("click", function () {
-                        var ul = $("ul[sku='" + $(this).attr('prev') + "']");
-                        if ($(ul).css('left') == '0px') {
-                            $(ul).css('left', '-536px');
-                        } else if ($(ul).css('left') == '-268px') {
-                            $(ul).css('left', '0px');
+                    jQuery('[prev]').on("click", function () {
+                        var selectEl = jQuery('ul[sku="' + jQuery(this).attr('prev') + '"]').find(".disp").removeClass('disp');
+                        if (jQuery(selectEl).find('img').attr('src') == jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li:first').find('img').attr('src')) {
+                            jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li').hide('slow');
+                            jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li:last').show('slow').addClass('disp');
                         } else {
-                            $(ul).css('left', '-268px');
+                            jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li').hide('slow');
+                            jQuery(selectEl).prev().show('slow').addClass('disp'); ;
                         }
-
 
                     });
                 });
@@ -174,8 +70,9 @@
                opacity: 0.9;
                }
             </style>
+             <%if( favDT!=null && favDT.Rows.Count>0){ %>
             <div class="wishlist-main-container">
-               <div class="wishlist-head"><span class="title">Wishlist &nbsp;<i>1</i>&nbsp; item</span><span class="btnright"><input type="button" class="addtocartbtn" name="btn_wish_cntshop" value="Continue Shopping" />
+               <div class="wishlist-head"><span class="title">Wishlist &nbsp;<i><%=favDT.Rows.Count%></i>&nbsp; item(s)</span><span class="btnright"><input type="button" class="addtocartbtn" name="btn_wish_cntshop" value="Continue Shopping" />
                   <input type="button" class="addtocartbtn" name="btn_wish_viewcart" value="View Cart" /></span>
                </div>
                <%foreach(System.Data.DataRow r in favDT.Rows){ %>
@@ -185,14 +82,21 @@
                   <a class="wishlist-quick-view" pop='<%=r["SKUCode"]%>' ><span>Quick View</span></a>
                   <div class="slider_wrapper">
                      <ul id="image_slider" sku='<%=r["SKUCode"]%>' style='left:0px'>
-                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty((r["PathInternaldetailsSmallImage"] + "")))%>
-                        <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathInternaldetailsSmallImage"]%>'/></li>
-                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathUpperInternaldetailsSmallImage"] + "")) %>
+                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty((r["PathInternaldetailsSmallImage"] + ""))){%>
+                        <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathInternaldetailsSmallImage"]%>'/> </li>
+                        <%} %>
+
+                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathUpperInternaldetailsSmallImage"] + "")) {%>
                         <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathUpperInternaldetailsSmallImage"]%>'/></li>
-                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathLowerInternaldetailsSmallImage"] + ""))%>
+                        <%} %>
+
+                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathLowerInternaldetailsSmallImage"] + "")){%>
                         <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathLowerInternaldetailsSmallImage"]%>'/></li>
-                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathBackInternaldetailsSmallImage"] + "")) %>
+                        <%} %>
+
+                        <%if (!MFO.Utils.StringUtil.isNullOrEmpty(r["PathBackInternaldetailsSmallImage"] + "")) {%>
                         <li><img src='<%=ConfigUtil.getServerPath() %><%=r["PathBackInternaldetailsSmallImage"]%>'/></li>
+                        <%} %>
                      </ul>
                      <span class="nvgt" prev='<%=r["SKUCode"]%>' name='pre' id='prev'></span>
                      <span class="nvgt" next='<%=r["SKUCode"]%>' name='next' id='next'></span>		
@@ -214,6 +118,10 @@
                   </div>
                </div>
             </div>
+            <%}else{ %>
+                 <div class="wishlist-head"><br><span class="title" style='color:red'>There is zero item in your Wish List</span><br>
+               </div>
+            <%} %>
             <!-- End -->
             <%=Footer %>
          </div>
