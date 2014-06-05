@@ -72,8 +72,9 @@
             </style>
              <%if( favDT!=null && favDT.Rows.Count>0){ %>
             <div class="wishlist-main-container">
-               <div class="wishlist-head"><span class="title">Wishlist &nbsp;<i><%=favDT.Rows.Count%></i>&nbsp; item(s)</span><span class="btnright"><input type="button" class="addtocartbtn" name="btn_wish_cntshop" value="Continue Shopping" />
-                  <input type="button" class="addtocartbtn" name="btn_wish_viewcart" value="View Cart" /></span>
+               <div class="wishlist-head"><span class="title">Wishlist &nbsp;<i><%=favDT.Rows.Count%></i>&nbsp; item(s)</span><span class="btnright">
+                   <a class="addtocartbtn" name="btn_wish_cntshop" href="<%=ConfigUtil.hostURL() %>Home" >Continue Shopping</a>
+                   <a class="addtocartbtn" name="btn_wish_viewcart" href="<%=ConfigUtil.hostURL() %>Add-To-Cart" >View Cart</a></span>
                </div>
                <%foreach(System.Data.DataRow r in favDT.Rows){ %>
                <div class="wishlist-container">
