@@ -35,5 +35,23 @@ namespace MFO.Utils
             }
             return returnValue;
         }
+        public static string dispLI(object src, object name, bool isDisp)
+        {
+            if (!StringUtil.isNullOrEmpty(src + "") && isDisp)
+            {
+                return "" + "<li class='disp'><img src='" + ConfigUtil.getServerPath() + src + "' alt='" + name + "' class='right_inner_categorydetailsimagescss'/> </li>";
+
+            }
+            else if (!StringUtil.isNullOrEmpty(src + ""))
+            {
+                return "" + "<li><img src='" + ConfigUtil.getServerPath() + src + "' alt='" + name + "' class='right_inner_categorydetailsimagescss'/> </li>";
+            }
+            else
+            {
+                return "";
+            }
+        }
     }
+    
 }
+ 
