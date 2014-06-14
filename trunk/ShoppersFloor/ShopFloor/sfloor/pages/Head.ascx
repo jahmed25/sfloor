@@ -232,6 +232,22 @@ function slideEffectAjax() {
 //    slideEffectAjax();
 //});
 </script>
+<script>
+    function slideLogin() {
+    $('.myaccounthover').mouseenter(function () {
+        $(this).find(".myaccounthover").stop(true, true).show();
+    });
+    //hide submenus on exit
+    $('.myaccounthover').mouseleave(function () {
+        $(this).find(".myaccounthover").stop(true, true).hide();
+    });
+}
+
+$(document).ready(function () {
+    $('.ajaxcartsuper-index-productview #mini_cart_block').hide(150);
+    slideLogin();
+});
+</script>
 
 <!--Common1.js Start -->
 <script type="text/javascript">
