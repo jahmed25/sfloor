@@ -298,16 +298,21 @@
                            <span>Save for Later</span></a> <a class="quick-view" pop='<%# Eval("SKUCode") %>'><span>
                            Quick View</span></a>
                         </div>
-                        <div class="boxgrid captionfull">
-                           <a href="<%# Eval("link") %>">
-                              <div class="loading item">
-                           <a href='<%#Eval("link") %>'>
-                           <img src="<%#ConfigUtil.getServerPath()+Eval("PathInternaldetailsSmallImage")%>"
-                              alt="<%# Eval("SKUName") %>" class="right_inner_categorydetailsimagescss" /></a>
-                           <%--      <span class="hover-image"><img src='http://admin.megafactoryoutlet.com/sfloor/new-images/sample-_12__2_1.jpg'></span>
-                              --%>
-                           </div>
+                        <div class="boxgrid captionfull wrper">
+
+                       <div class="loading item" sequence='<%#next()%>' sku='<%#Eval("SKUCode")%>'>
+                       <a href='<%#Eval("link") %>'>
+                           <ul class="image_slider" sku='<%#Eval("SKUCode")%>' style='left:0px'>
+                              <%# MFO.Utils.StringUtil.dispLI(Eval("PathUpperInternaldetailsSmallImage"), Eval("SKUName"), false)%>
+                              <%# MFO.Utils.StringUtil.dispLI(Eval("PathLowerInternaldetailsSmallImage"), Eval("SKUName"), false)%>
+                              <%# MFO.Utils.StringUtil.dispLI(Eval("PathBackInternaldetailsSmallImage"), Eval("SKUName"), false)%>
+                              <%# MFO.Utils.StringUtil.dispLI(Eval("PathInternaldetailsSmallImage"), Eval("SKUName"),true)%>
+
+                            </ul>
                            </a>
+                         </div>
+                    <span href="#" class="previmg" prev='<%#Eval("SKUCode")%>' ></span>
+                    <span href="#" class="nextimg" next='<%#Eval("SKUCode")%>' ></span>
                            <asp:Label Font-Size="0px" ID="l" runat="server" Text='<%# Eval("SKUCode") %>'></asp:Label>
                            <asp:Label Font-Size="0px" ID="sdt" runat="server" Text='<%# Eval("SizeDataType") %>'></asp:Label>
                            <asp:Label Font-Size="0px" ID="c" runat="server" Text='<%# Eval("SKUClassification") %>'></asp:Label>
@@ -336,6 +341,7 @@
                               <span class="margin">Rs.</span><a href='<%# Eval("link") %>' id="lnkbtn_price" runat="server"
                                  class="lnkbtn_proprize  splprice"><%# Eval("SpecialPrice")%></a>
                               <%--    <asp:Label Font-Size="0px" ID="inventory" runat="server" visible ="false" Text='<%# Eval("Inventory") %>'></asp:Label>--%>
+                                  
                            </div>
                         </div>
                         <div class="right_inner_categorydetailsimagesaddtocart">

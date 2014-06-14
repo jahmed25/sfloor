@@ -31,7 +31,7 @@
                         var selectEl = jQuery('ul[sku="' + jQuery(this).attr('next') + '"]').find(".disp").removeClass('disp');
                         if (jQuery(selectEl).find('img').attr('src') == jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li:last').find('img').attr('src')) {
                             jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li').hide('slow');
-                            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li:first').show().addClass('disp');
+                            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li:first').show('slow').addClass('disp');
                         } else {
                             jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li').hide('slow');
                             jQuery(selectEl).next().show('slow').addClass('disp'); ;
