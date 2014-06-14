@@ -690,6 +690,11 @@ padding:0px 7px 0px 7px;
     width:300px;
     float: left;
 }
+.right_inner_categorydetailsimagesdetails:hover .previmg{background:url(../new-images/arrow-l2.png) no-repeat center orange; padding:0.1em 10px; border:1px solid orange; position:relative; top:200px; z-index:1004; }
+.right_inner_categorydetailsimagesdetails:hover .nextimg{background:url(../new-images/arrow-r2.png) no-repeat center orange; border:1px solid orange; padding:0.1em 10px; position:relative; top:200px; left:240px;  z-index:1004; }
+
+.right_inner_categorydetailsimagesdetails:hover .previmg:hover{border:1px solid black;}
+.right_inner_categorydetailsimagesdetails:hover .nextimg:hover{border:1px solid black;}
 
 .right_inner_categorydetailsimagesdetails .hover-image {
 	display:block; 

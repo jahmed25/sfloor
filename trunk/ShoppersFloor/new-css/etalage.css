@@ -450,6 +450,15 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 #quick-details-image .cloudzoom-gallery:hover {border:1px orange solid; padding:0px;cursor:pointer}
 
 #quick-details-content{ float:left; width:520px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}
+#quick-details-content .prevnext{margin-bottom:10px}
+#quick-details-content .previous{position: relative;border: 1px solid #DA7C0C; display:inline-block; padding: 4px 20px 5px; border-radius: 4px; border: 1px solid #DDD; color:Maroon; text-decoration:none; font-size:16px;}
+#quick-details-content .next{position: relative;border: 1px solid #DA7C0C; display:inline-block; padding: 4px 20px 5px; border-radius: 4px; border: 1px solid #DDD; color:Maroon; text-decoration:none; float:right; font-size:16px;}
+#quick-details-content .previous:hover{position: relative;border: 1px solid black; display:inline-block;}
+#quick-details-content .next:hover{position: relative;border: 1px solid black; display:inline-block;}
+#quick-details-content .previous:active{position: relative;top:1px;}
+#quick-details-content .next:active{position: relative;top:1px;}
+
+
 #quick-details-content  h1{ font-size:20px; text-transform:uppercase; font-weight:500; padding-bottom:10px;margin:0 0 10px 0px; color:#555; border-bottom:dotted 1px #EAEAEA  }
 
 #quick-details-content .quick-pricesection{width:400px}
@@ -481,7 +490,7 @@ div.etalage_description.rtl{ direction:rtl; text-align:right }
 #quick-details-content .quick-color ul li{ border:1px solid black; display:inline-table; margin:5px;}
 #quick-details-content .quick-color ul li:hover{ border:1px solid #FF8040; cursor:pointer;  transition: all 0.3s ease-out 0s;}
 #quick-details-content .quick-color ul li a{ text-decoration:none}
-#quick-details-content .wishlist-quick{ height:50px; border-bottom:#EAEAEA dotted 1px; font-size:15px; border-top:#EAEAEA dotted 1px; text-transform:uppercase; }
+#quick-details-content .wishlist-quick{ float:left; height:50px; border-bottom:#EAEAEA dotted 1px; font-size:15px; border-top:#EAEAEA dotted 1px; text-transform:uppercase; }
 #quick-details-content .wishlist-quick span{ border-right:#818181 dotted 1px; padding:0px 5px 0px 5px;line-height:50px}
 #quick-details-content .wishlist-quick span a{text-decoration:none; color:#818181}
 #quick-details-content .wishlist-quick span a:hover{color:#FF8040; transition: all 0.3s ease-out 0s;}
