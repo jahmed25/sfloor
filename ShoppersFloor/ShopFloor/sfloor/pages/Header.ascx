@@ -33,7 +33,7 @@
                         <ul class="links">
                            <%if(Session[Constant.Session.LOGED_IN_USER_ID]==null){ %>
                            <li class="first"  id="pop" ><a href="#" id="log"  title="Login and Create account">Log In / Register</a></li>
-                           <li ><a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">Checkout </a></li>
+                           <li ><a href='<%=ConfigUtil.hostURL() %>check-out' title="Checkout">Checkout </a></li>
                            <li class="last"><a href='<%=ConfigUtil.hostURL() %>Help' title="Help">Help</a></li>
                            <%}else{ %>
                            <li class="first"  id="Li1" >
@@ -43,7 +43,7 @@
                               <a href="<%=ConfigUtil.hostURL() %>Account" title="My Account">My Account</a>
                             </li>
                            <li>
-                              <a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">Checkout </a>
+                              <a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">check-out </a>
                            </li>
                            <li class="last"><a href='<%=ConfigUtil.hostURL() %>Help' title="Help">Help</a></li>
                            <%} %>
