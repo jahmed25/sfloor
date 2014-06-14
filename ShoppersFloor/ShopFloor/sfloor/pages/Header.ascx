@@ -22,7 +22,7 @@
                <div class="toplink ">
                   <div class="row-fluid">
                      <div class="span6">
-                        <div class="phone-number visible-desktop">
+                        <div class="phone-number">
                            <p>
                               <em class="icon-phone"></em>Call +110 123456
                            </p>
@@ -32,8 +32,8 @@
                         <!--p class="welcome-msg"> </p-->
                         <ul class="links">
                            <%if(Session[Constant.Session.LOGED_IN_USER_ID]==null){ %>
-                           <li class="first"  id="pop" ><a href="#" id="log"  title="My Account">Log In / Register</a></li>
-                           <li ><a href="" title="Log In">Checkout </a></li>
+                           <li class="first"  id="pop" ><a href="#" id="log"  title="Login and Create account">Log In / Register</a></li>
+                           <li ><a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">Checkout </a></li>
                            <li class="last"><a href='<%=ConfigUtil.hostURL() %>Help' title="Help">Help</a></li>
                            <%}else{ %>
                            <li class="first"  id="Li1" >
@@ -41,9 +41,9 @@
                            </li>
                            <li>
                               <a href="<%=ConfigUtil.hostURL() %>Account" title="My Account">My Account</a>
-                           </li>
-                           <li >
-                              <a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">check-out </a>
+                            </li>
+                           <li>
+                              <a href='<%=ConfigUtil.hostURL() %>Checkout' title="Checkout">Checkout </a>
                            </li>
                            <li class="last"><a href='<%=ConfigUtil.hostURL() %>Help' title="Help">Help</a></li>
                            <%} %>
@@ -51,33 +51,6 @@
                      </div>
                   </div>
                </div>
-               <%--mobile view--%>
-               <div class="header-content hidden-desktop">
-                  <div class="row-fluid">
-                     <h1 class="logo">
-                        <a href="<%=ConfigUtil.hostURL() %>Home" title="Shoppers floor" class="logo"><strong>Shoppers Floor</strong>
-                        <img src='<%=ConfigUtil.StaticPath() %>new-images/newlogo.png'  alt="Logo"></a>
-                     </h1>
-                     <br>
-                     <form id="search_mini_form" action="" method="get">
-                        <div class="form-search">
-                           <div class="search-content">
-                              <label for="search">
-                              Search:</label>
-                              <input autocomplete="off" id="search" name="q" onfocus="if(this.value == 'Search Here...') { this.value = ''; }"
-                                 onblur="this.value=!this.value?'Search Here...':this.value;" value="Search Here..."
-                                 class="input-text" maxlength="128" type="text">
-                              <button type="submit" title="Search" class="button">
-                              <i class="icon-search"></i>
-                              </button>
-                              <div style="display: none;" id="search_autocomplete" class="search-autocomplete">
-                              </div>
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-               <%--end--%>
                <%--Desktop view--%>
                <div class="header-content visible-desktop">
                   <div class="row-fluid">
@@ -167,7 +140,7 @@
                                                    <a class="imglist" href='<%=ConfigUtil.hostURL() %>Add-To-Cart' title='<%=CartDT.Rows[i]["SKUName"]%>'>
                                                    <img  src='<%=ConfigUtil.getServerPath() %><%=CartDT.Rows[i]["PathInternaldetailsSmallImage"] %>' /></a>
                                                    <div class="main-cont">
-                                                      <span class="cross" title="Delete item" sku='<%=CartDT.Rows[i]["SKU"]%>' cart></span> 
+                                                      <span class="cross-del" title="Delete item" sku='<%=CartDT.Rows[i]["SKU"]%>' cart></span> 
                                                       <p class="brand"><%=CartDT.Rows[i]["SKUBrand"]%></p>
                                                       <p class="empty"><%=CartDT.Rows[i]["SKUName"]%></p>
                                                       <p class="subtotal">
@@ -197,7 +170,7 @@
                </div>
             </div>
          </div>
-      
+      </div>
       <m:MenuUserControl ID="menu" runat="server" />
       <script type="text/javascript">
          //<![CDATA[
