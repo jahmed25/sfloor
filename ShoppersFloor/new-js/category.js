@@ -1,5 +1,7 @@
 jQuery(document).ready(function () {
 
+    ApplyPrevNext();
+
     jQuery("a[data='" + jQuery('#pTypeNav').text().trim() + "']").css('color', 'rgba(252,178,104,1)');
     //open popup
     // Ajax on click on brand links
@@ -126,7 +128,7 @@ function loadProduct() {
 	}).done(function (msg) {
 		// alert(jQuery(msg).filter("#categories").html());
 		if (jQuery(msg).filter("#categories").html() != undefined) {
-			jQuery("#categories").append(jQuery(msg).filter("#categories").html());
+		    jQuery("#categories").append(jQuery(msg).filter("#categories").html());
 			jQuery("#pageNo").val(jQuery(msg).filter("#pageNo").val());
 		}
 	});
@@ -159,4 +161,33 @@ function positionPopupQuick() {
         top: (jQuery(window).width() - jQuery('#overlay_form_quick').width()) / 7,
         position: 'absolute'
     });
+}
+
+function ApplyPrevNext() {
+
+    jQuery('[next]').live("click", function () {
+
+        var selectEl = jQuery('ul[sku="' + jQuery(this).attr('next') + '"]').find(".disp").removeClass('disp');
+        if (jQuery(selectEl).find('img').attr('src') == jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li:last').find('img').attr('src')) {
+            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li').hide('slow');
+            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li:first').show('slow').addClass('disp');
+        } else {
+            jQuery('ul[sku="' + jQuery(this).attr('next') + '"] li').hide('slow');
+            jQuery(selectEl).next().show('slow').addClass('disp'); ;
+        }
+
+
+    });
+    jQuery('[prev]').live("click", function () {
+        var selectEl = jQuery('ul[sku="' + jQuery(this).attr('prev') + '"]').find(".disp").removeClass('disp');
+        if (jQuery(selectEl).find('img').attr('src') == jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li:first').find('img').attr('src')) {
+            jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li').hide('slow');
+            jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li:last').show('slow').addClass('disp');
+        } else {
+            jQuery('ul[sku="' + jQuery(this).attr('prev') + '"] li').hide('slow');
+            jQuery(selectEl).prev().show('slow').addClass('disp'); ;
+        }
+
+    });
+
 }

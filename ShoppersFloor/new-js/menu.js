@@ -48,7 +48,7 @@ app.service('regService', function ($http) {
 			gender: scope.user.gender
 
 		};
-		$.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
+		jQuery.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
 					.success(function (msg) {
 						if (msg.errors != null) {
 							scope.$apply(function () {
@@ -66,7 +66,7 @@ app.service('regService', function ($http) {
 			email: scope.login.email,
 			pwd: scope.login.pwd
 		};
-		$.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
+		jQuery.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
 					.success(function (msg) {
 					console.log(msg);
 						if (msg.errors != null) {
@@ -86,7 +86,7 @@ app.service('regService', function ($http) {
 			action: 'checkEmail',
 			email: scope.login.email,
 		};
-		$.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
+		jQuery.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
 					.success(function (msg) {
 						if (msg.errors != null) {
 							scope.$apply(function () {
@@ -103,7 +103,7 @@ app.service('regService', function ($http) {
 			action: 'checkRegEmail',
 			email: scope.user.email,
 		};
-		$.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
+		jQuery.ajax({ method: 'POST', url: path+'sfloor/pages/AjaxService.aspx', data: param })
 					.success(function (msg) {
 						if (msg.errors != null) {
 							scope.$apply(function () {

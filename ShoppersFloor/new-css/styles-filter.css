@@ -156,3 +156,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 text-align:center;margin:0 1px 3px 0;line-height:20px}
 #size #li {display:inline-block;margin-bottom:2px;width:26px;height:18px; padding:2px 2px 2px 2px;}
 #size #li a:hover{border:1px solid orange;background:#fff;color:black}
+
+#cssmenu input[type=checkbox].css-checkbox {
+							  position: absolute; 
+							overflow: hidden; 
+							clip: rect(0 0 0 0); 
+							height:1px; 
+							width:1px; 
+							margin:-1px; 
+							padding:0;
+							border:0;
+						}
+
+#cssmenu input[type=checkbox].css-checkbox + label.css-label {
+							padding-left:20px;
+							height:15px; 
+							display:inline-block;
+							line-height:15px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:15px;
+							vertical-align:middle;
+							cursor:pointer;
+						}
+
+#cssmenu input[type=checkbox].css-checkbox:checked + label.css-label {
+							background-position: 0 -15px;
+						}
+						
+#cssmenu .css-label{ background-image:url(http://csscheckbox.com/checkboxes/lite-green-check.png); }
