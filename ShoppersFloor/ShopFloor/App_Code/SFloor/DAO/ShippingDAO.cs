@@ -62,7 +62,11 @@ namespace SFloor.DAO
             return GenericDAO.getDataTable("Select * from SHIPPING_MASTER where USER_ID='" + userID + "'");
             
         }
+        public static DataTable getShippinByEmailID(string userID)
+        {
+            return GenericDAO.getDataTable("Select * from SHIPPING_MASTER where EMAIL='" + userID + "'");
 
+        }
         public static DataTable getShipping(string id)
         {
            return
