@@ -20,6 +20,7 @@ public partial class CategoriesScroll : System.Web.UI.Page
     private string categoryTypeKey;
     private string categoryTypeId;
     public string selectPtype = null;
+    public int seq = 0;
     private void assignRequestParam()
     {
         NameValueCollection n = Request.QueryString;
@@ -64,7 +65,8 @@ public partial class CategoriesScroll : System.Web.UI.Page
         if (!StringUtil.isNullOrEmpty(Request.Params["pageNo"]))
             currentPage = Int32.Parse(Request.Params["pageNo"]);
         pageNo = (currentPage + 1).ToString();
-
+        seq=15*Int32.Parse(pageNo);
+            
         if (!StringUtil.isNullOrEmpty(sortPrice))
         {
             int sp = Int32.Parse(sortPrice);
@@ -165,6 +167,11 @@ public partial class CategoriesScroll : System.Web.UI.Page
             if (croshprice.InnerText == "")
                 croshpriceimg.Visible = false;
         }
+
     }
-    
+
+    public string next()
+    {
+        return (seq++).ToString();
+    }
 }

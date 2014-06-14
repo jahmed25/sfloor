@@ -77,7 +77,6 @@ public partial class sfloor_pages_AjaxService : System.Web.UI.Page
         Dictionary<string, string> dic = new Dictionary<string, string>();
         dic.Add("status",status.ToString());
         Session[Constant.Session.SHIPING_EMAIL]=email;
-        Session["tab"] = "3";
         sendResponse(dic);
 
     }

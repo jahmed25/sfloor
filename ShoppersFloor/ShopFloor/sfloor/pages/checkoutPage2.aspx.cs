@@ -22,6 +22,8 @@ public partial class sfloor_pages_checkoutPage2 : System.Web.UI.Page
             String userId = Session[Constant.Session.LOGED_IN_USER_ID] + "";
             if (!StringUtil.isNullOrEmpty(userId))
                 shipDT = ShippingDAO.getShippinByUserID(userId);
+            else
+                shipDT = ShippingDAO.getShippinByEmailID(Session[Constant.Session.SHIPING_EMAIL] + "");
         }
         catch
         {

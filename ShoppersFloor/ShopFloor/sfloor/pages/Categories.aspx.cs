@@ -26,6 +26,7 @@ using SFloor.Pages;
 public partial class Categories : GenericPage
 {
 
+    int seq = 0;
     DataTable dt = null;
     public string catUrl;
     public string catName;
@@ -38,6 +39,7 @@ public partial class Categories : GenericPage
     {
         if (!IsPostBack)
         {
+            seq = 0;
              BindGrid();
         }
     }
@@ -171,5 +173,7 @@ public partial class Categories : GenericPage
         return pType;
        
     }
-    
+    public string next() {
+        return (seq++).ToString();
+    }
 }

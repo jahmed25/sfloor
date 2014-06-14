@@ -17,6 +17,23 @@
     </script>
     <script type="text/javascript">
 
+        jQuery(document).ready(function () {
+            jQuery("[prev_item]").on("click", function () {
+                var currentSeq = window.top.jQuery("ul[sku='" + jQuery(this).attr('prev_item') + "'] ").parents("[sequence]").attr('sequence');
+                currentSeq = parseInt(currentSeq) - 1;
+                var sku = window.top.jQuery("[sequence='" + currentSeq + "']").attr('sku');
+                window.location = path + "sfloor/pages/QuickView.aspx?sku=" + sku;
+
+
+            });
+            jQuery("[next_item]").on("click", function () {
+                var currentSeq = window.top.jQuery("ul[sku='" + jQuery(this).attr('next_item') + "'] ").parents("[sequence]").attr('sequence');
+                currentSeq = parseInt(currentSeq) + 1;
+                var sku = window.top.jQuery("[sequence='" + currentSeq + "']").attr('sku');
+                window.location = path + "sfloor/pages/QuickView.aspx?sku=" + sku;
+
+            });
+        });
         CloudZoom.quickStart();
         function selectSize(txt) {
             $("li[namespace='sizeBtn']").css({ 'background-color': '#EBEBEB', 'color': 'black' })
@@ -69,14 +86,23 @@
             <%} %>
             </div>
             <div id="quick-details-content">
-		    <h1><%=(string)dt.Rows[0]["SKUName"] %></h1>
+		    <div class="prevnext">
+                <span><a href="#" class="previous" title="Previous Product" prev_item='<%=dt.Rows[0]["SKUCode"] %>'>Previous</a></span>
+                <span><a href="#" class="next" title="Next Product" next_item='<%=dt.Rows[0]["SKUCode"] %>'>Next</a></span>
+             </div>
+             <h1><%=(string)dt.Rows[0]["SKUName"] %></h1>
 			<div class="quick-priceqty">
 			<div class="quick-price">
 			<div  class="discount"><span>Discount: </span><span>20% + 10%</span></div>
 			<div  class="oldprice"><span>Rs. </span><span class="cut"><%=dt.Rows[0]["MRP"]+"" %></span></div>
 			<div  class="rs"><span>Rs. </span><span><%=dt.Rows[0]["SpecialPrice"]+""%></span></div>
-			<div  class="avl"> <span>Availability:</span><span class="instock"><%=avalibilty%></span></div>
+			<div  class="avl"> <span>Availability:</span><span class="instock"><%=avalibilty%> &nbsp;&nbsp;
+                        <%if(!"Normal".Equals(dt.Rows[0]["SKUClassification"] + "")){%>
+                         (You can choose different size or color combination)
+                         <%} %>
+            </span></div>
             <div  class="avl"><span>SKU:</span><span class="instock"><%=(string)dt.Rows[0]["SKUCode"]%></span></div>
+
             </div>
 			
             <%if (inventory != null && inventory > 0)
@@ -95,14 +121,7 @@
 		</div>
 			</div>
 			</div>
-			<%}else { %>
-                    <p style='color:Red'>Items is sold out
-                        <%if(!"Normal".Equals(dt.Rows[0]["SKUClassification"] + "")){%>
-                         ,You can choose different size or color combination
-                         <%} %>
-                         .
-                    </p>
-                <%} %>
+			<%}%>
                 <span id='errorSize' style='color:red;display:none'>Please select the size</span>
             <%if ("true".Equals(isSize))
               { %>
@@ -138,6 +157,8 @@
 			<div class="wishlist-quick"><span><a href="#" title="add to wishlist" inner='true' name='saveLater' sku="<%=dt.Rows[0]["SKUCode"] %>">add to wishlist</a></span>
 			<span><a href="#" title="email to a friend">email to a friend</a></span>
 			<span><a href="#" title="share">share</a></span></div>
+
+            
             <input type="hidden" id='style' value='<%=style%>' />
         <input type="hidden" id='color' value='<%=color%>' />
         <input type="hidden" id='isColor' value='<%=isColor%>' />

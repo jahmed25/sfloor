@@ -91,7 +91,8 @@
 	            }
 	        });
 	    });
-	        function submitForm() {
+	    function submitForm() {
+	       
 	            $.ajax({
 	                type: "POST",
 	                url: path + 'sfloor/pages/AjaxService.aspx?action=addShipping',
@@ -157,28 +158,28 @@
 				<tr>
 					<th>City*</th>
 					<td>
-						<input type="text" name="city" value='<%=shipDT.Rows[0]["CITY"] %>' id="cityTxt" ng-keyup="getCity()" required ng-model="ship.city"/>
+						<input type="text" name="city" id="cityTxt" ng-keyup="getCity()" required ng-model="ship.city"/>
 						<small class="error" ng-show="cForm.city.$error.required  && !cForm.city.$pristine">City required.</small>
 					</td>
 				</tr>
 				<tr>
 					<th>State*</th>
 					<td>
-						<input type="text" name="state" value='<%=shipDT.Rows[0]["STATE"] %>' id='stateTxt' required  updateVal ng-model="ship.state"/>
+						<input type="text" name="state"  id='stateTxt' required  updateVal ng-model="ship.state"/>
 						<small class="error" ng-show="cForm.state.$error.required  && !cForm.state.$pristine ">State required.</small>
 					</td>
 				</tr>
 				<tr>
 					<th>Address street</th>
 					<td>
-						<textarea name="address"   spellcheck="true" ng-model="ship.address"><%=shipDT.Rows[0]["ADDRESS"]%></textarea>
+						<textarea name="address"   spellcheck="true" ng-model="ship.address"></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td>
 					</td>
 					<td>
-						<button class="btn_shipinfo" ng-disable="cForm.$invalid"  onclick='submitForm()'>Continue</button>
+						<button class="btn_shipinfo" ng-disabled="cForm.$invalid" id="submitBtn" onclick='submitForm()' >Continue</button>
 					</td>
 				</tr>
 			</table>
