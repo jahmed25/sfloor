@@ -49,8 +49,11 @@
 	                    url: path + 'sfloor/pages/AjaxService.aspx?action=getCityState',
 	                    data: { pin: ui.item.label },
 	                    success: function (data) {
-	                        $("#cityTxt").val(data.city);
-	                        $("#stateTxt").val(data.state);
+                            var scope = angular.element($("body")).scope();
+                               scope.$apply(function () {
+                                   scope.ship.city = data.city;
+                                   scope.ship.state= data.state;
+                               });
 	                    },
 	                    error: function (msg) {
 	                        alert(msg.status + ' ' + msg.statusText);
@@ -60,8 +63,7 @@
 	        });
 	        $("#cityTxt").autocomplete({
 	            source: function (request, response) {
-                    alert(1)
-	                $.ajax({
+                     $.ajax({
 	                    type: "POST",
 	                    url: path + 'sfloor/pages/AjaxService.aspx?action=getCity',
 	                    data: { startWith: request.term },
