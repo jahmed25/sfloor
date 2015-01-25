@@ -5,6 +5,7 @@ jQuery(document).ready(function () {
         if(searchKey.length==0){
             jQuery("#datalist_categoryname tr").show();
             return;
+
         }
         jQuery("#datalist_categoryname tr").hide();
         jQuery("#datalist_categoryname tr li a").each(function(){
