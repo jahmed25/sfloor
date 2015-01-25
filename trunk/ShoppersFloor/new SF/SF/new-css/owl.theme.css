@@ -1,0 +1,136 @@
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.3
+*/
+
+.owl-theme .owl-controls{
+	margin-top: 10px;
+	text-align: center;
+}
+
+/* Styling Next and Prev buttons
+ */
+
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(../new-images/loader.gif) no-repeat center center
+}
+.owl-pagination{display:none}
+.home_button .owl-prev{background:url("../new-images/btn-slideshow.png") no-repeat;
+    border: 2px solid rgb(214, 214, 214);
+    bottom: 10px;
+    cursor: pointer;
+    display: block;
+    height: 35px;
+    right:150px;
+    z-index:100;
+    position: absolute;
+    text-indent: -9999px;
+    transition: background-position 200ms ease 0s;
+    width: 35px;
+    }
+.home_button .owl-next{background: url("../new-images/btn-slideshow.png") no-repeat 100% 0%;
+    border: 2px solid rgb(214, 214, 214);
+    bottom: 10px;
+    right:100px;
+    cursor: pointer;
+    display: block;
+    height: 35px;
+    z-index:100;
+    position: absolute;
+    text-indent: -9999px;
+    transition: background-position 200ms ease 0s;
+    width: 35px;
+    }
+.home_button .owl-next:hover{background-position:100% 100%}
+.home_button .owl-prev:hover{background-position:0% 100%}
+
+.catdetail_button .owl-next{background:url(../new-images/pagination.png) no-repeat; background-position:-51px 0px; width: 51px; height: 41px; position: absolute;
+    right: 0; top:110px; float:right; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+
+.catdetail_button .owl-next:hover{background:url(../new-images/pagination.png) no-repeat; background-position:-153px 0px; width: 51px; height: 41px; position: absolute;
+    right: 0; top:110px; float:right; z-index:100; text-indent: -9999px;}
+
+.catdetail_button .owl-prev{background:url(../new-images/pagination.png) no-repeat; background-position:0   px 0px; width: 51px; height: 41px; position: absolute;
+    top:110px; float:right; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+
+.catdetail_button .owl-prev:hover{background:url(../new-images/pagination.png) no-repeat; background-position:-102px 0px; width: 51px; height: 41px; position: absolute;
+     top:110px; float:right; z-index:100; text-indent: -9999px;}
+
+.collection-img .owl-next{background:url(../new-images/collection-img.png) no-repeat; background-position:-43px 0px; width: 20px; height: 22px; position: absolute;
+    right: 71%; top:-35px; float:right; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+.collection-img .owl-next:hover{border-bottom:1px solid black}
+
+.collection-img .owl-prev{background:url(../new-images/collection-img.png) no-repeat; background-position:0px 0px; width: 20px; height: 22px; position: absolute;
+     top: -35px; left:255px; float:right; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+.collection-img .owl-prev:hover{border-bottom:1px solid black}
+
+
+.women-arr .owl-prev{background:url(../new-images/collection-img.png) no-repeat; background-position:0px 0px; width: 20px; height: 22px; position: absolute;
+     top:-35px; float:right; left:21px; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+.women-arr .owl-prev:hover{border-bottom:1px solid black}
+
+.women-arr .owl-next{background:url(../new-images/collection-img.png) no-repeat; background-position:-43px 0px; width: 20px; height: 22px; position: absolute;
+     top: -35px; left:46px; float:right; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+.women-arr .owl-next:hover{border-bottom:1px solid black}
+
+.collection-img .owl-pagination, .women-arr .owl-pagination{display:block;}
+.offermenu .owl-next{background:url(../new-images/pagination.png) no-repeat; background-position:-51px 0px; width: 51px; height: 41px; position: absolute;
+    right: 0; top:50px; float:right; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+
+.offermenu .owl-next:hover{background:url(../new-images/pagination.png) no-repeat; background-position:-153px 0px; width: 51px; height: 41px; position: absolute;
+    right: 0; top:50px; float:right; z-index:100; text-indent: -9999px;}
+
+.offermenu .owl-prev{background:url(../new-images/pagination.png) no-repeat; background-position:0   px 0px; width: 51px; height: 41px; position: absolute;
+    top:50px; float:right; z-index:100; text-indent: -9999px;transition: background-position 200ms ease 0s;}
+
+.offermenu .owl-prev:hover{background:url(../new-images/pagination.png) no-repeat; background-position:-102px 0px; width: 51px; height: 41px; position: absolute;
+     top:50px; float:right; z-index:100; text-indent: -9999px;}

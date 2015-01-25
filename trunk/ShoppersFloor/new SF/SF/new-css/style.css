@@ -180,9 +180,9 @@ box-shadow: 1px 1px 8px 0px rgba(50, 50, 50, 0.2);}
 #account_tabs .menu li{padding:0; margin:0; list-style:none;text-align:center; }
 #account_tabs .menu li a{ text-align:center; padding-right:5px ; display:block; text-decoration:none;cursor:pointer; }
 #account_tabs .menu li a span{line-height:30px;  text-align:left; font-size:14px; font-weight:200; display:block; padding:0px 10px; }
-#account_tabs .menu li a span:hover{color:orange}
+#account_tabs .menu li a span:hover{color:#EF6910}
 #account_tabs .menu li a.actives, .menu li a.actives:hover{line-height:30px;  }
-#account_tabs .menu li a.actives span, .menu li a.actives:hover span{color:orange; outline:none}
+#account_tabs .menu li a.actives span, .menu li a.actives:hover span{color:#EF6910; outline:none}
 #account_tabs table{ border-collapse:collapse; border: 1px solid #F2F2F2}
 #account_tabs td{padding:5px 0px}
 #account_tabs input[type="text"], input[type="number"], input[type="password"], input[type="email"] {
