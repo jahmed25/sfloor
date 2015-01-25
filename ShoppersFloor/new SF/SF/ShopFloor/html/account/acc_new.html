@@ -1,0 +1,454 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Account</title>
+<link href="style.css" type="text/css" rel="stylesheet"/>
+<script src="jquery-1.8.3.min.js" type="text/javascript"></script>
+</head>
+<script type="text/javascript">
+$(document).ready(function(e){
+    $('.item').click(function (e){
+        if($(this).next('.item-data').css('display') != 'block'){
+            $('.active').slideUp('fast').removeClass('active');
+            $(this).next('.item-data').addClass('active').slideDown('slow');
+        } else {
+            $('.active').slideUp('fast').removeClass('active');
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#edit_profile').on('click',function(){
+	$('#personal_details').hide();
+	$('#edit_personal_details').show();
+	});
+	$('#btn_personal_details').on('click',function(){
+	$('#edit_personal_details').hide();
+	$('#personal_details').show();
+	});
+	$('#edit_address').on('click', function(){
+	$('#address_detail').hide();
+	$('#edit_address_detail').show();
+	});
+	$('#btn_add_cancel').on('click',function(){
+	$('#edit_address_detail').hide();
+	$('#address_detail').show();
+	});
+});
+</script>
+<script type="text/javascript">     $(document).ready(function () { initTabs(); }); function initTabs() { $('#accounttabMenu a').bind('click', function (e) { e.preventDefault(); var thref = $(this).attr("href").replace(/#/, ''); $('#accounttabMenu a').removeClass('actives'); $(this).addClass('actives'); $('#accounttabContent div.content').removeClass('actives'); $('#' + thref).addClass('actives'); }); } </script>
+<body>
+<div  id="account_tabs">
+	<div id="accounttabMenu">
+		<ul class="menu">
+			<li><a href="mydetails" class="actives"><span>My Details</span></a></li>
+			<li><a href="order_details"><span>Orders Details</span></a></li>
+			<li><a href="adddetails"><span>Address Details</span></a></li>
+            <li><a href="changepassword"><span>Change Password</span></a></li>
+			<li><a href="creditbalance"><span>Credit</span></a></li>
+			<li><a href="wishlistitem"><span>Wishlist</span></a></li>
+
+		</ul>
+	</div>
+	<div id="accounttabContent">
+		<div id="mydetails" class="content actives">
+			<div class="mydetails">
+				<h3>My Details</h3>
+				<div class="mydetailsleft">
+                    <table id="personal_details">
+					<tr>
+						<td>
+							First Name
+						</td>
+						<td>
+							--
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Last Name
+						</td>
+						<td>
+							--
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Email Id
+						</td>
+						<td>
+							--
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Gender
+						</td>
+						<td>
+							--
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Mobile No.
+						</td>
+						<td>
+							--
+						</td>
+					</tr>
+					</table>
+                    
+            		<table style="display:none" id="edit_personal_details">
+					<tr>
+						<td>
+							First Name
+						</td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Last Name
+						</td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Email Id
+						</td>
+						<td>
+							<input type="email">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Gender
+						</td>
+						<td>
+							Male&nbsp;&nbsp;<input type="radio" value="male">&nbsp;&nbsp;|&nbsp;&nbsp;Female&nbsp;&nbsp;<input type="radio" value="female">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Mobile No.
+						</td>
+						<td>
+							<input type="text">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input class="btn_save" type="button" value="Save">
+							<input class="btn_cancel" id="btn_personal_details" type="button" value="Cancel">
+						</td>
+					</tr>
+					</table>
+            
+				</div>
+				<div class="mydetailsright">
+					<div style="" class="userimage"><img src="blank-user.png"/></div>
+                    <div class="uploadimage file_browse_wrapper">
+						<input type='file' class='file_browse'></div>
+                        <input type="button" class="btn_save" value="Save Image">
+				</div>
+                                       <span class="edit"><a href="#" id="edit_profile">Edit Profile</a></span>
+			    
+			</div>
+		</div>
+		<div id="order_details" class="content">
+			<div class="mydetails">
+				<h3>Orders Details</h3>
+				<div class='container'>
+					<div class='item'>
+						<span>Order No : #301273</span>|<span>Order Date : 08/03/2014</span>
+					</div>
+					<div class='item-data'>
+						<div class="status">
+							<p>
+								Payment Information : CashOnDelivery
+							</p>
+							<p>
+								Order Status : PendingConfirmation
+							</p>
+							<p>
+								Estimated delivery : 2 to 5 working days
+							</p>
+						</div>
+						<div class="cancel_order">
+							<input type="button" value="Cancel Order">
+						</div>
+						<table>
+						<tr>
+							<td>
+								Item
+							</td>
+							<td>
+								Description
+							</td>
+							<td>
+								Unit Price(Rs.)
+							</td>
+							<td>
+								Quantity
+							</td>
+							<td>
+								Sub Order No.
+							</td>
+							<td>
+								Sub Total
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="image1.jpg" </td>
+								<td>
+									Name
+								</td>
+								<td>
+									200
+								</td>
+								<td>
+									1
+								</td>
+								<td>
+									8736778
+								</td>
+								<td>
+									200
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5" class="right">
+									Cash on delivery charges
+								</td>
+								<td>
+									200.00
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5" class="right">
+									Shiping charges
+								</td>
+								<td>
+									49.00
+								</td>
+							</tr>
+							<tr>
+								<td colspan="5" class="right">
+									Total
+								</td>
+								<td>
+									249.00
+								</td>
+							</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="adddetails" class="content">
+				<div class="mydetails">
+					<h3>Address Details</h3>
+					<div class="myaddress">
+						<table id="address_detail">
+						<tr>
+							<td>
+								First Name*
+							</td>
+							<td>
+								--
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Last name*
+							</td>
+							<td>
+								--
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Phone*
+							</td>
+							<td>
+								--
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Address*
+							</td>
+							<td>
+								--
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Postcode*
+							</td>
+							<td>
+								--
+							</td>
+						</tr>
+						<tr>
+							<td>
+								City*
+							</td>
+							<td>
+								--
+							</td>
+						</tr>
+						<tr>
+							<td>
+								State/Region*
+							</td>
+							<td>
+								--
+							</td>
+						</tr>
+						</table>
+						<table id="edit_address_detail" style="display:none">
+						<tr>
+							<td>
+								First Name*
+							</td>
+							<td>
+								<input type="text" required/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Last name*
+							</td>
+							<td>
+								<input type="text" required/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Phone*
+							</td>
+							<td>
+								<input type="text" required/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Address*
+							</td>
+							<td>
+								<input type="text" required/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Postcode*
+							</td>
+							<td>
+								<input type="text" required/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								City*
+							</td>
+							<td>
+								<input type="text" required/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								State/Region*
+							</td>
+							<td>
+								<input type="text" required/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<input class="btn_save" type="button" value="Save">
+								<input class="btn_cancel" id="btn_add_cancel" type="button" value="Cancel">
+							</td>
+						</tr>
+						</table>
+					</div>
+					<div class="myaddright">
+						<p>
+							<a href="#" id="edit_address">Edit Address</a>
+						</p>
+					</div>
+				</div>
+			</div>
+            
+            <div id="changepassword" class="content">
+				<div class="mydetails">
+					<h3>Change Password</h3>
+					<div class="myaddress">
+					<table>
+					<tr>
+						<td>
+							Password
+						</td>
+						<td>
+							<input type="text" placeholder="Enter new password"/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Retype
+						</td>
+						<td>
+							<input type="text" placeholder="Retype"/>
+						</td>
+					</tr>
+					<tr>
+                    <td></td>
+						<td>
+							<input class="btn_save" type="button" value="Save">
+						</td>
+					</tr>
+					</table>
+			
+                    </div>
+				</div>
+			</div>
+            <div id="creditbalance" class="content">
+				<div class="mydetails">
+					<h3>Credit</h3>
+					<div class="myaddress">
+					<p>You account have <i>0.00</i> Credit balance</p>
+                    </div>
+				</div>
+			</div>
+            
+            <div id="wishlistitem" class="content">
+				<div class="mydetails">
+					<h3>Wishlist</h3>
+					
+					<div class="wishlistitem">
+                    <a href="#" class="cross" title="Remove from wishlist"></a>
+                    <div class="wishlist_image"><img src="image1.jpg" height="140px"></div>
+                    <div class="wishlist_desc">
+                    <p class="brand">Brand</p>
+                    <p class="name">Name</p>
+                    <p class="crossprice">Price: <span>1200.00</span></p>
+                     <p class="price">Our Price: <span>1111.00</span></p>
+                    <p>Wishlist Date</p>
+                    <p><input type="button" class="btn_save" value="Buy Now"></p>
+                    </div>
+                    </div>
+						
+            		</div>
+			</div>
+   
+   
+    </div>
+    
+	</body>
+	</html>

@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Tabbed Content</title>
+    <script src="tabcontent.js" type="text/javascript"></script>
+    <link href="checkoutpage_n.css" rel="stylesheet" type="text/css" />
+</head>
+<body >
+    <div class="ckeckoutmain_sec">
+<header><div id="header">
+
+<div class="logo"><img src="images/newlogo.png" width="220px" height="50px"></div>
+<div><span>Checkout</span></div>
+<div>
+<input type="button" value="Back to shop" class="btn_shipinfo bck_to_shp">
+</div>
+
+</div> </header>
+
+    <div class="ckeckoutmain">
+        <ul class="tabs">
+            <li><a href="#view1">Email Or Login <span>1</span></a></li>
+            <li><a href="#view2">Shipping <span>2</span></a></li>
+            <li><a href="#view3">Payment <span>3</span></a></li>
+        </ul>
+        <div class="tabcontents">
+              <table>
+	<tr><th>Email Address:</th><td><input type="email" name="txt_email"	></td></tr>
+	<tr><th></th><td><p>Your order details will be sent to this email address.</p></td></tr>
+	<tr><th></th><td><p><input type="radio" name="chkout_radio">&nbsp;&nbsp;Continue without password <br><i>(You do not need a password)</i></p></td></tr>
+	<tr><th></th><td><p><input type="radio">&nbsp;&nbsp;I have a Shoppersfloor account and password<br><i>	Sign in to your account and checkout faster</i></p></td></tr>
+	<tr><td></td><td><input class="btn_shipinfo" type="button" value="Submit"></td></tr>
+	
+	</table>
+</div></div>
+<section>
+
+<div class="order-summary">
+    <div class="order-summary_head">Order Summary</div>
+    <table><thead class="header">
+            <tr>
+                <th>Product</th>
+             	<th>Qty</th>
+                <th>Delivery</th>
+                <th class="price-col">Price</th>
+            </tr></thead>
+		<!--Loop content-->
+		<tr class="order_cont">
+                <td class="image_sec"><img alt="" src="images/thumbs/image3.jpg"><br>
+                            <p class="">Brand name</p>
+                            <p class="name">Product Name</p>
+                            <p class=""> <span> Size : L  </span><span> color : Red  </span></p>
+                </td>
+                <td class="">2</td>
+                <td class="">3-6<small class="">Business days</small></td>
+                <td class="">Rs.2798</td>
+        </tr>
+        <!--End loop-->
+		<tr  class="subtotal">
+                <td colspan="3">Subtotal</td>
+                 <td>Rs.2798</td>
+            </tr>
+            <tr class="subtotal">
+              <td colspan="3" class="">Cash on Delivery Charges</td>
+                    <td class="">49</td>
+			</tr>
+			<tr class="subtotal">
+			        <td colspan="3" class="">Shipping Charges</td>
+                    <td class="shipping">Free</td>
+			</tr>
+            <tr class="total">
+                <td colspan="3">Total</td>
+                <td class="sel-total">Rs.2798</td>
+            </tr>
+    </table>
+	</div>
+</section>
+</div>
+<footer>
+<div class="chkout_footer">
+<div class="chkout_footsec">
+<div><span><a href="#">About us</a></span>|<span><a href="#">Help</a></span>|<span><a href="#">Privacy</a></span>|<span><a href="#">Contact</a></span>|
+<span><a href="#">Terms & Conditions</a></span></div>
+<div><span>© 2014 SHOPPERSFLOOR.COM. ALL RIGHTS RESERVED.</span></div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

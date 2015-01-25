@@ -1,0 +1,154 @@
+.pt_custommenu {
+    position:relative;
+    z-index:1000;
+    font-size: 14px;
+    margin: 0 auto;
+    border-bottom: 4px solid #d6d6d6;
+    border-radius:8px 8px 0px 0px.  
+}
+.pt_custommenu div.pt_menu {
+    float: left;
+}
+.pt_custommenu div.pt_menu .parentMenu a,
+.pt_custommenu div.pt_menu .parentMenu span.block-title{
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    line-height: 1.3em;
+    color: #333;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+}
+.pt_custommenu div.pt_menu.active {
+background: rgba(252,178,104,1);
+background: -moz-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(252,178,104,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to bottom, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcb268', endColorstr='#ffffff', GradientType=0 );
+
+    border-radius:8px 8px 0px 0px  
+}
+.pt_custommenu div.popup {
+    position: absolute;
+    z-index: 3000;
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 20px 0 20px;
+    margin: 0;
+    border-top: 4px solid rgba(245,178,110,1);
+    border-bottom: 4px solid rgba(245,178,110,1);
+}
+.pt_custommenu div.pt_menu .parentMenu a:hover,
+.pt_custommenu div.pt_menu .parentMenu span.block-title:hover,
+.pt_custommenu #pt_menu_link ul li a.act,
+.pt_custommenu #pt_menu_link ul li a:hover,
+.pt_custommenu div.pt_menu.act {
+   
+background: rgba(252,178,104,1);
+background: -moz-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(252,178,104,1)), color-stop(100%, rgba(255,255,255,1)));
+background: -webkit-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: -o-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: -ms-linear-gradient(top, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+background: linear-gradient(to bottom, rgba(252,178,104,1) 0%, rgba(255,255,255,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcb268', endColorstr='#ffffff', GradientType=0 );
+border-radius:8px 8px 0px 0px 
+}
+.pt_custommenu div.popup a {
+    text-decoration: none;
+    display:block;
+    line-height: 25px;
+    
+}
+
+
+.pt_custommenu .itemMenu h4.level1,
+.pt_custommenu .itemMenu a.level1{
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #333;
+}
+.pt_custommenu .itemMenu a.level1:hover { text-decoration: underline; }
+.pt_custommenu .itemMenu h4.level1,
+.pt_custommenu .itemSubMenu h4.level2 span{
+    color: #897725;
+}
+.pt_custommenu .itemSubMenu h4.level2,
+.pt_custommenu .itemSubMenu a.level2,
+.pt_custommenu .itemSubMenu h4.level3,
+.pt_custommenu .itemSubMenu a.level3,
+.pt_custommenu .itemMenu a.level1.nochild{
+    color: #333;
+    text-transform: none;
+    font-weight: normal;
+    font-size: 12px;
+}
+.pt_custommenu .itemSubMenu a.level2:hover,
+.pt_custommenu .itemMenu a.level1.nochild:hover{
+    text-decoration: underline;
+    color:Orange
+}
+.pt_custommenu div.popup a.actParent {
+    color: #4D4D4D;
+}
+.pt_custommenu div.popup a.act {
+    color: #A52A2A !important;
+}
+.pt_custommenu div.column {
+    float: left;
+    width: 170px;
+    padding: 0 0 0 20px;
+    border-right: 1px solid #e3e3e3;
+}
+.pt_custommenu div.column.last {
+    border-right: 0 none;
+    margin-right: 0;
+    padding-right: 0;
+}
+.pt_custommenu div.itemSubMenu {
+    
+}
+
+.pt_custommenu .block2{
+    margin-top: 10px;
+    float: left;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+.pt_custommenu div.popup .block1{
+    overflow: hidden;
+    float: left;
+}
+.pt_custommenu div.popup .block1 .column{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+.pt_custommenu div.popup .blockright img{
+    max-width: 100%;
+} 
+
+.pt_custommenu div.pt_menu .parentMenu p{
+    margin: 0;
+    padding: 0;
+}
+.pt_custommenu #pt_menu_link{
+    padding: 0;
+}
+.pt_custommenu #pt_menu_link .parentMenu ul li{
+    float: left;
+    list-style: none;
+}
+.pt_custommenu #pt_menu_link .parentMenu ul li a{
+    float: left;
+    padding: 0 10px;
+    display: block;
+}
+.pt_custommenu .clearBoth {
+    clear:both;
+}
+
