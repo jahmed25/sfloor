@@ -1,0 +1,713 @@
+a {
+	text-decoration:none;
+}
+.body-s {
+margin:0 auto;
+	width: 800px;
+height:450px}
+@media screen and (max-width: 600px) {
+	.body s {
+		padding: 20px;
+	}
+}.sfloor-form {
+height:540px;	margin: 0;
+	max-width: 800px;outline: none;
+	z-index:1000px;
+	border-radius:10px;
+	box-shadow: 0 0 20px rgba(0,0,0,.3);
+	font: 13px/1.55 'Open Sans', Helvetica, Arial, sans-serif;
+	color: #666;
+}
+.x{ font-size:25px;  float:right;text-decoration:none; right:10px;
+   position:absolute; z-index:1000px; }
+.sfloor-form * {
+	margin: 0;
+	padding: 0;
+}
+.sfloor-form .headtitle {
+	display: block;
+	margin-bottom:20px;
+	padding: 10px 0px 10px 30px;	
+	font-size: 23px;
+	text-align:center;
+	
+	font-weight: 300;
+	
+	color: #232323;
+}
+.sfloor-form .headtitle span { border-bottom:2px solid #ef6910;}
+
+.sfloor-form section {
+	margin-bottom: 20px;
+	
+}
+.sfloor-form a {
+	color: #2da5da;
+}
+.sfloor-form .label {
+	display: block;
+	margin-bottom: 6px;
+	line-height: 19px;
+}
+.sfloor-form .label.col {
+	margin: 0;
+	padding-top: 10px;
+}
+.sfloor-form .note {
+	margin-top: 6px;
+	padding: 0 1px;
+	font-size: 11px;
+	line-height: 15px;
+	color: #999;
+}
+.sfloor-form .input,
+.sfloor-form .select,
+.sfloor-form .textarea,
+.sfloor-form .radio,
+.sfloor-form .checkbox,
+.sfloor-form .toggle {
+	position: relative;
+	display: block;
+	width:200px
+}
+
+.sfloor-form .button{ margin-right:20px}
+.sfloor-form .input input,
+.sfloor-form .select select,
+.sfloor-form .textarea textarea {
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	height: 39px;
+	padding: 8px 10px;
+	outline: none;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 0;
+	background: #fff;
+	font: 15px/19px 'Open Sans', Helvetica, Arial, sans-serif;
+	color: #404040;
+	appearance: normal;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+
+/**/
+/* file inputs */
+/**/
+.sfloor-form .input-file .button {
+	position: absolute;
+	margin-right:10px;
+	float: none;
+	width:200px;
+	height: 31px;
+	margin: 0;
+	padding: 0 20px;
+	font-size: 13px;
+	line-height: 31px;
+}
+.sfloor-form .input-file .button:hover {
+	box-shadow: none;
+}
+.sfloor-form .input-file .button input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0;
+	font-size: 30px;
+	cursor: pointer;
+	opacity: 0;
+}
+
+
+/**/
+/* selects */
+/**/
+
+/**/
+/* textareas */
+/**/
+.sfloor-form .textarea textarea {
+	height: auto;
+	resize: none;
+}
+.sfloor-form .textarea-resizable textarea {
+	resize: vertical;	
+}
+.sfloor-form .textarea-expandable textarea {
+	height: 39px;
+}
+.sfloor-form .textarea-expandable textarea:focus {
+	height: auto;
+}
+
+
+/**/
+/* radios and checkboxes */
+/**/
+.sfloor-form .radio,
+.sfloor-form .checkbox {
+	margin-bottom: 4px;
+	padding-left: 27px;
+	font-size: 15px;
+	line-height: 27px;
+	color: #404040;
+	cursor: pointer;
+}
+.sfloor-form .radio:last-child,
+.sfloor-form .checkbox:last-child {
+	margin-bottom: 0;
+}
+.sfloor-form .radio input,
+.sfloor-form .checkbox input {
+	position: absolute;
+	left: -9999px;
+}
+.sfloor-form .radio i,
+.sfloor-form .checkbox i {
+	position: absolute;
+	top: 5px;
+	left: 0;
+	display: block;
+	width: 13px;
+	height: 13px;
+	outline: none;
+	border-width: 2px;
+	border-style: solid;
+	background: #fff;
+}
+.sfloor-form .radio i {
+	border-radius: 50%;
+}
+.sfloor-form .radio input + i:after,
+.sfloor-form .checkbox input + i:after {
+	position: absolute;
+	opacity: 0;
+	transition: opacity 0.1s;
+	-o-transition: opacity 0.1s;
+	-ms-transition: opacity 0.1s;
+	-moz-transition: opacity 0.1s;
+	-webkit-transition: opacity 0.1s;
+}
+.sfloor-form .radio input + i:after {
+	content: '';
+	top: 4px;
+	left: 4px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+}
+.sfloor-form .radio input:checked + i:after,
+.sfloor-form .checkbox input:checked + i:after {
+	opacity: 1;
+}
+.sfloor-form .inline-group {
+	margin: 0 -30px -4px 0;
+}
+.sfloor-form .inline-group:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.sfloor-form .inline-group .radio,
+.sfloor-form .inline-group .checkbox {
+	float: left;
+	margin-right: 30px;
+}
+.sfloor-form .inline-group .radio:last-child,
+.sfloor-form .inline-group .checkbox:last-child {
+	margin-bottom: 4px;
+}
+
+
+/**/
+/* toggles */
+/**/
+.sfloor-form .toggle {
+	margin-bottom: 4px;
+	padding-right: 61px;
+	font-size: 15px;
+	line-height: 27px;
+	color: #404040;
+	cursor: pointer;
+}
+.sfloor-form .toggle:last-child {
+	margin-bottom: 0;
+}
+.sfloor-form .toggle input {
+	position: absolute;
+	left: -9999px;
+}
+.sfloor-form .toggle i {
+	content: '';
+	position: absolute;
+	top: 4px;
+	right: 0;
+	display: block;
+	width: 49px;
+	height: 17px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 12px;
+	background: #fff;
+}
+.sfloor-form .toggle i:after {
+	content: 'OFF';
+	position: absolute;
+	top: 2px;
+	right: 8px;
+	left: 8px;
+	font-style: normal;
+	font-size: 9px;
+	line-height: 13px;
+	font-weight: 700;
+	text-align: left;
+	color: #5f5f5f;
+}
+.sfloor-form .toggle i:before {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	top: 4px;
+	right: 4px;
+	display: block;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	opacity: 1;
+	transition: right 0.2s;
+	-o-transition: right 0.2s;
+	-ms-transition: right 0.2s;
+	-moz-transition: right 0.2s;
+	-webkit-transition: right 0.2s;
+}
+.sfloor-form .toggle input:checked + i:after {
+	content: 'ON';
+	text-align: right;
+}
+.sfloor-form .toggle input:checked + i:before {
+	right: 36px;
+}
+
+
+/**/
+/* ratings */
+/**/
+.sfloor-form .rating {
+	margin-bottom: 4px;
+	font-size: 15px;
+	line-height: 27px;
+	color: #404040;
+}
+.sfloor-form .rating:last-child {
+	margin-bottom: 0;
+}
+.sfloor-form .rating input
+{
+	position: absolute;
+	left: -9999px;
+}
+.sfloor-form .rating label
+{
+	display: block;
+	float: right;
+	height: 17px;
+	margin-top: 5px;
+	padding: 0 2px;
+	font-size: 17px;
+	line-height: 17px;
+	cursor: pointer;
+}
+.sfloor-form .button {
+	height: 39px;
+	overflow: hidden;
+	margin: 10px 0 0 20px;
+	padding: 0 25px;
+	outline: none;
+	border: 0;
+	font: 300 15px/39px 'Open Sans', Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+/**/
+/* icons */
+/**/
+/**/
+/* grid */
+/**/
+.sfloor-form .row {
+	margin: 0 -15px;
+}
+.sfloor-form .row:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.sfloor-form .col {
+	float: left;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.sfloor-form .col-1 {
+	width: 8.33%;
+}
+.sfloor-form .col-2 {
+	width: 16.66%;
+}
+.sfloor-form .col-3 {
+	width: 25%;
+}
+.sfloor-form .col-4 {
+	width: 33.33%;
+}
+.sfloor-form .col-5 {
+	width: 41.66%;
+}
+.sfloor-form .col-6 {
+	width: 50%;
+}
+.sfloor-form .col-8 {
+	width: 66.67%;
+}
+.sfloor-form .col-9 {
+	width: 75%;
+}
+.sfloor-form .col-10 {
+	width: 83.33%;
+}
+@media screen and (max-width: 600px) {
+	.sfloor-form .col {
+		float: none;
+		width: 100%;
+	}
+}
+
+
+/**/
+/* tooltips */
+/**/
+.sfloor-form .tooltip {
+	position: absolute;
+	z-index: 1;
+	left: -9999px;
+	padding: 2px 8px 3px;
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: 400;
+	background: #ef6910;
+	color: #fff;
+	opacity: 0;
+	transition: margin 0.3s, opacity 0.3s;
+	-o-transition: margin 0.3s, opacity 0.3s;
+	-ms-transition: margin 0.3s, opacity 0.3s;
+	-moz-transition: margin 0.3s, opacity 0.3s;
+	-webkit-transition: margin 0.3s, opacity 0.3s;
+}
+.sfloor-form .tooltip:after {
+	content: '';
+	position: absolute;
+}
+.sfloor-form .input input:focus + .tooltip,
+.sfloor-form .textarea textarea:focus + .tooltip {
+	opacity: 1;	
+}
+
+.sfloor-form .tooltip-top-right {
+	bottom: 100%;
+	margin-bottom: 15px;
+}
+.sfloor-form .tooltip-top-right:after {
+	top: 100%;
+	right: 16px;	
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+.sfloor-form .input input:focus + .tooltip-top-right,
+.sfloor-form .textarea textarea:focus + .tooltip-top-right {
+	right: 0;
+	left: auto;
+	margin-bottom: 5px;
+}
+
+.sfloor-form .tooltip-top-left {
+	bottom: 100%;
+	margin-bottom: 15px;
+}
+.sfloor-form .tooltip-top-left:after {
+	top: 100%;
+	left: 16px;
+	border-top: 4px solid rgba(0,0,0,0.9);
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+.sfloor-form .input input:focus + .tooltip-top-left,
+.sfloor-form .textarea textarea:focus + .tooltip-top-left {
+	right: auto;
+	left: 0;
+	margin-bottom: 5px;
+}
+
+.sfloor-form .tooltip-right {
+	top: 9px;
+	white-space: nowrap;
+	margin-left: 1px;
+}
+.sfloor-form .tooltip-right:after {
+	top: 6px;
+	right: 100%;
+	border-top: 4px solid transparent;
+	border-right: 4px solid rgba(0,0,0,0.9);
+	border-bottom: 4px solid transparent;
+}
+.sfloor-form .input input:focus + .tooltip-right,
+.sfloor-form .textarea textarea:focus + .tooltip-right {
+	left: 100%;
+	margin-left: 5px;
+}
+
+.sfloor-form .tooltip-left {
+	top: 9px;
+	white-space: nowrap;
+	margin-right: 15px;
+}
+.sfloor-form .tooltip-left:after {
+	top: 6px;
+	left: 100%;
+	border-top: 4px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-left: 4px solid rgba(0,0,0,0.9);
+}
+.sfloor-form .input input:focus + .tooltip-left,
+.sfloor-form .textarea textarea:focus + .tooltip-left {
+	right: 100%;
+	left: auto;
+	margin-right: 5px;
+}
+
+.sfloor-form .tooltip-bottom-right {
+	top: 100%;
+	margin-top: 15px;
+}
+.sfloor-form .tooltip-bottom-right:after {
+	bottom: 100%;
+	right: 16px;	
+	border-right: 4px solid transparent;
+	border-bottom: 4px solid rgba(0,0,0,0.9);
+	border-left: 4px solid transparent;
+}
+.sfloor-form .input input:focus + .tooltip-bottom-right,
+.sfloor-form .textarea textarea:focus + .tooltip-bottom-right {
+	right: 0;
+	left: auto;
+	margin-top: 5px;
+}
+
+.sfloor-form .tooltip-bottom-left {
+	top: 100%;
+	margin-top: 15px;
+}
+.sfloor-form .tooltip-bottom-left:after {
+	bottom: 100%;
+	left: 16px;
+	border-right: 4px solid transparent;
+	border-bottom: 4px solid rgba(0,0,0,0.9);
+	border-left: 4px solid transparent;
+}
+.sfloor-form .input input:focus + .tooltip-bottom-left,
+.sfloor-form .textarea textarea:focus + .tooltip-bottom-left {
+	right: 10px;
+	left: 0;
+	margin-top: 5px;
+}
+
+
+/**/
+/* normal state */
+/**/
+.sfloor-form .input input,
+.sfloor-form .select select,
+.sfloor-form .textarea textarea,
+.sfloor-form .radio i,
+.sfloor-form .checkbox i,
+.sfloor-form .toggle i,
+.sfloor-form .icon-append,
+.sfloor-form .icon-prepend {
+	border-color: #e5e5e5;
+	transition: border-color 0.3s;
+	-o-transition: border-color 0.3s;
+	-ms-transition: border-color 0.3s;
+	-moz-transition: border-color 0.3s;
+	-webkit-transition: border-color 0.3s;
+	border-radius:5px;
+	width:250px;
+}
+.sfloor-form .toggle i:before {
+	background-color: #2da5da;	
+}
+.sfloor-form .rating label {
+	color: #ccc;
+	transition: color 0.3s;
+	-o-transition: color 0.3s;
+	-ms-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	-webkit-transition: color 0.3s;
+}
+.sfloor-form .button {
+	background-color:#ef6910;
+	opacity: 0.8;
+	transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
+	-ms-transition: opacity 0.2s;
+	-moz-transition: opacity 0.2s;
+	-webkit-transition: opacity 0.2s;
+}
+.sfloor-form .button.button-secondary {
+	background-color: #b3b3b3;
+}
+.sfloor-form .icon-append,
+.sfloor-form .icon-prepend {
+	color: #ccc;
+}
+
+
+/**/
+/* hover state */
+/**/
+.sfloor-form .input:hover input,
+.sfloor-form .select:hover select,
+.sfloor-form .textarea:hover textarea,
+.sfloor-form .radio:hover i,
+.sfloor-form .checkbox:hover i,
+.sfloor-form .toggle:hover i {
+	border-color: #8dc9e5;
+}
+.sfloor-form .rating input + label:hover,
+.sfloor-form .rating input + label:hover ~ label {
+	color: #2da5da;
+}
+.sfloor-form .button:hover {
+	opacity: 1;
+}
+
+
+/**/
+/* focus state */
+/**/
+.sfloor-form .input input:focus,
+.sfloor-form .select select:focus,
+.sfloor-form .textarea textarea:focus,
+.sfloor-form .radio input:focus + i,
+.sfloor-form .checkbox input:focus + i,
+.sfloor-form .toggle input:focus + i {
+	border-color: #2da5da;
+}
+
+
+/**/
+/* checked state */
+/**/
+.sfloor-form .radio input + i:after {
+	background-color: #2da5da;	
+}
+.sfloor-form .checkbox input + i:after {
+	color: #2da5da;
+}
+.sfloor-form .radio input:checked + i,
+.sfloor-form .checkbox input:checked + i,
+.sfloor-form .toggle input:checked + i {
+	border-color: #2da5da;	
+}
+.sfloor-form .rating input:checked ~ label {
+	color: #2da5da;	
+}
+
+
+/**/
+/* error state */
+/**/
+.sfloor-form .state-error input,
+.sfloor-form .state-error select,
+.sfloor-form .state-error textarea,
+.sfloor-form .radio.state-error i,
+.sfloor-form .checkbox.state-error i,
+.sfloor-form .toggle.state-error i {
+	background: #fff0f0;
+}
+.sfloor-form .state-error select + i {
+	background: #fff0f0;
+	box-shadow: 0 0 0 12px #fff0f0;
+}
+.sfloor-form .toggle.state-error input:checked + i {
+	background: #fff0f0;
+}
+.sfloor-form .note-error {
+	color: #ee9393;	
+}
+
+
+/**/
+/* success state */
+/**/
+.sfloor-form .state-success input,
+.sfloor-form .state-success select,
+.sfloor-form .state-success textarea,
+.sfloor-form .radio.state-success i,
+.sfloor-form .checkbox.state-success i,
+.sfloor-form .toggle.state-success i {
+	background: #f0fff0;
+}
+.sfloor-form .state-success select + i {
+	background: #f0fff0;
+	box-shadow: 0 0 0 12px #f0fff0;
+}
+.sfloor-form .toggle.state-success input:checked + i {
+	background: #f0fff0;
+}
+.sfloor-form .note-success {
+	color: #6fb679;
+}
+
+
+/**/
+/* disabled state */
+/**/
+.sfloor-form .input.state-disabled input,
+.sfloor-form .select.state-disabled,
+.sfloor-form .textarea.state-disabled,
+.sfloor-form .radio.state-disabled,
+.sfloor-form .checkbox.state-disabled,
+.sfloor-form .toggle.state-disabled,
+.sfloor-form .button.state-disabled {
+	cursor: default;
+	opacity: 0.5;
+	
+}
+.sfloor-form .input.state-disabled:hover input,
+.sfloor-form .select.state-disabled:hover select,
+.sfloor-form .textarea.state-disabled:hover textarea,
+.sfloor-form .radio.state-disabled:hover i,
+.sfloor-form .checkbox.state-disabled:hover i,
+.sfloor-form .toggle.state-disabled:hover i {
+	border-color: #e5e5e5;
+}
+.login{width:320px; height:300px; float:left; margin-left:10px; }
+.register{width:410px; float:left; }
+.brd{border-left: 1px solid rgba(0,0,0,.1)}
+.register td{ width:auto; text-align:right; padding-left:5px; line-height:40px}
+.midline{ float:left; width:1px; margin-left:45px; margin-top:60px; height:400px;
+background: -moz-linear-gradient(top, rgba(249,219,49,0) 0%, rgba(249,219,49,0.8) 15%, rgba(249,219,49,1) 19%, rgba(249,219,49,1) 20%, rgba(252,194,47,1) 50%, rgba(242,213,48,1) 80%, rgba(242,213,48,1) 81%, rgba(242,213,48,0.8) 85%, rgba(242,213,48,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(249,219,49,0)), color-stop(15%,rgba(249,219,49,0.8)), color-stop(19%,rgba(249,219,49,1)), color-stop(20%,rgba(249,219,49,1)), color-stop(50%,rgba(252,194,47,1)), color-stop(80%,rgba(242,213,48,1)), color-stop(81%,rgba(242,213,48,1)), color-stop(85%,rgba(242,213,48,0.8)), color-stop(100%,rgba(242,213,48,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(249,219,49,0) 0%,rgba(249,219,49,0.8) 15%,rgba(249,219,49,1) 19%,rgba(249,219,49,1) 20%,rgba(252,194,47,1) 50%,rgba(242,213,48,1) 80%,rgba(242,213,48,1) 81%,rgba(242,213,48,0.8) 85%,rgba(242,213,48,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(249,219,49,0) 0%,rgba(249,219,49,0.8) 15%,rgba(249,219,49,1) 19%,rgba(249,219,49,1) 20%,rgba(252,194,47,1) 50%,rgba(242,213,48,1) 80%,rgba(242,213,48,1) 81%,rgba(242,213,48,0.8) 85%,rgba(242,213,48,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(249,219,49,0) 0%,rgba(249,219,49,0.8) 15%,rgba(249,219,49,1) 19%,rgba(249,219,49,1) 20%,rgba(252,194,47,1) 50%,rgba(242,213,48,1) 80%,rgba(242,213,48,1) 81%,rgba(242,213,48,0.8) 85%,rgba(242,213,48,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(249,219,49,0) 0%,rgba(249,219,49,0.8) 15%,rgba(249,219,49,1) 19%,rgba(249,219,49,1) 20%,rgba(252,194,47,1) 50%,rgba(242,213,48,1) 80%,rgba(242,213,48,1) 81%,rgba(242,213,48,0.8) 85%,rgba(242,213,48,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9db31', endColorstr='#00f2d530',GradientType=0 ); /* IE6-9 */
+}

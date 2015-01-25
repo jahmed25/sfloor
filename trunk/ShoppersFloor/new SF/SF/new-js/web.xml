@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <configSections>
+    <sectionGroup name="system.web">
+      <section name="urlrewrites" type="ThunderMain.URLRewriter.Rewriter, ThunderMain.URLRewriter, Version=1.0.783.30976, Culture=neutral, PublicKeyToken=7a95f6f4820c8dc3" />
+    </sectionGroup>
+    <section name="rewriter" requirePermission="false" type="Intelligencia.UrlRewriter.Configuration.RewriterConfigurationSectionHandler, Intelligencia.UrlRewriter" />
+  </configSections>
+  <appSettings>
+    <add key="a" value="a" />
+    <!--<add key="adminServerPath" value="http://admin.testmfo.i2k2networks.com/" />-->
+    <add key="adminServerPath" value="http://localhost:3747/WebSite1" />
+    <add key="FacebookAppId" value="422505814498258" />
+    <add key="FacebookAppSecret" value="d5cd5045de07df668b3f2bf6f6b900fa" />
+
+    <!--<add key="hostUrl" value="http://testmfo.i2k2networks.com/sfloor/"/>-->
+    <add key="hostUrl" value="http://localhost:3019/ShopFloor/"/>
+    <add key="staticPath" value="http://localhost:3747/WebSite1/"/>
+
+    <!--<add key="staticPath" value="http://admin.megafactoryoutlet.com/sfloor/"/>-->
+    <add key="MailServer" value="mail.megafactoryoutlet.com"/>
+    <add key="MailUsername" value="kamar@megafactoryoutlet.com"/>
+    <add key="MailPassword" value="kamar@123"/>
+    <add key="MailFrom" value="error@megafactoryoutlet.com"/>
+    <add key="EnableErrorLogEmail" value="true"/>
+    <add key="ErrorLogEmail" value="kamar@megafactoryoutlet.com"/>
+    <add key="ProductsPerPage" value="6"/>
+    <add key="ProductDescriptionLength" value="60"/>
+    <add key="SiteName" value="MegaFactoryoutlet"/>
+    <add key="cacheExpireHour" value="12"/>
+    <add key="cacheEnable" value="true"/>
+    <add key="Above" value="3000"/>
+    <add key="Below" value="500"/>
+
+
+  </appSettings>
+  <connectionStrings>
+    <!--<add name="Conn" connectionString="Data Source=180.179.202.53,2499;Initial Catalog=MEGA_DB; MultipleActiveResultSets=true; User ID=sa;Password=pe3aGYK4DECdwTs; Timeout=12000" providerName="System.Data.SqlClient" />-->
+    <!--<add name="Conn" connectionString="Data Source=sql5.znetindia.net,1434;Initial Catalog=MEGA_DB; MultipleActiveResultSets=true; User ID=mega_user;Password=mega#123; Timeout=3000" providerName="System.Data.SqlClient" />-->
+    <!--<add name="Conn" connectionString="Data Source=KAMAR;Initial Catalog=MEGA_DB; User ID=sa;Password=sa@123;MultipleActiveResultSets=true; Timeout=3000" providerName="System.Data.SqlClient" />-->
+    <add name="Conn" connectionString="Data Source=(local);Initial Catalog=MEGA_DB; User ID=sa;Password=sa@123;MultipleActiveResultSets=true; Timeout=3000" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <system.web>
+
+    <customErrors mode="Off" defaultRedirect="~/sfloor/pages/Error404.aspx">
+      <error statusCode="404" redirect="~/sfloor/pages/Error404.aspx" />
+      <error statusCode="505" redirect="~/sfloor/pages/Error.aspx" />
+    </customErrors>
+    <pages>
+      <controls>
+        <add tagPrefix="asp" namespace="System.Web.UI" assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add tagPrefix="asp" namespace="System.Web.UI.WebControls" assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+      </controls>
+    </pages>
+
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <add assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Data.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+      </assemblies>
+    </compilation>
+    <httpModules>
+      <add name="UrlRewriter" type="Intelligencia.UrlRewriter.RewriterHttpModule, Intelligencia.UrlRewriter" />
+    </httpModules>
+
+    <!--<sessionState mode="SQLServer"
+                  sqlConnectionString="Data Source=(local),2499;Initial Catalog=ASPState; User ID=sa;Password=sa@123"
+                  allowCustomSqlDatabase="true"
+                  cookieless="false"/>-->
+
+
+  </system.web>
+  <rewriter>
+    <if url="~/logout">
+      <rewrite to="~/sfloor/pages/AjaxService.aspx?action=logout" processing="stop"></rewrite>
+    </if>
+    <if url="~/CategoriesScroll">
+      <rewrite to="~/sfloor/pages/CategoriesScroll.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Footwear-Details">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Accessories-Details">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Categories">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/(.+)?htm">
+      <rewrite to="~/sfloor/pages/CatDetails.aspx" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Women/Accessories/Bangles">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBA" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Accessories/Hair-Accessories">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOACH" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Accessories/Jewellery">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOJW" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Accessories/Ipad-Cover">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOACC" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Accessories/Scarf">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOSC" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Accessories/Sunglasses">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOSN" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Accessories/Watches">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOWE" processing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Women/Clothing/Blouse">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBU" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Dresses">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOCD" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Ethnic-Wear">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOEW" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Jeggings-Leggings">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOCLJ" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Jump-Suit">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOJS" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Night-Wear">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WONU" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Pants">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOPT" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Shorts-Skirts">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOCLS" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing/Tops">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOTK" processing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Women/Bags/Across-Body-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBAB" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Clutches">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBCL" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Hand-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBHN" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Hobo-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBHO" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Laptop-Sleeve">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBLS" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Shopping-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOSBA" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Shoulder-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBSB" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Tote-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBTB" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags/Travel-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOBTR" processing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Women/Footwear/Ballerinas">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOF" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Footwear/Wedges">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOW" processing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Women/Health-Beauty/Bath-Body">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOHBB" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Health-Beauty/Cosmetics">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOHM" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Health-Beauty/Frangrances">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOHF" processing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Women/Health-Beauty/Frangrances">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=WOHF" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Account">
+      <rewrite to="~/Account.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Accessories">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=WOAC" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Clothing">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=WOCL" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Bags">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=WOB" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Ethnic-Wear">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=WOEW" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Footwear">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=WOFT" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women/Health-Beauty">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=WOHB" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Women/Whats-Trending">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Mega-Offer/Whats-Trending">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Accessories/Cufflinks">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MECC" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Accessories/Sunglasses">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEAS" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Accessories/Watches">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MECW" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Clothing/Jeans-Pants">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEJP" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Clothing/Boxer-n-Lower">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEBL" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Clothing/Shirt">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MESH" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Clothing/T-Shirt">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=METS" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Footwear/Formal-Shoes">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEFFS" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Footwear/Loafers">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MELF" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Footwear/Sandals">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEFSN" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Footwear/Sport-Shoes">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEFSS" processing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Men/Grooming/Bath-Body">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEHBB" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Grooming/Fragrances">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=MEHFR" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Men/Whats-Trending">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Men/Accessories">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=MEAC" processing="stop"></rewrite>
+    </if>
+    <if url="~/Men/Clothing">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=MECL" processing="stop"></rewrite>
+    </if>
+    <if url="~/Men/Footwear">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=MEFT" processing="stop"></rewrite>
+    </if>
+    <if url="~/Men/Grooming">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=MEHHB" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Baby">
+      <rewrite to="~/IndexCategoryBaby.aspx" processing="stop"></rewrite>
+    </if>
+
+
+
+    <if url="~/Women/(.+)">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Men/(.+)">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Shop-By-Brand/(.+)?">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Brands">
+      <rewrite to="~/mega-site-map.aspx" sprocessing="stop"></rewrite>
+    </if>
+
+
+    <if url="~/Home-Storage/Bedding-Bath/Bed-Covers">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDBC" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Bedding-Bath/Cushion">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDCS" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Home-Storage/Decor-Accessories/Art-Decor">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDA" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Home-Storage/Decor-Accessories/Kitchen-Dining">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDKD" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Decor-Accessories/Wall-Clocks">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDW" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Home-Storage/Home-Storage/Accessory-Organizer">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDR" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Apron">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDAP" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Blanket-Cover">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDBK" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Clothes-Organizer">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDZ" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Diaper-Bag">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDG" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Diaper-Stacker">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDN" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Dress-Cover">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDE" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Kids-Back-Pack">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDK" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Kids-Bibs">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDBB" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Laundry-Hampers">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDLH" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Multi-utility-Bags">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDMU" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Quilt">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDQ" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Shoe-Organizer">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDSO" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Suitcase">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDT" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Toiletry-Bags">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDTB" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Home-Storage/Toys-Organizer">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDO" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Whats-Trending">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Bedding-Bath">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=HNDB" stopProcessing="true"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Decor-Accessories">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=HNDD" stopProcessing="true"></rewrite>
+    </if>
+
+    <if url="~/Home-Storage/Home-Storage">
+      <rewrite to="~/sfloor/pages/Categories.aspx?CategoryType=HNDS" stopProcessing="true"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Art-Decor">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDA" stopProcessing="true"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Kitchen-Dining">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDKD" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage/Kitchen-Dining">
+      <rewrite to="~/sfloor/pages/Categories.aspx?Pid=HNDBC" stopProcessing="true"></rewrite>
+    </if>
+    <if url="~/Home-Storage-/(.+)">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home-Storage">
+      <rewrite to="~/IndexCategoryHome.aspx" stopProcessing="true"></rewrite>
+    </if>
+    <if url="~/Men">
+      <rewrite to="~/IndexCategoryMan.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Women">
+      <rewrite to="~/IndexCategoryWomen.aspx" stopProcessing="true"></rewrite>
+    </if>
+
+    <if url="~/faq">
+      <rewrite to="~/faq.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/contact-us">
+      <rewrite to="~/ContactUs.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/return-policy">
+      <rewrite to="~/returnpolicy.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/egiftcards">
+      <rewrite to="~/egiftcards.aspx" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/terms-of-use">
+      <rewrite to="~/TermsOfUse.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/privacy-policy">
+      <rewrite to="~/PrivacyPolicy.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/security">
+      <rewrite to="~/Security.aspx" processing="stop"></rewrite>
+    </if>
+
+    <if url="~/Details">
+      <rewrite to="~/sfloor/pages/Categories.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/our-story">
+      <rewrite to="~/AboutUs.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Add-To-Cart">
+      <rewrite to="~/sfloor/pages/AddtoCart.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Payment-Checkout">
+      <rewrite to="~/PaymentCheckout.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Checkout">
+      <rewrite to="~/Checkout.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/payment-success">
+      <rewrite to="~/Cashondelivery.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/cashondelivery-payment-sucsses">
+      <rewrite to="~/Cod.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/MegaOffer">
+      <rewrite to="~/megaoffer.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/PageNotFound">
+      <rewrite to="~/404.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Opps-Sorry">
+      <rewrite to="~/Maintenance.aspx" processing="stop"></rewrite>
+    </if>
+    <if url="~/Home">
+      <rewrite to="~/sfloor/pages/Home.aspx" processing="stop"></rewrite>
+    </if>
+  </rewriter>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="UrlRewriting" type="C:\Windows\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll&quot; resourceType=&quot;Unspecified&quot; preCondition=&quot;classicMode,runtimeVersionv2.0,bitness32" />
+    </modules>
+    <httpErrors errorMode="Detailed" />
+    <validation validateIntegratedModeConfiguration="false" />
+    <defaultDocument>
+      <files>
+        <clear/>
+        <add value="~/sfloor/pages/Home.aspx" />
+      </files>
+    </defaultDocument>
+  </system.webServer>
+</configuration>

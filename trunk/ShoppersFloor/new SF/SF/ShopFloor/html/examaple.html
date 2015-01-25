@@ -1,0 +1,100 @@
+<html>
+	<head>	
+	<script type="text/javascript" src='./angular.js'></script>
+    <script type="text/javascript" src='./checkout.js'></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+
+	<script>
+		 $(function() {
+			var availableTags = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL","ColdFusion","Erlang","Fortran","Groovy","Haskell","Java","JavaScript","Lisp",];
+			$( "#tags" ).autocomplete({
+			  source: availableTags
+			});
+		  });
+	</script>
+	<style>
+		.error{color:red}
+	</style>
+	</head>
+	<body ng-app="checkout" ng-controller="checkCtrl">
+		<div id="view2" >
+			<h1> Shipping Information</h1>
+			<form name="cForm" novalidate ng-submit="submitForm(cForm);"> 
+			<table>
+				<tr>
+					<th>Email Id*</th>
+					<td>
+						<input type="email" name="email" required ng-model="ship.email">
+						<small class="error" ng-show="cForm.email.$error.required && !cForm.email.$pristine ">Email Id is required.</small>
+						<small class="error" ng-show="cForm.email.$invalid && !cForm.email.$pristine ">This is not an Email Id.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>First Name*</th>
+					<td>
+						<input type="text" name="fname" required ng-model="ship.fName" ng-pattern="/^([a-zA-Z-']{1,30})$/">
+						<small class="error" ng-show="cForm.fname.$error.required && !cForm.fname.$pristine ">First Name  required.</small>
+						<small class="error" ng-show="cForm.fname.$invalid && !cForm.fname.$pristine ">Name should not contain digit</small>
+					</td>
+				</tr>
+				<tr>
+					<th>Last Name*</th>
+					<td>
+						<input type="text" name="lname" required ng-model="ship.lName" ng-pattern="/^([a-zA-Z-']{1,30})$/">
+						<small class="error" ng-show="cForm.lname.$error.required && !cForm.lname.$pristine ">Last Name  required.</small>
+						<small class="error" ng-show="cForm.lname.$invalid && !cForm.lname.$pristine ">Name should not contain digit</small>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>Phone No.*</th>
+					<td>
+						<input type="text" name="phone" required ng-model="ship.phone" ng-pattern="/[0-9]/" ng-minlength="10" ng-maxlength="10">
+						<small class="error" ng-show="cForm.phone.$error.required && !cForm.phone.$pristine ">Phone No  required.</small>
+						<small class="error" ng-show="cForm.phone.$error.minlength ||cForm.phone.$error.maxlength && !cForm.phone.$pristine ">Phone No should  have 10 digit</small>
+						
+					</td>
+				</tr>
+				<tr>
+					<th>Pin*</th>
+					<td>
+						<input type="text" name="pin" required ng-model="ship.pin" ng-pattern="/[0-9]/" ng-minlength="6" ng-maxlength="6">
+						<small class="error" ng-show="cForm.pin.$error.minlength || cForm.pin.$error.maxlength && !cForm.pin.$pristine ">Pin No should have 6 digit.</small>
+						<small class="error" ng-show="cForm.pin.$error.required  && !cForm.pin.$pristine ">Pin required.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>City*</th>
+					<td>
+						<input type="text" name="city" id="tags" required ng-model="ship.city">
+						<small class="error" ng-show="cForm.city.$error.required  && !cForm.city.$pristine ">City required.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>State*</th>
+					<td>
+						<input type="text" name="state" required ng-model="ship.state">
+						<small class="error" ng-show="cForm.state.$error.required  && !cForm.state.$pristine ">State required.</small>
+					</td>
+				</tr>
+				<tr>
+					<th>Address street</th>
+					<td>
+						<textarea name="address"  spellcheck="true" ng-model="ship.address"></textarea>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+					</td>
+					<td>
+						<button class="btn_shipinfo" type="submit">Continue</button>
+					</td>
+				</tr>
+			</table>
+			</form>
+		</div>
+	</body
+</html>
